@@ -48,6 +48,8 @@ jobs:
         run: |
           python scripts/fix_theme_a11y.py _build/html
           if [ -d quickcheck ]; then cp -R quickcheck _build/html/quickcheck; fi
+      - name: Check the internal links of the built site
+        run: python scripts/check_links.py _build/html
       - name: Check accessibility (WCAG 2.1 AA, axe-core)
         run: |
           mkdir -p /tmp/a11y && cd /tmp/a11y

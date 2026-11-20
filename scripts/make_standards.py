@@ -103,19 +103,21 @@ def files(chapters):
     out = {}
     in_toc = toc_pages()
     out[BOOK / "scripts" / "standards.json"] = json.dumps({"chapters": chapters}, indent=2, ensure_ascii=False) + "\n"
+    # MyST resolves a link in an included file from the page that includes it, so the links
+    # of the chapter list are written relative to notes/index.md, not to notes/_parts/.
     lines = []
     for c in chapters:
         lines.append(f"**{c['title']}**")
         lines.append("")
         for s in c["standards"]:
             if (BOOK / s["page"]).exists():
-                lines.append(f"- [{s['id']} {s['name']}](../chapter-{c['number']}/{s['slug']}.md)")
+                lines.append(f"- [{s['id']} {s['name']}](chapter-{c['number']}/{s['slug']}.md)")
             else:
                 lines.append(f"- {s['id']} {s['name']}")
         standard_pages = {s["page"] for s in c["standards"]}
         for page in in_toc.get(c["number"], []):
             if page not in standard_pages and (BOOK / page).exists():
-                lines.append(f"- [{page_title(page)}](../{page.removeprefix('notes/')})")
+                lines.append(f"- [{page_title(page)}]({page.removeprefix('notes/')})")
         lines.append("")
         for s in c["standards"]:
             box = (f":::{{admonition}} Standard {s['id']}: {s['name']}\n:class: standard\n"

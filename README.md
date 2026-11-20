@@ -26,6 +26,7 @@ https://thiagopurdue.github.io/AAE251_Lecture_Notes/.
 | `scripts/check_values.py`, `scripts/check_chains.py` | Stop when a recorded value is missing from its page, or when a printed calculation step does not reproduce from the digits printed before it |
 | `scripts/make_quizzes.py`, `scripts/quizzes/<id>.json` | The quiz of each standard, built from question data |
 | `scripts/check_pages.py` | Stops on a date, an assignment, a dash, a figure with no alt text or a figure or table with no caption |
+| `scripts/check_links.py` | Stops when an internal link of the built site opens nothing (a page link MyST could not resolve stays a `.md` path) |
 | `scripts/fix_theme_a11y.py` | Post-build fix for two theme labeling issues (WCAG 2.5.3) and the iframe titles of the quizzes (read from `quickcheck/`, whatever the working directory) |
 | `scripts/check_accessibility.mjs` | Runs the axe accessibility engine on the built site, in light and dark mode, at 1280 px and at 320 px (where a page that scrolls sideways also fails), and inside every quiz iframe in four states (question, a wrong answer, a right answer, score) |
 | `.github/workflows/deploy.yml` | Checks, builds and publishes the site to GitHub Pages on every push to `main` |
@@ -80,7 +81,7 @@ every push to `main`. On the instructor's computer the git directory is kept out
 OneDrive (`~/GitRepos/AAE251_Lecture_Notes.git`, attached with
 `git init --separate-git-dir`). The workflow does not
 publish the site when a page breaks a rule of `check_pages.py`, a number fails
-`check_values.py`, a quiz is out of date, or the accessibility check finds a WCAG 2.1 A or AA
+`check_values.py`, a quiz is out of date, an internal link is broken, or the accessibility check finds a WCAG 2.1 A or AA
 violation.
 
 The site is public. Nothing from the problem bank, the Standards Checks, the homework

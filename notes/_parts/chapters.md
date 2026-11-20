@@ -9,11 +9,11 @@
 
 **Chapter 2: Introduction to Orbits**
 
-- [2.1 Orbit Properties](../chapter-2/orbit-properties.md)
-- [2.2 Orbit Transfers](../chapter-2/orbit-transfers.md)
-- [2.3 Launch to Orbit](../chapter-2/launch-to-orbit.md)
-- [2.4 Patched Conics](../chapter-2/patched-conics.md)
-- [Ground tracks, aerobraking, and orbit lifetime](../chapter-2/ground-tracks-and-orbit-lifetime.md)
+- [2.1 Orbit Properties](chapter-2/orbit-properties.md)
+- [2.2 Orbit Transfers](chapter-2/orbit-transfers.md)
+- [2.3 Launch to Orbit](chapter-2/launch-to-orbit.md)
+- [2.4 Patched Conics](chapter-2/patched-conics.md)
+- [Ground tracks, aerobraking, and orbit lifetime](chapter-2/ground-tracks-and-orbit-lifetime.md)
 
 **Chapter 3: Aerodynamics**
 
