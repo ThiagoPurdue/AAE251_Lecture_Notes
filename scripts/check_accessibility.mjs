@@ -92,8 +92,9 @@ const step = (frame, right) => frame.evaluate((right) => {
   return document.querySelector("input[name=answer]:disabled") ? "answered" : "question";
 }, right);
 
+// Chrome can take more than the default 30 s to start on a busy GitHub runner.
 const browser = await puppeteer.launch({ executablePath: chrome, headless: true,
-  args: ["--no-sandbox"] });
+  args: ["--no-sandbox"], timeout: 120000 });
 let total = 0;
 for (const scheme of ["light", "dark"]) {
   for (const size of WIDTHS) {
