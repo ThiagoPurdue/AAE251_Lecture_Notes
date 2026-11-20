@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz: Standard 2.4, Patched Conics</title>
+<style>
+  /* The color variables match the quick checks (quickcheck/*.html). Change them together. */
+  :root {
+    --bg: #ffffff; --fg: #1f2937; --muted: #4b5563; --card: #ffffff; --border: #d9d6ce;
+    --head-bg: #f7f5f0; --head-fg: #111827; --accent: #6f5630; --accent-border: #cfb991;
+    --input-bg: #ffffff; --input-border: #6b7280; --ok: #0a6b3d; --bad: #b42318;
+    --button: #111827; --button-fg: #ffffff; --sol-bg: #f7f5f0;
+    --link: #1d4ed8; --focus: #1d4ed8;
+  }
+  html.dark {
+    --bg: #1c1917; --fg: #e5e7eb; --muted: #b7bcc6; --card: #292524; --border: #44403c;
+    --head-bg: #363231; --head-fg: #ffffff; --accent: #cfb991; --accent-border: #cfb991;
+    --input-bg: #1c1917; --input-border: #9ca3af; --ok: #6ee7b7; --bad: #fca5a5;
+    --button: #cfb991; --button-fg: #000000; --sol-bg: #363231;
+    --link: #93c5fd; --focus: #93c5fd;
+  }
+  html.dark { color-scheme: dark; }   /* native radio buttons drawn for a dark page */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .card { border: 1px solid var(--border); border-left: 5px solid var(--accent-border); border-radius: 8px;
+          background: var(--card); overflow: hidden; }
+  .head { background: var(--head-bg); color: var(--head-fg); padding: 10px 16px; font-weight: 700; font-size: 1.15em;
+          display: flex; align-items: center; gap: 10px; }
+  .head svg { width: 22px; height: 22px; flex: none; }
+  .body { padding: 16px; }
+  i { font-style: italic; }
+  sub, sup { font-size: 0.75em; }
+  .ov { text-decoration: overline; }
+  .progress { margin: 0 0 6px; color: var(--muted); font-size: 0.95em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  legend:focus { outline: none; }
+  .progress:focus { outline: none; }
+  .bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin: 0 0 14px; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--accent-border); }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { padding: 0; margin: 0 0 4px; font-size: 1.08em; font-weight: 600; color: var(--head-fg); }
+  .opt { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 10px; padding: 10px 12px; margin: 8px 0 0;
+         border: 1px solid var(--input-border); border-radius: 6px; background: var(--input-bg); cursor: pointer; }
+  .opt input { flex: none; width: 1.05em; height: 1.05em; margin: 0.25em 0 0; accent-color: var(--button); }
+  .opt .text { flex: 1 1 12em; }
+  .opt .tag { flex: none; font-weight: 600; font-size: 0.92em; }
+  .opt:hover { border-color: var(--fg); }
+  .opt:has(input:checked) { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+  .opt:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 1px; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--input-border); }
+  .locked .opt.right, .locked .opt.right:hover { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .locked .opt.wrong, .locked .opt.wrong:hover { border-color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+  .opt.right .tag { color: var(--ok); }
+  .opt.wrong .tag { color: var(--bad); }
+  .feedback { margin: 14px 0 0; }
+  .feedback.show { border: 1px solid var(--border); border-left: 4px solid var(--accent-border); border-radius: 6px;
+                   background: var(--sol-bg); padding: 10px 14px; }
+  .verdict { font-weight: 700; }
+  .verdict.ok { color: var(--ok); }
+  .verdict.bad { color: var(--bad); }
+  .buttons { display: flex; gap: 12px; margin: 16px 0 0; }
+  button { font: inherit; font-weight: 600; padding: 9px 20px; border-radius: 6px; cursor: pointer; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .primary { background: var(--button); color: var(--button-fg); border: 1px solid var(--button); }
+  .score { margin: 0 0 8px; font-size: 1.15em; font-weight: 700; color: var(--head-fg); }
+  .score:focus { outline: none; }
+  .result p { margin: 8px 0; }
+  .result ul { margin: 8px 0 0; padding-left: 1.3em; }
+  .result li { margin: 4px 0; }
+  a { color: var(--link); }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M9 10l1.5 1.5L13.5 8.5M9 16h6"/></svg>
+    Quiz: Standard 2.4, Patched Conics
+  </div>
+  <div class="body">
+    <noscript><p>The quiz needs JavaScript.</p></noscript>
+    <p class="progress" id="progress" aria-hidden="true"></p>
+    <div class="bar" aria-hidden="true"><span id="fill"></span></div>
+    <form id="quiz" novalidate>
+      <fieldset>
+        <legend id="legend" tabindex="-1"></legend>
+        <div id="opts"></div>
+      </fieldset>
+      <div class="feedback" id="feedback" role="status"></div>
+      <div class="buttons">
+        <button type="submit" class="primary" id="go">Check answer</button>
+      </div>
+    </form>
+    <div class="result" id="result" hidden>
+      <p class="score" id="score" tabindex="-1"></p>
+      <p id="reviewIntro">Review these sections, then start over:</p>
+      <ul id="review"></ul>
+      <div class="buttons">
+        <button type="button" class="primary" id="again">Start over</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="data">{"questions": [{"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "The idea: one body at a time", "anchor": "the-idea-one-body-at-a-time", "question": "In the method of patched conics, which gravity acts on a spacecraft while it is inside a planet's sphere of influence?", "options": ["Only the planet's gravity", "Only the Sun's gravity", "The sum of the planet's and the Sun's gravity", "The planet's gravity during a burn and the Sun's gravity between burns"], "explanation": "Patched conics treats one body at a time: inside the sphere of influence only the planet counts, so the path is a conic around the planet. Adding both bodies is the real problem the method avoids, and the Sun counts only outside the sphere."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "Step 1: the transfer around the Sun", "anchor": "step-1-the-transfer-around-the-sun", "question": "A probe goes from Earth to Venus on a Hohmann transfer. Compared with Earth's speed around the Sun, how fast must the probe move around the Sun just after it leaves Earth's sphere of influence?", "options": ["Slower, because Earth sits at the apoapsis of the transfer orbit", "Faster, because Venus is closer to the Sun and moves faster", "Faster, because Earth sits at the periapsis of the transfer orbit", "At the same speed, because the probe starts on Earth's orbit"], "explanation": "Going inward, the departure planet is at the apoapsis of the transfer orbit, the slowest point of that orbit, so the probe must leave slower than Earth. Venus being faster matters at arrival, not at departure. Earth is at the periapsis only for an outward trip."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "Hyperbolic excess speed", "anchor": "p24-vinf", "question": "Far from a planet, a spacecraft moves at <i>v<\/i><sub>∞<\/sub> = 3.0 km/s relative to the planet. What is its specific orbital energy relative to the planet?", "options": ["+4.5 km<sup>2<\/sup>/s<sup>2<\/sup>", "+9.0 km<sup>2<\/sup>/s<sup>2<\/sup>", "+1.5 km<sup>2<\/sup>/s<sup>2<\/sup>", "&minus;4.5 km<sup>2<\/sup>/s<sup>2<\/sup>"], "explanation": "Far away, &mu;/<i>r<\/i> goes to zero, so the energy is <i>v<\/i><sub>∞<\/sub><sup>2<\/sup>/2 = 9.0/2 = 4.5 km<sup>2<\/sup>/s<sup>2<\/sup>, positive as for every hyperbola. 9.0 forgets the half, 1.5 halves the speed without squaring it, and a negative value would belong to a closed orbit."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "Step 2: the departure burn", "anchor": "step-2-the-departure-burn", "question": "A spacecraft in a 500 km circular orbit around Earth (<i>R<\/i> = 6,378 km, &mu; = 3.986 &times; 10<sup>5<\/sup> km<sup>3<\/sup>/s<sup>2<\/sup>) needs <i>v<\/i><sub>∞<\/sub> = 4.00 km/s. About how large is the departure burn?", "options": ["3.87 km/s", "4.00 km/s", "7.49 km/s", "0.99 km/s"], "explanation": "With <i>r<sub>p<\/sub><\/i> = 6,878 km, the hyperbola speed is &radic;(16.0 + 2&mu;/<i>r<sub>p<\/sub><\/i>) = 11.49 km/s and the circular speed is 7.61 km/s, so &Delta;<i>V<\/i> = 3.87 km/s. 4.00 km/s takes the burn equal to <i>v<\/i><sub>∞<\/sub>, 7.49 km/s subtracts <i>v<\/i><sub>∞<\/sub> from the hyperbola speed, and 0.99 km/s drops the factor 2 in 2&mu;/<i>r<\/i>."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "Step 3: arrival and capture", "anchor": "step-3-arrival-and-capture", "question": "A spacecraft arrives at a planet on a hyperbola. What happens if it makes no burn at periapsis?", "options": ["It swings past the planet and leaves again at the same <i>v<\/i><sub>∞<\/sub>", "It settles into a circular orbit at the periapsis radius", "It enters an elliptical orbit with its apoapsis at the sphere of influence", "It keeps losing speed and falls onto the planet"], "explanation": "A hyperbola is open: with no burn the energy stays positive, and the spacecraft leaves the planet with the same <i>v<\/i><sub>∞<\/sub> it arrived with. A capture burn against the motion at periapsis is what makes the orbit closed."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "Worked example: a Mercury orbiter", "anchor": "worked-example-a-mercury-orbiter", "question": "In the Mercury example, the capture burn (7.604 km/s) is almost as large as <i>v<\/i><sub>∞<\/sub> at Mercury (9.613 km/s), while the departure burn at Earth (5.557 km/s) is smaller than <i>v<\/i><sub>∞<\/sub> at Earth. Why?", "options": ["Mercury's shallow gravity well adds little speed at periapsis", "Burns that slow a spacecraft always cost more than burns that speed it up", "Mercury's capture orbit is lower, so its circular speed is higher than Earth's", "The capture burn is made at the apoapsis of the arrival hyperbola, where the speed is lowest"], "explanation": "The burn is &radic;(<i>v<\/i><sub>∞<\/sub><sup>2<\/sup> + <i>v<\/i><sub>esc<\/sub><sup>2<\/sup>) minus the circular speed. At Earth, the escape and circular speeds are large, so 7.534 km/s of <i>v<\/i><sub>∞<\/sub> costs only 2.329 km/s beyond the cost of escaping. At Mercury they are small next to <i>v<\/i><sub>∞<\/sub>, so the burn is close to <i>v<\/i><sub>∞<\/sub>. The capture orbit (400 km) is higher than the parking orbit (185 km), and its circular speed, 2.785 km/s, is far below the 7.793 km/s at Earth. Slowing and speeding up cost the same for the same speed change, and a hyperbola has no apoapsis."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "Going to the Moon", "anchor": "going-to-the-moon", "question": "For a trip from a parking orbit around Earth to an orbit around the Moon by the steps of this page, which gravitational parameters are used?", "options": ["Earth's &mu; for the transfer and the departure burn, the Moon's &mu; for the capture burn", "The Sun's &mu; for the transfer, Earth's &mu; for the departure, the Moon's &mu; for the capture", "The Moon's &mu; for every step, since the Moon is the target", "Earth's &mu; for every step, since the Moon is inside Earth's sphere of influence"], "explanation": "The Moon orbits Earth, so the transfer is a Hohmann transfer around Earth, and its first burn is the departure burn. Only inside the Moon's sphere of influence does the Moon's &mu; take over, for the capture burn."}, {"page": "patched-conics", "pageTitle": "2.4 Patched Conics", "section": "When to leave: phase angle and synodic period", "anchor": "when-to-leave-phase-angle-and-synodic-period", "question": "An asteroid orbits the Sun with a period of 1,460 days; Earth's period is 365.26 days. How often does a launch opportunity from Earth to the asteroid come back?", "options": ["About every 487 days", "About every 1,095 days", "About every 292 days", "About every 1,825 days"], "explanation": "<i>S<\/i> = 1/|1/365.26 &minus; 1/1,460| = 487 days. 1,095 days subtracts the periods, 292 days adds the two rates, and 1,825 days adds the periods."}]}</script>
+<script>
+(function () {
+  // In a page, follow the page's theme; opened on its own, follow the reader's setting.
+  function syncTheme() {
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (window.parent !== window) {
+      try { dark = window.parent.document.documentElement.classList.contains("dark"); } catch (e) {}
+    }
+    document.documentElement.classList.toggle("dark", dark);
+  }
+  syncTheme();
+  try { new MutationObserver(syncTheme).observe(window.parent.document.documentElement, { attributes: true }); } catch (e) {}
+  function fit() {
+    try {
+      var fe = window.frameElement;
+      if (fe && fe.parentElement) fe.parentElement.style.height = (Math.ceil(document.body.getBoundingClientRect().height) + 2) + "px";
+    } catch (e) {}
+  }
+  try { new ResizeObserver(fit).observe(document.body); } catch (e) {}
+  window.addEventListener("load", fit);
+
+  var Q = JSON.parse(document.getElementById("data").textContent).questions;
+  var n = Q.length, i = 0, answered = false, right = [];
+  var el = {};
+  ["progress", "fill", "quiz", "legend", "opts", "feedback", "go", "result", "score", "reviewIntro", "review", "again"]
+    .forEach(function (id) { el[id] = document.getElementById(id); });
+
+  function shuffle(a) {
+    for (var j = a.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1)), t = a[j]; a[j] = a[k]; a[k] = t;
+    }
+    return a;
+  }
+
+  // Show question i. The options are drawn in a new order each time; option 0 is the correct one.
+  function show(moveFocus) {
+    var q = Q[i];
+    answered = false;
+    el.progress.textContent = "Question " + (i + 1) + " of " + n;
+    el.fill.style.width = (100 * i / n) + "%";
+    el.legend.innerHTML = '<span class="sr-only">Question ' + (i + 1) + " of " + n + ": </span>" + q.question;
+    el.opts.innerHTML = "";
+    el.opts.className = "";
+    shuffle([0, 1, 2, 3]).forEach(function (k) {
+      var label = document.createElement("label"), input = document.createElement("input"),
+          text = document.createElement("span"), tag = document.createElement("span");
+      label.className = "opt";
+      input.type = "radio"; input.name = "answer"; input.value = String(k);
+      text.className = "text"; text.innerHTML = q.options[k];
+      tag.className = "tag";
+      label.appendChild(input); label.appendChild(text); label.appendChild(tag);
+      el.opts.appendChild(label);
+    });
+    el.feedback.className = "feedback";
+    el.feedback.textContent = "";
+    el.go.textContent = "Check answer";
+    el.result.hidden = true;
+    el.quiz.hidden = false;
+    el.progress.setAttribute("aria-hidden", "true");
+    if (moveFocus) el.legend.focus();
+  }
+
+  function check() {
+    var chosen = el.quiz.querySelector("input[name=answer]:checked");
+    if (!chosen) {
+      el.feedback.className = "feedback show";
+      el.feedback.textContent = "Choose an answer first.";
+      return;
+    }
+    answered = true;
+    right[i] = chosen.value === "0";
+    Array.prototype.forEach.call(el.opts.querySelectorAll("label"), function (label) {
+      var input = label.querySelector("input"), tag = label.querySelector(".tag");
+      if (input.value === "0") { label.classList.add("right"); tag.textContent = "✓ correct answer"; }
+      else if (input.checked) { label.classList.add("wrong"); tag.textContent = "✗ your answer"; }
+      input.disabled = true;
+    });
+    el.opts.className = "locked";
+    el.feedback.className = "feedback show";
+    el.feedback.innerHTML = '<span class="verdict ' + (right[i] ? "ok" : "bad") + '">' +
+      (right[i] ? "Correct." : "Not correct.") + "</span> " + Q[i].explanation;
+    el.go.textContent = i + 1 < n ? "Next question" : "See your score";
+    el.go.focus();
+  }
+
+  function finish() {
+    var count = right.filter(Boolean).length;
+    el.progress.textContent = "Result";
+    el.progress.removeAttribute("aria-hidden");
+    el.fill.style.width = "100%";
+    el.score.textContent = count === n ? "All " + n + " correct." : count + " of " + n + " correct.";
+    el.review.innerHTML = "";
+    el.reviewIntro.hidden = count === n;
+    el.review.hidden = count === n;
+    // Each link opens its section; the page name follows in parentheses.
+    Q.forEach(function (q, j) {
+      if (right[j]) return;
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "../" + q.page + "#" + q.anchor; a.target = "_top"; a.textContent = q.section;
+      // On the quiz's own page, scroll to the section and move focus there, without
+      // reloading the page (which would also reset the quiz).
+      a.addEventListener("click", function (e) {
+        try {
+          var top = window.top, here = top.location.pathname.replace(/\/$/, ""),
+              there = new URL(a.href).pathname.replace(/\/$/, "");
+          if (here !== there) return;
+          var target = top.document.getElementById(q.anchor);
+          if (!target) return;
+          e.preventDefault();
+          top.history.pushState(null, "", "#" + q.anchor);
+          target.scrollIntoView();
+          // Focus the heading's text, not the heading: the heading also holds the
+          // pilcrow link, whose label a screen reader would read with it.
+          var spot = target.querySelector(".heading-text") || target;
+          if (!spot.hasAttribute("tabindex")) spot.setAttribute("tabindex", "-1");
+          spot.focus({ preventScroll: true });
+        } catch (err) {}
+      });
+      li.appendChild(document.createTextNode("Question " + (j + 1) + ": "));
+      li.appendChild(a);
+      li.appendChild(document.createTextNode(" (" + q.pageTitle + ")"));
+      el.review.appendChild(li);
+    });
+    el.quiz.hidden = true;
+    el.result.hidden = false;
+    el.score.focus();
+  }
+
+  el.quiz.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!answered) { check(); return; }
+    i++;
+    if (i < n) show(true); else finish();
+  });
+  el.again.addEventListener("click", function () { i = 0; right = []; show(true); });
+  show(false);
+})();
+</script>
+</body>
+</html>

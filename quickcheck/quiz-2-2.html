@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz: Standard 2.2, Orbit Transfers</title>
+<style>
+  /* The color variables match the quick checks (quickcheck/*.html). Change them together. */
+  :root {
+    --bg: #ffffff; --fg: #1f2937; --muted: #4b5563; --card: #ffffff; --border: #d9d6ce;
+    --head-bg: #f7f5f0; --head-fg: #111827; --accent: #6f5630; --accent-border: #cfb991;
+    --input-bg: #ffffff; --input-border: #6b7280; --ok: #0a6b3d; --bad: #b42318;
+    --button: #111827; --button-fg: #ffffff; --sol-bg: #f7f5f0;
+    --link: #1d4ed8; --focus: #1d4ed8;
+  }
+  html.dark {
+    --bg: #1c1917; --fg: #e5e7eb; --muted: #b7bcc6; --card: #292524; --border: #44403c;
+    --head-bg: #363231; --head-fg: #ffffff; --accent: #cfb991; --accent-border: #cfb991;
+    --input-bg: #1c1917; --input-border: #9ca3af; --ok: #6ee7b7; --bad: #fca5a5;
+    --button: #cfb991; --button-fg: #000000; --sol-bg: #363231;
+    --link: #93c5fd; --focus: #93c5fd;
+  }
+  html.dark { color-scheme: dark; }   /* native radio buttons drawn for a dark page */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .card { border: 1px solid var(--border); border-left: 5px solid var(--accent-border); border-radius: 8px;
+          background: var(--card); overflow: hidden; }
+  .head { background: var(--head-bg); color: var(--head-fg); padding: 10px 16px; font-weight: 700; font-size: 1.15em;
+          display: flex; align-items: center; gap: 10px; }
+  .head svg { width: 22px; height: 22px; flex: none; }
+  .body { padding: 16px; }
+  i { font-style: italic; }
+  sub, sup { font-size: 0.75em; }
+  .ov { text-decoration: overline; }
+  .progress { margin: 0 0 6px; color: var(--muted); font-size: 0.95em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  legend:focus { outline: none; }
+  .progress:focus { outline: none; }
+  .bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin: 0 0 14px; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--accent-border); }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { padding: 0; margin: 0 0 4px; font-size: 1.08em; font-weight: 600; color: var(--head-fg); }
+  .opt { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 10px; padding: 10px 12px; margin: 8px 0 0;
+         border: 1px solid var(--input-border); border-radius: 6px; background: var(--input-bg); cursor: pointer; }
+  .opt input { flex: none; width: 1.05em; height: 1.05em; margin: 0.25em 0 0; accent-color: var(--button); }
+  .opt .text { flex: 1 1 12em; }
+  .opt .tag { flex: none; font-weight: 600; font-size: 0.92em; }
+  .opt:hover { border-color: var(--fg); }
+  .opt:has(input:checked) { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+  .opt:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 1px; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--input-border); }
+  .locked .opt.right, .locked .opt.right:hover { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .locked .opt.wrong, .locked .opt.wrong:hover { border-color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+  .opt.right .tag { color: var(--ok); }
+  .opt.wrong .tag { color: var(--bad); }
+  .feedback { margin: 14px 0 0; }
+  .feedback.show { border: 1px solid var(--border); border-left: 4px solid var(--accent-border); border-radius: 6px;
+                   background: var(--sol-bg); padding: 10px 14px; }
+  .verdict { font-weight: 700; }
+  .verdict.ok { color: var(--ok); }
+  .verdict.bad { color: var(--bad); }
+  .buttons { display: flex; gap: 12px; margin: 16px 0 0; }
+  button { font: inherit; font-weight: 600; padding: 9px 20px; border-radius: 6px; cursor: pointer; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .primary { background: var(--button); color: var(--button-fg); border: 1px solid var(--button); }
+  .score { margin: 0 0 8px; font-size: 1.15em; font-weight: 700; color: var(--head-fg); }
+  .score:focus { outline: none; }
+  .result p { margin: 8px 0; }
+  .result ul { margin: 8px 0 0; padding-left: 1.3em; }
+  .result li { margin: 4px 0; }
+  a { color: var(--link); }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M9 10l1.5 1.5L13.5 8.5M9 16h6"/></svg>
+    Quiz: Standard 2.2, Orbit Transfers
+  </div>
+  <div class="body">
+    <noscript><p>The quiz needs JavaScript.</p></noscript>
+    <p class="progress" id="progress" aria-hidden="true"></p>
+    <div class="bar" aria-hidden="true"><span id="fill"></span></div>
+    <form id="quiz" novalidate>
+      <fieldset>
+        <legend id="legend" tabindex="-1"></legend>
+        <div id="opts"></div>
+      </fieldset>
+      <div class="feedback" id="feedback" role="status"></div>
+      <div class="buttons">
+        <button type="submit" class="primary" id="go">Check answer</button>
+      </div>
+    </form>
+    <div class="result" id="result" hidden>
+      <p class="score" id="score" tabindex="-1"></p>
+      <p id="reviewIntro">Review these sections, then start over:</p>
+      <ul id="review"></ul>
+      <div class="buttons">
+        <button type="button" class="primary" id="again">Start over</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="data">{"questions": [{"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "Burns and delta-V", "anchor": "burns-and-delta-v", "question": "A spacecraft in a circular orbit makes a short impulsive burn along its velocity. Which statement describes the orbit right after the burn?", "options": ["It passes through the burn point, with a larger semi-major axis than the circle", "It is a larger circle, centered on Earth, that the spacecraft reaches after half an orbit", "It passes through the burn point, with the same semi-major axis and a higher speed everywhere", "It starts a little above the burn point, because the burn lifts the spacecraft"], "explanation": "An impulsive burn changes the velocity and not the position, so the new orbit goes through the burn point. A higher speed at the same radius means a larger <i>a<\/i> by the vis-viva equation. The orbit is an ellipse, not a circle: a second burn would be needed for a larger circle. Keeping <i>a<\/i> while the speed rises would break the vis-viva equation, and the burn does not move the spacecraft."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "The Hohmann transfer", "anchor": "p22-hohmann", "question": "A satellite moves by a Hohmann transfer from a high circular orbit down to a low circular orbit in the same plane. Which way do its two burns point?", "options": ["Both against the motion", "Both along the motion", "The first against the motion, the second along it", "The first along the motion, the second against it"], "explanation": "Going down, the first burn slows the satellite so that its old radius becomes the apoapsis of the transfer orbit, and the second burn, at periapsis, slows it to the circular speed there. Both point against the motion. Both along the motion is the trip up. A burn along the motion at either end would raise the orbit there instead of lowering it."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "The Hohmann transfer", "anchor": "p22-hohmann", "question": "A Hohmann transfer around Earth (<i>R<\/i> = 6,378 km) goes from a circular orbit at 600 km altitude to one at 3,000 km altitude. What is the semi-major axis <i>a<sub>t<\/sub><\/i> of the transfer orbit?", "options": ["8,178 km", "1,800 km", "16,356 km", "1,200 km"], "explanation": "The radii are 6,978 km and 9,378 km, and <i>a<sub>t<\/sub><\/i> = (<i>r<\/i><sub>1<\/sub> + <i>r<\/i><sub>2<\/sub>)/2 = 8,178 km. 1,800 km averages the altitudes instead of the radii; 16,356 km is <i>r<\/i><sub>1<\/sub> + <i>r<\/i><sub>2<\/sub>, the major axis, not half of it; 1,200 km is half the difference of the altitudes."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "The Hohmann transfer", "anchor": "p22-hohmann", "question": "The transfer orbit of a Hohmann transfer around Earth (<i>μ<\/i> = 3.986 × 10<sup>5<\/sup> km<sup>3<\/sup>/s<sup>2<\/sup>) has a semi-major axis of 16,000 km. How long does the transfer take?", "options": ["2.80 hours", "5.59 hours", "1.40 hours", "0.890 hours"], "explanation": "The transfer covers half of the ellipse: <i>t<\/i> = <i>π<\/i>√(<i>a<\/i><sup>3<\/sup>/<i>μ<\/i>) = 10,071 s = 2.80 hours. 5.59 hours is the full period of the transfer orbit; 1.40 hours is a quarter of it; 0.890 hours leaves out the factor <i>π<\/i>."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "Circularizing an elliptical orbit", "anchor": "circularizing-an-elliptical-orbit", "question": "A satellite is in a 500 km by 2,000 km altitude orbit around Earth and must end in a circular orbit at 2,000 km altitude with a single burn. Where and how should it burn?", "options": ["At apoapsis, along the motion", "At periapsis, along the motion", "At apoapsis, against the motion", "At periapsis, against the motion"], "explanation": "The circle at 2,000 km passes through the apoapsis, and the satellite there moves slower than the circular speed at that radius, so it must speed up. A burn at periapsis along the motion raises the apoapsis instead; a burn at apoapsis against the motion lowers the periapsis; a burn at periapsis against the motion gives the circle at 500 km."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "Catching up: the phasing orbit", "anchor": "catching-up-the-phasing-orbit", "question": "A chaser trails its target by a few seconds in the same circular orbit. Which single burn lets it meet the target at the same point after one lap?", "options": ["A burn against the motion, into a smaller orbit with a shorter period", "A burn along the motion, into a larger orbit, so that it moves faster", "A burn along the motion, into a larger orbit with a shorter period", "A burn toward Earth, so that it cuts across the circle to the target"], "explanation": "Slowing down makes the orbit smaller and its period shorter, so the chaser finishes the lap first and arrives back at the burn point just as the target does. Speeding up raises the orbit and lengthens the period, so the chaser falls further behind, and a larger orbit never has a shorter period. A burn toward Earth adds speed at the same radius, which also lengthens the period slightly."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "Changing the orbit plane", "anchor": "p22-plane-change", "question": "A spacecraft in a circular orbit moves at 7.5 km/s. What <i>ΔV<\/i> does it need to turn its orbit plane by 10° at constant speed?", "options": ["1.307 km/s", "2.605 km/s", "75.0 km/s", "0.654 km/s"], "explanation": "<i>ΔV<\/i> = 2<i>v<\/i> sin(<i>Δi<\/i>/2) = 2(7.5) sin 5° = 1.307 km/s. 2.605 km/s uses sin 10° instead of the half angle; 75.0 km/s is <i>v Δi<\/i> with the angle in degrees instead of radians; 0.654 km/s leaves out the factor 2."}, {"page": "orbit-transfers", "pageTitle": "2.2 Orbit Transfers", "section": "Choosing the order of maneuvers", "anchor": "choosing-the-order-of-maneuvers", "question": "A spacecraft will raise its orbit by a Hohmann transfer and also turn its orbit plane. Where is the separate plane change cheapest?", "options": ["At the apoapsis of the transfer orbit", "In the low orbit, before the transfer, because the orbit is smaller there", "At the periapsis of the transfer orbit, right after the first burn", "Anywhere: the cost depends only on the angle"], "explanation": "The cost is 2<i>v<\/i> sin(<i>Δi<\/i>/2), so it is lowest where the speed is lowest, at the apoapsis of the transfer orbit. The low orbit and the transfer periapsis are the fastest points of the trip, so the plane change costs most there. The angle alone does not set the cost: the speed multiplies it."}]}</script>
+<script>
+(function () {
+  // In a page, follow the page's theme; opened on its own, follow the reader's setting.
+  function syncTheme() {
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (window.parent !== window) {
+      try { dark = window.parent.document.documentElement.classList.contains("dark"); } catch (e) {}
+    }
+    document.documentElement.classList.toggle("dark", dark);
+  }
+  syncTheme();
+  try { new MutationObserver(syncTheme).observe(window.parent.document.documentElement, { attributes: true }); } catch (e) {}
+  function fit() {
+    try {
+      var fe = window.frameElement;
+      if (fe && fe.parentElement) fe.parentElement.style.height = (Math.ceil(document.body.getBoundingClientRect().height) + 2) + "px";
+    } catch (e) {}
+  }
+  try { new ResizeObserver(fit).observe(document.body); } catch (e) {}
+  window.addEventListener("load", fit);
+
+  var Q = JSON.parse(document.getElementById("data").textContent).questions;
+  var n = Q.length, i = 0, answered = false, right = [];
+  var el = {};
+  ["progress", "fill", "quiz", "legend", "opts", "feedback", "go", "result", "score", "reviewIntro", "review", "again"]
+    .forEach(function (id) { el[id] = document.getElementById(id); });
+
+  function shuffle(a) {
+    for (var j = a.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1)), t = a[j]; a[j] = a[k]; a[k] = t;
+    }
+    return a;
+  }
+
+  // Show question i. The options are drawn in a new order each time; option 0 is the correct one.
+  function show(moveFocus) {
+    var q = Q[i];
+    answered = false;
+    el.progress.textContent = "Question " + (i + 1) + " of " + n;
+    el.fill.style.width = (100 * i / n) + "%";
+    el.legend.innerHTML = '<span class="sr-only">Question ' + (i + 1) + " of " + n + ": </span>" + q.question;
+    el.opts.innerHTML = "";
+    el.opts.className = "";
+    shuffle([0, 1, 2, 3]).forEach(function (k) {
+      var label = document.createElement("label"), input = document.createElement("input"),
+          text = document.createElement("span"), tag = document.createElement("span");
+      label.className = "opt";
+      input.type = "radio"; input.name = "answer"; input.value = String(k);
+      text.className = "text"; text.innerHTML = q.options[k];
+      tag.className = "tag";
+      label.appendChild(input); label.appendChild(text); label.appendChild(tag);
+      el.opts.appendChild(label);
+    });
+    el.feedback.className = "feedback";
+    el.feedback.textContent = "";
+    el.go.textContent = "Check answer";
+    el.result.hidden = true;
+    el.quiz.hidden = false;
+    el.progress.setAttribute("aria-hidden", "true");
+    if (moveFocus) el.legend.focus();
+  }
+
+  function check() {
+    var chosen = el.quiz.querySelector("input[name=answer]:checked");
+    if (!chosen) {
+      el.feedback.className = "feedback show";
+      el.feedback.textContent = "Choose an answer first.";
+      return;
+    }
+    answered = true;
+    right[i] = chosen.value === "0";
+    Array.prototype.forEach.call(el.opts.querySelectorAll("label"), function (label) {
+      var input = label.querySelector("input"), tag = label.querySelector(".tag");
+      if (input.value === "0") { label.classList.add("right"); tag.textContent = "✓ correct answer"; }
+      else if (input.checked) { label.classList.add("wrong"); tag.textContent = "✗ your answer"; }
+      input.disabled = true;
+    });
+    el.opts.className = "locked";
+    el.feedback.className = "feedback show";
+    el.feedback.innerHTML = '<span class="verdict ' + (right[i] ? "ok" : "bad") + '">' +
+      (right[i] ? "Correct." : "Not correct.") + "</span> " + Q[i].explanation;
+    el.go.textContent = i + 1 < n ? "Next question" : "See your score";
+    el.go.focus();
+  }
+
+  function finish() {
+    var count = right.filter(Boolean).length;
+    el.progress.textContent = "Result";
+    el.progress.removeAttribute("aria-hidden");
+    el.fill.style.width = "100%";
+    el.score.textContent = count === n ? "All " + n + " correct." : count + " of " + n + " correct.";
+    el.review.innerHTML = "";
+    el.reviewIntro.hidden = count === n;
+    el.review.hidden = count === n;
+    // Each link opens its section; the page name follows in parentheses.
+    Q.forEach(function (q, j) {
+      if (right[j]) return;
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "../" + q.page + "#" + q.anchor; a.target = "_top"; a.textContent = q.section;
+      // On the quiz's own page, scroll to the section and move focus there, without
+      // reloading the page (which would also reset the quiz).
+      a.addEventListener("click", function (e) {
+        try {
+          var top = window.top, here = top.location.pathname.replace(/\/$/, ""),
+              there = new URL(a.href).pathname.replace(/\/$/, "");
+          if (here !== there) return;
+          var target = top.document.getElementById(q.anchor);
+          if (!target) return;
+          e.preventDefault();
+          top.history.pushState(null, "", "#" + q.anchor);
+          target.scrollIntoView();
+          // Focus the heading's text, not the heading: the heading also holds the
+          // pilcrow link, whose label a screen reader would read with it.
+          var spot = target.querySelector(".heading-text") || target;
+          if (!spot.hasAttribute("tabindex")) spot.setAttribute("tabindex", "-1");
+          spot.focus({ preventScroll: true });
+        } catch (err) {}
+      });
+      li.appendChild(document.createTextNode("Question " + (j + 1) + ": "));
+      li.appendChild(a);
+      li.appendChild(document.createTextNode(" (" + q.pageTitle + ")"));
+      el.review.appendChild(li);
+    });
+    el.quiz.hidden = true;
+    el.result.hidden = false;
+    el.score.focus();
+  }
+
+  el.quiz.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!answered) { check(); return; }
+    i++;
+    if (i < n) show(true); else finish();
+  });
+  el.again.addEventListener("click", function () { i = 0; right = []; show(true); });
+  show(false);
+})();
+</script>
+</body>
+</html>

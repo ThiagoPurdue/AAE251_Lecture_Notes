@@ -1,0 +1,109 @@
+{
+  "standard": "2.2",
+  "questions": [
+    {
+      "id": "S2.2-q1",
+      "page": "orbit-transfers",
+      "section": "Burns and delta-V",
+      "question": "A spacecraft in a circular orbit makes a short impulsive burn along its velocity. Which statement describes the orbit right after the burn?",
+      "options": [
+        "It passes through the burn point, with a larger semi-major axis than the circle",
+        "It is a larger circle, centered on Earth, that the spacecraft reaches after half an orbit",
+        "It passes through the burn point, with the same semi-major axis and a higher speed everywhere",
+        "It starts a little above the burn point, because the burn lifts the spacecraft"
+      ],
+      "explanation": "An impulsive burn changes the velocity and not the position, so the new orbit goes through the burn point. A higher speed at the same radius means a larger <i>a</i> by the vis-viva equation. The orbit is an ellipse, not a circle: a second burn would be needed for a larger circle. Keeping <i>a</i> while the speed rises would break the vis-viva equation, and the burn does not move the spacecraft."
+    },
+    {
+      "id": "S2.2-q2",
+      "page": "orbit-transfers",
+      "section": "The Hohmann transfer",
+      "question": "A satellite moves by a Hohmann transfer from a high circular orbit down to a low circular orbit in the same plane. Which way do its two burns point?",
+      "options": [
+        "Both against the motion",
+        "Both along the motion",
+        "The first against the motion, the second along it",
+        "The first along the motion, the second against it"
+      ],
+      "explanation": "Going down, the first burn slows the satellite so that its old radius becomes the apoapsis of the transfer orbit, and the second burn, at periapsis, slows it to the circular speed there. Both point against the motion. Both along the motion is the trip up. A burn along the motion at either end would raise the orbit there instead of lowering it."
+    },
+    {
+      "id": "S2.2-q3",
+      "page": "orbit-transfers",
+      "section": "The Hohmann transfer",
+      "question": "A Hohmann transfer around Earth (<i>R</i> = 6,378 km) goes from a circular orbit at 600 km altitude to one at 3,000 km altitude. What is the semi-major axis <i>a<sub>t</sub></i> of the transfer orbit?",
+      "options": [
+        "8,178 km",
+        "1,800 km",
+        "16,356 km",
+        "1,200 km"
+      ],
+      "explanation": "The radii are 6,978 km and 9,378 km, and <i>a<sub>t</sub></i> = (<i>r</i><sub>1</sub> + <i>r</i><sub>2</sub>)/2 = 8,178 km. 1,800 km averages the altitudes instead of the radii; 16,356 km is <i>r</i><sub>1</sub> + <i>r</i><sub>2</sub>, the major axis, not half of it; 1,200 km is half the difference of the altitudes."
+    },
+    {
+      "id": "S2.2-q4",
+      "page": "orbit-transfers",
+      "section": "The Hohmann transfer",
+      "question": "The transfer orbit of a Hohmann transfer around Earth (<i>μ</i> = 3.986 × 10<sup>5</sup> km<sup>3</sup>/s<sup>2</sup>) has a semi-major axis of 16,000 km. How long does the transfer take?",
+      "options": [
+        "2.80 hours",
+        "5.59 hours",
+        "1.40 hours",
+        "0.890 hours"
+      ],
+      "explanation": "The transfer covers half of the ellipse: <i>t</i> = <i>π</i>√(<i>a</i><sup>3</sup>/<i>μ</i>) = 10,071 s = 2.80 hours. 5.59 hours is the full period of the transfer orbit; 1.40 hours is a quarter of it; 0.890 hours leaves out the factor <i>π</i>."
+    },
+    {
+      "id": "S2.2-q5",
+      "page": "orbit-transfers",
+      "section": "Circularizing an elliptical orbit",
+      "question": "A satellite is in a 500 km by 2,000 km altitude orbit around Earth and must end in a circular orbit at 2,000 km altitude with a single burn. Where and how should it burn?",
+      "options": [
+        "At apoapsis, along the motion",
+        "At periapsis, along the motion",
+        "At apoapsis, against the motion",
+        "At periapsis, against the motion"
+      ],
+      "explanation": "The circle at 2,000 km passes through the apoapsis, and the satellite there moves slower than the circular speed at that radius, so it must speed up. A burn at periapsis along the motion raises the apoapsis instead; a burn at apoapsis against the motion lowers the periapsis; a burn at periapsis against the motion gives the circle at 500 km."
+    },
+    {
+      "id": "S2.2-q6",
+      "page": "orbit-transfers",
+      "section": "Catching up: the phasing orbit",
+      "question": "A chaser trails its target by a few seconds in the same circular orbit. Which single burn lets it meet the target at the same point after one lap?",
+      "options": [
+        "A burn against the motion, into a smaller orbit with a shorter period",
+        "A burn along the motion, into a larger orbit, so that it moves faster",
+        "A burn along the motion, into a larger orbit with a shorter period",
+        "A burn toward Earth, so that it cuts across the circle to the target"
+      ],
+      "explanation": "Slowing down makes the orbit smaller and its period shorter, so the chaser finishes the lap first and arrives back at the burn point just as the target does. Speeding up raises the orbit and lengthens the period, so the chaser falls further behind, and a larger orbit never has a shorter period. A burn toward Earth adds speed at the same radius, which also lengthens the period slightly."
+    },
+    {
+      "id": "S2.2-q7",
+      "page": "orbit-transfers",
+      "section": "Changing the orbit plane",
+      "question": "A spacecraft in a circular orbit moves at 7.5 km/s. What <i>ΔV</i> does it need to turn its orbit plane by 10° at constant speed?",
+      "options": [
+        "1.307 km/s",
+        "2.605 km/s",
+        "75.0 km/s",
+        "0.654 km/s"
+      ],
+      "explanation": "<i>ΔV</i> = 2<i>v</i> sin(<i>Δi</i>/2) = 2(7.5) sin 5° = 1.307 km/s. 2.605 km/s uses sin 10° instead of the half angle; 75.0 km/s is <i>v Δi</i> with the angle in degrees instead of radians; 0.654 km/s leaves out the factor 2."
+    },
+    {
+      "id": "S2.2-q8",
+      "page": "orbit-transfers",
+      "section": "Choosing the order of maneuvers",
+      "question": "A spacecraft will raise its orbit by a Hohmann transfer and also turn its orbit plane. Where is the separate plane change cheapest?",
+      "options": [
+        "At the apoapsis of the transfer orbit",
+        "In the low orbit, before the transfer, because the orbit is smaller there",
+        "At the periapsis of the transfer orbit, right after the first burn",
+        "Anywhere: the cost depends only on the angle"
+      ],
+      "explanation": "The cost is 2<i>v</i> sin(<i>Δi</i>/2), so it is lowest where the speed is lowest, at the apoapsis of the transfer orbit. The low orbit and the transfer periapsis are the fastest points of the trip, so the plane change costs most there. The angle alone does not set the cost: the speed multiplies it."
+    }
+  ]
+}

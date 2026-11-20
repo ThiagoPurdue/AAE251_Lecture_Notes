@@ -1,0 +1,55 @@
+# Jupyter Book 2 (MyST) configuration for the AAE251 lecture notes.
+# Build locally:   jupyter-book start        (live preview)
+#                  jupyter-book build --html (static site in _build/html)
+# Build in a copy outside OneDrive: see README.md.
+version: 1
+project:
+  id: aae251-lecture-notes
+  title: AAE251 Lecture Notes
+  subtitle: Introduction to Aerospace Design
+  description: Lecture notes for AAE 25100 Introduction to Aerospace Design at Purdue University, in five chapters that follow the five groups of course standards.
+  keywords:
+    - aerospace design
+    - systems engineering
+    - orbital mechanics
+    - aerodynamics
+    - rocket design
+    - aircraft performance
+  authors:
+    - name: Thiago Guimaraes
+      affiliations:
+        - Purdue University, School of Aeronautics and Astronautics
+  github: https://github.com/ThiagoPurdue/AAE251_Lecture_Notes
+  exclude:
+    - README.md
+    - quickcheck/**
+    - scripts/**
+    - notes/_parts/**
+    - notes/_static/**
+  # One entry per chapter, one page per standard. Add a chapter block when its first page
+  # is written; `python3 scripts/make_standards.py --toc` prints the full block, with the
+  # chapter titles and page names taken from the course standards.
+  toc:
+    - file: notes/index.md
+    - title: "Chapter 2: Introduction to Orbits"
+      children:
+        - file: notes/chapter-2/orbit-properties.md
+        - file: notes/chapter-2/orbit-transfers.md
+        - file: notes/chapter-2/launch-to-orbit.md
+        - file: notes/chapter-2/patched-conics.md
+        - file: notes/chapter-2/ground-tracks-and-orbit-lifetime.md
+    - file: notes/glossary.md
+    - file: notes/accessibility.md
+site:
+  template: book-theme
+  options:
+    logo: notes/_static/logo.svg
+    logo_dark: notes/_static/logo.svg
+    # The mark is decorative: the link already reads the book title.
+    logo_alt: ""
+    logo_text: AAE251 Lecture Notes
+    favicon: notes/_static/favicon.ico
+    hide_authors: true
+    style: notes/_static/site.css
+  parts:
+    primary_sidebar_footer: notes/_parts/sidebar-footer.md

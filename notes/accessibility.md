@@ -1,0 +1,33 @@
+---
+title: Accessibility
+---
+
+These notes are written to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA, the standard adopted under Title II of the Americans with Disabilities Act for the web content of public universities.
+
+## What the site does
+
+- Every figure has alt text that describes what it shows, and a visible caption. The words inside a figure are part of the picture, so the alt text and the caption repeat what the figure says.
+- Equations are written in MathML, so screen readers can read them. Powers of ten, degree values, and word subscripts are marked up so that each is read as one item.
+- Tables are HTML tables with header rows and captions.
+- Color is never the only way information is given. Lines in a plot also differ by line style or marker, and each curve is labeled or named in the caption and the alt text.
+- Text meets a contrast ratio of at least 4.5:1 against its background. Lines and marks in figures that carry information meet at least 3:1.
+- Pages use headings in order, so a screen reader can move through them by section.
+- The site and its quizzes can be used with a keyboard alone. In a quiz, the arrow keys choose an answer and Enter checks it; the verdict and the explanation are placed in a live region, which screen readers read out. On the score screen, each link opens the section it names.
+- The site follows the reader's light or dark mode setting. Text can be enlarged to 400%, and pages can be read on a screen 320 pixels wide, without scrolling sideways; wide tables and equations scroll inside their own box. On a small screen, figures take the full width of the text.
+
+## How the site is checked
+
+- Before it is published, every page is checked with the axe accessibility engine against the WCAG 2.1 A and AA rules, in light and dark mode, at a desktop width and at 320 pixels. At 320 pixels the check also fails a page that scrolls sideways. Each quiz is checked inside its page in four states: a question, a wrong answer with its explanation, a right answer with its explanation, and the score screen.
+- By hand: every alt text was read beside its figure; the quizzes were worked through with the keyboard alone; pages were checked for reading order as a screen reader presents them; the contrast of every figure color was computed; and the pages were looked at in screenshots at 320 pixels and at 200% zoom, in light and dark mode.
+
+## Known limitations
+
+- Figures are drawings of a fixed shape. Their labels are part of the picture, so on a phone they are smaller than the text even when the figure fills the width of the screen. Zoom in on the figure, or use its alt text and caption.
+- In the quizzes, symbols are written as text (for example v∞), not as MathML.
+- The notes have not yet been tested with screen readers by people who use them. The checks above rest on the automated engine and on the structure of the pages.
+- Videos linked from a page, where there are any, are hosted by their publishers, who provide the captions.
+- Linked external documents and sites are outside the control of this site.
+
+## Report a barrier
+
+If any part of these notes is hard to use with your browser, screen reader, or other assistive technology, contact the instructor, Prof. Thiago Guimaraes, School of Aeronautics and Astronautics, Purdue University; his Purdue email address is listed in the [Purdue directory](https://www.purdue.edu/directory/). Students in the course can also write through Brightspace. Name the page and describe the problem. You will get the content in a form you can use. Purdue students can also request accommodations through the Purdue Disability Resource Center.

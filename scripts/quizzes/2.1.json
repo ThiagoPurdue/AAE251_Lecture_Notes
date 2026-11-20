@@ -1,0 +1,109 @@
+{
+  "standard": "2.1",
+  "questions": [
+    {
+      "id": "S2.1-q1",
+      "page": "orbit-properties",
+      "section": "Gravity between two bodies",
+      "question": "Orbit calculations use the gravitational parameter <i>μ</i> = <i>GM</i> of the central body in place of <i>G</i> and <i>M</i> separately. Why?",
+      "options": [
+        "The product <i>GM</i> is measured precisely from the motion of moons and spacecraft",
+        "<i>μ</i> also contains the mass of the spacecraft, which <i>G</i> and <i>M</i> leave out",
+        "<i>G</i> has a different value for each planet, so it is combined with that planet's mass",
+        "<i>μ</i> has no units, so using it removes unit errors from orbit calculations"
+      ],
+      "explanation": "Orbits reveal the product <i>GM</i>, not <i>G</i> or <i>M</i> alone. The spacecraft mass is left out of the two-body model, <i>G</i> is the same everywhere, and <i>μ</i> carries units of km<sup>3</sup>/s<sup>2</sup>."
+    },
+    {
+      "id": "S2.1-q2",
+      "page": "orbit-properties",
+      "section": "The two-body problem",
+      "question": "A satellite at 300 km altitude loses a little altitude on every revolution. Which assumption of the two-body problem does this effect break?",
+      "options": [
+        "Gravity is the only force acting on the satellite",
+        "Each body is a point mass or an evenly layered sphere",
+        "Only two bodies are present",
+        "The satellite is so light that Earth does not move in response to it"
+      ],
+      "explanation": "Air drag is a force other than gravity, and it takes energy from the orbit. Earth's bulge (not a point mass) turns the orbit plane, and the Moon and the Sun (more bodies) matter most for high orbits; neither lowers a low orbit steadily."
+    },
+    {
+      "id": "S2.1-q3",
+      "page": "orbit-properties",
+      "section": "The orbit equation",
+      "question": "A satellite orbits Earth (<i>R</i> = 6,378 km) with a perigee altitude of 350 km and an apogee altitude of 2,700 km. What is the semi-major axis of its orbit?",
+      "options": [
+        "7,903 km",
+        "1,525 km",
+        "15,806 km",
+        "1,175 km"
+      ],
+      "explanation": "Radii from the center: <i>r<sub>p</sub></i> = 6,728 km and <i>r<sub>a</sub></i> = 9,078 km, so <i>a</i> = (<i>r<sub>p</sub></i> + <i>r<sub>a</sub></i>)/2 = 7,903 km. 1,525 km averages the altitudes, 15,806 km forgets to halve the sum, and 1,175 km is half the difference, the distance <i>c</i> from the center to the focus."
+    },
+    {
+      "id": "S2.1-q4",
+      "page": "orbit-properties",
+      "section": "Where the orbit sits in space",
+      "question": "Which orbital element gives the tilt of the orbit plane from the equator of an Earth orbit?",
+      "options": [
+        "The inclination <i>i</i>",
+        "The argument of periapsis <i>ω</i>",
+        "The right ascension of the ascending node <i>Ω</i>",
+        "The true anomaly <i>θ</i>"
+      ],
+      "explanation": "The inclination is the angle between the two planes, measured at the ascending node. <i>Ω</i> locates the node in the equatorial plane, <i>ω</i> turns the ellipse within its own plane, and <i>θ</i> locates the spacecraft on the orbit."
+    },
+    {
+      "id": "S2.1-q5",
+      "page": "orbit-properties",
+      "section": "Kepler's laws",
+      "question": "Two satellites orbit the same planet. The semi-major axis of satellite A is four times that of satellite B. How many times longer is the period of A?",
+      "options": [
+        "8",
+        "4",
+        "16",
+        "2"
+      ],
+      "explanation": "<i>T</i> grows as <i>a</i><sup>3/2</sup>, and 4<sup>3/2</sup> = 8. The answer 4 treats the period as proportional to <i>a</i>, 16 as proportional to <i>a</i><sup>2</sup>, and 2 as proportional to the square root of <i>a</i>."
+    },
+    {
+      "id": "S2.1-q6",
+      "page": "orbit-properties",
+      "section": "Energy and speed",
+      "question": "Two Earth satellites have the same semi-major axis. One orbit is a circle; the other is an ellipse with <i>e</i> = 0.5. How do their specific orbital energies compare?",
+      "options": [
+        "They are equal, because the energy depends only on <i>a</i>",
+        "The ellipse has more energy, because it reaches farther from Earth",
+        "The circle has more energy, because its speed never drops",
+        "They cannot be compared without the masses of the satellites"
+      ],
+      "explanation": "The energy depends only on the semi-major axis. The ellipse trades speed for altitude around its orbit, but the sum stays the same and equals that of the circle. Specific orbital energy is per unit mass, so no mass is needed."
+    },
+    {
+      "id": "S2.1-q7",
+      "page": "orbit-properties",
+      "section": "Circular speed and escape speed",
+      "question": "A satellite moves on a circular orbit 1,000 km above Earth (<i>μ</i> = 3.986 × 10<sup>5</sup> km<sup>3</sup>/s<sup>2</sup>, <i>R</i> = 6,378 km). What is its speed?",
+      "options": [
+        "7.350 km/s",
+        "19.96 km/s",
+        "10.39 km/s",
+        "7.905 km/s"
+      ],
+      "explanation": "With <i>r</i> = 7,378 km, <i>v<sub>c</sub></i> = √(<i>μ</i>/<i>r</i>) = 7.350 km/s. 19.96 km/s uses the altitude as the radius, 10.39 km/s is the escape speed √(2<i>μ</i>/<i>r</i>), and 7.905 km/s is the circular speed at Earth's surface."
+    },
+    {
+      "id": "S2.1-q8",
+      "page": "orbit-properties",
+      "section": "Classifying a trajectory",
+      "question": "At one point of its path, a spacecraft moves faster than the escape speed at that radius. What is its trajectory?",
+      "options": [
+        "A hyperbola: <i>e</i> &gt; 1, positive specific orbital energy, and it does not return",
+        "A long ellipse: <i>e</i> &lt; 1, negative specific orbital energy, and it returns much later",
+        "A parabola: <i>e</i> = 1 and zero specific orbital energy",
+        "A circle, provided the velocity is perpendicular to the radius"
+      ],
+      "explanation": "Above the escape speed, <i>v</i><sup>2</sup>/2 is larger than <i>μ</i>/<i>r</i>, so the energy is positive and the path is a hyperbola. An ellipse needs a speed below the escape speed, a parabola exactly the escape speed, and a circle exactly the circular speed."
+    }
+  ]
+}
