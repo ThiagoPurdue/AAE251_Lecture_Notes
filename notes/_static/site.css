@@ -246,8 +246,14 @@ article table td {
   border-bottom: 1px solid var(--aae-hairline) !important;
   vertical-align: top;
 }
+/* Row headers (a th in a body row): bold like a header, ruled like a cell. */
+article table tr:not(:first-child) > th {
+  border-bottom: 1px solid var(--aae-hairline) !important;
+  vertical-align: top;
+}
 article table th[align="right"], article table td[align="right"],
-article table th[style*="text-align: right"], article table td[style*="text-align: right"] {
+article table th[style*="text-align: right"], article table td[style*="text-align: right"],
+article table th.num, article table td.num {
   text-align: right;
 }
 /* Caption sits just above its table. */

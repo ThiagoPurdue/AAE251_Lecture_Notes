@@ -1,0 +1,109 @@
+{
+ "standard": "1.3",
+ "questions": [
+  {
+   "id": "S1.3-q1",
+   "page": "vehicle-anatomy",
+   "section": "The parts of an airplane",
+   "question": "Which part of an airliner keeps the nose from swinging left and right on its own, and carries the rudder?",
+   "options": [
+    "The vertical stabilizer",
+    "The rudder itself",
+    "The horizontal stabilizer",
+    "The winglets"
+   ],
+   "explanation": "The vertical stabilizer is the fixed fin; it gives stability in yaw and the rudder is hinged to its trailing edge. The rudder is the moving surface, not the fixed one; the horizontal stabilizer acts in pitch; the winglets weaken the wingtip vortices."
+  },
+  {
+   "id": "S1.3-q2",
+   "page": "vehicle-anatomy",
+   "section": "Axes and control surfaces",
+   "question": "The pilot pulls the control column back. What do the elevator and the aircraft do?",
+   "options": [
+    "The elevator trailing edge goes up, the tail is pushed down, and the nose pitches up",
+    "The elevator trailing edge goes down, the tail is pushed up, and the nose pitches up",
+    "The elevator trailing edge goes up, the tail is pushed up, and the nose pitches down",
+    "The two elevators move in opposite directions, and the aircraft rolls"
+   ],
+   "explanation": "Up elevator makes a downward force on the tail; the tail moves down and the nose pitches up about the center of gravity. A tail pushed up would lower the nose. Surfaces that move in opposite directions to roll the aircraft are the ailerons."
+  },
+  {
+   "id": "S1.3-q3",
+   "page": "vehicle-anatomy",
+   "section": "Axes and control surfaces",
+   "question": "A top view of an airplane is drawn as seen from above, with the nose toward the left of the page. Where is the right wing, and toward which edge of the page does a positive yaw turn the nose?",
+   "options": [
+    "Wing at the top; nose toward the top",
+    "Wing at the bottom; nose toward the bottom",
+    "Wing at the top; nose toward the bottom",
+    "Wing at the bottom; nose toward the top"
+   ],
+   "explanation": "Facing the nose, which points left, your right hand is toward the top of the page. Positive yaw swings the nose toward the right wing, so the nose moves up the page. A right wing at the bottom describes a view from below, and a nose turning away from the right wing reverses the sense of positive yaw."
+  },
+  {
+   "id": "S1.3-q4",
+   "page": "vehicle-anatomy",
+   "section": "Landing gear arrangements",
+   "question": "Why can a tail-dragger fall into a ground loop more easily than a tricycle-gear aircraft?",
+   "options": [
+    "Its center of gravity is behind the main wheels, so a swerve, once started, grows",
+    "Its center of gravity is ahead of the main wheels, so its weight pushes it further around",
+    "Its tail wheel cannot be steered, so the pilot has no control on the ground",
+    "It sits nose up, so its wing makes lift on the ground and lifts the main wheels"
+   ],
+   "explanation": "On a tail-dragger the main wheels are ahead of the center of gravity, so a swerve grows; on a tricycle the center of gravity is ahead of the main wheels and the weight keeps it straight. Many tail wheels can be steered, and the stance is not the cause."
+  },
+  {
+   "id": "S1.3-q5",
+   "page": "vehicle-anatomy",
+   "section": "Wing geometry",
+   "question": "A wing has a span of 72 ft and an area of 480 ft². What is its aspect ratio?",
+   "options": [
+    "10.8",
+    "2.70",
+    "6.67",
+    "5.40"
+   ],
+   "explanation": "<i>AR</i> = <i>b</i>²/<i>S</i> = 72 × 72/480 = 5,184/480 = 10.8. Using half the span gives 36 × 36/480 = 2.70; 480/72 = 6.67 ft is the average chord, not a ratio; 5.40 divides by twice the area."
+  },
+  {
+   "id": "S1.3-q6",
+   "page": "vehicle-anatomy",
+   "section": "Airfoil geometry and NACA four-digit airfoils",
+   "question": "An airfoil is a NACA 2318 with a chord of 2.0 m. How large is its maximum camber, and where is it?",
+   "options": [
+    "0.04 m, at 0.6 m from the leading edge",
+    "0.04 m, at 0.06 m from the leading edge",
+    "0.06 m, at 0.04 m from the leading edge",
+    "0.36 m, at 0.6 m from the leading edge"
+   ],
+   "explanation": "M = 2: the camber is 2% of 2.0 m, 0.04 m. P = 3: it is 3 tenths, 30%, of the chord from the leading edge, 0.6 m. Reading P as 3% gives 0.06 m; reading the second digit as the camber and the first as its position, both in percent, gives 0.06 m at 0.04 m; 0.36 m is the thickness, 18% of the chord."
+  },
+  {
+   "id": "S1.3-q7",
+   "page": "vehicle-anatomy",
+   "section": "The launch vehicle",
+   "question": "On the Ariane 5 core stage, which tank is the larger one, and why?",
+   "options": [
+    "The liquid-hydrogen tank, because hydrogen needs far more volume for its mass",
+    "The liquid-oxygen tank, because the stage carries more oxygen than hydrogen by mass",
+    "The liquid-oxygen tank, because the oxidizer must last longer than the fuel",
+    "Both tanks are the same size, because the engine burns equal volumes of each"
+   ],
+   "explanation": "In the first version of the stage the hydrogen tank held 390 m³ against 120 m³ of oxygen, although the oxygen was 5.1 times heavier: a large mass of oxygen fits in a small volume. Mass and volume are not the same, and the engine burns both propellants for the whole burn, in neither equal volumes nor equal masses."
+  },
+  {
+   "id": "S1.3-q8",
+   "page": "vehicle-anatomy",
+   "section": "Mission profiles",
+   "question": "A mission profile has five segments: takeoff, climb, cruise, descent, and landing. How are its points numbered, and what is <i>W</i><sub>2</sub>?",
+   "options": [
+    "From 0 to 5; <i>W</i><sub>2</sub> is the weight at the end of the climb",
+    "From 1 to 5; <i>W</i><sub>2</sub> is the weight at the end of the climb",
+    "From 0 to 5; <i>W</i><sub>2</sub> is the weight at the start of the climb",
+    "From 0 to 4; <i>W</i><sub>2</sub> is the weight during the cruise"
+   ],
+   "explanation": "The ends of the segments are numbered from 0 at the start of the takeoff, so five segments give six points, 0 to 5, and point 2 is the end of the second segment, the climb. Numbering the segments instead of their ends gives 1 to 5 or 0 to 4; the start of the climb is point 1."
+  }
+ ]
+}

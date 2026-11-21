@@ -17,7 +17,8 @@ Question data (one file per standard):
     "options": ["correct", "wrong", "wrong", "wrong"], "explanation": "..."}]}
 "page" is a page of the standard's chapter folder (notes/chapter-3/drag-polar.md).
 options[0] is the correct answer; the widget shuffles the order. Strings are HTML
-fragments with <i>, <sub>, <sup> and <strong> only. The script stops on a question whose
+fragments with <i>, <sub>, <sup> and <strong> only (each <sup> is given a hidden " to the
+power " for screen readers when the widget is written). The script stops on a question whose
 page or section heading does not exist, on a tag outside that list, and on a dash.
 The link to a section uses the "(label)=" line just above its heading when there is one,
 otherwise the heading's slug as MyST writes it.
@@ -133,6 +134,21 @@ def overbar(text):
     """A letter with a combining macron (x\u0304, c\u0304) becomes an overlined span: in the
     system italic font the combining mark is drawn beside the letter, not above it."""
     return re.sub("(\\w)\u0304", r'<span class="ov">\1</span>', text)
+
+
+SUP_SPOKEN = '<sup><span class="sr-only">&nbsp;to the power&nbsp;</span>'
+
+
+def spoken_sup(text):
+    """Every <sup> gets a visually hidden " to the power " in front of its content: screen
+    readers do not announce a superscript at their default settings, so "72<sup>2</sup>" would
+    be heard as 722 and "m/s<sup>2</sup>" as "m/s 2"."""
+    return text.replace("<sup>", SUP_SPOKEN)
+
+
+def prepare(text):
+    """A question string as the widget shows it: overlined letters and spoken superscripts."""
+    return spoken_sup(overbar(text))
 
 
 TEMPLATE = r"""<!DOCTYPE html>
@@ -402,8 +418,8 @@ def build(sid, names, write=True):
         title = f"Quiz: Standard {sid}, {names[sid]}"
         payload = {"questions": [{"page": q["page"], "pageTitle": q["pageTitle"], "section": q["section"],
                                   "anchor": q["anchor"],
-                                  "question": overbar(q["question"]), "options": [overbar(o) for o in q["options"]],
-                                  "explanation": overbar(q["explanation"])} for q in data["questions"]]}
+                                  "question": prepare(q["question"]), "options": [prepare(o) for o in q["options"]],
+                                  "explanation": prepare(q["explanation"])} for q in data["questions"]]}
         # "</" would end the script element early; "\/" is a valid JSON escape.
         blob = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
         html = TEMPLATE.replace("__TITLE__", title).replace("__DATA__", blob)

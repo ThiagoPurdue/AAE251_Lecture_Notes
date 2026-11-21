@@ -31,6 +31,15 @@ project:
   # chapter titles and page names taken from the course standards.
   toc:
     - file: notes/index.md
+    - title: "Chapter 1: Systems Engineering and Fundamental Thoughts"
+      children:
+        - file: notes/chapter-1/needs-and-requirements.md
+        - file: notes/chapter-1/hazards-and-risk.md
+        - file: notes/chapter-1/vehicle-anatomy.md
+        - file: notes/chapter-1/standard-atmosphere.md
+        - file: notes/chapter-1/bernoulli-and-pitot-static.md
+        - file: notes/chapter-1/aircraft-sizing.md
+        - file: notes/chapter-1/concepts-and-trade-studies.md
     - title: "Chapter 2: Introduction to Orbits"
       children:
         - file: notes/chapter-2/orbit-properties.md

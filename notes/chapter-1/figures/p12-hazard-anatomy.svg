@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="346.848608pt" height="320.831019pt" viewBox="0 0 346.848608 320.831019" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 320.831019 
+L 346.848608 320.831019 
+L 346.848608 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="line2d_1">
+    <path d="M 144.141266 67.6535 
+L 159.644051 67.6535 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 240.603038 67.6535 
+L 256.105823 67.6535 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-style: italic; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="7.2" y="129.269263" transform="rotate(-0 7.2 129.269263)">Mitigation</text>
+   </g>
+   <g id="grp:tbar1">
+    <path d="M 200.123544 108.771576 
+L 200.123544 92.1495 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke-dasharray: 5.6,3.5; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.4"/>
+   </g>
+   <g id="grp:tbar1">
+    <path d="M 203.623544 92.1495 
+L 196.623544 92.1495 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke: #000000; stroke-width: 2.2"/>
+   </g>
+   <g id="grp:tbar2">
+    <path d="M 296.585316 108.771576 
+L 296.585316 92.1495 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke-dasharray: 5.6,3.5; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.4"/>
+   </g>
+   <g id="grp:tbar2">
+    <path d="M 300.085316 92.1495 
+L 293.085316 92.1495 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke: #000000; stroke-width: 2.2"/>
+   </g>
+   <g id="patch_2">
+    <path d="M 149.644051 67.6535 
+Q 154.644051 67.6535 157.494615 67.6535 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+    <path d="M 148.494615 64.5535 
+L 157.494615 67.6535 
+L 148.494615 70.7535 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #3a3a3a; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 246.105823 67.6535 
+Q 251.105823 67.6535 253.956387 67.6535 
+" clip-path="url(#pebe6e71892)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+    <path d="M 244.956387 64.5535 
+L 253.956387 67.6535 
+L 244.956387 70.7535 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #3a3a3a; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 67.182278 91.1495 
+L 140.141266 91.1495 
+Q 144.141266 91.1495 144.141266 87.1495 
+L 144.141266 48.1575 
+Q 144.141266 44.1575 140.141266 44.1575 
+L 67.182278 44.1575 
+Q 63.182278 44.1575 63.182278 48.1575 
+L 63.182278 87.1495 
+Q 63.182278 91.1495 67.182278 91.1495 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 163.644051 91.1495 
+L 236.603038 91.1495 
+Q 240.603038 91.1495 240.603038 87.1495 
+L 240.603038 48.1575 
+Q 240.603038 44.1575 236.603038 44.1575 
+L 163.644051 44.1575 
+Q 159.644051 44.1575 159.644051 48.1575 
+L 159.644051 87.1495 
+Q 159.644051 91.1495 163.644051 91.1495 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #f5efdc; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 260.105823 91.1495 
+L 333.06481 91.1495 
+Q 337.06481 91.1495 337.06481 87.1495 
+L 337.06481 48.1575 
+Q 337.06481 44.1575 333.06481 44.1575 
+L 260.105823 44.1575 
+Q 256.105823 44.1575 256.105823 48.1575 
+L 256.105823 87.1495 
+Q 256.105823 91.1495 260.105823 91.1495 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 159.644051 143.667576 
+L 240.603038 143.667576 
+L 240.603038 108.771576 
+L 159.644051 108.771576 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #ffffff; stroke-dasharray: 4.8,3; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 256.105823 143.667576 
+L 337.06481 143.667576 
+L 337.06481 108.771576 
+L 256.105823 108.771576 
+z
+" clip-path="url(#pebe6e71892)" style="fill: #ffffff; stroke-dasharray: 4.8,3; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(69.538647 58.492906)">Water, snow,</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(82.31771 70.755688)">or oil on</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(81.647397 83.018469)">the road</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(178.447607 64.627109)">Slippery</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(188.116044 77.030516)">road</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(269.911566 58.422594)">Car slides</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(273.574379 70.685375)">and may</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(281.914379 83.088781)">crash</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(168.106982 123.190373)">Salt or sand</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(178.109169 135.453154)">the road</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(261.913754 123.190373)">Drive slower;</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(263.244066 135.453154)">fit snow tires</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="7.2" y="35.631875" transform="rotate(-0 7.2 35.631875)">(a) Icy road</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="103.661772" y="15.789375" transform="rotate(-0 103.661772 15.789375)">Cause</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="200.123544" y="15.789375" transform="rotate(-0 200.123544 15.789375)">Hazard</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="296.585316" y="15.789375" transform="rotate(-0 296.585316 15.789375)">Effect</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="line2d_3">
+    <path d="M 144.141266 230.9495 
+L 159.644051 230.9495 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 240.603038 230.9495 
+L 256.105823 230.9495 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_11">
+    <text style="font-style: italic; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="7.2" y="292.565263" transform="rotate(-0 7.2 292.565263)">Mitigation</text>
+   </g>
+   <g id="grp:tbar3">
+    <path d="M 103.661772 265.954888 
+L 103.661772 255.477844 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke-dasharray: 5.6,3.5; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.4"/>
+   </g>
+   <g id="grp:tbar3">
+    <path d="M 107.161772 255.477844 
+L 100.161772 255.477844 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #000000; stroke-width: 2.2"/>
+   </g>
+   <g id="grp:tbar4">
+    <path d="M 200.123544 265.954888 
+L 200.123544 255.477844 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke-dasharray: 5.6,3.5; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.4"/>
+   </g>
+   <g id="grp:tbar4">
+    <path d="M 203.623544 255.477844 
+L 196.623544 255.477844 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #000000; stroke-width: 2.2"/>
+   </g>
+   <g id="grp:tbar5">
+    <path d="M 257.828354 292.960639 
+L 278.498734 292.960639 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke-dasharray: 5.6,3.5; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.4"/>
+   </g>
+   <g id="grp:tbar5">
+    <path d="M 278.498734 296.460639 
+L 278.498734 289.460639 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #000000; stroke-width: 2.2"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 149.644051 230.9495 
+Q 154.644051 230.9495 157.494615 230.9495 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+    <path d="M 148.494615 227.8495 
+L 157.494615 230.9495 
+L 148.494615 234.0495 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #3a3a3a; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 246.105823 230.9495 
+Q 251.105823 230.9495 253.956387 230.9495 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+    <path d="M 244.956387 227.8495 
+L 253.956387 230.9495 
+L 244.956387 234.0495 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #3a3a3a; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 67.182278 254.477844 
+L 140.141266 254.477844 
+Q 144.141266 254.477844 144.141266 250.477844 
+L 144.141266 211.421156 
+Q 144.141266 207.421156 140.141266 207.421156 
+L 67.182278 207.421156 
+Q 63.182278 207.421156 63.182278 211.421156 
+L 63.182278 250.477844 
+Q 63.182278 254.477844 67.182278 254.477844 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 163.644051 254.477844 
+L 236.603038 254.477844 
+Q 240.603038 254.477844 240.603038 250.477844 
+L 240.603038 211.421156 
+Q 240.603038 207.421156 236.603038 207.421156 
+L 163.644051 207.421156 
+Q 159.644051 207.421156 159.644051 211.421156 
+L 159.644051 250.477844 
+Q 159.644051 254.477844 163.644051 254.477844 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #f5efdc; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 260.105823 254.477844 
+L 333.06481 254.477844 
+Q 337.06481 254.477844 337.06481 250.477844 
+L 337.06481 211.421156 
+Q 337.06481 207.421156 333.06481 207.421156 
+L 260.105823 207.421156 
+Q 256.105823 207.421156 256.105823 211.421156 
+L 256.105823 250.477844 
+Q 256.105823 254.477844 260.105823 254.477844 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 63.182278 313.076263 
+L 144.141266 313.076263 
+L 144.141266 265.954888 
+L 63.182278 265.954888 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #ffffff; stroke-dasharray: 4.8,3; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 159.644051 313.076263 
+L 240.603038 313.076263 
+L 240.603038 265.954888 
+L 159.644051 265.954888 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #ffffff; stroke-dasharray: 4.8,3; stroke-dashoffset: 0; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(69.97271 221.862031)">Supercooled</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(82.31771 234.124813)">drops in</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(84.315522 246.387594)">a cloud</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(183.780107 227.849984)">Ice on</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(177.777294 240.112766)">the wing</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(274.578441 221.648281)">Less lift,</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(267.575316 233.911063)">more drag;</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(271.244691 246.314469)">early stall</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(75.31646 280.28467)">Fly around</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(81.65021 292.688076)">or out of</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(79.312085 304.950857)">the cloud</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(187.450419 280.130263)">Heat</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(177.777294 292.393045)">the wing</text>
+    <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif" transform="translate(176.787294 304.964638)">(anti-ice)</text>
+   </g>
+   <g id="patch_16">
+    <path d="M 257.828354 274.012791 
+Q 268.163544 274.012791 276.349299 274.012791 
+" clip-path="url(#p9ea4d9d3b2)" style="fill: none; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+    <path d="M 267.349299 270.912791 
+L 276.349299 274.012791 
+L 267.349299 277.112791 
+z
+" clip-path="url(#p9ea4d9d3b2)" style="fill: #3a3a3a; stroke: #3a3a3a; stroke-width: 1.4; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="7.2" y="198.895531" transform="rotate(-0 7.2 198.895531)">(b) Wing icing</text>
+   </g>
+   <g id="text_18">
+    <g id="patch_17">
+     <path d="M 283.178734 280.362713 
+L 324.342797 280.362713 
+L 324.342797 267.662869 
+L 283.178734 267.662869 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="284.498734" y="276.856463" transform="rotate(-0 284.498734 276.856463)">leads to</text>
+   </g>
+   <g id="text_19">
+    <g id="patch_18">
+     <path d="M 283.178734 299.310561 
+L 321.281703 299.310561 
+L 321.281703 286.610717 
+L 283.178734 286.610717 
+z
+" style="fill: #ffffff"/>
+    </g>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="284.498734" y="295.804311" transform="rotate(-0 284.498734 295.804311)">acts on</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pebe6e71892">
+   <rect x="7.2" y="14.255019" width="332.448608" height="136.08"/>
+  </clipPath>
+  <clipPath id="p9ea4d9d3b2">
+   <rect x="7.2" y="177.551019" width="332.448608" height="136.08"/>
+  </clipPath>
+ </defs>
+</svg>

@@ -3,7 +3,8 @@
 
 A worked step such as "$v_\\infty = 29.783 - 22.249 = 7.534$ km/s" must give its printed
 result when a student redoes it with the printed operands. The script finds, on every page
-of notes/chapter-2/ (text, tables, captions and display math alike):
+of every chapter whose code has a values.json (notes/chapter-N/ for each
+scripts/chapter_N/values.json; text, tables, captions and display math alike):
 
   - in a math span, a run "A = B" where A is an expression of printed numbers only
     (+, -, \\times, /, \\frac, \\sqrt, powers, parentheses, \\pi, \\exp, sin, cos and tan of
@@ -25,7 +26,16 @@ import sys
 from pathlib import Path
 
 BOOK = Path(__file__).resolve().parent.parent
-CHAPTER = BOOK / "notes" / "chapter-2"
+# a printed result may be followed by its unit: these are stripped before the number is read
+UNITS = (r"km|m|s|days?|kg|km/s|m/s|hours?|minutes?|AU"                      # Chapter 2
+         r"|K|Pa|kPa|N|J|ft|ft/s|lb|nmi|mi|kt|knots?|h|hr|min|mm|cm|m/s²|m²|m³|kg/m³|kg/s|m³/s"
+         r"|N/m²|lb/ft²|J/\(kg K\)|1/h|%")
+
+
+def chapter_folders():
+    """notes/chapter-N of every chapter whose code has a values.json, in order."""
+    return [BOOK / "notes" / f"chapter-{vf.parent.name.split('_', 1)[1]}"
+            for vf in sorted((BOOK / "scripts").glob("chapter_*/values.json"))]
 MATH = re.compile(r"(:::\{math\}\n(?::[^\n]*\n)*(?P<blk>.*?)\n:::)|\$\$(?P<disp>.*?)\$\$|(?<!\$)\$(?P<inl>[^$\n]+?)\$(?!\$)", re.S)
 NUMBER = re.compile(r"^-?\d+(?:\.\d+)?$")
 
@@ -82,7 +92,7 @@ def number(tex):
     s = re.sub(r"\\(?:,|;|:|!|quad|qquad)|\\ ", " ", s)
     s = re.sub(r"\\text\{\s*[A-Za-z][^}]*\}", " ", s)
     s = s.replace("^\\circ", "").replace("°", "").replace("−", "-").replace("{", "").replace("}", "")
-    s = re.sub(r"\s+(km|m|s|days?|kg|km/s|m/s|hours?|minutes?|AU)\.?$", "", s.strip()).strip().rstrip(".,")
+    s = re.sub(rf"\s+(?:{UNITS})\.?$", "", s.strip()).strip().rstrip(".,")
     if not NUMBER.match(s):
         return None
     d = len(s.split(".")[1]) if "." in s else 0
@@ -133,7 +143,7 @@ def checks(text):
 def main(argv):
     verbose = "-v" in argv
     misses = total = 0
-    for page in sorted(CHAPTER.glob("*.md")):
+    for page in sorted(p for folder in chapter_folders() for p in folder.glob("*.md")):
         n = 0
         for expr, res, val, ok in checks(page.read_text(encoding="utf-8")):
             n += 1

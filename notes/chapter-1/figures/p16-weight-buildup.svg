@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="425.490003pt" height="244.175844pt" viewBox="0 0 425.490003 244.175844" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 244.175844 
+L 425.490003 244.175844 
+L 425.490003 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 51.368281 223.416 
+L 414.068281 223.416 
+L 414.068281 7.2 
+L 51.368281 7.2 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="87.338529" y="234.789594" transform="rotate(-0 87.338529 234.789594)">757-200</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="180.26167" y="234.789594" transform="rotate(-0 180.26167 234.789594)">767-300ER</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="273.18481" y="234.789594" transform="rotate(-0 273.18481 234.789594)">747-400</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_4">
+      <defs>
+       <path id="ma8f5a18eb2" d="M 0 0 
+L -4 0 
+" style="stroke: #000000; stroke-width: 0.9"/>
+      </defs>
+      <g>
+       <use xlink:href="#ma8f5a18eb2" x="51.368281" y="223.416" style="stroke: #000000; stroke-width: 0.9"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="43.868281" y="227.352797" transform="rotate(-0 43.868281 227.352797)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#ma8f5a18eb2" x="51.368281" y="177.992471" style="stroke: #000000; stroke-width: 0.9"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="43.868281" y="181.929267" transform="rotate(-0 43.868281 181.929267)">0.25</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#ma8f5a18eb2" x="51.368281" y="132.568941" style="stroke: #000000; stroke-width: 0.9"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="43.868281" y="136.505738" transform="rotate(-0 43.868281 136.505738)">0.50</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#ma8f5a18eb2" x="51.368281" y="87.145412" style="stroke: #000000; stroke-width: 0.9"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="43.868281" y="91.082209" transform="rotate(-0 43.868281 91.082209)">0.75</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#ma8f5a18eb2" x="51.368281" y="41.721882" style="stroke: #000000; stroke-width: 0.9"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="43.868281" y="45.658679" transform="rotate(-0 43.868281 45.658679)">1.00</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 12px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="15.935625" y="115.308" transform="rotate(-90 15.935625 115.308)">Fraction of the takeoff weight</text>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 51.368281 223.416 
+L 51.368281 41.721882 
+" style="fill: none; stroke: #000000; stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 63.957868 223.416 
+L 110.71919 223.416 
+L 110.71919 132.42785 
+L 63.957868 132.42785 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #8f8f8f; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 63.957868 132.42785 
+L 110.71919 132.42785 
+L 110.71919 104.726944 
+L 63.957868 104.726944 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #cfb991; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 63.957868 104.726944 
+L 110.71919 104.726944 
+L 110.71919 41.721882 
+L 63.957868 41.721882 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 156.881009 223.416 
+L 203.642331 223.416 
+L 203.642331 133.386598 
+L 156.881009 133.386598 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #8f8f8f; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 156.881009 133.386598 
+L 203.642331 133.386598 
+L 203.642331 112.837519 
+L 156.881009 112.837519 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #cfb991; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 156.881009 112.837519 
+L 203.642331 112.837519 
+L 203.642331 41.721882 
+L 156.881009 41.721882 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 249.804149 223.416 
+L 296.565471 223.416 
+L 296.565471 140.321034 
+L 249.804149 140.321034 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #8f8f8f; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 249.804149 140.321034 
+L 296.565471 140.321034 
+L 296.565471 122.400243 
+L 249.804149 122.400243 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #cfb991; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 249.804149 122.400243 
+L 296.565471 122.400243 
+L 296.565471 41.721882 
+L 249.804149 41.721882 
+z
+" clip-path="url(#pe4d9aa11df)" style="fill: #ffffff; stroke: #000000; stroke-width: 1.2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="87.338529" y="180.765597" transform="rotate(-0 87.338529 180.765597)">0.501</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="87.338529" y="121.421069" transform="rotate(-0 87.338529 121.421069)">0.152</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="87.338529" y="76.068085" transform="rotate(-0 87.338529 76.068085)">0.347</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="180.26167" y="181.244971" transform="rotate(-0 180.26167 181.244971)">0.495</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="180.26167" y="125.95573" transform="rotate(-0 180.26167 125.95573)">0.113</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="180.26167" y="80.123373" transform="rotate(-0 180.26167 80.123373)">0.391</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="273.18481" y="184.712189" transform="rotate(-0 273.18481 184.712189)">0.457</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="273.18481" y="134.20431" transform="rotate(-0 273.18481 134.20431)">0.0986</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="273.18481" y="84.904734" transform="rotate(-0 273.18481 84.904734)">0.444</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(53.499779 23.772164)">takeoff weight</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(61.650951 35.535632)">255,500 lb</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="180.26167" y="35.535632" transform="rotate(-0 180.26167 35.535632)">400,000 lb</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: middle" x="273.18481" y="35.535632" transform="rotate(-0 273.18481 35.535632)">874,900 lb</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(304.565471 172.723392)">operating empty weight</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(304.565471 184.647736)">(structure, engines,</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(304.565471 196.57208)">systems, crew)</text>
+   </g>
+   <g id="text_23">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="304.565471" y="134.139857" transform="rotate(-0 304.565471 134.139857)">payload</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: start" x="304.565471" y="84.904734" transform="rotate(-0 304.565471 84.904734)">fuel</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe4d9aa11df">
+   <rect x="51.368281" y="7.2" width="362.7" height="216.216"/>
+  </clipPath>
+ </defs>
+</svg>

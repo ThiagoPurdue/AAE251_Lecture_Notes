@@ -22,7 +22,12 @@
 // scrolls sideways at 320 px, and 0 otherwise. With a screenshot folder, it
 // also saves a full-page PNG of each page in each mode for a visual check:
 // <page>-light.png and <page>-dark.png at 1280 px, <page>-light-320.png and
-// <page>-dark-320.png at 320 px.
+// <page>-dark-320.png at 320 px. Chrome repeats the top of a page in one
+// full-page capture taller than about 16,000 px, so the page is captured in
+// tiles of at most 8,000 px, which are stitched into one PNG in a canvas. A page
+// taller than a canvas allows (32,000 px) is saved as numbered tiles instead,
+// <name>-t0.png, <name>-t1.png, ..., in reading order. The screenshots are
+// taken after the checks and do not change what axe sees.
 import { createRequire } from "node:module";
 import http from "node:http";
 import fs from "node:fs";
@@ -92,6 +97,40 @@ const step = (frame, right) => frame.evaluate((right) => {
   return document.querySelector("input[name=answer]:disabled") ? "answered" : "question";
 }, right);
 
+// A full-page screenshot in tiles of at most TILE px, stitched in a canvas (see the header).
+const TILE = 8000, CANVAS_MAX = 32000;
+async function fullPageShot(browser, page, width, file) {
+  const height = await page.evaluate(() => Math.ceil(document.documentElement.scrollHeight));
+  const tiles = [];
+  for (let y = 0; y < height; y += TILE) {
+    const h = Math.min(TILE, height - y);
+    const b64 = await page.screenshot({ clip: { x: 0, y, width, height: h }, captureBeyondViewport: true,
+      encoding: "base64" });
+    tiles.push({ y, b64 });
+  }
+  if (tiles.length === 1) { fs.writeFileSync(file, Buffer.from(tiles[0].b64, "base64")); return; }
+  if (height > CANVAS_MAX) {
+    tiles.forEach((t, k) => fs.writeFileSync(file.replace(/\.png$/, `-t${k}.png`), Buffer.from(t.b64, "base64")));
+    return;
+  }
+  const sheet = await browser.newPage();
+  await sheet.setContent("<canvas id='c'></canvas>");
+  const png = await sheet.evaluate(async (w, h, ts) => {
+    const c = document.getElementById("c");
+    c.width = w; c.height = h;
+    const g = c.getContext("2d");
+    for (const t of ts) {
+      const im = new Image();
+      im.src = "data:image/png;base64," + t.b64;
+      await im.decode();
+      g.drawImage(im, 0, t.y);
+    }
+    return c.toDataURL("image/png").split(",")[1];
+  }, width, height, tiles);
+  await sheet.close();
+  fs.writeFileSync(file, Buffer.from(png, "base64"));
+}
+
 // Chrome can take more than the default 30 s to start on a busy GitHub runner.
 const browser = await puppeteer.launch({ executablePath: chrome, headless: true,
   args: ["--no-sandbox"], timeout: 120000 });
@@ -138,7 +177,7 @@ for (const scheme of ["light", "dark"]) {
           (size.width === 1280 ? "" : `-${size.width}`) + ".png";
         await page.reload({ waitUntil: "load" });           // the quiz back at its first question
         await new Promise((r) => setTimeout(r, 1000));
-        await page.screenshot({ path: path.join(shots, name), fullPage: true });
+        await fullPageShot(browser, page, size.width, path.join(shots, name));
       }
       await page.close();
     }

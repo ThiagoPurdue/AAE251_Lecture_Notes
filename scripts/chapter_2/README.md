@@ -14,6 +14,10 @@ python3 -B scripts/check_values.py [p23] [--strict]     # every recorded number 
 python3 -B scripts/chapter_2/orbits.py                  # unit checks of orbits.py
 ```
 
+The chapter-neutral part of the code (style constants, text and arrow helpers, `fmt`, the
+layout gate, `save_figure`, `record`) lives in `scripts/figkit.py`, which `orbits.py` imports and
+re-exports: a page module sees the same names as before. Chapter 1 uses the same kit.
+
 Always import as `from chapter_2.orbits import *` (or `from chapter_2 import orbits as O`),
 never `import orbits`: a second copy of the module would lose the recorded values. Run a page
 module through the runner, not directly.
@@ -94,11 +98,11 @@ points marked **[auto]** are also checked by `save_figure()`; the run stops when
     `Arial, Helvetica, sans-serif`, word and ∞ subscripts set at 88% (10.6 pt for a 12 pt label;
     the check asks for 10.5 pt).
 
-Look at every PNG at full size, two or three rounds per figure, then at the page screenshot
-in light and dark mode. The final self-test PNGs of the foundation step, with grayscale
-copies and their source, are in `build/foundation/selftest_final/`.
+Look at every figure at full size, two or three rounds per figure, then at the page
+screenshot in light and dark mode. `python3 -B scripts/render_svg.py <svg> --out <folder> --gray`
+renders a figure through headless Chrome, as the browser shows it, with a grayscale copy.
 
-## Constants (PLAN section 5; never type a constant in a page module)
+## Constants (the values these notes use; never type a constant in a page module)
 
 `MU`, `RADIUS` (dicts by body: Sun, Mercury, Venus, Earth, Moon, Mars, Jupiter, Saturn;
 km³/s², km), `SUN_DISTANCE` (also Uranus and Neptune), `ORBIT_DAYS` (no Mars entry in either,

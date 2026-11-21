@@ -1,0 +1,109 @@
+{
+  "standard": "1.6",
+  "questions": [
+    {
+      "id": "S1.6-q1",
+      "page": "aircraft-sizing",
+      "section": "The takeoff weight and its parts",
+      "question": "An aircraft carries 30,000 lb of crew and payload. Its fuel fraction is <i>W<sub>f</sub></i>/<i>W</i><sub>0</sub> = 0.30 and its empty-weight fraction is <i>W<sub>e</sub></i>/<i>W</i><sub>0</sub> = 0.50. What is its takeoff weight?",
+      "options": [
+        "150,000 lb",
+        "37,500 lb",
+        "60,000 lb",
+        "42,857 lb"
+      ],
+      "explanation": "<i>W</i><sub>0</sub> = 30,000/(1 − 0.30 − 0.50) = 30,000/0.20 = 150,000 lb. Dividing by 0.30 + 0.50 instead of 1 − 0.30 − 0.50 gives 37,500 lb; leaving out the fuel fraction gives 60,000 lb; leaving out the empty-weight fraction gives 30,000/0.70 = 42,857 lb."
+    },
+    {
+      "id": "S1.6-q2",
+      "page": "aircraft-sizing",
+      "section": "The empty-weight fraction from history",
+      "question": "Within one class of aircraft, why does the empty-weight fraction fall as the takeoff weight grows?",
+      "options": [
+        "Some items, such as the cockpit and avionics, do not grow in proportion to the aircraft",
+        "Larger aircraft are always built from lighter materials than smaller ones",
+        "Larger aircraft carry a smaller share of fuel, which leaves more room for structure",
+        "The exponent <i>C</i> of the historical fit is positive for every class"
+      ],
+      "explanation": "Fixed items are a smaller share of a larger aircraft, so <i>W<sub>e</sub></i>/<i>W</i><sub>0</sub> falls. The fits describe aircraft of the same class and similar materials. Long-range aircraft carry a larger fuel share, not a smaller one, and every exponent <i>C</i> in Raymer's Table 3.1 is negative."
+    },
+    {
+      "id": "S1.6-q3",
+      "page": "aircraft-sizing",
+      "section": "The fuel fraction from the mission",
+      "question": "A jet loiters for 90 minutes with <i>C</i> = 0.45 1/h and <i>L</i>/<i>D</i> = 15. What is the loiter weight fraction <i>W<sub>i</sub></i>/<i>W</i><sub><i>i</i>−1</sub>?",
+      "options": [
+        "0.9560",
+        "0.06721",
+        "1.046",
+        "0.04500"
+      ],
+      "explanation": "With <i>E</i> = 1.5 h, exp(−1.5 × 0.45/15) = exp(−0.045) = 0.9560. Using 90 for the time in hours gives exp(−2.7) = 0.06721. Dropping the minus sign gives a fraction above 1, 1.046, which would mean the aircraft gains weight. 0.04500 is the exponent, not the fraction."
+    },
+    {
+      "id": "S1.6-q4",
+      "page": "aircraft-sizing",
+      "section": "The fuel fraction from the mission",
+      "question": "The product of all the segment weight fractions of a mission is <i>W<sub>x</sub></i>/<i>W</i><sub>0</sub> = 0.80. With 6% for reserve and trapped fuel, what is the fuel fraction <i>W<sub>f</sub></i>/<i>W</i><sub>0</sub>?",
+      "options": [
+        "0.212",
+        "0.200",
+        "0.260",
+        "0.848"
+      ],
+      "explanation": "<i>W<sub>f</sub></i>/<i>W</i><sub>0</sub> = 1.06 (1 − 0.80) = 0.212. 0.200 forgets the reserve, 0.260 adds 0.06 instead of multiplying by 1.06, and 0.848 multiplies 1.06 by the weight left at the end instead of by the fuel burned."
+    },
+    {
+      "id": "S1.6-q5",
+      "page": "aircraft-sizing",
+      "section": "Worked example: a long-range airliner",
+      "question": "The worked example puts <i>R</i> in nautical miles, <i>V</i> in knots, and <i>C</i> in 1/h into exp[−<i>RC</i>/(<i>V</i>(<i>L</i>/<i>D</i>))] without converting anything. Why is that correct?",
+      "options": [
+        "A knot is a nautical mile per hour, so the units of the exponent cancel",
+        "An exponential function removes the units of whatever it is given",
+        "Nautical miles and knots are both SI units, so no conversion is needed",
+        "The lift-to-drag ratio carries the units that cancel the others"
+      ],
+      "explanation": "nmi × (1/h) ÷ (nmi/h) leaves no unit, which the exponent of an exponential must have. An exponential does not remove units: the argument must already be a pure number. Nautical miles and knots are not SI units, and <i>L</i>/<i>D</i> is a ratio of two forces, with no unit."
+    },
+    {
+      "id": "S1.6-q6",
+      "page": "aircraft-sizing",
+      "section": "The sizing iteration",
+      "question": "Why must the takeoff weight be found by iteration instead of in one step?",
+      "options": [
+        "The empty-weight fraction depends on the takeoff weight, which is the unknown",
+        "The fuel fraction changes every time the takeoff weight changes",
+        "The crew and payload weights are not known until the aircraft is sized",
+        "The range equation needs the takeoff weight in pounds"
+      ],
+      "explanation": "The fit gives <i>W<sub>e</sub></i>/<i>W</i><sub>0</sub> as <i>A</i> times <i>W</i><sub>0</sub> to the power <i>C</i>, so <i>W</i><sub>0</sub> appears on both sides of the sizing equation. The fuel fraction does not depend on the size of the aircraft, the crew and payload come from the mission, and the range equation uses only weight ratios."
+    },
+    {
+      "id": "S1.6-q7",
+      "page": "aircraft-sizing",
+      "section": "Why the iteration converges",
+      "question": "In a sizing iteration, the change of <i>W</i><sub>0</sub> on successive passes is −20,000 lb, then +3,000 lb, then −450 lb. What does this pattern tell you?",
+      "options": [
+        "Each pass overshoots to the other side, and about 15% of the error survives each pass",
+        "The iteration is diverging, because the changes alternate in sign",
+        "The fuel fraction was recomputed on each pass, which makes the result swing",
+        "The first guess was correct, and later passes only add rounding errors"
+      ],
+      "explanation": "The ratio of successive changes is about −0.15: each pass flips the error to the other side and keeps about 0.15 of it. A sign that alternates with shrinking size is convergence, not divergence. Recomputing the fuel fraction gives the same value every pass, and a correct first guess would give a change near zero at once."
+    },
+    {
+      "id": "S1.6-q8",
+      "page": "aircraft-sizing",
+      "section": "What the answer is sensitive to",
+      "question": "Which change raises the takeoff weight of a design by exactly as much as making its cruise range 10% longer?",
+      "options": [
+        "Making the cruise specific fuel consumption 10% higher",
+        "Making the cruise lift-to-drag ratio 10% higher",
+        "Making the cruise speed 10% higher",
+        "Making the payload 10% heavier"
+      ],
+      "explanation": "Range and fuel consumption enter the cruise fraction only through the product <i>R C</i>, so raising either by 10% has the same effect. A higher <i>L</i>/<i>D</i> or a higher speed lowers the exponent and the weight. Payload enters the numerator of the sizing equation and has a different effect."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "standard": "1.2",
+  "questions": [
+    {
+      "id": "S1.2-q1",
+      "page": "hazards-and-risk",
+      "section": "What a hazard is",
+      "question": "An aircraft heats the leading edge of its wing so that ice cannot form there. On which link of the hazard chain does this mitigation act?",
+      "options": [
+        "The hazard: the ice on the wing never forms",
+        "The cause: the supercooled drops leave the cloud",
+        "The effect: the lift lost to ice is given back",
+        "No link: a heater is part of the design, not a mitigation"
+      ],
+      "explanation": "The cause, supercooled drops in the cloud, is still there; heating stops the hazard, ice on the wing, from forming. A mitigation that acted on the effect would let the ice form and limit the harm, and a design feature that reduces harm is a mitigation."
+    },
+    {
+      "id": "S1.2-q2",
+      "page": "hazards-and-risk",
+      "section": "Hazards in the atmosphere",
+      "question": "An airport lies 1,200 m above sea level, and the afternoon temperature is 30 °C. With the standard temperature <i>T</i> = 288.16 − 0.0065<i>h</i>, how much hotter than standard is the day?",
+      "options": [
+        "22.8 K",
+        "15.0 K",
+        "30.0 K",
+        "−250.4 K"
+      ],
+      "explanation": "The standard temperature at 1,200 m is 288.16 − 0.0065 × 1,200 = 280.36 K, and 30 °C is 303.15 K, so the day is 303.15 − 280.36 = 22.8 K hotter. 15.0 K compares with the sea-level value, 30.0 K compares with 0 °C, and −250.4 K subtracts 280.36 from 30 without converting to kelvin."
+    },
+    {
+      "id": "S1.2-q3",
+      "page": "hazards-and-risk",
+      "section": "Hazards in space",
+      "question": "A satellite orbits Earth at an altitude of 400 km. Which pair of hazards belongs to its orbit?",
+      "options": [
+        "Drag and atomic oxygen",
+        "Outer-belt charging and drag",
+        "Icing and atomic oxygen",
+        "Outer-belt electrons and icing"
+      ],
+      "explanation": "At 400 km enough air remains for drag, and atomic oxygen is the most common gas between about 180 and 650 km. The outer belt and its charging lie far higher, near the geostationary orbit, and icing needs liquid water in the air."
+    },
+    {
+      "id": "S1.2-q4",
+      "page": "hazards-and-risk",
+      "section": "Hazards in space",
+      "question": "One proton passes through a memory chip of a spacecraft computer and flips a stored bit; a reset clears the error. What is this effect called?",
+      "options": [
+        "A single-event upset",
+        "Total ionizing dose damage",
+        "A single-event burnout",
+        "A surface charging discharge"
+      ],
+      "explanation": "One particle causing a soft error that a reset clears is a single-event upset. Total ionizing dose is damage that builds up over years, a burnout destroys the part, and charging builds up over many particles until a spark."
+    },
+    {
+      "id": "S1.2-q5",
+      "page": "hazards-and-risk",
+      "section": "The risk matrix",
+      "question": "A risk has likelihood 3 and consequence 5. What is its level under the rule of these notes?",
+      "options": [
+        "High, because 3 × 5 = 15",
+        "Medium, because 3 + 5 = 8",
+        "Medium, because likelihood 3 is the middle score",
+        "Low, because likelihood 3 is only possible"
+      ],
+      "explanation": "The score is the product, <i>S</i> = <i>L</i> × <i>C</i> = 3 × 5 = 15, and 15 or more is High. Adding the scores, or judging by one score alone, ignores the rule."
+    },
+    {
+      "id": "S1.2-q6",
+      "page": "hazards-and-risk",
+      "section": "Mitigation moves a risk",
+      "question": "A risk has consequence 5, the loss of the mission. What is the lowest level it can reach by lowering its likelihood alone?",
+      "options": [
+        "Medium, since 1 × 5 = 5",
+        "Low, once its likelihood reaches 1",
+        "High, since consequence 5 is always High",
+        "Low, once the mitigation is tested"
+      ],
+      "explanation": "With likelihood 1 the score is 1 × 5 = 5, which is Medium. To reach Low the consequence itself must be reduced by design. A consequence of 5 is High only when the likelihood is 3 or more."
+    },
+    {
+      "id": "S1.2-q7",
+      "page": "hazards-and-risk",
+      "section": "Worked example: risks for a small launch vehicle",
+      "question": "A launch can be scrubbed by high winds aloft. Nobody can change the weather, so the launch crew plans a launch window of several days. Which score does this mitigation change?",
+      "options": [
+        "The consequence falls; the likelihood stays",
+        "The likelihood falls; the consequence stays",
+        "Both the likelihood and the consequence fall",
+        "Neither: only a lower likelihood moves a risk"
+      ],
+      "explanation": "The window does not make high winds less likely; it turns a scrub from a short delay of the launch into a wait inside the window, which costs the mission less. So the consequence score falls and the likelihood score stays. A mitigation can lower either score; which way the risk then moves on a matrix depends on which axis carries which score."
+    },
+    {
+      "id": "S1.2-q8",
+      "page": "hazards-and-risk",
+      "section": "Single-point failures and the mission timeline",
+      "question": "Each of two radios works through the mission with probability 0.95, and they fail independently. Either one can do the job. What is the probability that the pair loses the function?",
+      "options": [
+        "0.0025",
+        "0.10",
+        "0.9025",
+        "0.05"
+      ],
+      "explanation": "Each radio fails with probability 1 − 0.95 = 0.05, and the pair loses the function only if both fail: 0.05 × 0.05 = 0.0025. Adding gives 0.10, multiplying the chances of working gives 0.9025 (both work), and 0.05 is one radio alone."
+    }
+  ]
+}

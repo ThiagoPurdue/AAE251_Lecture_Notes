@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Check that every number the figure code recorded is printed on its page.
 
-The page modules of Chapter 2 record each number they compute for the page with
-record(page, key, text); make_chapter_2_figures.py writes them to
-scripts/chapter_2/values.json. This script requires each recorded string on its page,
-notes/chapter-2/<page>.md. Run from the book folder:
+The page modules of a chapter record each number they compute for the page with
+record(page, key, text); make_chapter_N_figures.py writes them to
+scripts/chapter_N/values.json. This script requires each recorded string on its page,
+notes/chapter-N/<page>.md, for every chapter that has a values.json. Run from the book folder:
 
-    python3 -B scripts/check_values.py              all pages in values.json
-    python3 -B scripts/check_values.py p21 p23      only these pages (tag or file stem)
+    python3 -B scripts/check_values.py              all pages of every values.json
+    python3 -B scripts/check_values.py p21 p14      only these pages (tag or file stem)
     python3 -B scripts/check_values.py --strict     also fail when a page is not written yet
 
 Before comparing, the page is normalized: "{,}" becomes ",", the math spaces "\\,", "\\;",
@@ -25,10 +25,20 @@ import sys
 from pathlib import Path
 
 BOOK = Path(__file__).resolve().parent.parent
-VALUES = BOOK / "scripts" / "chapter_2" / "values.json"
-CHAPTER = BOOK / "notes" / "chapter-2"
-TAGS = {"p21": "orbit-properties", "p22": "orbit-transfers", "p23": "launch-to-orbit",
+TAGS = {"p11": "needs-and-requirements", "p12": "hazards-and-risk", "p13": "vehicle-anatomy",
+        "p14": "standard-atmosphere", "p15": "bernoulli-and-pitot-static", "p16": "aircraft-sizing",
+        "p17": "concepts-and-trade-studies",
+        "p21": "orbit-properties", "p22": "orbit-transfers", "p23": "launch-to-orbit",
         "p24": "patched-conics", "p25": "ground-tracks-and-orbit-lifetime"}
+
+
+def chapters():
+    """(values.json, notes folder) of every chapter whose code has a values.json, in order."""
+    out = []
+    for vf in sorted((BOOK / "scripts").glob("chapter_*/values.json")):
+        n = vf.parent.name.split("_", 1)[1]
+        out.append((vf, BOOK / "notes" / f"chapter-{n}"))
+    return out
 
 
 def normalize(s):
@@ -51,15 +61,19 @@ def found(value, page):
 def main(argv):
     strict = "--strict" in argv
     want = {TAGS.get(a, a) for a in argv if not a.startswith("--")}
-    if not VALUES.exists():
-        print("check_values: no scripts/chapter_2/values.json; run scripts/make_chapter_2_figures.py first")
+    found_any = chapters()
+    if not found_any:
+        print("check_values: no scripts/chapter_N/values.json; run scripts/make_chapter_N_figures.py first")
         return 1
-    data = json.loads(VALUES.read_text(encoding="utf-8"))
+    pages = []
+    for vf, folder in found_any:
+        data = json.loads(vf.read_text(encoding="utf-8"))
+        pages += [(folder, page, vals) for page, vals in sorted(data.items())]
     misses = n_checked = 0
-    for page, vals in sorted(data.items()):
+    for folder, page, vals in pages:
         if want and page not in want:
             continue
-        path = CHAPTER / f"{page}.md"
+        path = folder / f"{page}.md"
         if not path.exists():
             print(f"{page}: page not written ({len(vals)} values not checked)")
             misses += 1 if strict else 0
