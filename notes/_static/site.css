@@ -461,6 +461,10 @@ html.dark .myst-card-body > img {
   border-radius: 8px !important;
   box-shadow: none !important;
   transition: border-color 0.15s, color 0.15s;
+  /* Long chapter titles ("Systems Engineering and Fundamental Thoughts") must wrap
+     inside the two side-by-side links at 320 px, whatever font the reader has. */
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .myst-footer-link:hover,
 .myst-footer-link:focus-visible {
