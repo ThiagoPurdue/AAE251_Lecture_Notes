@@ -7,7 +7,7 @@ material that no standard assesses. The book carries no dates and no assignments
 
 Status: Chapter 1, Systems Engineering and Fundamental Thoughts (seven pages, 63 figures,
 six quizzes), and Chapter 2, Introduction to Orbits (five pages, 37 figures, four quizzes),
-are written. Chapters 3, 4, and 5 are not written yet. The site is published at
+are written and published. Chapters 3, 4, and 5 are not written yet. The site is published at
 https://thiagopurdue.github.io/AAE251_Lecture_Notes/.
 
 ## Layout
