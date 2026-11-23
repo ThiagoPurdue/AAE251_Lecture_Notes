@@ -12,7 +12,7 @@
         "It is denser there, because the streamlines are packed more tightly",
         "Nothing, because the spacing of streamlines is chosen freely when drawing them"
       ],
-      "explanation": "No fluid crosses a streamline, so the space between two streamlines is a stream tube carrying a fixed flow. Where the tube narrows, continuity makes the speed rise. In steady flow nothing piles up, the low-speed air keeps its density, and in a drawing like this the spacing does carry meaning."
+      "explanation": "No fluid crosses a streamline, so the space between two streamlines is a stream tube carrying a fixed flow. Where the tube narrows, continuity makes the speed rise. The other answers fail because in steady flow nothing piles up, low-speed air keeps its density, and in a drawing like this the spacing does carry meaning."
     },
     {
       "id": "S1.5-q2",
@@ -25,7 +25,7 @@
         "1.5 m/s",
         "3 m/s"
       ],
-      "explanation": "Water is incompressible, so <i>A</i><sub>1</sub><i>V</i><sub>1</sub> = <i>A</i><sub>2</sub><i>V</i><sub>2</sub>. The area goes with the square of the diameter: halving the diameter quarters the area, so the speed is 4 × 6 = 24 m/s. 12 m/s uses the diameter ratio instead of the area ratio; 1.5 m/s and 3 m/s turn the ratio upside down."
+      "explanation": "Water is incompressible, so <i>A</i><sub>1</sub><i>V</i><sub>1</sub> = <i>A</i><sub>2</sub><i>V</i><sub>2</sub>. The area goes with the square of the diameter: halving the diameter quarters the area, so the speed is 4 × 6 = 24 m/s. You get 12 m/s if you use the diameter ratio instead of the area ratio, and 1.5 m/s or 3 m/s if you turn the ratio upside down."
     },
     {
       "id": "S1.5-q3",
@@ -38,7 +38,7 @@
         "It stays the same: speed and pressure are independent",
         "It falls only if the density also falls"
       ],
-      "explanation": "With <i>dV</i> &gt; 0 the minus sign makes <i>dp</i> &lt; 0. The element speeds up because the pressure ahead of it is lower: the pressure difference pushes it forward. The derivation did not need the density to change."
+      "explanation": "With <i>dV</i> &gt; 0 the minus sign makes <i>dp</i> &lt; 0. The element speeds up because the pressure ahead of it is lower: the pressure difference pushes it forward. The derivation never needed the density to change."
     },
     {
       "id": "S1.5-q4",
@@ -57,14 +57,14 @@
       "id": "S1.5-q5",
       "page": "bernoulli-and-pitot-static",
       "section": "Using continuity and Bernoulli together",
-      "question": "A water U-tube manometer is connected between two points of an air duct and reads <i>h</i> = 3.0 cm. What is the pressure difference between the two points? (Use <i>g</i> = 9.8 m/s².)",
+      "question": "A water U-tube manometer is connected between two points of an air duct and reads Δ<i>h</i> = 3.0 cm. What is the pressure difference between the two points? (Use <i>g</i> = 9.81 m/s².)",
       "options": [
-        "294 Pa",
+        "294.3 Pa",
         "0.36 Pa",
-        "29,400 Pa",
+        "29,430 Pa",
         "30 Pa"
       ],
-      "explanation": "Δ<i>p</i> = <i>ρ</i><sub>L</sub><i>gh</i> with the density of the manometer liquid, water, and <i>h</i> in meters: 1,000 × 9.8 × 0.030 = 294 Pa. 0.36 Pa uses the density of air, 29,400 Pa keeps <i>h</i> in centimeters, and 30 Pa leaves out <i>g</i>."
+      "explanation": "Δ<i>p</i> = <i>ρ</i><sub>ℓ</sub><i>g</i>Δ<i>h</i> with the density of the manometer liquid, water, and Δ<i>h</i> in meters: 1,000 × 9.81 × 0.030 = 294.3 Pa. You get 0.36 Pa with the density of air, 29,430 Pa if you keep Δ<i>h</i> in centimeters, and 30 Pa if you leave out <i>g</i>."
     },
     {
       "id": "S1.5-q6",
@@ -77,7 +77,7 @@
         "44.7 m/s",
         "4,000 m/s"
       ],
-      "explanation": "<i>V</i> = √(2(<i>p</i><sub>0</sub> − <i>p</i>)/<i>ρ</i>) = √(2 × 1,640/0.82) = 63.2 m/s. 51.7 m/s uses the sea-level density, 1.2250 kg/m³ (that is the indicated airspeed); 44.7 m/s leaves out the factor 2; 4,000 m/s forgets the square root."
+      "explanation": "<i>V</i> = √(2(<i>p</i><sub>0</sub> − <i>p</i>)/<i>ρ</i>) = √(2 × 1,640/0.82) = 63.2 m/s. You get 51.7 m/s with the sea-level density, 1.2250 kg/m³ (that is the indicated airspeed), 44.7 m/s if you leave out the factor 2, and 4,000 m/s if you forget the square root."
     },
     {
       "id": "S1.5-q7",
@@ -103,7 +103,7 @@
         "Only the airspeed indicator",
         "None of them, because the pitot tube is still clear"
       ],
-      "explanation": "The static line feeds all three instruments. The trapped static pressure freezes the altimeter and holds the vertical speed indicator at zero, and the airspeed indicator, which compares the total pressure with that trapped static pressure, reads low in a climb and high in a descent. Forgetting that the airspeed indicator also uses the static line leaves it off the list."
+      "explanation": "The static line feeds all three instruments. The trapped static pressure freezes the altimeter and holds the vertical speed indicator at zero, and the airspeed indicator, which compares the total pressure with that trapped static pressure, reads low in a climb and high in a descent. If you forget that the airspeed indicator also uses the static line, you leave it off the list."
     }
   ]
 }

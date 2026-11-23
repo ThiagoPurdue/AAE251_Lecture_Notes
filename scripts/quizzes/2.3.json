@@ -12,20 +12,20 @@
         "Polar: every inclination above 90° passes over the poles",
         "Prograde, inclined 40° to the equator"
       ],
-      "explanation": "Inclinations between 90° and 180° are retrograde. Prograde means below 90°, and polar means at or close to 90°. Reading 180° minus 140° = 40° as the inclination of an eastward orbit confuses the angle with its supplement."
+      "explanation": "Inclinations between 90° and 180° are retrograde. Prograde means below 90°, and polar means at or close to 90°. Taking 180° minus 140° = 40° as the inclination of an eastward orbit mixes up the inclination with 180° minus it."
     },
     {
       "id": "S2.3-q2",
       "page": "launch-to-orbit",
       "section": "What a launch has to deliver",
-      "question": "For a launch from the equator, due east, into an equatorial orbit, the delta-V is the orbit speed minus the speed of the launch site. Why may the two magnitudes be subtracted here?",
+      "question": "For a launch from the equator, due east, into an equatorial orbit, the delta-V is the orbit speed minus the speed of the launch site. Why can we subtract the two magnitudes here?",
       "options": [
         "Because the two velocity vectors point the same way",
         "Because velocity is a scalar, so speeds always subtract",
         "Because the speed of the site is small compared with the orbit speed",
         "Because the target orbit is circular"
       ],
-      "explanation": "The vehicle must add the vector <strong>v</strong><sub>orbit</sub> minus <strong>v</strong><sub>site</sub>. Only when the two are parallel does the magnitude of the difference equal the difference of the magnitudes. Velocity is a vector; a small or circular case does not change that."
+      "explanation": "The vehicle must add the vector <strong>v</strong><sub>orbit</sub> minus <strong>v</strong><sub>site</sub>. Only when the two are parallel does the magnitude of the difference equal the difference of the magnitudes. A small site speed or a circular orbit does not change that."
     },
     {
       "id": "S2.3-q3",
@@ -51,7 +51,7 @@
         "56°, which is 90° minus the latitude",
         "90°, since only a polar orbit passes over the site"
       ],
-      "explanation": "From cos <i>i</i> = cos <i>φ</i> sin <i>Az</i> and sin <i>Az</i> ≤ 1, cos <i>i</i> ≤ cos <i>φ</i>, so <i>i</i> ≥ <i>φ</i>; the minimum comes at <i>Az</i> = 90°. No azimuth gives 0°. 56° confuses the latitude with its complement, and many inclinations besides 90° pass over the site."
+      "explanation": "From cos <i>i</i> = cos <i>φ</i> sin <i>Az</i> and sin <i>Az</i> ≤ 1, cos <i>i</i> ≤ cos <i>φ</i>, so <i>i</i> ≥ <i>φ</i>; the minimum comes at <i>Az</i> = 90°. No azimuth gives 0°. 56° mixes up the latitude with 90° minus it, and many inclinations besides 90° pass over the site."
     },
     {
       "id": "S2.3-q5",
@@ -64,7 +64,7 @@
         "46.8° or 133.2°",
         "None: 50° is out of reach from 20° N"
       ],
-      "explanation": "sin <i>Az</i> = cos 50° / cos 20° = 0.6840, so <i>Az</i> = 43.2° or 180° − 43.2° = 136.8°. Stopping at the calculator's one answer misses the southeast root. 46.8° comes from solving for cos <i>Az</i> instead of sin <i>Az</i>. The target is reachable because 50° is above the latitude."
+      "explanation": "sin <i>Az</i> = cos 50° / cos 20° = 0.6840, so <i>Az</i> = 43.2° or 180° − 43.2° = 136.8°. The calculator gives only the first; do not miss the southeast one. 46.8° comes from solving for cos <i>Az</i> instead of sin <i>Az</i>. The target is reachable because 50° is above the latitude."
     },
     {
       "id": "S2.3-q6",
@@ -77,7 +77,7 @@
         "The station must be directly above the launch site at liftoff",
         "The launch range allows each azimuth only at one time of day"
       ],
-      "explanation": "The site rotates with Earth while the plane stays fixed among the stars; a direct launch is possible only as the site crosses the plane, which defines the launch window. Earth's rotation rate is constant, the station need not be overhead, and azimuth limits do not depend on the time of day."
+      "explanation": "The site rotates with Earth while the plane stays fixed among the stars; a direct launch is possible only as the site crosses the plane, and the time around that crossing is the launch window. Earth's rotation rate is constant, the station need not be overhead, and azimuth limits do not depend on the time of day."
     },
     {
       "id": "S2.3-q7",

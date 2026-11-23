@@ -3,7 +3,7 @@ title: "Concept generation and trade studies"
 short_title: Concepts and trade studies
 ---
 
-Requirements say what a vehicle must do; they do not say what it looks like. Between the two lies a choice among designs that differ in kind: a conventional airplane or one that takes off vertically, a piston engine or electric motors. This page shows how engineers make that choice so that others can check it. They generate several concepts without judging them, compare them in a weighted decision matrix, check whether the answer depends on the weights, and write the decision down. One example runs through the page: an uncrewed cargo aircraft that carries supplies between small islands. No course standard is assessed on this page.
+Requirements say what a vehicle must do. They do not say what it looks like. Between the two lies a choice among designs that differ in kind: a conventional airplane or one that takes off vertically, a piston engine or electric motors. Here we make that choice in a way others can check. We generate several concepts without judging them, compare them in a weighted decision matrix, check whether the answer depends on the weights, and write the decision down. One example runs through the page: an uncrewed cargo aircraft that carries supplies between small islands. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - Generate concepts before judging them: list the functions, list several ways to do each, and combine one way per function into a concept.
@@ -14,27 +14,27 @@ Requirements say what a vehicle must do; they do not say what it looks like. Bet
 
 ## What a trade study is
 
-A design starts as a {term}`concept`: a short description of how the vehicle will do its job, specific enough to estimate its weight, cost, and performance. (The first weight estimate of a concept is the subject of [aircraft sizing](#p16-iteration).) A turboprop airplane that lands on a runway is one concept for the island cargo aircraft; an electric aircraft that takes off vertically is another.
+A design starts as a {term}`concept`: a short description of how the vehicle will do its job, specific enough to estimate its weight, cost, and performance. (We make the first weight estimate of a concept with [aircraft sizing](#p16-iteration).) A turboprop airplane that lands on a runway is one concept for the island cargo aircraft. An electric aircraft that takes off vertically is another.
 
 :::{prf:definition} Trade study
 :label: def-p17-trade-study
 
-A {term}`trade study` compares alternative ways to meet the same requirements, ranks them against criteria taken from those requirements, and drops the less promising ones (NASA 2016, Appendix B). The word "trade" is short for trade-off: no concept is best on every criterion, so the study makes explicit what each choice gives up.
+A {term}`trade study` compares alternative ways to meet the same requirements, ranks them against criteria taken from those requirements, and drops the less promising ones (NASA 2016, Appendix B). The word "trade" is short for trade-off: no concept is best on every criterion, so the study shows what each choice gives up.
 :::
 
-{numref}`fig-p17-trade-study-steps` shows the order of the steps, which matters more than any formula on this page. Concepts come first, so that the comparison has real alternatives. The weights come before the scores, so that nobody can tune them toward a favorite. The check and the record come last, so that the decision can be defended and revisited.
+The order of the steps ({numref}`fig-p17-trade-study-steps`) matters more than any formula on this page. We generate concepts first, so that the comparison has real alternatives. We set the weights before the scores, so that nobody can tune them toward a favorite. The check and the record come last, so that the decision can be defended and revisited.
 
 :::{figure} figures/p17-trade-study-steps.svg
 :label: fig-p17-trade-study-steps
 :alt: A flow chart of seven numbered boxes from top to bottom joined by arrows. 1, generate concepts, one option per function. 2, pick the criteria from the requirements. 3, set the weights before scoring; they add up to 1. 4, score each concept from 1 to 5. 5, add up weight times score for each concept. 6, change the weights and watch the winner. 7, record the decision in the log. A brace on the right groups steps 2 to 6 as the decision matrix.
 :width: 75%
 
-Schematic of a trade study in seven steps. The weights are fixed in step 3, before any concept is scored in step 4, and the result is tested in step 6 before it is recorded.
+Schematic of a trade study in seven steps. The weights are fixed in step 3, before any scoring, and the result is tested before it is recorded.
 :::
 
 ## Generate concepts before judging them
 
-The first concept that comes to mind is rarely the best one, and judging it at once stops the search. Product designers therefore separate the two activities: generate many concepts first, judge them later (Ulrich and Eppinger 2016, Chapter 7; Roemer 2006). One way to generate them systematically is the {term}`combination table`:
+The first concept that comes to mind is rarely the best one, and if we judge it at once, the search stops. So product designers keep the two activities apart: generate many concepts first, judge them later (Ulrich and Eppinger 2016, Chapter 7; Roemer 2006). One orderly way to generate them is the {term}`combination table`:
 
 :::{tip} Method: generating concepts with a combination table
 1. List the functions the vehicle must perform. Take them from the requirements: a requirement on the cargo load becomes the function "carry cargo."
@@ -43,7 +43,7 @@ The first concept that comes to mind is rarely the best one, and judging it at o
 4. Keep at least three concepts that differ in their main options, not only in a detail.
 :::
 
-{numref}`fig-p17-combination-table` is the combination table of the island cargo aircraft. It has four functions with three options each, so it holds $3 \times 3 \times 3 \times 3 = 81$ combinations. Some make no sense, such as a sling load under a fixed wing that takes off from a runway, and a few are worth a closer look. Some that look odd are real: a rotor with a runway takeoff is an autogyro. The traced path is one concept: a wing plus lift rotors, electric motors, vertical takeoff, and cargo inside the fuselage. That is a "lift-plus-cruise" aircraft: separate rotors lift it for a vertical takeoff and landing (VTOL), and a propeller and the wing carry it in cruise.
+{numref}`fig-p17-combination-table` is the combination table of the island cargo aircraft. It has four functions with three options each, so it holds $3 \times 3 \times 3 \times 3 = 81$ combinations. Some make no sense, such as a sling load under a fixed wing that takes off from a runway. A few are worth a closer look, and some that look odd are real: a rotor with a runway takeoff is an autogyro. The traced path is one concept: a wing plus lift rotors, electric motors, vertical takeoff, and cargo inside the fuselage. This is a "lift-plus-cruise" aircraft: separate rotors lift it for a vertical takeoff and landing (VTOL), and a propeller and the wing carry it in cruise.
 
 :::{figure} figures/p17-combination-table.svg
 :label: fig-p17-combination-table
@@ -53,7 +53,7 @@ The first concept that comes to mind is rarely the best one, and judging it at o
 Schematic of the combination table of the island cargo aircraft. A concept is one option for each function: concept C, an electric lift-plus-cruise VTOL, is traced through the table, and the other 80 paths are other concepts.
 :::
 
-Three concepts go forward, chosen to differ in how they make thrust and how they take off ({numref}`tbl-p17-concepts`).
+We carry three concepts forward, chosen to differ in how they make thrust and how they take off ({numref}`tbl-p17-concepts`).
 
 :::{table} The three concepts of the island cargo aircraft, one option per function.
 :label: tbl-p17-concepts
@@ -65,7 +65,7 @@ Three concepts go forward, chosen to differ in how they make thrust and how they
 | C, electric lift-plus-cruise VTOL | Wing plus lift rotors | Electric motors | Vertical | Inside fuselage |
 :::
 
-A concept that cannot meet a must-have requirement at all is dropped here, before any scoring, and the log says why. Scoring it would only add noise to the matrix (NASA 2016, Section 6.8.1.2.1; Goldberg et al. 1994, Section 2.1.3).
+If a concept cannot meet a must-have requirement at all, we drop it here, before any scoring, and the log says why. Scoring it would only add noise to the matrix (NASA 2016, Section 6.8.1.2.1; Goldberg et al. 1994, Section 2.1.3).
 
 :::{warning} Three versions of one idea are not three concepts
 Three conventional airplanes that differ only in wing span give the matrix nothing to decide. Make the concepts differ in their main options: how the vehicle makes lift, makes thrust, or takes off.
@@ -74,14 +74,14 @@ Three conventional airplanes that differ only in wing span give the matrix nothi
 (p17-decision-matrix)=
 ## The weighted decision matrix
 
-A {term}`decision matrix` lists the criteria in rows and the concepts in columns (NASA 2016, Appendix B). A {term}`criterion` is a property on which the concepts are compared, taken from the [requirements](needs-and-requirements.md): payload and range, operating cost, runway length, and so on. Each criterion carries a {term}`weight <Weight of a criterion>`, a fraction that says how much it counts. Each concept gets a score from 1 (poor) to 5 (excellent) on each criterion, and its weighted total is
+We compare the concepts in a {term}`decision matrix`, which lists the criteria in rows and the concepts in columns (NASA 2016, Appendix B). A {term}`criterion` is a property on which we compare the concepts, taken from the [requirements](needs-and-requirements.md): payload and range, operating cost, runway length, and so on. Each criterion carries a {term}`weight <Weight of a criterion>`, a fraction that says how much it counts. Each concept gets a score from 1 (poor) to 5 (excellent) on each criterion, and its weighted total is
 
 :::{math}
 :label: eq-p17-weighted-total
 \text{total}_j = \sum_{i=1}^{n} w_i\, s_{ij}, \qquad \sum_{i=1}^{n} w_i = 1
 :::
 
-where $n$ is the number of criteria, $w_i$ the weight of criterion $i$, and $s_{ij}$ the score of concept $j$ on criterion $i$. Because the weights add up to 1, the total is a weighted average of the scores and also lies between 1 and 5. The weight $w_i$ is a pure number; it has nothing to do with the weight of the aircraft.
+where $n$ is the number of criteria, $w_i$ the weight of criterion $i$, and $s_{ij}$ the score of concept $j$ on criterion $i$. Because the weights add up to 1, the total is a weighted average of the scores and also lies between 1 and 5. The weight $w_i$ is a pure number. It has nothing to do with the weight of the aircraft.
 
 :::{tip} Method: building the decision matrix (steps 2 to 6)
 2. Pick four to six criteria from the requirements. Each must tell the concepts apart and must not measure the same thing as another criterion.
@@ -93,7 +93,7 @@ where $n$ is the number of criteria, $w_i$ the weight of criterion $i$, and $s_{
 
 ### Worked example: the island cargo aircraft
 
-The five criteria and their weights come from the requirements of the cargo service. Payload and range count most, because the aircraft exists to move supplies between islands. {numref}`tbl-p17-decision-matrix` gives the scores with each weighted score in parentheses. A score of 5 always means "best for the mission," so on a cost criterion 5 means the lowest cost, and on runway length 5 means the shortest runway.
+The five criteria and their weights come from the requirements of the cargo service. Payload and range count most, because the aircraft exists to move supplies between islands. {numref}`tbl-p17-decision-matrix` gives the scores. A score of 5 always means "best for the mission," so on a cost criterion 5 means the lowest cost, and on runway length 5 means the shortest runway.
 
 :::{table} Weighted decision matrix of the island cargo aircraft. Each cell gives the score from 1 to 5 and, in parentheses, the weight times the score.
 :label: tbl-p17-decision-matrix
@@ -141,7 +141,7 @@ Computed from {numref}`tbl-p17-decision-matrix`, with payload and range the bott
 :::
 
 :::{warning} Weights set after scoring steer the answer
-Once the scores are on the table, it is easy to raise the weight of the criterion where your favorite concept does well. Fix the weights first and write down the reason for each. NASA's decision report records the rationale for the weights in its own section, ahead of the rationale for the scores (NASA 2016, Table 6.8-1).
+Once the scores are on the table, it is tempting to raise the weight of the criterion where your favorite concept does well. Fix the weights first and write down the reason for each. NASA's decision report records the rationale for the weights in its own section, ahead of the rationale for the scores (NASA 2016, Table 6.8-1).
 :::
 
 :::{warning} One property counted twice
@@ -152,14 +152,14 @@ Two criteria that measure the same thing, such as "range" and "fuel needed for t
 
 The weights are judgments, so the winner should not depend on a small change in one of them. A {term}`sensitivity check` changes one weight, scales the others so that all of them still add up to 1, and recomputes the totals.
 
-Let criterion $k$ have the weight $w_k$, and change it to $w_k'$. To keep the sum at 1, multiply every other weight by the same factor:
+Suppose criterion $k$ has the weight $w_k$, and we change it to $w_k'$. To keep the sum at 1, we multiply every other weight by the same factor:
 
 :::{math}
 :label: eq-p17-rescale
 f = \frac{1 - w_k'}{1 - w_k}
 :::
 
-The other weights add up to $1 - w_k$ before the change, so after it they add up to $f\,(1 - w_k) = 1 - w_k'$, and the total is 1 again. The part of concept $j$'s total that does not come from criterion $k$, call it $r_j = \text{total}_j - w_k s_{kj}$, is scaled by the same factor. The new total is therefore
+The other weights add up to $1 - w_k$ before the change, so after it they add up to $f\,(1 - w_k) = 1 - w_k'$, and the total is 1 again. We call $r_j = \text{total}_j - w_k s_{kj}$ the part of concept $j$'s total that does not come from criterion $k$. It is scaled by the same factor, so the new total is
 
 :::{math}
 :label: eq-p17-new-total
@@ -168,7 +168,7 @@ The other weights add up to $1 - w_k$ before the change, so after it they add up
 
 ### Worked example: a larger weight on runway length
 
-Raise the runway weight from 0.20 to 0.35 (criterion $k$ is runway length).
+We raise the runway weight from 0.20 to 0.35 (criterion $k$ is runway length).
 
 1. **Rest of each total.** Without the runway part: $r_\text{A} = 3.25 - 0.40 = 2.85$, $r_\text{B} = 3.45 - 0.40 = 3.05$, and $r_\text{C} = 3.05 - 1.00 = 2.05$.
 2. **Scaling factor**, [](#eq-p17-rescale): $f = 0.65/0.80 = 0.8125$.
@@ -197,14 +197,14 @@ Raise the runway weight from 0.20 to 0.35 (criterion $k$ is runway length).
                             &= 3.416
    \end{aligned}
    $$
-4. **Tie weight.** Write $w$ for the new runway weight $w_k'$. Each new total is a straight line in $w$, so B and C tie, at the weight $w_k^{*}$, where their two lines cross:
+4. **Tie weight.** We write $w$ for the new runway weight $w_k'$. Each new total is a straight line in $w$, and B and C tie at the weight $w_k^{*}$ where their two lines cross:
    $$
    \begin{aligned}
    \text{B:}\quad &2w + (1 - w)\,\frac{3.05}{0.80}\\
    \text{C:}\quad &5w + (1 - w)\,\frac{2.05}{0.80}
    \end{aligned}
    $$
-   Set the two equal and move the $(1 - w)$ terms to the left and the $w$ terms to the right; then multiply by 0.80 and solve for $w$:
+   We set the two equal, move the $(1 - w)$ terms to the left and the $w$ terms to the right, then multiply by 0.80 and solve for $w$:
    $$
    \begin{aligned}
    (1 - w)\,\frac{1.00}{0.80} &= 3w\\
@@ -216,7 +216,7 @@ Raise the runway weight from 0.20 to 0.35 (criterion $k$ is runway length).
 
 **Check.** The new weights still add up to 1: $0.35 + 0.8125 \times 0.80 = 1.000$. At $w_k^{*}$ both totals equal 3.279.
 
-C now wins. {numref}`fig-p17-weight-sensitivity` draws all three lines. Any runway weight below 0.2941 keeps B ahead; any weight above it puts C ahead. The margin is only $0.2941 - 0.20 = 0.094$, less than half the weight already given to runway length. Concept A never wins: it has the same runway score as B and a smaller $r$, so its line stays below B's.
+At 0.35, C wins. {numref}`fig-p17-weight-sensitivity` draws all three lines. Any runway weight below 0.2941 keeps B ahead, and any weight above it puts C ahead. The margin is only $0.2941 - 0.20 = 0.094$, less than half the weight already given to runway length. Concept A never wins: it has the same runway score as B and a smaller $r$, so its line stays below B's.
 
 :::{figure} figures/p17-weight-sensitivity.svg
 :label: fig-p17-weight-sensitivity
@@ -226,7 +226,7 @@ C now wins. {numref}`fig-p17-weight-sensitivity` draws all three lines. Any runw
 Computed from {numref}`tbl-p17-decision-matrix` with [](#eq-p17-new-total), the other four weights scaled to keep the sum at 1. The winner changes from B to C when the runway weight passes the tie weight, 0.2941, not far above the 0.20 set first.
 :::
 
-Test the scores the same way. The gap between B and A is $3.45 - 3.25 = 0.20$, smaller than the 0.25 that one step on the operating-cost score is worth. If B's operating cost were scored 2 instead of 3, B's total would fall to 3.20 and A would win. NASA's handbook asks that a recommendation say whether such changes could reverse the ranking, and that closely ranked alternatives be reported together (NASA 2016, Section 6.8.1.2.5). For the island aircraft, the honest result is: B, by a small margin over A, and C if a short runway matters more than the weights say. Scores from 1 to 5 are judgments, so totals this close call for better data before the choice is final (Goldberg et al. 1994, Section 2.1.3). Here the data needed are the operating cost and the runways of the islands.
+We test the scores the same way. The gap between B and A is $3.45 - 3.25 = 0.20$, smaller than the 0.25 that one step on the operating-cost score is worth. If B's operating cost were scored 2 instead of 3, B's total would fall to 3.20 and A would win. NASA's handbook asks that a recommendation say whether such changes could reverse the ranking, and that closely ranked alternatives be reported together (NASA 2016, Section 6.8.1.2.5). For the island aircraft, the fair result is B, by a small margin over A, and C if a short runway matters more than the weights say. Scores from 1 to 5 are judgments, so totals this close call for better data before the choice is final (Goldberg et al. 1994, Section 2.1.3). Here that means the operating cost and the runways of the islands.
 
 ## The trade-study log
 
@@ -245,7 +245,7 @@ A decision that is not written down gets argued again later, often by people who
 | Who decided | The design group; the configuration engineer wrote the entry |
 :::
 
-The entry also carries the date of the decision. The line "what would change it" is the most useful one: when a requirement changes, a glance through the log shows which decisions must be reopened.
+The entry also carries the date of the decision. The line "what would change it" is the most useful one. When a requirement changes, a look through the log shows which decisions you must reopen.
 
 ## Summary
 
@@ -288,3 +288,4 @@ Goldberg et al. (1994, Section 2.1) work a weighted trade study end to end, with
 - Raymer, D. P., *Aircraft Design: A Conceptual Approach*, 4th ed., AIAA, 2006.
 - Roemer, T. A., "[Product Specifications and Concept Generation](https://ocw.mit.edu/courses/15-783j-product-design-and-development-spring-2006/resources/clas7_cncpt_genr/)," lecture notes, 15.783J Product Design and Development, MIT OpenCourseWare, 2006.
 - Ulrich, K. T., and Eppinger, S. D., *Product Design and Development*, 6th ed., McGraw-Hill, 2016. Chapter 7 (concept generation) and Chapter 8 (concept selection).
+

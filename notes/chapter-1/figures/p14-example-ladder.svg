@@ -245,7 +245,7 @@ z
     </g>
    </g>
    <g id="text_5">
-    <!-- $T_1$ = 216.66 K,  $p_1$ = 22,650 Pa -->
+    <!-- $T_1$ = 216.66 K,  $p_1$ = 22,616 Pa -->
     <g transform="translate(266.943037 158.70224)">
      <text>
       <tspan x="0" y="-0.09375" style="font-style: italic; font-size: 11px; font-family: Arial, Helvetica, sans-serif">T</tspan>
@@ -273,8 +273,8 @@ z
       <tspan x="106.892844" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">2</tspan>
       <tspan x="113.01052" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">,</tspan>
       <tspan x="116.066672" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">6</tspan>
-      <tspan x="122.184348" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">5</tspan>
-      <tspan x="128.302023" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">0</tspan>
+      <tspan x="122.184348" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">1</tspan>
+      <tspan x="128.302023" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">6</tspan>
       <tspan x="134.419699" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif"> </tspan>
       <tspan x="137.475852" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">P</tspan>
       <tspan x="144.812766" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">a</tspan>
@@ -282,7 +282,7 @@ z
     </g>
    </g>
    <g id="text_6">
-    <!-- $\rho_1$ = 0.3642 kg/m³ -->
+    <!-- $\rho_1$ = 0.3637 kg/m³ -->
     <g transform="translate(298.513037 173.00224)">
      <text>
       <tspan x="0" y="-0.984375" style="font-style: italic; font-size: 11px; font-family: Arial, Helvetica, sans-serif">ρ</tspan>
@@ -294,8 +294,8 @@ z
       <tspan x="29.784068" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">.</tspan>
       <tspan x="32.840221" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">3</tspan>
       <tspan x="38.957896" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">6</tspan>
-      <tspan x="45.075572" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">4</tspan>
-      <tspan x="51.193248" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">2</tspan>
+      <tspan x="45.075572" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">3</tspan>
+      <tspan x="51.193248" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">7</tspan>
       <tspan x="57.310924" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif"> </tspan>
       <tspan x="60.367076" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">k</tspan>
       <tspan x="65.867076" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">g</tspan>
@@ -338,7 +338,7 @@ z
     </g>
    </g>
    <g id="text_8">
-    <!-- $T$ = 216.66 K,  $p$ = 4,684 Pa -->
+    <!-- $T$ = 216.66 K,  $p$ = 4,670 Pa -->
     <g transform="translate(274.863037 44.27744)">
      <text>
       <tspan x="0" y="-0.09375" style="font-style: italic; font-size: 11px; font-family: Arial, Helvetica, sans-serif">T</tspan>
@@ -363,8 +363,8 @@ z
       <tspan x="91.115234" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">4</tspan>
       <tspan x="97.23291" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">,</tspan>
       <tspan x="100.289062" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">6</tspan>
-      <tspan x="106.406738" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">8</tspan>
-      <tspan x="112.524414" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">4</tspan>
+      <tspan x="106.406738" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">7</tspan>
+      <tspan x="112.524414" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">0</tspan>
       <tspan x="118.64209" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif"> </tspan>
       <tspan x="121.698242" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">P</tspan>
       <tspan x="129.035156" y="-0.09375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">a</tspan>
@@ -372,7 +372,7 @@ z
     </g>
    </g>
    <g id="text_9">
-    <!-- $\rho$ = 0.07532 kg/m³ -->
+    <!-- $\rho$ = 0.07509 kg/m³ -->
     <g transform="translate(297.853037 58.57744)">
      <text>
       <tspan x="0" y="-0.984375" style="font-style: italic; font-size: 11px; font-family: Arial, Helvetica, sans-serif">ρ</tspan>
@@ -384,8 +384,8 @@ z
       <tspan x="28.010254" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">0</tspan>
       <tspan x="34.12793" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">7</tspan>
       <tspan x="40.245605" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">5</tspan>
-      <tspan x="46.363281" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">3</tspan>
-      <tspan x="52.480957" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">2</tspan>
+      <tspan x="46.363281" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">0</tspan>
+      <tspan x="52.480957" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">9</tspan>
       <tspan x="58.598633" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif"> </tspan>
       <tspan x="61.654785" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">k</tspan>
       <tspan x="67.154785" y="-0.984375" style="font-size: 11px; font-family: Arial, Helvetica, sans-serif">g</tspan>

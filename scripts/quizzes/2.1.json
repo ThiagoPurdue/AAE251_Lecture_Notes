@@ -12,7 +12,7 @@
         "<i>G</i> has a different value for each planet, so it is combined with that planet's mass",
         "<i>μ</i> has no units, so using it removes unit errors from orbit calculations"
       ],
-      "explanation": "Orbits reveal the product <i>GM</i>, not <i>G</i> or <i>M</i> alone. The spacecraft mass is left out of the two-body model, <i>G</i> is the same everywhere, and <i>μ</i> carries units of km<sup>3</sup>/s<sup>2</sup>."
+      "explanation": "The motion of moons and spacecraft gives us the product <i>GM</i> directly, not <i>G</i> or <i>M</i> alone. The two-body model leaves out the spacecraft mass, <i>G</i> is the same everywhere, and <i>μ</i> has units of km<sup>3</sup>/s<sup>2</sup>."
     },
     {
       "id": "S2.1-q2",
@@ -38,7 +38,7 @@
         "15,806 km",
         "1,175 km"
       ],
-      "explanation": "Radii from the center: <i>r<sub>p</sub></i> = 6,728 km and <i>r<sub>a</sub></i> = 9,078 km, so <i>a</i> = (<i>r<sub>p</sub></i> + <i>r<sub>a</sub></i>)/2 = 7,903 km. 1,525 km averages the altitudes, 15,806 km forgets to halve the sum, and 1,175 km is half the difference, the distance <i>c</i> from the center to the focus."
+      "explanation": "Radii from the center: <i>r<sub>p</sub></i> = 6,728 km and <i>r<sub>a</sub></i> = 9,078 km, so <i>a</i> = (<i>r<sub>p</sub></i> + <i>r<sub>a</sub></i>)/2 = 7,903 km. If you average the altitudes, you get 1,525 km; if you forget to halve the sum, 15,806 km. 1,175 km is half the difference, the distance <i>c</i> from the center to the focus."
     },
     {
       "id": "S2.1-q4",
@@ -77,7 +77,7 @@
         "The circle has more energy, because its speed never drops",
         "They cannot be compared without the masses of the satellites"
       ],
-      "explanation": "The energy depends only on the semi-major axis. The ellipse trades speed for altitude around its orbit, but the sum stays the same and equals that of the circle. Specific orbital energy is per unit mass, so no mass is needed."
+      "explanation": "The energy depends only on the semi-major axis. The ellipse trades speed for altitude around its orbit, but the sum stays the same and equals that of the circle. Specific orbital energy is per unit mass, so you do not need the masses."
     },
     {
       "id": "S2.1-q7",
@@ -90,7 +90,7 @@
         "10.39 km/s",
         "7.905 km/s"
       ],
-      "explanation": "With <i>r</i> = 7,378 km, <i>v<sub>c</sub></i> = √(<i>μ</i>/<i>r</i>) = 7.350 km/s. 19.96 km/s uses the altitude as the radius, 10.39 km/s is the escape speed √(2<i>μ</i>/<i>r</i>), and 7.905 km/s is the circular speed at Earth's surface."
+      "explanation": "With <i>r</i> = 7,378 km, <i>v<sub>c</sub></i> = √(<i>μ</i>/<i>r</i>) = 7.350 km/s. If you use the altitude as the radius, you get 19.96 km/s. 10.39 km/s is the escape speed √(2<i>μ</i>/<i>r</i>), and 7.905 km/s is the circular speed at Earth's surface."
     },
     {
       "id": "S2.1-q8",

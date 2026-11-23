@@ -18,9 +18,10 @@
 
 **Chapter 3: Aerodynamics**
 
-- 3.1 Wind Tunnels
-- 3.2 Airfoil and Finite Wing
-- 3.3 Drag Polar
+- [3.1 Wind Tunnels](chapter-3/wind-tunnels.md)
+- [3.2 Airfoil and Finite Wing](chapter-3/airfoil-and-finite-wing.md)
+- [3.3 Drag Polar](chapter-3/drag-polar.md)
+- [Wing loading](chapter-3/wing-loading.md)
 
 **Chapter 4: Rocket Design**
 

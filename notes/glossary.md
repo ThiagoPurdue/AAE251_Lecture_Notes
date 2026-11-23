@@ -2,11 +2,14 @@
 title: Glossary
 ---
 
-The notes use these terms in a fixed sense. In the text, a term with a dotted underline opens its definition.
+Each term below has one meaning throughout the notes. In the text, a term with a dotted underline opens its definition.
 
 :::{glossary}
 Aerobraking
 : Lowering the apoapsis of an orbit with atmospheric drag instead of a burn: the periapsis is placed in the upper atmosphere, and each pass removes a little speed. A small burn at the end lifts the periapsis out of the atmosphere.
+
+Aerodynamic center
+: The point on the chord of an airfoil about which the pitching moment does not change with the angle of attack. On airfoils at low speed it lies near the quarter chord; the moment coefficient about it is written $c_{m,\text{ac}}$.
 
 Aileron
 : A moving surface on the trailing edge near each wing tip. The two ailerons move in opposite directions and roll the aircraft.
@@ -15,10 +18,13 @@ Airfoil
 : The cross-section shape of a wing, cut parallel to the centerline: rounded at the leading edge, sharp at the trailing edge, described by its chord, camber, and thickness. Also called a wing section.
 
 Airspeed indicator
-: The flight instrument that shows airspeed. A diaphragm inside it feels the total pressure from the pitot line on one side and the static pressure from the static line on the other; its dial turns the difference $p_0 - p$ into a speed using the sea-level standard density.
+: The flight instrument that shows airspeed. A diaphragm inside it has the total pressure on one side and the static pressure on the other, and the dial turns the difference $p_0 - p$ into a speed using the sea-level standard density.
 
 Altimeter
 : The flight instrument that shows altitude. Sealed metal capsules (aneroid wafers) inside it expand as the static pressure falls, and its dial shows the standard-atmosphere altitude that has that pressure.
+
+Angle of attack
+: The angle $\alpha$ between the free-stream direction and the chord line of an airfoil or wing, positive with the leading edge tilted up into the free stream. It does not depend on the horizon.
 
 Apoapsis
 : The point of an orbit farthest from the central body, at radius $r_a = a(1 + e)$. Around Earth it is called the apogee, around the Sun the aphelion.
@@ -30,7 +36,10 @@ Aspect ratio
 : $\textit{AR} = b^2/S$, the wing span squared divided by the wing area. A long, narrow wing has a high aspect ratio; for a rectangular wing it is the span over the chord.
 
 Atomic oxygen
-: Oxygen as single atoms, made when ultraviolet sunlight splits oxygen molecules in the thin upper atmosphere. Between about 180 and 650 km it is the most common gas; a spacecraft that meets it at orbital speed has polymer and composite surfaces oxidized and worn away.
+: Oxygen as single atoms, made when ultraviolet sunlight splits oxygen molecules in the thin upper atmosphere. Between about 180 and 650 km it is the most common gas, and at orbital speed it oxidizes and wears away the polymer and composite surfaces of a spacecraft.
+
+Balance
+: The instrument a wind-tunnel model is mounted on: a set of load cells that measures the forces (lift, drag, side force) and the moments on the model.
 
 Ballistic coefficient
 : $B = m/(C_D A)$, the mass of a vehicle divided by its drag coefficient times its reference area, in kg/m². The higher it is, the less drag slows the vehicle.
@@ -38,11 +47,17 @@ Ballistic coefficient
 Bernoulli's equation
 : $p + \tfrac12\rho V^2 + \rho g z$ is the same at every point of a streamline in steady, incompressible flow without friction. Where the fluid speeds up, its pressure falls.
 
+Blockage
+: The crowding of the flow around a model by the walls of a wind tunnel's test section, measured by the model's frontal area divided by the test-section area. Above about 5% the measured forces need corrections.
+
 Body axes
 : Three perpendicular axes fixed to an aircraft and crossing at its center of gravity: $x$ forward through the nose, $y$ out along the right wing, and $z$ down. Roll, pitch, and yaw are rotations about them.
 
+Boundary layer
+: The thin layer of fluid next to a surface in which the speed rises from zero at the wall (no slip) to the speed of the flow outside. Viscous forces matter inside it; outside it the flow behaves as if it had no viscosity.
+
 Breguet range equation
-: The cruise weight fraction of a jet in steady level flight at constant speed, specific fuel consumption, and lift-to-drag ratio: $W_i/W_{i-1} = \exp[-R\,C/(V\,(L/D))]$, with the range $R$ in nautical miles, the speed $V$ in knots, and $C$ in 1/h.
+: The weight fraction of a jet's cruise segment, flown in steady level flight at constant speed, specific fuel consumption, and lift-to-drag ratio: $W_i/W_{i-1} = \exp[-R\,C/(V\,(L/D))]$, with the range $R$ in nautical miles, the speed $V$ in knots, and $C$ in 1/h.
 
 Camber
 : The distance between the mean camber line of an airfoil and its chord line, usually given at its largest value as a percentage of the chord. A symmetric airfoil has none.
@@ -53,6 +68,9 @@ Capture burn
 Center of gravity
 : The point where the whole weight of a vehicle can be taken to act. The body axes cross there, and the aircraft rotates about it.
 
+Center of pressure
+: The point on the chord where the resultant aerodynamic force acts, so that the moment about it is zero. It moves along the chord as the angle of attack changes.
+
 Chord
 : The distance from the leading edge to the trailing edge of an airfoil, measured along the chord line; $c$. The root chord $c_r$ is at the centerline and the tip chord $c_t$ at the wing tip.
 
@@ -61,6 +79,9 @@ Circular speed
 
 Circularization burn
 : A single burn at periapsis or apoapsis that changes the speed to the circular speed at that radius, so the orbit becomes a circle through that point.
+
+Closed-circuit wind tunnel
+: A wind tunnel that sends the same air around a closed loop: corners with turning vanes and a return leg bring the air from the diffuser back to the settling chamber, and the fan only makes up for the losses. Also called a Göttingen or closed-return tunnel.
 
 Combination table
 : A table with the functions of a vehicle in rows and several ways to perform each function in columns. Picking one option for each function gives one concept, so the table holds every combination of the options.
@@ -86,8 +107,14 @@ Constraint
 Continuity equation
 : Conservation of mass for a steady flow: the mass flow rate $\rho A V$ is the same at every cross section of a duct or a stream tube. For incompressible flow it becomes $A_1 V_1 = A_2 V_2$.
 
+Contraction
+: The smoothly narrowing duct of a wind tunnel between the settling chamber and the test section. It speeds the air up and evens out its unsteadiness. Also called the nozzle.
+
+Contraction ratio
+: The cross-section area of a wind tunnel's settling chamber divided by that of its test section, $A_1/A_2$. The test-section speed is the settling-chamber speed times this ratio.
+
 Criterion
-: A property on which competing concepts are compared in a decision matrix, such as payload and range or operating cost. Criteria come from the requirements, and each measures something the others do not. Plural: criteria.
+: A property on which competing concepts are compared in a decision matrix, such as payload and range or operating cost. Criteria (the plural) come from the requirements, and each one measures something the others do not.
 
 Decision matrix
 : A table that compares concepts, with the criteria in rows and the concepts in columns. Each concept is scored on each criterion, usually from 1 (poor) to 5 (excellent), and its weighted total is the sum of weight times score.
@@ -107,17 +134,35 @@ Density altitude
 Departure burn
 : The burn in a parking orbit that raises a spacecraft's speed to the speed of a departure hyperbola, so it leaves the planet with the hyperbolic excess speed it needs.
 
+Diffuser
+: The long, slowly widening duct of a wind tunnel downstream of the test section. It slows the air and raises its static pressure again; losses keep it from recovering all of it.
+
 Dihedral
 : The upward angle of a wing from the root to the tip, seen from the front. It makes the aircraft tend to roll its wings level after a gust.
+
+Downwash
+: The downward velocity $w$ that the wingtip vortices give the air at and behind a lifting wing. It tilts the flow the wing meets down by the induced angle of attack.
 
 Drag
 : The part of the total aerodynamic force on a body that lies along the free-stream direction, opposing the motion. Both pressure and shear stress contribute to it.
 
+Drag coefficient
+: The dimensionless drag $C_D = D/(qS)$ of a wing or aircraft; for an airfoil, per unit span, $c_d = D'/(qc)$.
+
+Drag polar
+: The relation between the drag coefficient and the lift coefficient of an aircraft, a wing, or an airfoil section, for one configuration, Reynolds number, and Mach number. In its parabolic form, $C_D = C_{D,0} + K C_L^2$ with $K = 1/(\pi e\,\textit{AR})$.
+
 Dynamic pressure
 : $q = \tfrac12 \rho V^2$, in Pa: the kinetic energy of a flow per unit volume. A pitot-static tube measures it as the difference between the total and the static pressure.
 
+Dynamic similarity
+: The condition in which the ratios of the forces in two flows are the same, so that one flow is a scaled copy of the other. For a geometrically similar model at low speed it requires the same Reynolds number; at high speed also the same Mach number.
+
 Eccentricity
 : The number $e$ that sets the shape of a conic section: 0 for a circle, between 0 and 1 for an ellipse, 1 for a parabola, and more than 1 for a hyperbola. For an ellipse, $e = (r_a - r_p)/(r_a + r_p)$.
+
+Effective angle of attack
+: The angle $\alpha_\text{eff}$ between the local relative wind and the chord line of a finite wing, the angle its sections actually work at: $\alpha_\text{eff} = \alpha - \alpha_i$.
 
 Elevator
 : The moving surface hinged to the trailing edge of the horizontal stabilizer. It pitches the aircraft: trailing edge up, nose up.
@@ -140,8 +185,14 @@ Equation of state
 Escape speed
 : The lowest speed at radius $r$ that carries a spacecraft away from the central body for good: $v_{\text{esc}} = \sqrt{2\mu/r}$, which puts it on a parabola.
 
+Finite wing
+: A real wing, with tips. Air flows around the tips, so its lift coefficient and drag coefficient, written in capitals ($C_L$, $C_D$), differ from those of its airfoil.
+
 Flap
 : A moving surface on the trailing edge of the wing, between the fuselage and the aileron, that moves down (and often back) to add camber and area, so the wing makes enough lift at the low speeds of takeoff and landing.
+
+Flow separation
+: The departure of a boundary layer from a surface, where a rising pressure has stopped the slow air near the wall. Behind it a wake forms; on a wing, separation causes the stall.
 
 Free-stream velocity
 : The velocity of the undisturbed air far ahead of a vehicle, relative to the vehicle, $V_\infty$. A vehicle moving through still air at a speed $V$ sees a free-stream velocity of the same size.
@@ -151,6 +202,9 @@ Fuel fraction
 
 Fuselage
 : The central body of an aircraft. It holds the crew, passengers, and cargo, and joins the wing and the tail.
+
+Geometric similarity
+: The condition in which a model has the shape of the full-size object: every length scaled by the same factor and every angle the same.
 
 Geostationary orbit
 : A circular orbit in the equatorial plane with a period of one sidereal day. The spacecraft stays above one point on the equator, so a ground antenna can point at it without tracking.
@@ -197,6 +251,18 @@ Incompressible flow
 Indicated airspeed
 : The speed shown by an airspeed indicator, $\sqrt{2(p_0 - p)/\rho_\text{SL}}$, computed with the sea-level standard density whatever the altitude. It equals the true airspeed only where the air has the sea-level density.
 
+Induced angle of attack
+: The angle $\alpha_i$ by which the downwash tilts the local relative wind below the free stream. For an elliptic lift distribution $\alpha_i = C_L/(\pi\,\textit{AR})$ in radians; for other wings, approximately $\alpha_i = 57.3\,C_L/(\pi e\,\textit{AR})$ in degrees.
+
+Induced drag
+: The drag a finite wing pays for its lift: the downwash tilts the lift back by the induced angle of attack, and the backward component is the induced drag. Its coefficient is $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$, so it is zero when the wing makes no lift.
+
+Infinite wing
+: A wing of constant section with no tips, so the flow over it is two-dimensional. A wind tunnel model that spans the test section from wall to wall behaves as one; its coefficients, the airfoil data, are written in lowercase ($c_l$, $c_d$, $c_m$).
+
+Interference drag
+: The extra parasite drag where two parts of an aircraft meet, such as a wing and a fuselage: the drag of the pair is more than the sum of the two alone. A fairing in the corner reduces it.
+
 Interstage
 : The structure between two stages of a launch vehicle. It surrounds the engine of the upper stage and falls away with the lower stage.
 
@@ -206,8 +272,14 @@ Inviscid flow
 Isothermal layer
 : A layer of a model atmosphere in which the temperature is the same at every altitude. Pressure and density fall exponentially with height in it.
 
+Kinematic viscosity
+: The dynamic viscosity of a fluid divided by its density, $\nu = \mu/\rho$, in m²/s. For sea-level air it is $1.460 \times {10}^{-5}$ m²/s.
+
 Knot
 : The unit of speed of air navigation: one nautical mile per hour, 0.514 m/s.
+
+Laminar flow
+: Flow in which the fluid moves in smooth layers that slide over one another without mixing. A boundary layer is laminar near a leading edge and at low Reynolds numbers.
 
 Lapse rate
 : The rate of change of temperature with altitude in a gradient layer, $a = dT/dh$, in K/m. It is negative where the temperature falls with height: $a = -0.0065$ K/m in the troposphere of the standard atmosphere.
@@ -219,10 +291,16 @@ Launch vehicle
 : A rocket that carries a payload from the ground into space, usually in stages that are dropped as their propellant runs out.
 
 Launch window
-: The span of time in which a launch can reach its target orbit. For a launch into a given orbit plane it opens when the rotating launch site passes through that plane.
+: The span of time in which a launch can reach its target orbit. For a launch into a given orbit plane it falls around the moment the rotating launch site passes through that plane.
 
 Lift
 : The part of the total aerodynamic force on a body that is perpendicular to the free-stream direction. A wing produces it by turning the flow; both pressure and shear stress contribute to it.
+
+Lift coefficient
+: The dimensionless lift $C_L = L/(qS)$ of a wing or aircraft; for an airfoil, per unit span, $c_l = L'/(qc)$.
+
+Lift-curve slope
+: The slope of the straight part of the lift coefficient against the angle of attack, per degree: $a_0$ for an airfoil, $a = a_0/(1 + 57.3\,a_0/(\pi e\,\textit{AR}))$ for a finite wing.
 
 Lift-to-drag ratio
 : $L/D$, the lift of an aircraft divided by its drag: a measure of its aerodynamic efficiency. Jet airliners reach a maximum of about 15 to 21.
@@ -243,13 +321,16 @@ Mach number
 : The speed of a vehicle divided by the speed of sound in the air around it, $M = V/a_s$. Below 1 the flight is subsonic, above 1 supersonic.
 
 Manometer
-: A tube of liquid, often U-shaped, that measures a pressure difference by the height difference $h$ of the liquid in its two legs: $\Delta p = \rho_\text{L}\,g\,h$, with $\rho_\text{L}$ the density of the liquid.
+: A tube of liquid, often U-shaped, that measures a pressure difference by the height difference $\Delta h$ of the liquid in its two legs: $\Delta p = \rho_\ell\,g\,\Delta h$, with $\rho_\ell$ the density of the liquid.
 
 Mass flow rate
 : $\dot{m} = \rho A V$, the mass of fluid that crosses a cross section of area $A$ per second, in kg/s.
 
+Maximum lift coefficient
+: $C_{L,\max}$, the highest lift coefficient a wing (or $c_{l,\max}$, an airfoil) reaches before it stalls. Flaps and slats raise it for takeoff and landing.
+
 Mean aerodynamic chord
-: The area-weighted average chord of a wing, $\bar{c}$; for a straight-tapered wing $\bar{c} = \tfrac{2}{3}\,c_r\,(1 + \lambda + \lambda^2)/(1 + \lambda)$. It is the reference length for the pitching of the wing.
+: The area-weighted average chord of a wing, $\bar{c}$; for a straight-tapered wing $\bar{c} = \tfrac{2}{3}\,c_r\,(1 + \lambda + \lambda^2)/(1 + \lambda)$. It is the reference length for the pitching moment of the wing.
 
 Metric
 : In a requirement, the quantity that is measured, such as the range with a full passenger load. A requirement is a metric and a value.
@@ -257,11 +338,14 @@ Metric
 Microburst
 : A small, intense downdraft that spreads out in all directions when it reaches the ground. An aircraft that crosses it close to the ground meets a headwind, then the downdraft, then a tailwind.
 
+Minimum-drag speed
+: The speed at which an aircraft in steady level flight has the least drag. It gives the lift coefficient $C_L^* = \sqrt{C_{D,0}/K}$, where the induced drag equals the parasite drag and $L/D$ is largest.
+
 Mission profile
 : A sketch of a mission as altitude against distance (or time), cut into segments such as takeoff, climb, cruise, descent, loiter, and landing, with the end of each segment numbered from 0 at the start of the takeoff.
 
 Mission statement
-: A brief description of the capability a system will provide and the benefit it brings to its customer. It names no specific design.
+: A short description of the capability a system will provide and the benefit it brings to its customer. It names no specific design.
 
 Mitigation
 : An action, taken or planned, that makes harm from a hazard or a risk less likely or less severe. It acts on the cause, on the hazard itself, or on the effect.
@@ -272,6 +356,12 @@ Nautical mile
 Need statement
 : One sentence, written as an attribute of the system, that says what a stakeholder needs from it without saying how the system will provide it, and without "must," "shall," or "should."
 
+No-slip condition
+: The fact that a fluid touching a solid surface moves with the surface: on a body at rest the fluid speed at the wall is zero.
+
+Open-circuit wind tunnel
+: A wind tunnel that draws air from the room, passes it once through the test section, and returns it to the room. Also called an Eiffel or open-return tunnel.
+
 Operating empty weight
 : The empty weight of an airliner as airlines and manufacturers publish it: the empty aircraft with its crew and the items needed to operate it, but no payload and no usable fuel.
 
@@ -280,6 +370,9 @@ Orbit decay
 
 Orbital period
 : The time $T$ for one revolution of a closed orbit: $T = 2\pi\sqrt{a^3/\mu}$. It depends only on the semi-major axis.
+
+Parasite drag
+: The drag an aircraft has just by moving through the air, whether or not it makes lift: skin friction drag, pressure drag, and interference drag. Its coefficient at zero lift is $C_{D,0}$.
 
 Parking orbit
 : A low circular orbit where the launch vehicle leaves a spacecraft, which waits there until it starts a transfer to its working orbit.
@@ -305,8 +398,11 @@ Phasing orbit
 Pitch
 : Rotation of an aircraft about its $y$ body axis, the axis out along the right wing. Positive pitch raises the nose.
 
+Pitching moment
+: The moment of the aerodynamic forces about a point on the chord, which tends to raise or lower the nose; positive nose up. Its coefficient is $C_M = M/(qSc)$, or $c_m = M'/(qc^2)$ for an airfoil.
+
 Pitot tube
-: A tube that points into the flow with a small hole at its tip. The flow stops at the tip, so the tube carries the total pressure $p_0$ to an instrument. A pitot-static tube adds static holes in its side.
+: A tube that points into the flow with a small hole at its tip, where the flow stops, so the tube carries the total pressure $p_0$ to an instrument. A pitot-static tube adds static holes in its side.
 
 Plane change
 : A burn that turns the orbit plane by an angle $\Delta i$ while keeping the speed, costing $2v\sin(\Delta i/2)$.
@@ -316,6 +412,9 @@ Planform
 
 Polar orbit
 : An orbit with an inclination of ${90}^\circ$, or close to it, which passes over both poles.
+
+Pressure drag
+: The parasite drag from the difference between the high pressure on the front of a body and the low pressure in the wake behind it, where the flow has left the surface. Also called form drag; streamlining reduces it.
 
 Prograde orbit
 : An orbit with an inclination below ${90}^\circ$, in which the satellite moves eastward, the same way as Earth turns.
@@ -330,13 +429,16 @@ Redundancy
 : The use of more than one independent means to do the same job, so that one unit can fail without losing the function. Two independent units that each fail with probability $p$ both fail with probability $p^2$.
 
 Requirement
-: A statement of what a system must do, made of a metric (the quantity that is measured) and a value (how much is required), with its reason recorded beside it. A good set of requirements is complete, dependent, and verifiable.
+: A statement of what a system must do, made of a metric (the quantity that is measured) and a value (how much is required), with its reason recorded beside it. A good set of requirements is complete, dependent (each one names a result, not a design), and verifiable.
 
 Reserve fuel
 : Fuel an aircraft carries beyond what the mission burns, for a diversion or a delay. In sizing it is counted together with trapped fuel (fuel that cannot be drawn from the tanks and lines) as 6% of the fuel burned.
 
 Retrograde orbit
 : An orbit with an inclination between ${90}^\circ$ and ${180}^\circ$, in which the satellite moves westward, against Earth's rotation.
+
+Reynolds number
+: The ratio of the inertial to the viscous forces in a flow, $\textit{Re} = \rho V L/\mu$, with $L$ a characteristic length that must be named (a chord, a body length, a diameter). Two geometrically similar flows with the same Reynolds number have the same pattern of boundary layers, transition, and separation.
 
 Risk
 : An uncertain event that would hurt a mission or a project, written as "If [event], then [consequence]" and described by its likelihood and its consequence.
@@ -356,6 +458,9 @@ Semi-major axis
 Sensitivity check
 : A test of a decision: change one weight (or one score), rescale the other weights so that they still add up to 1, recompute the totals, and see whether the winner changes. The result is reported with the decision.
 
+Settling chamber
+: The widest part of a wind tunnel, just ahead of the contraction, where the air moves slowly; station 1 in these notes. Its honeycomb straightens the flow, and its fine screens break up large eddies.
+
 Shear stress
 : The tangential force per unit area that a moving fluid exerts on a surface by friction, in Pa. With pressure, it is one of the two sources of every aerodynamic force.
 
@@ -368,6 +473,9 @@ Single-event effect
 Single-point failure
 : One part of a system, in hardware, software, or a person's action, whose failure alone would lose the mission.
 
+Skin friction drag
+: The parasite drag from the shear stress of the air on the surface of a body. It grows with the wetted area and the roughness of the surface.
+
 Slat
 : A moving surface on the leading edge of the wing that moves forward and down, opening a slot, so the wing can fly at a steeper angle to the air before it stalls.
 
@@ -375,10 +483,13 @@ Solar cycle
 : The rise and fall of the Sun's activity over about 11 years, measured for example by the F10.7 radio flux. Near solar maximum the upper atmosphere is denser, so drag on low satellites is higher.
 
 Solar radiation pressure
-: The push of sunlight on each square meter of a spacecraft, small and steady. It is nearly the same at every altitude of an Earth orbit, so above about 1,000 km, where drag is weak, the force it makes usually turns a spacecraft more than drag does.
+: The small, steady push of sunlight on each square meter of a spacecraft. It is nearly the same at every altitude of an Earth orbit, so above about 1,000 km, where drag is weak, it usually turns a spacecraft more than drag does.
 
 South Atlantic Anomaly
 : A region over South America and the southern Atlantic Ocean where Earth's magnetic field is weaker than elsewhere, so the inner radiation belt reaches down to the altitudes of low orbits.
+
+Span efficiency factor
+: The factor $e$ that measures how close the spanwise lift distribution of a wing is to an ellipse: 1 for the elliptic distribution, less than 1 for any other. Written for a whole aircraft it is often called the Oswald efficiency factor.
 
 Specific fuel consumption
 : $C$, the weight of fuel a jet engine burns per hour for each pound of thrust it makes, in 1/h. About 0.5 1/h in cruise for a high-bypass turbofan.
@@ -408,10 +519,13 @@ Stagnation point
 : A point where the flow is brought to rest against a body, such as the tip of a pitot tube. The pressure there is the total pressure of the flow.
 
 Stakeholder
-: A group or individual that is affected by a system or has a stake in it: the customer who pays, the users and maintainers, the developers, the regulators, and the public. Stakeholders are the source of a system's needs and constraints.
+: A person or group affected by a system or interested in it: the customer who pays, the users and maintainers, the developers, the regulators, and the public. Stakeholders are the source of a system's needs and constraints.
 
 Stall
 : The sudden loss of lift when a wing meets the air at too steep an angle and the flow breaks away from its upper surface.
+
+Stall speed
+: $V_\text{stall}$, the lowest speed at which an aircraft can hold steady, level flight: the speed at which the wing, at its maximum lift coefficient, just carries the weight, $V_\text{stall} = \sqrt{2(W/S)/(\rho\,C_{L,\max})}$.
 
 Standard
 : A statement of one thing you can do by the end of the course, written as an "I can ..." sentence. Each standard has its own page in these notes.
@@ -423,16 +537,19 @@ Static port
 : A small hole flush with the side of an aircraft or a probe, placed where the flow runs parallel to the surface, so that it senses the static pressure of the free stream.
 
 Static pressure
-: The pressure of a fluid at a point, $p$, in Pa: the normal force per unit area that its molecules exert on a surface moving with the fluid, $p = dF/dA$. In still air it is the air pressure; in a flow it is the pressure a static port senses. It is the $p$ of the equation of state.
+: The normal force per unit area, $p = dF/dA$ in Pa, that the molecules of a fluid exert on a surface moving with the fluid. In still air it is the air pressure, in a flow it is what a static port senses, and it is the $p$ of the equation of state.
 
 Steady flow
 : A flow in which nothing at a fixed point changes with time: the pressure, density, temperature, and velocity at each point stay the same.
+
+Steady level flight
+: Flight at constant speed and constant altitude, with no acceleration: lift equals weight and thrust equals drag.
 
 Stratosphere
 : The layer of the atmosphere above the troposphere. In the standard atmosphere its lower part, from 11 to 25 km, is isothermal at 216.66 K, and its upper part warms with height.
 
 Stream tube
-: The bundle of streamlines that pass through a small closed curve. No fluid crosses its wall, so the continuity equation applies to it like a pipe.
+: The bundle of streamlines that pass through a small closed curve. No fluid crosses its wall, so the continuity equation applies to it as to a pipe.
 
 Streamline
 : In steady flow, the path that every fluid element passing a given point follows. The velocity is tangent to it at each point, so no fluid crosses a streamline.
@@ -450,13 +567,19 @@ Synodic period
 : The time between two successive returns of the same alignment of two planets as seen from the Sun, $S = 1/|1/T_1 - 1/T_2|$. A launch opportunity between them comes once every synodic period.
 
 System
-: An integrated composite of people, products, and processes that provide a capability to satisfy a stated need or objective. It is described by its function, its inputs and outputs, its boundary, and its form.
+: A set of people, products, and processes that work together as one whole to provide a capability that meets a stated need or objective. It is described by its function, its inputs and outputs, its boundary, and its form.
 
 Takeoff weight
-: $W_0$, the weight of an aircraft at the start of its takeoff run, with crew, payload, and all the fuel for the design mission. Also called the takeoff gross weight or the gross weight. It is the sum of the crew, payload, fuel, and empty weights.
+: $W_0$, the weight of an aircraft at the start of its takeoff run: the sum of the crew, payload, fuel, and empty weights, with all the fuel for the design mission. Also called the takeoff gross weight or the gross weight.
 
 Taper ratio
 : $\lambda = c_t/c_r$, the tip chord of a wing divided by its root chord: 1 for a rectangular wing, 0 for a pointed one.
+
+Test section
+: The narrowest part of a low-speed wind tunnel, where the air is fastest and the model is mounted; station 2 in these notes.
+
+Thrust-to-weight ratio
+: $T/W$, the thrust of the engines divided by the weight of the aircraft, which sets the size of the engines. A propeller aircraft uses the power-to-weight ratio $P/W$ instead.
 
 Total ionizing dose
 : The energy that charged particles leave in electronic parts over a mission, and the damage that builds up with it until the parts fail.
@@ -465,16 +588,22 @@ Total pressure
 : $p_0 = p + \tfrac12 \rho V^2$, the pressure a flowing fluid reaches when it is brought to rest without friction. It is constant along a streamline in steady, incompressible, inviscid flow.
 
 Traceability
-: The link from each requirement to the need it comes from, and from each need to the requirements that answer it. Checked in a traceability matrix: every row (need) and every column (requirement) holds a mark.
+: The link from each requirement to the need it comes from, and from each need to the requirements that answer it. It is checked in a traceability matrix, where every row (need) and every column (requirement) must hold a mark.
 
 Trade study
-: A comparison of alternative ways to meet the same requirements, which ranks them against criteria taken from those requirements and drops the less promising ones. It makes explicit what each choice gives up.
+: A comparison of alternative ways to meet the same requirements, which ranks them against criteria taken from those requirements and drops the less promising ones. It records what each choice gives up.
 
 Trade-study log
 : A record with one entry per design decision: the decision, the options considered, the criteria and data, the result, what would change it, and who decided.
 
 Transfer orbit
 : The orbit a spacecraft follows between two burns that take it from one orbit to another; for a Hohmann transfer, half of an ellipse.
+
+Transition
+: The change of a boundary layer from laminar to turbulent. On a smooth flat plate it begins near a local Reynolds number $\textit{Re}_x = 5 \times {10}^{5}$; roughness and an unsteady oncoming flow bring it earlier.
+
+Trip strip
+: A thin band of roughness (grit or small bumps) fixed near the nose or leading edge of a wind-tunnel model to force the boundary layer turbulent where it would be on the full-size aircraft.
 
 Tropopause
 : The top of the troposphere, where the temperature stops falling with height: 11 km and 216.66 K in the standard atmosphere of these notes. It is the lower boundary of the stratosphere, not a layer.
@@ -487,6 +616,12 @@ True airspeed
 
 True anomaly
 : The angle $\theta$ at the central body from periapsis to the spacecraft, measured in the direction of motion.
+
+Turbulent flow
+: Flow in which the fluid tumbles in eddies of many sizes that mix it across the layers. A turbulent boundary layer is thicker than a laminar one, has more skin friction, and stays attached longer against a rising pressure.
+
+Turning vanes
+: The rows of curved plates in the corners of a closed-circuit wind tunnel that guide the air around each bend without separating.
 
 Two-body problem
 : The motion of two point masses under their mutual gravity alone. Its solution is a conic section with the central body at a focus.
@@ -506,24 +641,45 @@ Vertical speed indicator
 Vis-viva equation
 : $v^2 = \mu(2/r - 1/a)$: the speed at radius $r$ on an orbit of semi-major axis $a$, for every conic section.
 
+Viscosity
+: The resistance of a fluid to the sliding of one layer over another: the dynamic viscosity $\mu$ in $\tau = \mu\, du/dy$, in kg/(m s). For a gas it rises with temperature; for a liquid it falls.
+
 Volume flow rate
 : $Q = A V$, the volume of fluid that crosses a cross section of area $A$ per second, in m³/s.
+
+Wake
+: The region of slow, often swirling fluid behind a body, downstream of where the flow has separated or the boundary layers leave the surface.
+
+Wave drag
+: The drag from shock waves that form on an aircraft as it nears the speed of sound. It rises sharply once the speed passes the critical Mach number.
 
 Weight fraction
 : $W_i/W_{i-1}$, the weight at the end of mission segment $i$ divided by the weight at its start. The fractions of all the segments multiply to give the weight at the end of the mission as a fraction of the takeoff weight.
 
 Weight of a criterion
-: A fraction that says how much a criterion counts in a decision matrix. The weights of all criteria add up to 1 and are set before any concept is scored. It is a pure number, not the weight of the vehicle.
+: A fraction that says how much a criterion counts in a decision matrix; the weights of all criteria add up to 1 and are set before any concept is scored. It is a pure number, not the weight of the vehicle.
 
 Wind shear
 : A sudden change of wind speed or direction over a short distance. Near the ground it can take away the airspeed of an aircraft that is taking off or landing.
+
+Wind tunnel
+: A facility that moves air past a model held still, so that the forces, pressures, and flow pattern of a flight can be measured on the ground.
 
 Wing loading
 : The takeoff weight divided by the wing area, $W_0/S$, in lb/ft² or N/m². The higher it is, the smaller the wing for the aircraft and the faster it must fly to make enough lift.
 
 Winglet
-: A small surface rising from a wing tip that weakens the wingtip vortex and so lowers the drag in cruise.
+: A small surface rising from a wing tip that lowers the induced drag of the wing in cruise.
+
+Wingtip vortex
+: The swirl of air that trails from each tip of a lifting wing, formed as air flows around the tip from the higher pressure below the wing to the lower pressure above. Seen from behind, the right-tip vortex turns counterclockwise and the left-tip vortex clockwise.
 
 Yaw
 : Rotation of an aircraft about its $z$ body axis, the axis pointing down. Positive yaw swings the nose to the right.
+
+Zero-lift angle of attack
+: The angle of attack $\alpha_{L=0}$ at which an airfoil or wing makes no lift: zero for a symmetric airfoil, negative for a positively cambered one. A finite wing has the same zero-lift angle as its airfoil.
+
+Zero-lift drag coefficient
+: $C_{D,0}$, the drag coefficient of an aircraft when it makes no lift. It uses the wing area as the reference area, although most of the drag comes from the fuselage, the tails, and the engine nacelles.
 :::

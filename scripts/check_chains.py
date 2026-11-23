@@ -44,7 +44,7 @@ def plain(tex):
     """LaTeX of numbers and operators -> a Python expression, or None if it holds a symbol."""
     s = tex
     s = re.sub(r"\\text\{([\d,.]+)\}", r"\1", s)                       # \text{6,778}
-    s = s.replace("{,}", "")
+    s = s.replace("{,}", "").replace("{}", " ")                         # {} - 0.047 on a continued line
     s = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", s)                          # 6,778 -> 6778
     s = re.sub(r"\\(?:,|;|:|!|quad|qquad)", " ", s)
     s = re.sub(r"\\ ", " ", s)

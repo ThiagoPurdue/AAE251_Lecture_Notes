@@ -81,7 +81,7 @@ def example2():
 def example3():
     """Altitude from a measured pressure (gradient layer): T = T0 (p/p0)^(-aR/g0), h = (T - T0)/a."""
     a = LAYERS[0][1]
-    k = -a * R_AIR / G0                     # 1/5.2533 = 0.19036
+    k = -a * R_AIR / G0                     # 1/5.2586 = 0.19016
     ratio = EX3_P / P_SL
     T = T_SL * ratio ** k
     h = (T - T_SL) / a
@@ -406,6 +406,7 @@ def pressure_density():
     h = np.linspace(0.0, 30000.0, 1201)
     T, p, rho = standard(h)
     e1, e2, e3 = example1(), example2(), example3()
+    C = chains()                                 # the labels show the digits the worked examples print
     fig, (a1, a2) = data_axes(6.5, 5.4, ncols=2, sharey=True)
     fig.subplots_adjust(wspace=0.12)
     mk = dict(MK, ms=6.0)
@@ -443,17 +444,17 @@ def pressure_density():
     a1.plot([pk, pk], [0.0, hk], color=INK, lw=LW_THIN, ls=(0, (2, 2)), zorder=3)
     a1.plot([1.0, pk], [hk, hk], color=INK, lw=LW_THIN, ls=(0, (2, 2)), zorder=3)
     a1.plot([pk], [hk], "^", mfc="white", **mk)
-    text(a1, (1.12, hk + 0.5), f"Ex. 3: {fmt(EX3_P / 1000.0, 3)} kPa\ngives {fmt(e3['h'])} m", ha="left",
+    text(a1, (1.12, hk + 0.5), f"Ex. 3: {fmt(EX3_P / 1000.0, 3)} kPa\ngives {C['ex3-h']} m", ha="left",
          va="bottom", fs=FS_SMALL, backing=False)
-    text(a1, (e1["p"] / 1000.0, _km(EX1_H)), f"Ex. 1, {fmt(EX1_H / 1000.0, 3)} km:\n{fmt(e1['p'] / 1000.0)} kPa",
+    text(a1, (e1["p"] / 1000.0, _km(EX1_H)), f"Ex. 1, {fmt(EX1_H / 1000.0, 3)} km:\n{C['ex1-p-kPa']} kPa",
          direction=-165, dist=7, ha="right", va="top", fs=FS_SMALL, backing=False)
-    text(a1, (e2["p"] / 1000.0, _km(EX2_H)), f"Ex. 2, {fmt(EX2_H / 1000.0, 2)} km:\n{fmt(e2['p'] / 1000.0)} kPa",
+    text(a1, (e2["p"] / 1000.0, _km(EX2_H)), f"Ex. 2, {fmt(EX2_H / 1000.0, 2)} km:\n{C['ex2-p-kPa']} kPa",
          direction=30, dist=6, ha="left", va="bottom", fs=FS_SMALL, backing=BAND)
-    text(a2, (e1["rho"], _km(EX1_H)), f"Ex. 1: {fmt(e1['rho'])} kg/m³", direction=-165, dist=7, ha="right",
+    text(a2, (e1["rho"], _km(EX1_H)), f"Ex. 1: {C['ex1-rho']} kg/m³", direction=-165, dist=7, ha="right",
          va="top", fs=FS_SMALL, backing=False)
-    text(a2, (e2["rho"], _km(EX2_H)), f"Ex. 2:\n{fmt(e2['rho'])} kg/m³", direction=30, dist=6, fs=FS_SMALL,
+    text(a2, (e2["rho"], _km(EX2_H)), f"Ex. 2:\n{C['ex2-rho']} kg/m³", direction=30, dist=6, fs=FS_SMALL,
          ha="left", va="bottom", backing=BAND)
-    text(a2, (e3["rho"], _km(e3["h"])), f"Ex. 3: {fmt(e3['rho'])} kg/m³", direction=180, dist=7, fs=FS_SMALL,
+    text(a2, (e3["rho"], _km(e3["h"])), f"Ex. 3: {C['ex3-rho']} kg/m³", direction=180, dist=7, fs=FS_SMALL,
          backing=False, ha="right")
     # assert: in the isothermal layer log p is linear in h (constant slope), in the gradient layer it is not
     lp = np.log(p)
@@ -543,13 +544,14 @@ def example_ladder():
     fig.canvas.draw()
     bw = 0.80 * xr
     bx = 0.19 * xr
+    C = chains()                                 # the boxes show the digits the worked example prints
     rows = [
         (0.0, ["Sea level, $h$ = 0 m", "$T$ = 288.16 K,  $p$ = 101,325 Pa", "$\\rho$ = 1.2250 kg/m³"], BOX_FILL),
         (11.0, ["Isothermal-layer base, $h_1$ = 11,000 m",
-                f"$T_1$ = {fmt(e2['T1'], 5)} K,  $p_1$ = {fmt(e2['p1'])} Pa", f"$\\rho_1$ = {fmt(e2['rho1'])} kg/m³"],
+                f"$T_1$ = {fmt(e2['T1'], 5)} K,  $p_1$ = {C['ex2-p1']} Pa", f"$\\rho_1$ = {C['ex2-rho1']} kg/m³"],
          BOX_FILL),
-        (21.0, ["The balloon, $h$ = 21,000 m", f"$T$ = {fmt(e2['T1'], 5)} K,  $p$ = {fmt(e2['p'])} Pa",
-                f"$\\rho$ = {fmt(e2['rho'])} kg/m³"], BOX_FILL_START),
+        (21.0, ["The balloon, $h$ = 21,000 m", f"$T$ = {fmt(e2['T1'], 5)} K,  $p$ = {C['ex2-p']} Pa",
+                f"$\\rho$ = {C['ex2-rho']} kg/m³"], BOX_FILL_START),
     ]
     hb = lines_box_height(3, FS_SMALL, ax=a1)
     # the sea-level box hangs below its connector; the other two are centered on their altitude
@@ -564,7 +566,8 @@ def example_ladder():
         ym = 0.5 * (boxes[i].cy + boxes[i].h / 2 + boxes[i + 1].cy - boxes[i + 1].h / 2)
         text(a1, (bx + 0.12 * bw, ym), lab, direction=0, dist=8, fs=FS_SMALL, ha="left")
     close_to(boxes[0].cy + boxes[0].h / 2, 0.0, 1e-9, "the sea-level box hangs from h = 0")
-    close_to(e2["p"], float(standard(EX2_H)[1]), 1e-12, "the box shows the computed pressure")
+    close_to(e2["p"], float(standard(EX2_H)[1]), 1e-12, "the example is the computed pressure")
+    close_to(C["ex2-p#"], e2["p"], 2e-4 * e2["p"], "the box shows the computed pressure, as the example prints it")
     save_figure(fig, "p14-example-ladder")
 
 
@@ -679,6 +682,7 @@ def values():
     r("M-venus", fmt(PLANETS["Venus"]["molar_mass"]))
     r("rho-state-sl", fmt(P_SL / (R_AIR * T_SL), 5))
     r("rho-celsius", fmt(P_SL / (R_AIR * (T_SL - 273.15)), 3))
+    r("g0", fmt(G0, 3))                     # 9.81 m/s^2, the value used throughout the course
     r("dpdh-sl", fmt(RHO_SL * G0))
     r("H-iso", fmt(R_AIR * 216.66 / G0))
     r("column-mass", fmt(P_SL / G0))
@@ -688,9 +692,9 @@ def values():
     cmp_ = compare1976()
     assert cmp_["dmax"] < 0.002, "the two models agree to within 0.2% up to 20 km"
     r("us76-T47", fmt(cmp_["T47"], 5))
-    r("us76-p47-pct", fmt(100.0 * (cmp_["p47n"] / cmp_["p47"] - 1.0), 1))
+    r("us76-p47-pct", fmt(100.0 * (cmp_["p47n"] / cmp_["p47"] - 1.0), 2))
     r("R-univ-mol", fmt(R_UNIV / 1000.0, 5))
-    r("us76-dmax", fmt(100.0 * cmp_["dmax"], 1))
+    r("us76-dmax", fmt(math.ceil(1000.0 * cmp_["dmax"]) / 10.0, 1))       # a bound, rounded up: "to within 0.2%"
     b = layer_bases()
     r("p-drop-25", fmt(P_SL / b[2]["p1"], 3))
     r("rho-drop-25", fmt(RHO_SL / b[2]["rho1"], 3))

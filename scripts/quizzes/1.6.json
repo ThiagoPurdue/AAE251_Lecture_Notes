@@ -12,7 +12,7 @@
         "60,000 lb",
         "42,857 lb"
       ],
-      "explanation": "<i>W</i><sub>0</sub> = 30,000/(1 − 0.30 − 0.50) = 30,000/0.20 = 150,000 lb. Dividing by 0.30 + 0.50 instead of 1 − 0.30 − 0.50 gives 37,500 lb; leaving out the fuel fraction gives 60,000 lb; leaving out the empty-weight fraction gives 30,000/0.70 = 42,857 lb."
+      "explanation": "<i>W</i><sub>0</sub> = 30,000/(1 − 0.30 − 0.50) = 30,000/0.20 = 150,000 lb. If you divide by 0.30 + 0.50 instead of 1 − 0.30 − 0.50, you get 37,500 lb. Leaving out the fuel fraction gives 60,000 lb, and leaving out the empty-weight fraction gives 30,000/0.70 = 42,857 lb."
     },
     {
       "id": "S1.6-q2",
@@ -38,7 +38,7 @@
         "1.046",
         "0.04500"
       ],
-      "explanation": "With <i>E</i> = 1.5 h, exp(−1.5 × 0.45/15) = exp(−0.045) = 0.9560. Using 90 for the time in hours gives exp(−2.7) = 0.06721. Dropping the minus sign gives a fraction above 1, 1.046, which would mean the aircraft gains weight. 0.04500 is the exponent, not the fraction."
+      "explanation": "With <i>E</i> = 1.5 h, exp(−1.5 × 0.45/15) = exp(−0.045) = 0.9560. If you put in 90 for the time in hours, you get exp(−2.7) = 0.06721. If you drop the minus sign, you get 1.046, a fraction above 1, which would mean the aircraft gains weight. 0.04500 is the exponent, not the fraction."
     },
     {
       "id": "S1.6-q4",
@@ -51,7 +51,7 @@
         "0.260",
         "0.848"
       ],
-      "explanation": "<i>W<sub>f</sub></i>/<i>W</i><sub>0</sub> = 1.06 (1 − 0.80) = 0.212. 0.200 forgets the reserve, 0.260 adds 0.06 instead of multiplying by 1.06, and 0.848 multiplies 1.06 by the weight left at the end instead of by the fuel burned."
+      "explanation": "<i>W<sub>f</sub></i>/<i>W</i><sub>0</sub> = 1.06 (1 − 0.80) = 0.212. You get 0.200 if you forget the reserve, 0.260 if you add 0.06 instead of multiplying by 1.06, and 0.848 if you multiply 1.06 by the weight left at the end instead of by the fuel burned."
     },
     {
       "id": "S1.6-q5",

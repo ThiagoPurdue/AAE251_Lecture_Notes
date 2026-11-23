@@ -6,7 +6,7 @@ short_title: 1.6 Aircraft Sizing
 :::{include} ../_parts/standards/1.6.md
 :::
 
-Before anyone draws an aircraft, its designers need one number: how heavy the aircraft will be when it starts its takeoff run. The wing area, the engine thrust, the landing gear, and the cost all scale with that weight. This page builds the first estimate of it from the mission alone, with the method of Raymer (2006, Chapter 3). The method splits the {term}`takeoff weight` into four parts. It takes the empty weight from the history of earlier aircraft and the fuel from the mission, flown one segment at a time. It then repeats a short calculation until the answer stops changing. By the end you can size an aircraft for a stated mission and say which inputs the answer depends on most.
+Before anyone draws an aircraft, the designers need one number: how heavy the aircraft will be when it starts its takeoff run. The wing area, the engine thrust, the landing gear, and the cost all scale with that weight. Here we make the first estimate of it from the mission alone, with the method of Raymer (2006, Chapter 3). We split the {term}`takeoff weight` into four parts. The empty weight comes from the history of earlier aircraft, and the fuel comes from the mission, flown one segment at a time. Then we repeat a short calculation until the answer stops changing.
 
 :::{note} What to take from this page
 - The takeoff weight is crew plus payload plus fuel plus empty weight. With fuel and empty weight written as fractions of the takeoff weight, one equation gives $W_0$ from the crew and payload.
@@ -17,7 +17,7 @@ Before anyone draws an aircraft, its designers need one number: how heavy the ai
 
 ## The takeoff weight and its parts
 
-The quantity the method finds is the takeoff weight.
+The method finds one number, the takeoff weight.
 
 :::{prf:definition} Takeoff weight
 :label: def-p16-takeoff-weight
@@ -25,7 +25,7 @@ The quantity the method finds is the takeoff weight.
 The **takeoff weight** $W_0$ is the weight of the aircraft at the start of the takeoff run, loaded with its crew, its payload, and all the fuel for the design mission. It is also called the takeoff gross weight, or the gross weight.
 :::
 
-The difficulty is that the weight depends on the design and the design depends on the weight. A heavier aircraft needs a bigger wing and bigger engines, which add weight, which need more fuel. The method of this page cuts that circle with two facts from experience. Earlier aircraft of the same kind show how much of their weight is structure and systems. The mission shows how much fuel the aircraft burns per pound of its weight.
+The difficulty is that the weight depends on the design, and the design depends on the weight. A heavier aircraft needs a bigger wing and bigger engines. These add weight, and the extra weight needs more fuel. We break this circle with two facts from experience. Earlier aircraft of the same kind show how much of their weight is structure and systems. The mission shows how much fuel the aircraft burns for each pound of its weight.
 
 ### Four parts
 
@@ -40,7 +40,7 @@ W_0 &= W_\text{crew} + W_\text{payload}\\
 :::
 
 - **Crew weight** $W_\text{crew}$: the people who fly and run the aircraft (pilots, flight attendants), with their bags.
-- **{term}`Payload`** $W_\text{payload}$: what the mission exists to carry. For an airliner it is the passengers and their bags; for a freighter, the cargo; for a surveillance aircraft, the sensors. The worked example assumes 200 lb for each crew member and 210 lb for each passenger with bags; a real design takes these values from the customer or the operator. Some payload stays aboard (passengers, cargo) and some is dropped on the way (bombs, fire retardant). This page treats payload that stays aboard for the whole mission.
+- **{term}`Payload`** $W_\text{payload}$: what the mission exists to carry. For an airliner it is the passengers and their bags; for a freighter, the cargo; for a surveillance aircraft, the sensors. The worked example assumes 200 lb for each crew member and 210 lb for each passenger with bags; a real design takes these values from the customer or the operator. Some payload stays aboard (passengers, cargo) and some is dropped on the way (bombs, fire retardant). Here we treat only payload that stays aboard for the whole mission.
 - **Fuel weight** $W_f$: all the fuel loaded, including the fuel kept in reserve.
 - **{term}`Empty weight`** $W_e$: everything else, the part of the aircraft that stays with it: structure, engines, landing gear, systems, avionics, and furnishings.
 
@@ -53,18 +53,18 @@ Crew and payload are set by the mission and are known from the start. Fuel and e
 :alt: Three stacked bars, one per aircraft, each the full takeoff weight as a fraction from 0 to 1, split into operating empty weight (structure, engines, systems, crew) at the bottom, payload in the middle, and fuel on top. Boeing 757-200, 255,500 pounds: 0.501 empty, 0.152 payload, 0.347 fuel. Boeing 767-300ER, 400,000 pounds: 0.495 empty, 0.113 payload, 0.391 fuel. Boeing 747-400, 874,900 pounds: 0.457 empty, 0.0986 payload, 0.444 fuel. About half of each aircraft is empty weight, and the payload is the smallest part.
 :width: 75%
 
-Computed from published data for three Boeing jets at maximum takeoff weight, with their design payload and design fuel load; takeoff weights converted from kilograms and rounded to the nearest 100 lb. About half of the takeoff weight is the empty aircraft, and the payload is the smallest of the three parts. Data from Jenkinson et al. (1999, Data A, Table 3).
+Computed from published data for three Boeing jets at maximum takeoff weight, with their design payload and design fuel load. About half of each takeoff weight is the empty aircraft, and the payload is the smallest part. Takeoff weights converted from kilograms and rounded to the nearest 100 lb. Data from Jenkinson et al. (1999, Data A, Table 3).
 :::
 
-Airlines and manufacturers publish the **{term}`operating empty weight`**, which adds the crew and the items needed to operate (Boeing 2025, Section 2.1). In the method of this page the crew is counted on its own, so $W_e$ is a little smaller than the operating empty weight of the same aircraft.
+Airlines and manufacturers publish the **{term}`operating empty weight`**, which adds the crew and the items needed to operate (Boeing 2025, Section 2.1). In our method the crew is counted on its own, so $W_e$ is a little smaller than the operating empty weight of the same aircraft.
 
 :::{warning} Weight, mass, and pounds
-On this page a pound is a pound of weight (a force), as in Raymer and in the US industry, and every equation divides weights by weights. Data in kilograms are masses: a mass of 1 kg weighs 2.205 lb at Earth's surface. Never mix a weight in pounds with a mass in kilograms in one fraction.
+Here a pound is a pound of weight (a force), as in Raymer and in the US industry. Every equation divides a weight by a weight. Data in kilograms are masses: a mass of 1 kg weighs 2.205 lb at Earth's surface. Never mix a weight in pounds with a mass in kilograms in one fraction.
 :::
 
 ### Solving for the takeoff weight
 
-The fuel and empty weights grow with the aircraft, so write each as a fraction of the takeoff weight. Each fraction is a dimensionless number between 0 and 1. Multiply and divide each by $W_0$ in {eq}`eq-p16-buildup`:
+The fuel and empty weights grow with the aircraft, so we write each as a fraction of the takeoff weight, a pure number between 0 and 1. We multiply and divide each by $W_0$ in {eq}`eq-p16-buildup`:
 
 $$
 \begin{aligned}
@@ -73,7 +73,7 @@ W_0 = {} & W_\text{crew} + W_\text{payload}\\
 \end{aligned}
 $$
 
-Move the two terms that hold $W_0$ to the left side:
+We move the two terms that hold $W_0$ to the left side:
 
 $$
 \begin{gathered}
@@ -82,7 +82,7 @@ W_0 - \left(\frac{W_f}{W_0}\right) W_0 - \left(\frac{W_e}{W_0}\right) W_0\\
 \end{gathered}
 $$
 
-Factor $W_0$ out of the left side:
+Then we factor $W_0$ out of the left side:
 
 $$
 \begin{gathered}
@@ -91,18 +91,18 @@ W_0 \left(1 - \frac{W_f}{W_0} - \frac{W_e}{W_0}\right)\\
 \end{gathered}
 $$
 
-Divide both sides by the bracket:
+and divide both sides by the bracket:
 
 :::{math}
 :label: eq-p16-w0
 W_0 = \frac{W_\text{crew} + W_\text{payload}}{1 - \dfrac{W_f}{W_0} - \dfrac{W_e}{W_0}}
 :::
 
-The numerator is known from the mission. The denominator is the fraction of the takeoff weight left over for crew and payload once fuel and structure have taken their share. When that fraction is small, the takeoff weight is large; when it reaches zero or below, no aircraft of this kind can fly the mission, and the mission is said not to close. The next two sections find the two fractions.
+The numerator is known from the mission. The denominator is the fraction of the takeoff weight left for crew and payload once fuel and structure have taken their share. When that fraction is small, the takeoff weight is large. When it reaches zero or below, no aircraft of this kind can fly the mission, and we say the mission does not close. The next two sections find the two fractions.
 
 ## The empty-weight fraction from history
 
-The {term}`empty-weight fraction` $W_e/W_0$ cannot be computed before the aircraft is designed. The first estimate comes from aircraft already built. Later in a design it is replaced by estimates of the weight of each part (wing, fuselage, tails, landing gear, engines) and, at the end, by the weights of the parts as built.
+We cannot compute the {term}`empty-weight fraction` $W_e/W_0$ before the aircraft is designed, so the first estimate comes from aircraft already built. Later in the design, estimates of the weight of each part (wing, fuselage, tails, landing gear, engines) replace it, and at the end the weights of the parts as built.
 
 Raymer plotted $W_e/W_0$ against $W_0$ for many aircraft, sorted by class, and fitted a curve to each class:
 
@@ -111,13 +111,13 @@ Raymer plotted $W_e/W_0$ against $W_0$ for many aircraft, sorted by class, and f
 \frac{W_e}{W_0} = A\,W_0^{\,C}\,K_\text{vs}
 :::
 
-The constants $A$ and $C$ of each class are in {numref}`tbl-p16-raymer`. $K_\text{vs}$ is 1.04 for a variable-sweep wing (one that swings back in flight, as on the F-14) and 1.00 for every other aircraft, so it drops out of most problems. The fit is written with $W_0$ in pounds; Raymer also gives a value of $A$ for $W_0$ in kilograms, with the same $C$.
+The constants $A$ and $C$ of each class are in {numref}`tbl-p16-raymer`. $K_\text{vs}$ is 1.04 for a variable-sweep wing (one that swings back in flight, as on the F-14) and 1.00 for every other aircraft, so it drops out of most problems. The fit is written with $W_0$ in pounds. Raymer also gives a value of $A$ for $W_0$ in kilograms, with the same $C$.
 
 :::{table} Empty-weight fraction fits, $W_e/W_0 = A\,W_0^{\,C}$ with $W_0$ in pounds (Raymer 2006, Table 3.1).
 :label: tbl-p16-raymer
 :align: center
 
-| Class | $A$ | $C$ |
+| Class | Constant $A$ | Exponent $C$ |
 | --- | ---: | ---: |
 | Sailplane, unpowered | 0.86 | −0.05 |
 | Sailplane, powered | 0.91 | −0.05 |
@@ -158,9 +158,9 @@ against a published 0.495 for its operating empty weight. The fit is an average 
 Computed from Raymer's fits, each drawn over the range of takeoff weights of its class; squares, operating empty weight over takeoff weight of the three jets of {numref}`fig-p16-weight-buildup`. Within every class the empty-weight fraction falls as the aircraft grows, and classes differ by what their job asks of the structure. Fits from Raymer (2006, Table 3.1), ranges from Raymer (2006, Figure 3.1).
 :::
 
-Two things show in the figure:
+Notice two things in the figure:
 
-- **The fraction falls as the aircraft grows.** Every $C$ in {numref}`tbl-p16-raymer` is negative. Some items do not grow in proportion to the aircraft: a cockpit, its instruments, and its avionics, the minimum thickness a skin can be made. In a larger aircraft they are a smaller share of the total.
+- **The fraction falls as the aircraft grows.** Every $C$ in {numref}`tbl-p16-raymer` is negative. Some items do not grow in proportion to the aircraft: a cockpit with its instruments and avionics, or the minimum thickness a skin can be made. In a larger aircraft they are a smaller share of the total.
 - **Classes differ.** A fighter carries large engines and a structure built for hard maneuvers, so its line sits high. A long-range cargo aircraft or bomber spends most of its takeoff weight on fuel and payload, so its line sits low.
 
 History is a good guide only for aircraft like the ones it was made from. A new structural material (composites in place of aluminum) or a new configuration (a much longer, thinner wing than any aircraft in the data) can put a design well off its class line. Use the fit for the first estimate, and know which way your design differs from its class.
@@ -172,7 +172,7 @@ One observation makes the fuel simple to estimate: the fuel an aircraft burns is
 
 ### Segments and weight fractions
 
-The mission itself comes from the [requirements](#p11-requirements): the range, the payload, and the reserves are numbers the customer states. Divide the mission, drawn as a {term}`mission profile <Mission profile>` (introduced with [vehicle anatomy](#p13-mission-profile)), into segments: warm-up and takeoff, climb, cruise, loiter (flying in a holding pattern, waiting to land; airlines call it a hold), and landing. Number the end of each segment, starting with 0 for the start of the takeoff run, as in {numref}`fig-p16-mission-profile`. $W_i$ is the weight at the end of segment $i$, so $W_0$ is the takeoff weight and $W_5$ the weight after landing.
+The mission itself comes from the [requirements](#p11-requirements): the customer states the range, the payload, and the reserves. We draw the mission as a {term}`mission profile <Mission profile>` (introduced with [vehicle anatomy](#p13-mission-profile)) and divide it into segments: warm-up and takeoff, climb, cruise, loiter (flying in a holding pattern while waiting to land, which airlines call a hold), and landing. We number the end of each segment, starting with 0 for the start of the takeoff run, as in {numref}`fig-p16-mission-profile`. $W_i$ is the weight at the end of segment $i$, so $W_0$ is the takeoff weight and $W_5$ the weight after landing.
 
 :::{figure} figures/p16-mission-profile.svg
 :label: fig-p16-mission-profile
@@ -195,13 +195,13 @@ The weight at the end of one segment is the weight at the start of the next. So 
 \frac{W_5}{W_0} = \frac{W_1}{W_0}\cdot\frac{W_2}{W_1}\cdot\frac{W_3}{W_2}\cdot\frac{W_4}{W_3}\cdot\frac{W_5}{W_4}
 :::
 
-For the short segments at the start and end, the fuel burned changes little from one aircraft to the next, and Raymer gives historical values ({numref}`tbl-p16-segments`). Cruise and loiter burn most of the fuel and are computed.
+For the short segments at the start and end, the fuel burned changes little from one aircraft to the next, so Raymer gives historical values ({numref}`tbl-p16-segments`). Cruise and loiter burn most of the fuel, and we compute them.
 
 :::{table} Historical segment weight fractions (Raymer 2006, Chapter 3).
 :label: tbl-p16-segments
 :align: center
 
-| Segment | $W_i/W_{i-1}$ |
+| Segment | Weight fraction $W_i/W_{i-1}$ |
 | --- | ---: |
 | Warm-up and takeoff | 0.970 |
 | Climb | 0.985 |
@@ -219,7 +219,7 @@ Two quantities describe how well the aircraft turns fuel into flight:
 The **{term}`specific fuel consumption`** $C$ of a jet engine is the weight of fuel it burns per hour for each pound of thrust it makes: pounds of fuel per hour per pound of thrust. The pounds cancel, so $C$ has the unit 1/h.
 :::
 
-The **{term}`lift-to-drag ratio`** $L/D$ is the lift of the aircraft divided by its drag, a measure of its aerodynamic efficiency (Chapter 3 of these notes computes it).
+The **{term}`lift-to-drag ratio`** $L/D$ is the lift of the aircraft divided by its drag, a measure of its aerodynamic efficiency ([Chapter 3 of these notes computes it](#p33-minimum-drag)).
 
 In steady, level flight the lift balances the weight and the thrust balances the drag, $L = W$ and $T = D$ ({numref}`fig-p16-cruise-forces`).
 
@@ -231,7 +231,7 @@ In steady, level flight the lift balances the weight and the thrust balances the
 Schematic, lengths not to scale (at $L/D = 17$ the drag arrow would be one seventeenth of the lift arrow). In steady level cruise the four forces balance in pairs: lift equals weight and thrust equals drag, so the thrust needed is the weight divided by the lift-to-drag ratio. Each force is drawn on a line through the center of gravity. Outline of a Boeing 737-800, gear up.
 :::
 
-Then the thrust needed is
+So the thrust we need is
 
 $$
 T = D = \frac{D}{L}\,L = \frac{W}{L/D}
@@ -243,13 +243,13 @@ $$
 \frac{dW}{dt} = -C\,T = -\frac{C\,W}{L/D}
 $$
 
-Separate the variables, with the weight on the left and the time on the right:
+We separate the variables, with the weight on the left and the time on the right:
 
 $$
 \frac{dW}{W} = -\frac{C}{L/D}\,dt
 $$
 
-**Loiter.** Integrate over a loiter of duration $E$, the {term}`endurance`, from the weight $W_{i-1}$ at its start to $W_i$ at its end, holding $C$ and $L/D$ constant:
+**Loiter.** We integrate over a loiter of duration $E$, the {term}`endurance`, from the weight $W_{i-1}$ at its start to $W_i$ at its end, holding $C$ and $L/D$ constant:
 
 $$
 \int_{W_{i-1}}^{W_i}\frac{dW}{W} = \ln\frac{W_i}{W_{i-1}} = -\frac{C\,E}{L/D}
@@ -275,13 +275,13 @@ Integrating from $x = 0$ to the range $x = R$, with $V$ also constant, gives the
 \frac{W_i}{W_{i-1}} = \exp\left[-\frac{R\,C}{V\,(L/D)}\right]
 :::
 
-Both equations assume that $C$, $L/D$, and, for cruise, $V$ stay constant through the segment, and that the flight is steady and level. The range and endurance equations are treated in full, for propeller aircraft too, in Chapter 5 of these notes. A propeller engine is rated by fuel per unit of power, not per unit of thrust, so its range equation carries the propeller efficiency as well (Scholz n.d., Equation 5.54).
+Both equations assume that $C$, $L/D$, and, for cruise, $V$ stay constant through the segment, and that the flight is steady and level. We treat the range and endurance equations in full, for propeller aircraft too, in Chapter 5. A propeller engine is rated by fuel per unit of power instead of per unit of thrust, so its range equation also carries the propeller efficiency (Scholz n.d., Equation 5.54).
 
 :::{warning} Units of the exponent
-The exponent must have no unit. With $C$ in 1/h, use $E$ in hours, $R$ in {term}`nautical miles <nautical mile>`, and $V$ in knots (nautical miles per hour): then $R\,C/V$ is nmi times 1/h divided by nmi/h, which cancels. A loiter of 30 minutes is $E = 0.5$ h, not 30. If you prefer feet and seconds, use $R$ in ft, $V$ in ft/s, and $C$ in 1/s ($C$ in 1/h divided by 3,600), with 1 nmi = 6,076.1 ft and 1 kt = 1.6878 ft/s.
+The exponent must have no unit. With $C$ in 1/h, use $E$ in hours, $R$ in {term}`nautical miles <nautical mile>`, and $V$ in knots (nautical miles per hour). Then $R\,C/V$ is nmi times 1/h divided by nmi/h, which cancels. A loiter of 30 minutes is $E = 0.5$ h, not 30. If you prefer feet and seconds, use $R$ in ft, $V$ in ft/s, and $C$ in 1/s ($C$ in 1/h divided by 3,600), with 1 nmi = 6,076.1 ft and 1 kt = 1.6878 ft/s.
 :::
 
-Typical values for a first estimate are in {numref}`tbl-p16-sfc` and {numref}`tbl-p16-ld`. A jet loiters near its maximum $L/D$, because {eq}`eq-p16-endurance` gives the longest loiter for the highest $L/D$. It cruises faster than that speed, because {eq}`eq-p16-range` depends on $V$ times $L/D$; its cruise $L/D$ is then a little below the maximum (Scholz n.d., Section 5.7).
+For a first estimate, you can take typical values from {numref}`tbl-p16-sfc` and {numref}`tbl-p16-ld`. A jet loiters near its maximum $L/D$, because {eq}`eq-p16-endurance` gives the longest loiter for the highest $L/D$. It cruises faster than that, because {eq}`eq-p16-range` depends on $V$ times $L/D$. Its cruise $L/D$ is then a little below the maximum (Scholz n.d., Section 5.7).
 
 :::{table} Typical specific fuel consumption of jet engines, $C$ in 1/h (Scholz n.d., Table 5.7, after Raymer).
 :label: tbl-p16-sfc
@@ -301,7 +301,7 @@ A turbofan sends part of its air around the core of the engine instead of throug
 :label: tbl-p16-ld
 :align: center
 
-| Aircraft | Maximum $L/D$ |
+| Aircraft | Maximum lift-to-drag ratio |
 | --- | ---: |
 | Subsonic aircraft with a wing of aspect ratio 3 (a fighter) | 11 |
 | Subsonic aircraft with a wing of aspect ratio 6 | 16 |
@@ -341,7 +341,7 @@ where $W_x$ is the weight at the end of the last segment ($W_5$ in {numref}`fig-
 (p16-iteration)=
 ## The sizing iteration
 
-With the fuel fraction known, {eq}`eq-p16-w0` still cannot be solved in one step, because the empty-weight fraction depends on $W_0$ through {eq}`eq-p16-empty`. The takeoff weight appears on both sides. The way out is to guess $W_0$, use the guess to find $W_e/W_0$, compute a new $W_0$, and repeat with the new value until it stops changing. {numref}`fig-p16-sizing-loop` shows the steps.
+Now we know the fuel fraction, but we still cannot solve {eq}`eq-p16-w0` in one step. The empty-weight fraction depends on $W_0$ through {eq}`eq-p16-empty`, so the takeoff weight appears on both sides. We get around this by guessing $W_0$, using the guess to find $W_e/W_0$, computing a new $W_0$, and repeating with the new value until it stops changing. {numref}`fig-p16-sizing-loop` shows the steps.
 
 :::{figure} figures/p16-sizing-loop.svg
 :label: fig-p16-sizing-loop
@@ -364,7 +364,7 @@ The tolerance of 0.1% is a choice. The inputs (the historical fits, the typical 
 
 ## Worked example: a long-range airliner
 
-A twin-jet airliner must carry 250 passengers 5,000 nmi. Find its takeoff weight. The mission is the simple cruise of {numref}`fig-p16-mission-profile`, with the data of {numref}`tbl-p16-givens`. The engines are high-bypass turbofans, so $C$ is the typical value of {numref}`tbl-p16-sfc`; the $L/D$ values are those of a jet airliner from {numref}`tbl-p16-ld`.
+A twin-jet airliner must carry 250 passengers 5,000 nmi. Find its takeoff weight. The mission is the simple cruise of {numref}`fig-p16-mission-profile`, with the data of {numref}`tbl-p16-givens`. The engines are high-bypass turbofans, so $C$ is the typical value of {numref}`tbl-p16-sfc`. The $L/D$ values are those of a jet airliner from {numref}`tbl-p16-ld`.
 
 :::{table} Data of the worked example.
 :label: tbl-p16-givens
@@ -380,15 +380,16 @@ A twin-jet airliner must carry 250 passengers 5,000 nmi. Find its takeoff weight
 
 :::
 
-The steps are those of the method above.
+We follow the steps of the method above.
 
 1. **Crew and payload.** $W_\text{payload} = 250 \times 210 = 52{,}500$ lb and $W_\text{crew} = 10 \times 200 = 2{,}000$ lb, so $W_\text{crew} + W_\text{payload} = 54{,}500$ lb.
 2. **Fuel fraction.** Warm-up and takeoff, climb, and landing come from {numref}`tbl-p16-segments`: 0.970, 0.985, and 0.995. The cruise exponent, with every unit shown, is
    $$
    \begin{aligned}
-   \frac{R\,C}{V\,(L/D)} &= \frac{(5{,}000\ \text{nmi})(0.5\ \text{1/h})}{(480\ \text{nmi/h})(17)}\\
-   &= \frac{5{,}000 \times 0.5}{480 \times 17}\\
-   &= 0.30637
+   &\frac{R\,C}{V\,(L/D)}\\
+   &\;\;\;= \frac{(5{,}000\ \text{nmi})(0.5\ \text{1/h})}{(480\ \text{nmi/h})(17)}\\
+   &\;\;\;= \frac{5{,}000 \times 0.5}{480 \times 17}\\
+   &\;\;\;= 0.30637
    \end{aligned}
    $$
    so the cruise fraction, from {eq}`eq-p16-range`, is
@@ -409,7 +410,7 @@ The steps are those of the method above.
    &= 0.98953
    \end{aligned}
    $$
-   Multiply the five fractions, {eq}`eq-p16-product`. Warm-up and takeoff with the climb give $0.970 \times 0.985 = 0.95545$, the cruise with the loiter $0.73611 \times 0.98953 = 0.72840$, and
+   We multiply the five fractions, {eq}`eq-p16-product`. Warm-up and takeoff with the climb give $0.970 \times 0.985 = 0.95545$, the cruise with the loiter $0.73611 \times 0.98953 = 0.72840$, and
    $$
    \begin{aligned}
    \frac{W_5}{W_0} &= 0.95545 \times 0.72840 \times 0.995\\
@@ -440,7 +441,7 @@ Computed for the worked example: the weight at the end of each segment as a frac
    &= 313{,}182\ \text{lb}
    \end{aligned}
    $$
-   Start from the round number $W_0 = 313{,}000$ lb.
+   We start from the round number $W_0 = 313{,}000$ lb.
 4. **Empty-weight fraction** at the guess:
    $$
    \begin{aligned}
@@ -451,7 +452,8 @@ Computed for the worked example: the weight at the end of each segment as a frac
 5. **New takeoff weight:**
    $$
    \begin{aligned}
-   W_0 &= \frac{54{,}500}{1 - 0.32598 - 0.47738}\\
+   &W_0\\
+   &= \frac{54{,}500}{1 - 0.32598 - 0.47738}\\
    &= 277{,}156\ \text{lb}
    \end{aligned}
    $$
@@ -461,7 +463,7 @@ Computed for the worked example: the weight at the end of each segment as a frac
 :label: tbl-p16-iterations
 :align: center
 
-| Pass | Guess for $W_0$ (lb) | $W_e/W_0$ | New $W_0$ (lb) | Change |
+| Pass | Guessed takeoff weight $W_0$ (lb) | Empty-weight fraction $W_e/W_0$ | New takeoff weight $W_0$ (lb) | Change |
 | ---: | ---: | ---: | ---: | ---: |
 | 1 | 313,000 | 0.47738 | 277,156 | −11.5% |
 | 2 | 277,156 | 0.48088 | 282,179 | +1.81% |
@@ -481,7 +483,7 @@ W_f &= 0.32598 \times 281{,}537\\
 \end{aligned}
 $$
 
-**Check.** The parts add back to the takeoff weight: $54{,}500 + 91{,}775 + 135{,}259 = 281{,}534$ lb, 3 lb short of $W_0$ because the fractions were rounded to five decimals. Carried further, until the weight stops changing, the iteration settles at 281,518 lb, 19 lb (0.007%) below the value accepted here: stopping at 0.1% is far inside the accuracy of the inputs. The empty-weight fraction, 0.480, lies among the 0.457 to 0.501 of the three Boeing jets in {numref}`fig-p16-weight-buildup`. The fuel fraction, 0.326, is a little below their 0.347 to 0.444, as expected for a shorter design range. The aircraft weighs 5.166 times its crew and payload.
+**Check.** The parts add back to the takeoff weight: $54{,}500 + 91{,}775 + 135{,}259 = 281{,}534$ lb, 3 lb short of $W_0$ because we rounded the fractions to five decimals. If we carry the iteration on until the weight stops changing, it settles at 281,518 lb, 19 lb (0.007%) below the value accepted here. Stopping at 0.1% is well inside the accuracy of the inputs. The empty-weight fraction, 0.480, lies among the 0.457 to 0.501 of the three Boeing jets in {numref}`fig-p16-weight-buildup`. The fuel fraction, 0.326, is a little below their 0.347 to 0.444. The aircraft weighs 5.166 times its crew and payload.
 
 :::{figure} figures/p16-iteration.svg
 :label: fig-p16-iteration
@@ -493,21 +495,21 @@ Computed for the worked example: the takeoff weight after each pass of the itera
 
 ## Why the iteration converges
 
-This section explains a pattern of the worked example; the method itself does not need it.
+You do not need this section to use the method. It explains a pattern in the worked example.
 
 {numref}`fig-p16-iteration` shows the pattern: each change has the opposite sign of the one before and is about 0.15 times as large. The changes of {numref}`tbl-p16-iterations` give $5{,}023/35{,}844 = 0.1401$, then $758/5{,}023 = 0.1509$, then $116/758 = 0.1530$.
 
 The reason is in {eq}`eq-p16-w0`. A guess that is too high gives an empty-weight fraction that is a little too low, because the exponent $C$ is negative. The denominator is then a little too large, and the new $W_0$ comes out too low: the error changes sign. It also shrinks, because the fraction changes slowly with $W_0$.
 
-Picture the calculation of one pass as a curve: the new $W_0$ plotted against the guess. The answer $W^*$ is where the curve meets the 45° line on which the new value equals the guess. Near $W^*$ a smooth curve is close to its tangent line, so a guess that misses the answer by a small error $e$ gives a new value that misses it by about the slope of the curve times $e$. Here the curve slopes gently downward, $\text{slope} \approx -0.15$, much flatter than the 45° line. Each pass flips the error to the other side and keeps about 0.15 of it, the factor read from the passes above.
+Suppose we plot the result of one pass, the new $W_0$, against the guess. The answer $W^*$ is where this curve meets the 45° line, on which the new value equals the guess. Near $W^*$ a smooth curve is close to its tangent line. So a guess that misses the answer by a small error $e$ gives a new value that misses it by about the slope of the curve times $e$. Here the curve slopes gently downward, $\text{slope} \approx -0.15$, much flatter than the 45° line. Each pass flips the error to the other side and keeps about 0.15 of it, the factor we read from the passes above.
 
-The numbers of the example show where the 0.15 comes from. Raise the guess by 1%. The empty-weight fraction, 0.48043, is multiplied by ${1.01}^{-0.06} = 0.99940$ and falls by 0.00029. The denominator of the sizing equation, $1 - 0.32598 - 0.48043 = 0.19359$, rises by the same 0.00029, which is 0.15% of it, so the new $W_0$ falls by 0.15%. A 1% error in the guess has become an error of 0.15% on the other side.
+The numbers of the example show where the 0.15 comes from. Suppose we raise the guess by 1%. The empty-weight fraction, 0.48043, is multiplied by ${1.01}^{-0.06} = 0.99940$ and falls by 0.00029. The denominator of the sizing equation, $1 - 0.32598 - 0.48043 = 0.19359$, rises by the same 0.00029, which is 0.15% of it, so the new $W_0$ falls by 0.15%. A 1% error in the guess has become an error of 0.15% on the other side.
 
-The iteration converges whenever the size of that slope is below 1. It is small here because the exponent is small, which keeps the 0.00029 small; the exponents in {numref}`tbl-p16-raymer` are all small, 0.03 to 0.18 in size. It grows when the denominator of {eq}`eq-p16-w0` is small, that is, when the mission barely closes: the same change is then a larger share of it, and the iteration needs many more passes.
+The iteration converges whenever the size of that slope is below 1. Here the slope is small because the exponent is small, which keeps the 0.00029 small. The exponents in {numref}`tbl-p16-raymer` are all small, 0.03 to 0.18 in size. The slope grows when the denominator of {eq}`eq-p16-w0` is small, that is, when the mission barely closes. The same change is then a larger share of the denominator, and the iteration needs many more passes.
 
 ## What the answer is sensitive to
 
-A sizing estimate is most useful for what it shows about the design: which inputs drive the weight. {numref}`fig-p16-range-sensitivity` repeats the worked example for design ranges from 500 to 9,000 nmi and three cruise $L/D$ values. Iterated until it stops changing, the takeoff weight is 232,481 lb for 4,000 nmi, 281,518 lb for 5,000 nmi, and 349,075 lb for 6,000 nmi. Each extra 1,000 nmi costs more than the one before, because the fuel needs structure, the structure needs more fuel, and the cruise fraction falls exponentially with range.
+A sizing estimate is most useful for what it shows about the design: which inputs drive the weight. {numref}`fig-p16-range-sensitivity` repeats the worked example for design ranges from 500 to 9,000 nmi and three cruise $L/D$ values. Iterated until it stops changing, the takeoff weight is 232,481 lb for 4,000 nmi, 281,518 lb for 5,000 nmi, and 349,075 lb for 6,000 nmi. Each extra 1,000 nmi costs more than the one before. The extra fuel needs structure, the structure needs more fuel, and the cruise fraction falls exponentially with range.
 
 :::{figure} figures/p16-range-sensitivity.svg
 :label: fig-p16-range-sensitivity
@@ -517,7 +519,7 @@ A sizing estimate is most useful for what it shows about the design: which input
 Computed with the worked example's data, iterated until the weight stops changing, with only the design range and the cruise lift-to-drag ratio changed. The takeoff weight grows faster than the range, and a better $L/D$ pushes the steep part of the curve to longer ranges. The $L/D = 15$ curve is cut where it leaves the plot, at about 8,050 nmi.
 :::
 
-{numref}`fig-p16-sensitivity-bars` makes each input 10% worse, one at a time.
+In {numref}`fig-p16-sensitivity-bars` we make each input 10% worse, one at a time.
 
 :::{figure} figures/p16-sensitivity-bars.svg
 :label: fig-p16-sensitivity-bars
@@ -529,7 +531,7 @@ Computed with the worked example's data, iterated until the weight stops changin
 
 Three results follow:
 
-- **Structure weight is the strongest lever.** A structure 10% heavier for its size (the constant $A$ times 1.1) raises $W_0$ by 26.6%. This is why designers track the weight of every part, and why a lighter material changes a whole design.
+- **The empty weight matters most.** A structure 10% heavier for its size (the constant $A$ times 1.1) raises $W_0$ by 26.6%. This is why designers track the weight of every part, and why a lighter material changes a whole design.
 - **Cruise range, $C$, and $L/D$ act together.** In the cruise fraction they appear only as $R\,C/(V\,L/D)$, so 10% more range costs exactly what 10% more cruise fuel consumption costs, 11.0%. A 10% lower cruise $L/D$ costs a little more, 12.3%, because dividing by 0.9 raises the exponent by 11.1%.
 - **Payload grows the aircraft by several times its own weight.** Adding 1,000 lb of payload adds 4,492 lb to $W_0$.
 
@@ -585,3 +587,4 @@ Quiz for Standard 1.6: eight questions, one at a time, with the explanation afte
 - Nicolai, L. M., and Carichner, G. E., *Fundamentals of Aircraft and Airship Design*, Vol. 1, AIAA, 2010. Chapter 5, Figure 5.3.
 - Raymer, D. P., *Aircraft Design: A Conceptual Approach*, 4th ed., AIAA, 2006.
 - Scholz, D., "[Aircraft Design, Chapter 5: Preliminary Sizing](https://www.fzt.haw-hamburg.de/pers/Scholz/HOOU/AircraftDesign_5_PreliminarySizing.pdf)," lecture notes, Hamburg University of Applied Sciences, n.d. Sections 5.7 and 5.9, Tables 5.7 and 5.8, Figure 5.7, Equation 5.54.
+

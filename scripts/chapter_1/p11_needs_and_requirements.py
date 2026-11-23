@@ -41,8 +41,8 @@ REQS = [
     ("R3", "N3", "Takeoff distance from a dry grass strip at maximum weight", "at most 600 m",
      "The rural strips the owner uses are 600 m long or longer", "Analysis",
      "Takeoff distance calculation", "Not yet shown"),
-    ("R4", "N4", "Crew needed to fly a survey line and run the camera", "one pilot",
-     "The owner pays for one seat of crew per flight", "Inspection now, demonstration later",
+    ("R4", "N4", "Crew needed to fly a survey line and run the camera", "at most one pilot",
+     "The owner pays for one crew seat per flight", "Inspection now, demonstration later",
      "Cockpit drawing: camera controls within the pilot's reach; then a pilot flies a survey line in a "
      "cockpit mock-up", "Partly shown"),
     ("R5", "N4", "Time for one person to install and secure the camera", "at most 15 min",

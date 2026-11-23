@@ -3,7 +3,7 @@ title: "Ground tracks, aerobraking, and orbit lifetime"
 short_title: Ground tracks and orbit lifetime
 ---
 
-An orbit fixed in space looks different from the ground, because the planet turns underneath it. This page follows the point directly below a spacecraft across the surface, uses that path to find the period of the orbit and the time an instrument needs to see the whole planet, and then turns to the atmosphere: how a spacecraft can use drag to shrink its orbit, and how drag ends the life of a low orbit. No course standard is assessed on this page.
+Seen from the ground, an orbit fixed in space looks different, because the planet turns underneath it. On this page we follow the point directly below a spacecraft across the surface. We use that path to find the period of the orbit and the time an instrument needs to see the whole planet. Then we turn to the atmosphere: how a spacecraft can use drag to shrink its orbit, and how drag ends the life of a low orbit. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - A ground track is a great circle on a planet that does not turn. With the planet turning, each pass crosses the equator $\Delta L = {360}^\circ\,T/T_{\text{day}}$ farther west, and the highest latitude reached equals the inclination.
@@ -14,7 +14,7 @@ An orbit fixed in space looks different from the ground, because the planet turn
 
 ## What a ground track is
 
-A {term}`ground track` is the path traced on the surface by the point directly below the spacecraft. Every orbit lies in a plane through the center of the planet, so on a planet that does not turn the track is where that plane cuts the surface: a great circle, centered on the center of the planet and tilted to the equator by the inclination. Ground tracks decide what a mission can do: an imaging satellite must pass over its targets, and every satellite must pass within sight of a ground station to send its data down.
+A {term}`ground track` is the path traced on the surface by the point directly below the spacecraft. Every orbit lies in a plane through the center of the planet. On a planet that does not turn, the track is where that plane cuts the surface. That is a great circle: its center is the center of the planet, and it is tilted to the equator by the inclination. Ground tracks decide what a mission can do. An imaging satellite must pass over its targets, and every satellite must pass within sight of a ground station to send its data down.
 
 A flat map changes how that circle looks. Picture the planet as a soda can with a tilted ring around it. Cut the label along one side and unroll it: the ring becomes a single wave, one crest and one trough per turn. On the can the wave is an exact sine curve. On a sphere drawn as a latitude-longitude map it is close to one, as {numref}`fig-p25-great-circle-to-map` shows for an orbit of 50° inclination.
 
@@ -23,28 +23,28 @@ A flat map changes how that circle looks. Picture the planet as a soda can with 
 :alt: Left, a globe with its north axis up, an inclined circular orbit around it, and the ground track drawn as a dotted great circle on the surface; a short line joins the spacecraft to the point directly below it. Right, the same track on a longitude and latitude map: a dotted wave that crosses the equator northbound at 0 degrees longitude, peaks at 50 degrees north at 90 degrees east, crosses the equator southbound at 180 degrees, and reaches 50 degrees south at 90 degrees west. A dimension line marks the peak latitude as the inclination, 50 degrees.
 :width: 90%
 
-Schematic, not to scale: the orbit is drawn well above the surface so that it can be told apart from its track. Left, an orbit of 50° inclination over a planet that does not turn; the open circle is the point directly below the spacecraft. Right, the same track on a latitude-longitude map, computed. The track is one wave per orbit, and its highest latitude equals the inclination $i$.
+Schematic, not to scale: the orbit is drawn well above the surface so that it can be told apart from its track. The track is one wave per orbit, and its highest latitude equals the inclination $i$. Left, an orbit of 50° inclination over a planet that does not turn; the open circle is the point directly below the spacecraft. Right, the same track on a latitude-longitude map, computed.
 :::
 
-The latitude $\phi$ under a circular orbit follows from the spherical triangle between the equator, the orbit, and the meridian of the spacecraft:
+We find the latitude $\phi$ under a circular orbit from the spherical triangle formed by the equator, the orbit, and the meridian of the spacecraft:
 
 :::{math}
 :label: eq-p25-latitude
 \sin\phi = \sin i\,\sin u
 :::
 
-where $u$ is the angle the spacecraft has traveled around the orbit from the {term}`ascending node`, the point where it crosses the equator going north ($u = \omega + \theta$ in the notation of [orbit properties](orbit-properties.md)). The largest value of $\sin u$ is 1, so the highest latitude a prograde orbit reaches equals its {term}`inclination`. A retrograde orbit ($i > {90}^\circ$) reaches ${180}^\circ - i$: an orbit at 98.2° passes over every latitude up to 81.8° north and south.
+Here $u$ is the angle the spacecraft has traveled around the orbit from the {term}`ascending node`, the point where it crosses the equator going north. (In the notation of [orbit properties](orbit-properties.md), $u = \omega + \theta$.) The largest value of $\sin u$ is 1, so the highest latitude a prograde orbit reaches equals its {term}`inclination`. A retrograde orbit ($i > {90}^\circ$) reaches ${180}^\circ - i$. An orbit at 98.2° passes over every latitude up to 81.8° north and south.
 
 ## The planet turns under the orbit
 
-The orbit plane stays fixed in space while the planet turns east beneath it. During one orbit the planet turns through ${360}^\circ\,T/T_{\text{day}}$, so the next pass crosses the equator that much farther west:
+So far the planet stood still. A real planet turns east beneath the orbit, while the orbit plane stays fixed in space. During one orbit the planet turns through ${360}^\circ\,T/T_{\text{day}}$, so the next pass crosses the equator that much farther west:
 
 :::{math}
 :label: eq-p25-shift
 \Delta L = {360}^\circ\,\frac{T}{T_{\text{day}}}
 :::
 
-Here $T$ is the {term}`orbital period` and $T_{\text{day}}$ is the {term}`sidereal day`, the time the planet takes to turn once relative to the stars. For Earth it is 86,164 s, or 23.93 h, which is 236 s shorter than the 86,400 s solar day. The solar day is longer because Earth also moves around the Sun and must turn a little more than once to bring the Sun back overhead. The orbit plane is fixed relative to the stars, so the sidereal day is the one to use: Earth turns 15.04° per hour, not 15°.
+Here $T$ is the {term}`orbital period` and $T_{\text{day}}$ is the {term}`sidereal day`, the time the planet takes to turn once relative to the stars. For Earth it is 86,164 s, or 23.93 h, which is 236 s shorter than the 86,400 s solar day. The solar day is longer because Earth also moves around the Sun. It must turn a little more than once to bring the Sun back overhead. The orbit plane is fixed relative to the stars, so the sidereal day is the one we use. Earth turns 15.04° per hour, not 15°.
 
 {numref}`fig-p25-ground-track` shows three successive orbits of an Earth-observation satellite at 700 km altitude and 98.2° inclination. The period at 700 km is 5,926 s, or 98.77 min, so each pass crosses the equator 24.76° farther west. At the equator that is 2,756 km. The shift is westward for prograde and retrograde orbits alike, because it comes from the turning of the planet alone.
 
@@ -53,52 +53,52 @@ Here $T$ is the {term}`orbital period` and $T_{\text{day}}$ is the {term}`sidere
 :alt: A longitude and latitude map with three ground tracks of a satellite at 700 kilometers and 98.2 degrees inclination, labeled orbit 1, 2, and 3 and drawn solid, dashed, and dotted. Each track starts at the equator going north and slightly west, runs along 81.8 degrees north, crosses the equator going south, runs along 81.8 degrees south, and comes back to the equator. Dots mark the equator crossings going north: orbit 1 at 45 degrees east, orbit 2 at 20.2 degrees east, orbit 3 at 4.5 degrees west. A double arrow on the equator between the first two dots reads delta L equals 24.76 degrees, 2,756 kilometers.
 :width: 80%
 
-Computed for a circular orbit at 700 km altitude and 98.2° inclination over a turning Earth (two-body motion; the slow turning of the orbit plane by Earth's equatorial bulge is left out). Dots mark the northbound equator crossings; each orbit crosses 24.76° farther west than the one before.
+Computed for a circular orbit at 700 km altitude and 98.2° inclination over a turning Earth (two-body motion; the slow turning of the orbit plane by Earth's equatorial bulge is left out). Each orbit crosses the equator 24.76° farther west than the one before. Dots mark the northbound equator crossings.
 :::
 
 ### Reading the period off a ground track
 
-[](#eq-p25-shift) also runs backward. Measure the westward shift between two successive northbound equator crossings on a track, and the period follows:
+We can also use [](#eq-p25-shift) backward. If you measure the westward shift between two successive northbound equator crossings on a track, the period follows:
 
 :::{math}
 :label: eq-p25-period-from-track
 T = \frac{\Delta L}{{360}^\circ}\,T_{\text{day}}
 :::
 
-With the period known, the semi-major axis comes from $T = 2\pi\sqrt{a^3/\mu}$ ([the period equation](#eq-p21-period) of orbit properties). For the track of {numref}`fig-p25-ground-track`, $\Delta L = {24.76}^\circ$ gives $T = (24.76/360)(86{,}164) = 5{,}926$ s, then $a = 7{,}078$ km and an altitude of $7{,}078 - 6{,}378 = 700$ km. The inclination comes from the same map: it is the highest latitude for a prograde orbit, or 180° minus it for a retrograde one ([inclination and launch azimuth](#p23-azimuth)).
+With the period known, we get the semi-major axis from $T = 2\pi\sqrt{a^3/\mu}$ ([the period equation](#eq-p21-period) of orbit properties). For the track of {numref}`fig-p25-ground-track`, $\Delta L = {24.76}^\circ$ gives $T = (24.76/360)(86{,}164) = 5{,}926$ s. Then $a = 7{,}078$ km, and the altitude is $7{,}078 - 6{,}378 = 700$ km. The same map gives the inclination: it is the highest latitude for a prograde orbit, or 180° minus it for a retrograde one ([inclination and launch azimuth](#p23-azimuth)).
 
 :::{warning} Use the sidereal day
-Dividing by the 86,400 s solar day, or using 15° per hour, makes $\Delta L$ 0.27% too small. The error adds up over a day of passes. Keep $T$ and $T_{\text{day}}$ in the same unit.
+If you divide by the 86,400 s solar day, or use 15° per hour, $\Delta L$ comes out 0.27% too small. The error adds up over a day of passes. Keep $T$ and $T_{\text{day}}$ in the same unit.
 :::
 
 ### Period, inclination, and the geostationary orbit
 
-A longer period gives the planet more time to turn under one orbit, so the track squeezes together in longitude ({numref}`fig-p25-track-vs-period`). In a 3 h orbit (altitude 4,182 km) Earth turns 45.1° while the spacecraft goes around once, and the track spans most of the map. In an 8 h orbit (altitude 13,929 km) Earth turns 120° and the wave is visibly compressed. When the period equals one sidereal day, the planet turns once per orbit and the track closes on itself: a circular inclined orbit traces a narrow figure eight between the latitudes $\pm i$, the same one every day. That orbit is {term}`geosynchronous <geosynchronous orbit>`. Its radius, from the period equation with $T = 86{,}164$ s, is 42,164 km, an altitude of 35,786 km.
+With a longer period, the planet has more time to turn under one orbit, so the track squeezes together in longitude ({numref}`fig-p25-track-vs-period`). In a 3 h orbit (altitude 4,182 km), Earth turns 45.1° while the spacecraft goes around once, and the track spans most of the map. In an 8 h orbit (altitude 13,929 km), Earth turns 120°, and the wave is visibly narrower. When the period equals one sidereal day, the planet turns once per orbit and the track closes on itself. A circular inclined orbit then traces a narrow figure eight between the latitudes $\pm i$, the same one every day. We call that orbit {term}`geosynchronous <geosynchronous orbit>`. Its radius, from the period equation with $T = 86{,}164$ s, is 42,164 km, an altitude of 35,786 km.
 
 :::{figure} figures/p25-track-vs-period.svg
 :label: fig-p25-track-vs-period
 :alt: A longitude and latitude map with one revolution of three circular orbits at 40 degrees inclination, all reaching 40 degrees north and south. The 3 hour orbit, solid, is a wide wave spanning most of the map, and the 8 hour orbit, dashed, is a shorter wave. The geosynchronous orbit of 23.93 hours, dotted, is a narrow figure eight centered on the equator at 160 degrees east. A diamond on the equator at 60 degrees east marks the geostationary orbit, whose track is a single point.
 :width: 80%
 
-Computed: one revolution of circular orbits at 40° inclination with periods of 3 h, 8 h, and one sidereal day, each starting at the dot on the equator, and the geostationary orbit. The longer the period, the more Earth turns during one orbit and the shorter the track. Every track reaches 40° north and south, the inclination.
+Computed: one revolution of circular orbits at 40° inclination with periods of 3 h, 8 h, and one sidereal day, each starting at the dot on the equator, and the geostationary orbit. The longer the period, the more Earth turns during one orbit and the narrower the track in longitude. Each of the three inclined tracks reaches 40° north and south, the inclination; the geostationary orbit stays on one point of the equator.
 :::
 
-Set the inclination of that orbit to zero and the figure eight shrinks to a point: the spacecraft stays above one spot on the equator. This is the {term}`geostationary orbit`. A ground antenna points at a fixed spot in the sky and never has to track, which is why communications and weather satellites use it. The orbit must be equatorial: any inclination carries the spacecraft north and south.
+If we set the inclination of that orbit to zero, the figure eight shrinks to a point. The spacecraft stays above one spot on the equator. This is the {term}`geostationary orbit`. A ground antenna points at a fixed spot in the sky and never has to track the satellite, which is why communications and weather satellites use it. The orbit must be equatorial, because any inclination carries the spacecraft north and south.
 
-An elliptical orbit adds one more effect. The spacecraft moves fastest near periapsis, so the track is stretched out there and bunched up near apoapsis. Russian Molniya communications satellites use this: their orbits are highly eccentric, and each satellite spends about two-thirds of its 12-hour orbit over one hemisphere (Riebeek 2009).
+An elliptical orbit adds one more effect. The spacecraft moves fastest near periapsis, so the track is stretched out there and bunched up near apoapsis. Russian Molniya communications satellites use this effect. Their orbits are long, thin ellipses, and each satellite spends about two-thirds of its 12-hour orbit over one hemisphere (Riebeek 2009).
 
 ## Track spacing, swath, and coverage
 
-Neighboring tracks are $\Delta L$ apart in longitude. At the equator that angle is a distance, the track spacing
+To plan coverage, we need the distance between tracks on the ground. Neighboring tracks are $\Delta L$ apart in longitude. At the equator that angle becomes a distance, the track spacing
 
 :::{math}
 :label: eq-p25-spacing
 d = 2\pi R\,\frac{T}{T_{\text{day}}}
 :::
 
-Away from the equator the meridians close in, so the spacing shrinks roughly as $\cos\phi$ and the tracks crowd together near the highest latitude. Coverage is hardest at the equator.
+Away from the equator the meridians close in. The spacing shrinks roughly as $\cos\phi$, and the tracks crowd together near the highest latitude. So coverage is hardest at the equator.
 
-An instrument looking straight down with a field of view FOV sees a strip of ground centered on the track, the swath ({numref}`fig-p25-swath`). For a narrow field of view the ground under the spacecraft is nearly flat, and the {term}`swath width` is
+An instrument looking straight down with a field of view FOV sees a strip of ground centered on the track, the swath ({numref}`fig-p25-swath`). For a narrow field of view we can treat the ground under the spacecraft as flat, and the {term}`swath width` is
 
 :::{math}
 :label: eq-p25-swath
@@ -112,10 +112,10 @@ with $h$ the altitude. For a wide field of view the curvature of the planet make
 :alt: Left, a side view drawn to scale: a spacecraft 700 kilometers above flat ground looks down through a 15 degree field of view, which covers a strip of ground 184.3 kilometers wide. Right, a map near the equator from 60 degrees west to 15 degrees east and 20 degrees south to 20 degrees north, with three northbound passes, labeled orbit 1, 2, and 3, crossing the equator at 0, 24.76, and 49.52 degrees west, each with a narrow gray band, its swath. A double arrow on the equator between orbit 2 and orbit 1 reads 2,756 kilometers. The gaps between the bands are many times wider than the bands.
 :width: 100%
 
-Computed for the worked example: 700 km altitude, 98.2° inclination, a 15° field of view. Left, side view to scale. Right, three successive northbound passes near the equator with their swaths to scale. One day of passes leaves wide gaps between the swaths; later days fill them.
+Computed for the worked example: 700 km altitude, 98.2° inclination, a 15° field of view. Successive passes leave wide gaps between the swaths; the passes of later days fill them. Left, side view to scale. Right, three successive northbound passes near the equator with their swaths to scale.
 :::
 
-At 700 km the spacing is 2,756 km and the swath only 184.3 km, so one day of passes leaves wide gaps, which the following days fill. In the ideal case, where every new swath lands exactly in a gap, the days to see the whole equator are its length divided by the ground imaged per day:
+At 700 km the spacing is 2,756 km and the swath only 184.3 km. One day of passes leaves wide gaps, and the following days fill them. In the ideal case every new swath lands exactly in a gap. Then the days needed to see the whole equator are its length divided by the length imaged per day:
 
 :::{math}
 :label: eq-p25-days
@@ -136,9 +136,9 @@ A satellite in a circular orbit at $h = 700$ km and $i = {98.2}^\circ$ carries a
 6. **Equator imaged per day.** $w\,n = 184.3 \times 14.58 = 2{,}687$ km.
 7. **Days to cover the equator.** $N_{\text{days}} = 2\pi(6{,}378)/2{,}687 = 40{,}074/2{,}687 = 14.91$ days.
 
-**Check.** The track reaches 81.8° north and south, so the orbit passes over almost all of Earth, and covering the equator, where the tracks are farthest apart, covers every latitude the track reaches.
+**Check.** The track reaches 81.8° north and south, so the orbit passes over almost all of Earth. Covering the equator, where the tracks are farthest apart, covers every latitude the track reaches.
 
-The example is close to a real satellite. Landsat 8 flies a {term}`sun-synchronous orbit` at 705 km and 98.2°, images a 185 km swath, and repeats its track exactly after 233 orbits in 16 days (U.S. Geological Survey n.d.; NASA Science n.d.b). Its neighboring paths are $40{,}074/233 = 172.0$ km apart at the equator, less than the swath, so they overlap slightly; that overlap is why the real cycle is a little longer than the ideal 14.91 days.
+The example is close to a real satellite. Landsat 8 flies a {term}`sun-synchronous orbit` at 705 km and 98.2° and images a 185 km swath. It repeats its track exactly after 233 orbits in 16 days (U.S. Geological Survey n.d.; NASA Science n.d.b). Its neighboring paths are $40{,}074/233 = 172.0$ km apart at the equator. That is less than the swath, so the swaths overlap slightly. This overlap is why the real cycle is a little longer than the ideal 14.91 days.
 
 :::{table} The coverage estimate of the worked example against Landsat 8. Landsat values from U.S. Geological Survey (n.d.) and NASA Science (n.d.b).
 :label: tbl-p25-landsat
@@ -154,18 +154,18 @@ The example is close to a real satellite. Landsat 8 flies a {term}`sun-synchrono
 :::
 
 :::{warning} Altitude in the swath, radius in the period
-The swath uses the altitude $h$, the distance to the ground below. The period uses the radius $a = R + h$ from the center of the planet. Using 700 km in the period equation gives a period of 3.1 minutes, an orbit deep inside the planet.
+The swath uses the altitude $h$, the distance to the ground below. The period uses the radius $a = R + h$ from the center of the planet. If you use 700 km in the period equation, you get a period of 3.1 minutes, an orbit deep inside the planet.
 :::
 
 ## Ground tracks at other planets
 
-Nothing in [](#eq-p25-shift) to [](#eq-p25-days) is specific to Earth; the 86,400 s in $n$ only sets the unit of the answer, Earth days. At another planet, use that planet's gravitational parameter $\mu$ and radius $R$ for the period and the swath, and its own sidereal rotation period for $T_{\text{day}}$. The highest latitude of the track still equals the inclination, which is why mapping orbits are usually near-polar: a near-polar orbit sweeps every latitude, and the turning planet brings every longitude under it in turn. A planet that turns backward, as Venus does, shifts the track east. The Magellan radar mapper, in a near-polar orbit around Venus, imaged most of the planet in the time Venus took to turn once beneath it (NASA Science n.d.a).
+Nothing in [](#eq-p25-shift) to [](#eq-p25-days) is specific to Earth. The 86,400 s in $n$ only sets the unit of the answer, Earth days. At another planet, use that planet's gravitational parameter $\mu$ and radius $R$ for the period and the swath, and its own sidereal rotation period for $T_{\text{day}}$. The highest latitude of the track still equals the inclination. This is why mapping orbits are usually near-polar: a near-polar orbit sweeps every latitude, and the turning planet brings every longitude under it in turn. A planet that turns backward, as Venus does, shifts the track east. The Magellan radar mapper, in a near-polar orbit around Venus, imaged most of the planet in the time Venus took to turn once beneath it (NASA Science n.d.a).
 
-At Earth one more effect matters. Earth's equatorial bulge (the $J_2$ term of its gravity field) slowly turns the orbit plane, and a sun-synchronous orbit, near-polar and slightly retrograde, uses this so that the plane turns once a year and the satellite passes over each place at the same local solar time. The 98.2° inclination of the example is that choice at 700 km (Mesarch 2018).
+At Earth one more effect matters. Earth's equatorial bulge (the $J_2$ term of its gravity field) slowly turns the orbit plane. A sun-synchronous orbit, near-polar and slightly retrograde, uses this effect: its plane turns once a year, so the satellite passes over each place at the same local solar time. The 98.2° inclination of the example is that choice at 700 km (Mesarch 2018).
 
 ## Aerobraking
 
-Capturing into a large, elongated orbit costs much less {term}`delta-V` than capturing straight into a low circular one. The rest of the job, bringing the apoapsis down, can be done by the planet's atmosphere. In {term}`aerobraking`, a small burn at apoapsis lowers the periapsis into the upper atmosphere. Each pass through periapsis removes a little speed, the way a short burn against the motion would, and so lowers the apoapsis while the periapsis stays at about the same altitude. After hundreds of passes over weeks or months the orbit is nearly circular, and a second small burn at apoapsis raises the periapsis out of the atmosphere ({numref}`fig-p25-aerobraking`).
+A planet with an atmosphere offers a way to save propellant. Capturing into a large, elongated orbit costs much less {term}`delta-V` than capturing straight into a low circular one. The atmosphere can then do the rest of the job, bringing the apoapsis down. In {term}`aerobraking`, a small burn at apoapsis lowers the periapsis into the upper atmosphere. Each pass through periapsis removes a little speed, the way a short burn against the motion would. That lowers the apoapsis, while the periapsis stays at about the same altitude. After hundreds of passes over weeks or months, the orbit is nearly circular. A second small burn at apoapsis then raises the periapsis out of the atmosphere ({numref}`fig-p25-aerobraking`).
 
 :::{figure} figures/p25-aerobraking.svg
 :label: fig-p25-aerobraking
@@ -175,35 +175,35 @@ Capturing into a large, elongated orbit costs much less {term}`delta-V` than cap
 Computed for the Venus orbiter of the worked example. Left, to scale: the 250 km by 25,000 km capture orbit, two orbits after drag passes (apoapsis altitudes of 15,000 and 7,000 km chosen for the drawing, periapsis at 140 km), and the final 250 km circular orbit. $\Delta V_1$ lowers the periapsis into the atmosphere; $\Delta V_2$ lifts it out. The burn arrows are drawn to scale with their $\Delta V$. Right, altitude near periapsis: the drag passes dip to 140 km, below the final orbit.
 :::
 
-The trade is propellant against time and risk. Aerobraking takes months of operations instead of minutes of burning. Every pass heats the spacecraft, which must be designed for the loads and the heating, and the team must adjust the periapsis altitude as the density of the upper atmosphere changes from day to day; too deep a pass can destroy the vehicle. In 1993 the Magellan spacecraft became the first planetary orbiter to aerobrake, at Venus (Jet Propulsion Laboratory 1993). Mars Global Surveyor, Mars Odyssey, and Mars Reconnaissance Orbiter later used aerobraking at Mars (Long et al. 2007).
+The trade is propellant against time and risk. Aerobraking takes months of operations instead of minutes of burning. Every pass heats the spacecraft, so it must be designed for the loads and the heating. The team must also adjust the periapsis altitude as the density of the upper atmosphere changes from day to day. A pass that goes too deep can destroy the vehicle. In 1993 the Magellan spacecraft became the first planetary orbiter to aerobrake, at Venus (Jet Propulsion Laboratory 1993). Mars Global Surveyor, Mars Odyssey, and Mars Reconnaissance Orbiter later used aerobraking at Mars (Long et al. 2007).
 
 ### Worked example: a Venus orbiter
 
-A 1,200 kg orbiter with an engine of $I_{\text{sp}} = 320$ s is captured into a 250 km by 25,000 km orbit around Venus and must end in a 250 km circular orbit. Compare two plans: burns only, and aerobraking with the periapsis at 140 km. Venus: $\mu = 3.249 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}052$ km. The propellant for each plan comes from the rocket equation, treated with propulsion in Chapter 4:
+A 1,200 kg orbiter with an engine of $I_{\text{sp}} = 320$ s is captured into a 250 km by 25,000 km orbit around Venus and must end in a 250 km circular orbit. Compare two plans: burns only, and aerobraking with the periapsis at 140 km. Venus: $\mu = 3.249 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}052$ km. We find the propellant for each plan from the rocket equation, which Chapter 4 covers with propulsion:
 
 :::{math}
 :label: eq-p25-propellant
-m_p = m_0\left[1 - \exp\left(-\frac{\Delta V}{I_{\text{sp}}\,g_0}\right)\right], \qquad g_0 = 9.80665\ \text{m/s}^2
+m_p = m_0\left[1 - \exp\left(-\frac{\Delta V}{I_{\text{sp}}\,g_0}\right)\right], \qquad g_0 = 9.81\ \text{m/s}^2
 :::
 
 **Plan A, burns only.**
 
 1. **Capture orbit.** $r_p = 6{,}052 + 250 = 6{,}302$ km, $r_a = 6{,}052 + 25{,}000 = 31{,}052$ km, $a = (r_p + r_a)/2 = 18{,}677$ km. One revolution takes 7.82 hours.
-2. **Speeds at periapsis.** On the capture orbit $v_p = \sqrt{\mu(2/r_p - 1/a)} = 9.25821$ km/s. On the 250 km circle $v_c = \sqrt{\mu/r_p} = 7.18019$ km/s. The speeds are given to five decimals because the burns of Plan B are differences of close speeds.
+2. **Speeds at periapsis.** On the capture orbit $v_p = \sqrt{\mu(2/r_p - 1/a)} = 9.25821$ km/s. On the 250 km circle $v_c = \sqrt{\mu/r_p} = 7.18019$ km/s. We keep five decimals because Plan B's burns are differences of close speeds.
 3. **Burn.** One burn against the motion at periapsis brings the apoapsis down to 250 km: $\Delta V = 9.25821 - 7.18019 = 2.078$ km/s.
-4. **Propellant.** $m_p = 1{,}200\,[1 - \exp(-2{,}078/(320 \times 9.80665))] = 581$ kg.
+4. **Propellant.** $m_p = 1{,}200\,[1 - \exp(-2{,}078/(320 \times 9.81))] = 581$ kg.
 
 **Plan B, aerobraking.**
 
 1. **Lower the periapsis.** At apoapsis, lower the periapsis to 140 km ($r = 6{,}192$ km). The speed at apoapsis drops from 1.87895 to 1.86523 km/s: $\Delta V_1 = 1.86523 - 1.87895 = -0.01372$ km/s, a burn of 0.01372 km/s against the motion.
-2. **Drag passes.** The atmosphere lowers the apoapsis from 25,000 km to 250 km while the periapsis stays near 140 km. This step uses no propellant, apart from small trim burns left out here.
+2. **Drag passes.** The atmosphere lowers the apoapsis from 25,000 km to 250 km while the periapsis stays near 140 km. This step uses no propellant, apart from small trim burns that we leave out.
 3. **Raise the periapsis.** At the apoapsis of the final 140 km by 250 km orbit the speed is 7.14851 km/s; the 250 km circle needs 7.18019 km/s: $\Delta V_2 = 7.18019 - 7.14851 = 0.03168$ km/s, along the motion.
 4. **Total.** $\Delta V = 0.01372 + 0.03168 = 0.04540$ km/s, and $m_p = 17.2$ kg.
 
 :::{table} Burns only against aerobraking for the 1,200 kg Venus orbiter ($I_{\text{sp}} = 320$ s), from a 250 km by 25,000 km capture orbit to a 250 km circular orbit.
 :label: tbl-p25-aerobraking
 
-| Plan | $\Delta V$, km/s | Propellant, kg |
+| Plan | Velocity change $\Delta V$, km/s | Propellant, kg |
 | --- | ---: | ---: |
 | Burns only: one burn at periapsis | 2.078 | 581 |
 | Aerobraking at 140 km, then two small burns | 0.04540 | 17.2 |
@@ -215,11 +215,11 @@ Aerobraking needs 0.04540 km/s of delta-V instead of 2.078 km/s and saves 564 kg
 (p25-orbit-lifetime)=
 ## Orbit lifetime and the end of the mission
 
-A low Earth orbit is not permanent. The thin air at a few hundred kilometers drags on the spacecraft at every point of the orbit, and the orbit sinks. This {term}`orbit decay` is slow at first and speeds up, because the air gets denser as the orbit gets lower.
+Aerobraking uses drag on purpose. Around Earth, drag acts on every low orbit. The thin air at a few hundred kilometers drags on the spacecraft at every point of the orbit, and the orbit sinks. This {term}`orbit decay` is slow at first and then speeds up, because the air gets denser as the orbit gets lower.
 
 ### How drag lowers an orbit
 
-The drag force is $D = \tfrac{1}{2}\rho v^2 C_D A$, with $\rho$ the air density, $C_D$ the drag coefficient, and $A$ the reference area. Divided by the mass it is a deceleration $\rho v^2/(2B)$, where
+We start from the drag force, $D = \tfrac{1}{2}\rho v^2 C_D A$, with $\rho$ the air density, $C_D$ the drag coefficient, and $A$ the reference area. Divided by the mass, it gives a deceleration $\rho v^2/(2B)$, where
 
 :::{math}
 :label: eq-p25-ballistic
@@ -228,18 +228,18 @@ B = \frac{m}{C_D A}
 
 is the {term}`ballistic coefficient`. A dense, compact spacecraft has a high $B$ and slows down less.
 
-Drag takes energy out of the orbit. Per unit mass, the rate is the deceleration times the speed: $d\varepsilon/dt = -\rho v^3/(2B)$. The {term}`specific orbital energy` of the orbit is $\varepsilon = -\mu/(2a)$, so $d\varepsilon/dt = (\mu/2a^2)\,da/dt$. Setting the two equal gives $da/dt = -a^2\rho v^3/(\mu B)$. For a nearly circular orbit $v = \sqrt{\mu/a}$, and
+Drag takes energy out of the orbit. Per unit mass, the rate is the deceleration times the speed: $d\varepsilon/dt = -\rho v^3/(2B)$. The {term}`specific orbital energy` is $\varepsilon = -\mu/(2a)$, so $d\varepsilon/dt = (\mu/2a^2)\,da/dt$. Setting the two equal gives $da/dt = -a^2\rho v^3/(\mu B)$. For a nearly circular orbit $v = \sqrt{\mu/a}$, and
 
 :::{math}
 :label: eq-p25-decay
 \frac{da}{dt} = -\frac{\rho\sqrt{\mu a}}{B}, \qquad \Delta a_{\text{rev}} = -\frac{2\pi\rho a^2}{B}
 :::
 
-The second form is the loss in one revolution, the rate times the period $2\pi\sqrt{a^3/\mu}$. Work it in SI units: $\rho$ in kg/m³, $a$ in m, $B$ in kg/m², $\mu$ in m³/s². At 400 km, with the density of the U.S. Standard Atmosphere 1976 ($2.803 \times {10}^{-12}$ kg/m³), $a = 6.778 \times {10}^{6}$ m, and $B = 100$ kg/m², the orbit drops 8.091 m in one revolution. The orbit goes around 15.6 times a day, and the drop grows as the air thickens.
+The second form is the loss in one revolution: the rate times the period $2\pi\sqrt{a^3/\mu}$. Work it in SI units: $\rho$ in kg/m³, $a$ in m, $B$ in kg/m², $\mu$ in m³/s². For example, take 400 km, with the density of the U.S. Standard Atmosphere 1976 ($2.803 \times {10}^{-12}$ kg/m³), $a = 6.778 \times {10}^{6}$ m, and $B = 100$ kg/m². The orbit drops 8.091 m in one revolution. It goes around 15.6 times a day, and the drop grows as the air thickens.
 
 ### Lifetimes at 300, 400, and 500 km
 
-Stepping [](#eq-p25-decay) forward in time, with the density updated at each new altitude, gives the curves of {numref}`fig-p25-orbit-lifetime` and the lifetimes of {numref}`tbl-p25-lifetime`. Each 100 km of extra altitude makes the lifetime 6.1 to 8.7 times longer, mostly because the density falls by a factor of 5.4 to 6.8 over the same 100 km. The calculation stops at 150 km. There the density is $2.076 \times {10}^{-9}$ kg/m³ and the orbit loses about 5.6 km every revolution, so reentry follows in less than a day.
+To get a lifetime, we step [](#eq-p25-decay) forward in time and update the density at each new altitude. That gives the curves of {numref}`fig-p25-orbit-lifetime` and the lifetimes of {numref}`tbl-p25-lifetime`. Each 100 km of extra altitude makes the lifetime 6.1 to 8.7 times longer. The main reason is the density, which falls by a factor of 5.4 to 6.8 over the same 100 km. We stop the calculation at 150 km. There the density is $2.076 \times {10}^{-9}$ kg/m³, and the orbit loses about 5.6 km every revolution, so the satellite reenters in less than a day.
 
 :::{figure} figures/p25-orbit-lifetime.svg
 :label: fig-p25-orbit-lifetime
@@ -260,7 +260,7 @@ Computed for circular Earth orbits with $B = 100$ kg/m², U.S. Standard Atmosphe
 
 :::
 
-These are estimates for one fixed atmosphere. The density of the upper atmosphere depends on solar activity: at a given altitude it can change by about ten times between a quiet and an active Sun, and the lifetime changes with it (Wertz and Larson 1999).
+These are estimates for one fixed atmosphere. The density of the upper atmosphere depends on solar activity. At a given altitude it can change by about ten times between a quiet and an active Sun, and the lifetime changes with it (Wertz and Larson 1999).
 
 :::{warning} Units in the decay equation
 [](#eq-p25-decay) mixes the density in kg/m³ with the radius. Put $a$ in meters and $\mu$ in m³/s² ($3.986 \times {10}^{14}$), or the result is off by factors of a thousand. The radius is $R + h$, not the altitude.
@@ -268,13 +268,13 @@ These are estimates for one fixed atmosphere. The density of the upper atmospher
 
 ### The end of the mission
 
-The end of a satellite's life is planned before launch. The options are:
+We plan the end of a satellite's life before launch. There are three options:
 
 - **Deorbit.** A burn against the motion lowers the periapsis deep into the atmosphere, and the spacecraft reenters within days. A large spacecraft whose parts could survive reentry is brought down over an empty stretch of ocean.
 - **Let drag do it.** A low orbit decays on its own. A lower final orbit or a drag device that lowers $B$ makes it reenter sooner.
-- **Move out of the way.** No atmosphere reaches the geostationary orbit, so a geostationary satellite is boosted into a storage orbit with its perigee above 35,986 km altitude, the upper edge of the geostationary zone, where it stays clear of working satellites (U.S. Government 2019).
+- **Move out of the way.** No atmosphere reaches the geostationary orbit. So a geostationary satellite is boosted into a storage orbit above the geostationary zone, whose upper edge is at 35,986 km altitude. Its perigee is set high enough that it stays outside the zone, clear of working satellites, for at least 100 years (U.S. Government 2019, practice 4-1d).
 
-The rules set the time allowed. The long-standing U.S. Government guideline allows 25 years in orbit after the end of the mission (U.S. Government 2019). In 2022 the Federal Communications Commission adopted a five-year rule for satellites in low Earth orbit that it licenses (Federal Communications Commission 2022). With $B = 100$ kg/m², the 400 km orbit of the table meets it easily; the 500 km orbit, at 6.8 years, does not, and would need a deorbit burn or a lower orbit at the end. Around another planet the rule can run the other way: planetary protection rules can require an orbiter to stay in orbit for decades, so that it does not crash onto a surface that must be kept free of Earth microbes.
+The rules set the time allowed. The long-standing U.S. Government guideline allows 25 years in orbit after the end of the mission (U.S. Government 2019). In 2022 the Federal Communications Commission adopted a five-year rule for satellites in low Earth orbit that it licenses (Federal Communications Commission 2022). With $B = 100$ kg/m², the 400 km orbit of the table meets it with years to spare. The 500 km orbit, at 6.8 years, does not, and it would need a deorbit burn or a lower orbit at the end. Around another planet the rule can run the other way. Planetary protection rules can require an orbiter to stay in orbit for decades, so that it does not crash onto a surface that must be kept free of Earth microbes.
 
 ## Summary
 

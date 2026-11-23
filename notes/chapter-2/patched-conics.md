@@ -6,7 +6,7 @@ short_title: 2.4 Patched Conics
 :::{include} ../_parts/standards/2.4.md
 :::
 
-A trip to another planet passes through three gravity fields: the departure planet's, the Sun's, and the target planet's. The method of {term}`patched conics` treats one field at a time, so each piece of the trip is a conic section you already know how to handle. This page builds the method in three steps (the transfer around the Sun, the departure burn, and the capture burn), works a complete example for an orbiter sent to Mercury, applies the same steps to a trip to the Moon, and shows how the timing of a launch follows from the planets' periods.
+A trip to another planet passes through three gravity fields: the departure planet's, the Sun's, and the target planet's. The method of {term}`patched conics` treats one field at a time, so each piece of the trip is a conic section you already know how to handle. We build the method in three steps (the transfer around the Sun, the departure burn, and the capture burn) and work a complete example for an orbiter sent to Mercury. Then we apply the same steps to a trip to the Moon and see how the planets' periods set the timing of a launch.
 
 :::{note} What to take from this page
 - Inside a planet's {term}`sphere of influence` only the planet's gravity counts; outside it only the Sun's. The trip becomes a departure hyperbola, a transfer ellipse around the Sun, and an arrival hyperbola.
@@ -17,9 +17,9 @@ A trip to another planet passes through three gravity fields: the departure plan
 
 ## The idea: one body at a time
 
-A spacecraft between Earth and Mercury feels the Sun, Earth, Mercury, and every other planet at once. The two-body problem of [orbit properties](orbit-properties.md) has a closed-form answer only for one central body, so patched conics splits the trip into pieces and keeps, in each piece, only the body that dominates.
+A spacecraft between Earth and Mercury feels the Sun, Earth, Mercury, and every other planet at once. The two-body problem of [orbit properties](orbit-properties.md) has a closed-form answer only for one central body. So we split the trip into pieces and keep, in each piece, only the body that dominates.
 
-The split is made at the sphere of influence of each planet. Close to a planet, the planet's pull bends the path far more than the Sun's pull changes it, and the motion is a conic around the planet. Far from the planet, the Sun dominates, and the motion is a conic around the Sun. Laplace's estimate of the boundary is
+We make the split at the sphere of influence of each planet. Close to a planet, the planet's pull bends the path far more than the Sun's pull changes it, and the motion is a conic around the planet. Far from the planet, the Sun dominates, and the motion is a conic around the Sun. Laplace's estimate of the boundary is
 
 :::{math}
 :label: eq-p24-soi
@@ -52,22 +52,22 @@ The method rests on these assumptions:
 
 - The planets move on circular orbits in one plane.
 - Burns are impulsive: the velocity changes at once and the position does not.
-- The sphere of influence is small against the distance between the planets. For the leg around the Sun, the spacecraft starts at the departure planet's position and ends at the target planet's position, and the days spent inside each sphere of influence are ignored next to the months of the transfer.
+- The sphere of influence is small against the distance between the planets. For the leg around the Sun, the spacecraft starts at the departure planet's position and ends at the target planet's position. The days spent inside each sphere of influence are short next to the months of the transfer, so we ignore them.
 
 With these assumptions the method gives a first estimate of the burns and the trip time, good enough to size a propulsion system and to compare destinations (Bate, Mueller, and White 1971, Chapter 8).
 
 ## Step 1: the transfer around the Sun
 
-The first step ignores both planets and finds the transfer orbit around the Sun. With circular, coplanar planet orbits, the cheapest two-burn transfer is [the Hohmann transfer](#p22-hohmann): half an ellipse that touches the departure planet's orbit (radius $r_1$) and the target's orbit (radius $r_2$), with semi-major axis $a_t = (r_1 + r_2)/2$.
+In the first step we ignore both planets and find the transfer orbit around the Sun. With circular, coplanar planet orbits, the cheapest two-burn transfer is [the Hohmann transfer](#p22-hohmann): half an ellipse that touches the departure planet's orbit (radius $r_1$) and the target's orbit (radius $r_2$), with semi-major axis $a_t = (r_1 + r_2)/2$.
 
-Each planet moves at the circular speed of its orbit around the Sun, and the spacecraft's speed on the transfer orbit at each end follows from [the vis-viva equation](#p21-vis-viva), both with the Sun's $\mu$:
+Each planet moves at the circular speed of its orbit around the Sun. The spacecraft's speed at each end of the transfer orbit follows from [the vis-viva equation](#p21-vis-viva). Both use the Sun's $\mu$:
 
 :::{math}
 :label: eq-p24-planet-speeds
 v_{\text{planet}} = \sqrt{\frac{\mu_{\text{Sun}}}{r}}, \qquad v_t = \sqrt{\mu_{\text{Sun}}\left(\frac{2}{r} - \frac{1}{a_t}\right)}
 :::
 
-The comparison of the two speeds tells which way the spacecraft must leave:
+Comparing the two speeds tells us which way the spacecraft must leave:
 
 - **Going outward** (to Jupiter, say), the departure planet sits at the periapsis of the transfer orbit. The transfer speed there is higher than the planet's, so the spacecraft must leave faster than the planet, along the planet's direction of motion.
 - **Going inward** (to Venus or Mercury), the departure planet sits at the apoapsis. The transfer speed there is lower than the planet's, so the spacecraft must leave slower than the planet, against the planet's direction of motion.
@@ -79,7 +79,7 @@ The comparison of the two speeds tells which way the spacecraft must leave:
 :alt: Top view of the Sun with the circular orbits of Earth and Mercury drawn to scale, and the Hohmann transfer as a dashed half ellipse from Earth at departure on the left, around the bottom, to the meeting point on Mercury's orbit at the right. Mercury at departure is marked 108 degrees ahead of Earth, measured counterclockwise at the Sun. All motion is counterclockwise.
 :width: 75%
 
-Computed with the constants of this chapter: the Hohmann transfer from Earth to Mercury, orbits to scale, planets not to scale. Motion is counterclockwise. At departure Mercury must already be 108° ahead of Earth so that it reaches the meeting point together with the spacecraft, as the section on the phase angle explains.
+Computed with the constants of this chapter: the Hohmann transfer from Earth to Mercury, orbits to scale, planets not to scale. Motion is counterclockwise. At departure Mercury must already be 108° ahead of Earth so that it reaches the meeting point together with the spacecraft (see the section on the phase angle).
 :::
 
 (p24-vinf)=
@@ -92,17 +92,17 @@ The transfer speed $v_t$ is measured around the Sun. The spacecraft starts with 
 v_\infty = \left|\,v_t - v_{\text{planet}}\,\right|
 :::
 
-The speeds subtract because, on a Hohmann transfer, the spacecraft's velocity and the planet's velocity are parallel at both ends; for any other transfer $v_\infty$ is the size of the vector difference.
+The speeds subtract directly because, on a Hohmann transfer, the two velocities are parallel at both ends. For any other transfer, $v_\infty$ is the size of the vector difference.
 
 :::{prf:definition} Hyperbolic excess speed
 :label: def-p24-vinf
 
-The **hyperbolic excess speed** $v_\infty$ is the speed of a spacecraft relative to a planet when it is far from the planet: what is left after it has climbed out of the planet's gravity well (or, arriving, the speed at which it approaches from far away). The gravity well is the dip in potential energy, $-\mu/r$, around the planet.
+The **hyperbolic excess speed** $v_\infty$ is the speed of a spacecraft relative to a planet when it is far from the planet. Leaving, it is what is left after the spacecraft has climbed out of the planet's gravity well; arriving, it is the speed at which the spacecraft approaches from far away. The gravity well is the dip in potential energy, $-\mu/r$, around the planet.
 :::
 
-A spacecraft that leaves a planet at exactly [escape speed](#p21-circular-and-escape) follows a parabola and arrives far away with zero speed relative to the planet. To go anywhere, it needs more than escape speed, which puts it on a hyperbola. The hyperbola has the same parts as an ellipse (a periapsis, a semi-major axis $a$, an eccentricity $e$), but $e > 1$, $a$ is negative, and there is no apoapsis: the path straightens out along an asymptote, the direction in which the spacecraft leaves.
+A spacecraft that leaves a planet at exactly [escape speed](#p21-circular-and-escape) follows a parabola and arrives far away with zero speed relative to the planet. To go anywhere, it needs more than escape speed, and that puts it on a hyperbola. The hyperbola has the same parts as an ellipse (a periapsis, a semi-major axis $a$, an eccentricity $e$), but $e > 1$, $a$ is negative, and there is no apoapsis. The path straightens out along an asymptote, the direction in which the spacecraft leaves.
 
-The speed anywhere on the hyperbola follows from energy. The {term}`specific orbital energy` is constant along the path:
+We find the speed anywhere on the hyperbola from energy. The {term}`specific orbital energy` is constant along the path:
 
 :::{math}
 :label: eq-p24-energy
@@ -118,7 +118,7 @@ v^2 = v_\infty^2 + \frac{2\mu}{r}
 
 Since $2\mu/r$ is the square of the escape speed at $r$, the speed on the hyperbola is $v = \sqrt{v_\infty^2 + v_{\text{esc}}^2}$. Comparing $\varepsilon = v_\infty^2/2$ with $\varepsilon = -\mu/(2a)$ also gives the semi-major axis, $a = -\mu/v_\infty^2$.
 
-{numref}`fig-p24-speed-vs-distance` follows the speed along a departure hyperbola. The spacecraft leaves the parking orbit at 13.35 km/s and slows as it climbs. At the edge of Earth's sphere of influence its speed is 7.591 km/s, within 1% of $v_\infty$ = 7.534 km/s. That is why the method can treat the edge of the sphere of influence as "far away" and hand $v_\infty$ to the Sun leg.
+{numref}`fig-p24-speed-vs-distance` follows the speed along a departure hyperbola. The spacecraft leaves the parking orbit at 13.35 km/s and slows as it climbs. At the edge of Earth's sphere of influence its speed is 7.591 km/s, within 1% of $v_\infty$ = 7.534 km/s. This is why we can treat the edge of the sphere of influence as "far away" and start the leg around the Sun with $v_\infty$.
 
 :::{figure} figures/p24-speed-vs-distance.svg
 :label: fig-p24-speed-vs-distance
@@ -129,12 +129,12 @@ Computed from {eq}`eq-p24-hyperbola-speed`: speed on the departure hyperbola of 
 :::
 
 :::{warning} Two speeds, two frames
-$v_t$ and $v_{\text{planet}}$ are speeds around the Sun and use $\mu_{\text{Sun}}$. $v_\infty$ and every speed on the hyperbola are speeds relative to the planet and use the planet's $\mu$. Mixing the two, for example computing the hyperbola speed with $\mu_{\text{Sun}}$, gives numbers that are wrong by orders of magnitude.
+$v_t$ and $v_{\text{planet}}$ are speeds around the Sun and use $\mu_{\text{Sun}}$. $v_\infty$ and every speed on the hyperbola are speeds relative to the planet and use the planet's $\mu$. If you mix the two, for example by computing the hyperbola speed with $\mu_{\text{Sun}}$, your numbers are wrong by orders of magnitude.
 :::
 
 ## Step 2: the departure burn
 
-The spacecraft waits in a circular parking orbit of radius $r_p$ around the departure planet. One burn along the direction of motion raises its speed from the circular speed to the speed of the hyperbola at that radius, and the burn point becomes the periapsis of the hyperbola ({numref}`fig-p24-departure-hyperbola`). With {eq}`eq-p24-hyperbola-speed` at $r = r_p$, the velocity change $\Delta V$ (delta-V) of the {term}`departure burn` is
+The spacecraft waits in a circular parking orbit of radius $r_p$ around the departure planet. One burn along the direction of motion raises its speed from the circular speed to the speed of the hyperbola at that radius. The burn point becomes the periapsis of the hyperbola ({numref}`fig-p24-departure-hyperbola`). With {eq}`eq-p24-hyperbola-speed` at $r = r_p$, the velocity change $\Delta V$ (delta-V) of the {term}`departure burn` is
 
 :::{math}
 :label: eq-p24-dv-departure
@@ -151,7 +151,7 @@ with $\mu$ of the departure planet and $r_p = R + h$, the radius of the parking 
 Computed for the Mercury example, to scale near Earth: the departure hyperbola ($e$ = 1.935) from the 185 km parking orbit, with the burn at its periapsis. The $v_\infty$ arrow is drawn to scale with the distances (1 km/s to 0.3 Earth radii); the gray arrows show directions only. Going inward to Mercury, the spacecraft must leave against Earth's motion around the Sun, so the burn is made on the side of Earth facing the Sun.
 :::
 
-The burn point is set by the direction $v_\infty$ must have. For the inward trip $v_\infty$ must point against Earth's motion. The burn point lies 121.1° back from that direction, counted against the spacecraft's motion around Earth, which puts it on the side of Earth facing the Sun ({numref}`fig-p24-departure-hyperbola`). Going outward, the burn is made on the night side.
+Where we make the burn depends on the direction $v_\infty$ must have. For the inward trip $v_\infty$ must point against Earth's motion. The burn point lies 121.1° back from that direction, counted against the spacecraft's motion around Earth, which puts it on the side of Earth facing the Sun ({numref}`fig-p24-departure-hyperbola`). Going outward, we make the burn on the night side.
 
 ### Why burn deep in the gravity well
 
@@ -160,19 +160,19 @@ Burning in the low parking orbit is much cheaper than escaping first and then bu
 - **Escape first, then burn.** Reaching escape speed costs 3.228 km/s. The spacecraft then arrives far from Earth with no speed left, and a second burn must supply all of $v_\infty$. For $v_\infty$ = 7.534 km/s the total is 10.76 km/s.
 - **One burn in the parking orbit.** {eq}`eq-p24-dv-departure` gives 5.557 km/s for the same $v_\infty$.
 
-The reason is energy. A burn $\Delta V$ made at speed $v$ adds about $v\,\Delta V$ to the specific orbital energy, so the same burn adds more energy where the spacecraft is fast, deep in the gravity well. The extra energy appears far away as $v_\infty$. On the curve of {numref}`fig-p24-vinf-vs-dv`, each additional km/s of $v_\infty$ costs less than 1 km/s of $\Delta V$.
+The reason is energy. A burn $\Delta V$ made at speed $v$ adds about $v\,\Delta V$ to the specific orbital energy, so the same burn adds more energy where the spacecraft is fast, deep in the gravity well. The extra energy appears far away as $v_\infty$. On the curve of {numref}`fig-p24-vinf-vs-dv`, each extra km/s of $v_\infty$ costs less than 1 km/s of $\Delta V$.
 
 :::{figure} figures/p24-vinf-vs-dv.svg
 :label: fig-p24-vinf-vs-dv
 :alt: Line plot of departure delta-V against hyperbolic excess speed from 0 to 12 kilometers per second, for a 185 kilometer parking orbit around Earth; both plans start at 3.228 kilometers per second, the cost of just escaping. The dashed straight line, escaping first and then burning far from Earth, rises with slope one. The solid curve, one burn in the parking orbit, rises slowly at first and stays well below the line. The Mercury example is marked on the curve at 7.534 and 5.557 kilometers per second.
 :width: 80%
 
-Computed with $\mu$ and $R$ of Earth: the departure $\Delta V$ from a 185 km circular orbit against the $v_\infty$ it buys. Solid curve: one burn in the parking orbit, {eq}`eq-p24-dv-departure`. Dashed line: escape first (3.228 km/s, the escape speed minus the circular speed), then burn far from Earth, where every km/s of $\Delta V$ adds one km/s of $v_\infty$, so $\Delta V = 3.228\ \text{km/s} + v_\infty$. The single low burn always costs less.
+Computed with $\mu$ and $R$ of Earth: the departure $\Delta V$ from a 185 km circular orbit against the $v_\infty$ it buys. For any $v_\infty$ above zero the single low burn costs less. Solid curve: one burn in the parking orbit, {eq}`eq-p24-dv-departure`. Dashed line: escape first (3.228 km/s, the escape speed minus the circular speed), then burn far from Earth, where every km/s of $\Delta V$ adds one km/s of $v_\infty$, so $\Delta V = 3.228\ \text{km/s} + v_\infty$.
 :::
 
 ## Step 3: arrival and capture
 
-At the target, the same reasoning runs backward. The spacecraft arrives at the target's orbit with the transfer speed $v_t$, and the target moves at $v_{\text{planet}}$, so the spacecraft enters the target's sphere of influence with $v_\infty = |v_t - v_{\text{planet}}|$ relative to the target. Inside the sphere of influence it falls toward the target on a hyperbola and speeds up. At periapsis, at radius $r_p$, its speed is $\sqrt{v_\infty^2 + 2\mu/r_p}$, now with the target's $\mu$.
+At the target, the same reasoning runs backward. The spacecraft arrives at the target's orbit with the transfer speed $v_t$, and the target moves at $v_{\text{planet}}$. So the spacecraft enters the target's sphere of influence with $v_\infty = |v_t - v_{\text{planet}}|$ relative to the target. Inside the sphere of influence it falls toward the target on a hyperbola and speeds up. At periapsis, at radius $r_p$, its speed is $\sqrt{v_\infty^2 + 2\mu/r_p}$, now with the target's $\mu$.
 
 A hyperbola does not close. Without a burn, the spacecraft swings past the target and leaves again at $v_\infty$, as on the flyby path of {numref}`fig-p24-arrival-capture`. To stay, it must slow down at periapsis, with a burn against its motion, to the speed of the orbit it wants. For a circular capture orbit of radius $r_p$,
 
@@ -184,7 +184,7 @@ A hyperbola does not close. Without a burn, the spacecraft swings past the targe
 which has the same form as the departure burn, with the target's $\mu$ and the target's $v_\infty$. If the capture orbit is an ellipse with periapsis $r_p$ and semi-major axis $a$, subtract its periapsis speed $\sqrt{\mu(2/r_p - 1/a)}$ instead of the circular speed. That speed is higher, so capture into a long ellipse costs less than capture into a low circle.
 
 :::{warning} The burn is not $v_\infty$
-The departure and capture burns are differences of speeds at the burn radius. Taking $\Delta V = v_\infty$, or subtracting $v_\infty$ from the periapsis speed, skips the gravity well and gives the wrong answer. In the Mercury example, $v_\infty$ at departure is 7.534 km/s, but the burn is 5.557 km/s.
+The departure and capture burns are differences of speeds at the burn radius. If you take $\Delta V = v_\infty$, or subtract $v_\infty$ from the periapsis speed, you skip the gravity well and get the wrong answer. In the Mercury example, $v_\infty$ at departure is 7.534 km/s, but the burn is 5.557 km/s.
 :::
 
 :::{figure} figures/p24-arrival-capture.svg
@@ -253,9 +253,9 @@ Use the values of [the table of constants](#tbl-p21-constants): $\mu_{\text{Sun}
 
 :::
 
-**Check.** Of the 5.557 km/s departure burn, 3.228 km/s is the cost of escaping from the parking orbit; the remaining 2.329 km/s buys 7.534 km/s of $v_\infty$, the advantage of the low burn shown in {numref}`fig-p24-vinf-vs-dv`. The capture burn is almost as large as $v_\infty$ at Mercury, because Mercury's well is shallow: the escape speed at a radius of 2,840 km is only 3.939 km/s, so the well adds little speed to subtract.
+**Check.** Of the 5.557 km/s departure burn, 3.228 km/s is the cost of escaping from the parking orbit. The remaining 2.329 km/s buys 7.534 km/s of $v_\infty$, the advantage of the low burn shown in {numref}`fig-p24-vinf-vs-dv`. At Mercury the capture burn costs most of $v_\infty$, because Mercury's well is shallow. The escape speed at a radius of 2,840 km is only 3.939 km/s, so burning low at Mercury saves little.
 
-The capture burn is the expensive part. The spacecraft falls toward the Sun and gains speed all the way, arriving 9.613 km/s faster than Mercury, and Mercury's weak gravity cannot help remove it. A propulsion system able to deliver 7.604 km/s after the cruise would be far heavier than the orbiter it carries. Real Mercury orbiters avoid this: MESSENGER flew past Earth once, Venus twice, and Mercury three times, each flyby trading speed with a planet, before it entered orbit around Mercury (Solomon et al. 2007). This chapter does not cover such flybys (gravity assists).
+The capture burn is the expensive part. The spacecraft falls toward the Sun and gains speed all the way. It arrives 9.613 km/s faster than Mercury, and Mercury's weak gravity cannot help remove that speed. A propulsion system able to deliver 7.604 km/s after the cruise would be far heavier than the orbiter it carries. Real Mercury orbiters avoid this: MESSENGER flew past Earth once, Venus twice, and Mercury three times, each flyby trading speed with a planet, before it entered orbit around Mercury (Solomon et al. 2007). This chapter does not cover such flybys (gravity assists).
 
 ## Going to the Moon
 
@@ -265,11 +265,11 @@ A trip to the Moon uses the same three steps with Earth as the central body in p
 2. **Excess speed at the Moon.** At apogee the spacecraft moves at $v_{t} = \sqrt{\mu_{\text{Earth}}(2/r_{\text{Moon}} - 1/a_t)}$, slower than the Moon's own speed $\sqrt{\mu_{\text{Earth}}/r_{\text{Moon}}}$. The Moon overtakes the spacecraft, and the spacecraft enters the Moon's sphere of influence with $v_\infty = \sqrt{\mu_{\text{Earth}}/r_{\text{Moon}}} - v_t$ relative to the Moon.
 3. **Capture.** With the Moon's $\mu$ and the radius $r_p$ of the lunar orbit, $\Delta V_{\text{cap}} = \sqrt{v_\infty^2 + 2\mu_{\text{Moon}}/r_p} - \sqrt{\mu_{\text{Moon}}/r_p}$, a burn against the motion.
 
-The estimate is rougher for the Moon than for a planet. The Moon's sphere of influence is not small next to its distance from Earth, so the spacecraft spends a large part of the trip where Earth and the Moon pull with comparable strength, and the Sun's pull also changes the path. Real lunar trajectories are designed by integrating the motion under all of these bodies, starting from a patched-conic estimate.
+The estimate is rougher for the Moon than for a planet. The Moon's sphere of influence is not small next to its distance from Earth. The spacecraft spends a large part of the trip where Earth and the Moon pull with comparable strength, and the Sun's pull also changes the path. Engineers design real lunar trajectories by integrating the motion under all of these bodies, starting from a patched-conic estimate.
 
 ## When to leave: phase angle and synodic period
 
-The transfer orbit only works if the target is at the meeting point when the spacecraft gets there. The target moves during the trip, so at departure it must already be ahead of (or behind) the departure planet by the right angle, the {term}`phase angle`.
+The transfer orbit works only if the target is at the meeting point when the spacecraft gets there. The target moves during the trip, so at departure it must already be ahead of (or behind) the departure planet by the right angle, the {term}`phase angle`.
 
 The meeting point is 180° from the departure point around the Sun. During the trip time $t_f$ the target moves through the angle $n_2 t_f$, where $n_2 = 360°/T_2$ is its angular rate and $T_2$ its orbital period. At departure it must therefore lead the departure planet by
 
@@ -297,7 +297,7 @@ A launch opportunity comes once every synodic period ({numref}`fig-p24-synodic`)
 Computed from the orbital periods of [the table of constants](#tbl-p21-constants): phase angle of Mercury ahead of Earth against time, starting at a launch opportunity. The required 108° comes back once every synodic period, $S$ = 116 days.
 :::
 
-{numref}`tbl-p24-synodic` gives the synodic periods with Earth for Mercury, Venus, Jupiter, and Saturn. Planets far from the Sun move slowly, so for Jupiter and Saturn the synodic period is close to one year: Earth has to come around to the same place, and the outer planet has moved only a little. Of these four, Venus has the longest synodic period, because its period is the closest to Earth's.
+{numref}`tbl-p24-synodic` gives the synodic periods with Earth for Mercury, Venus, Jupiter, and Saturn. Planets far from the Sun move slowly, so for Jupiter and Saturn the synodic period is close to one year. In one year Earth comes back to the same place, while the outer planet has moved only a little. Of these four, Venus has the longest synodic period, because its period is the closest to Earth's.
 
 :::{table} Synodic periods with Earth, from {eq}`eq-p24-synodic` with $T_1$ = 365.26 days and the orbital periods of the table of constants on [orbit properties](orbit-properties.md).
 :label: tbl-p24-synodic
@@ -312,12 +312,12 @@ Computed from the orbital periods of [the table of constants](#tbl-p21-constants
 :::
 
 :::{warning} Units in the time of flight
-$\pi\sqrt{a_t^3/\mu}$ with $a_t$ in km and $\mu$ in km³/s² gives seconds. Divide by 86,400 to get days before comparing with orbital periods in days. Using $\mu$ in m³/s² with $a_t$ in km gives a time wrong by a factor of more than 30,000.
+$\pi\sqrt{a_t^3/\mu}$ with $a_t$ in km and $\mu$ in km³/s² gives seconds. Divide by 86,400 to get days before comparing with orbital periods in days. If you use $\mu$ in m³/s² with $a_t$ in km, the time is wrong by a factor of more than 30,000.
 :::
 
 ## Limits of the method
 
-Patched conics is an estimate for early design. A trajectory that a spacecraft actually flies adds what the method leaves out:
+Patched conics gives an estimate for early design. To plan the trajectory a spacecraft actually flies, engineers add what the method leaves out:
 
 - The real orbits of the planets, which are eccentric and tilted to each other. Mercury's orbit is the most eccentric of the eight planets, so the numbers of the worked example change with the date of the trip.
 - Transfers other than the Hohmann transfer: faster trips at a higher cost, chosen from charts of launch date against arrival date.
@@ -329,7 +329,7 @@ Patched conics is an estimate for early design. A trajectory that a spacecraft a
 :::{important} Summary
 - Patched conics splits a trip into conics around one body at a time, joined at the edge of each sphere of influence: departure hyperbola, Hohmann ellipse around the Sun, arrival hyperbola.
 - For a Hohmann transfer, the hyperbolic excess speed is the difference between the transfer speed and the planet's speed around the Sun. On the hyperbola, $v^2 = v_\infty^2 + 2\mu/r$.
-- Each burn is the hyperbola speed at the burn radius minus the speed of the orbit there, with that planet's $\mu$. A burn low in a gravity well buys more $v_\infty$ per km/s than a burn far from the planet; a capture at a small planet costs almost the full $v_\infty$.
+- Each burn is the hyperbola speed at the burn radius minus the speed of the orbit there, with that planet's $\mu$. A burn low in a gravity well buys more $v_\infty$ per km/s than a burn far from the planet; a capture at a small planet costs most of $v_\infty$.
 - The target must lead by the phase angle at departure; the same alignment returns once every synodic period.
 :::
 
@@ -374,3 +374,4 @@ Quiz for Standard 2.4: eight questions, one at a time, with the explanation afte
 - Bate, R. R., Mueller, D. D., and White, J. E., *Fundamentals of Astrodynamics*, Dover, 1971. Chapter 8.
 - Curtis, H. D., *Orbital Mechanics for Engineering Students*, 3rd ed., Butterworth-Heinemann, 2014. Chapter 8.
 - Solomon, S. C., McNutt, R. L., Gold, R. E., and Domingue, D. L., "MESSENGER Mission Overview," *Space Science Reviews*, Vol. 131, 2007, pp. 3-39. DOI 10.1007/s11214-007-9247-6.
+

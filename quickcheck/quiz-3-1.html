@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz: Standard 3.1, Wind Tunnels</title>
+<style>
+  /* The color variables match the quick checks (quickcheck/*.html). Change them together. */
+  :root {
+    --bg: #ffffff; --fg: #1f2937; --muted: #4b5563; --card: #ffffff; --border: #d9d6ce;
+    --head-bg: #f7f5f0; --head-fg: #111827; --accent: #6f5630; --accent-border: #cfb991;
+    --input-bg: #ffffff; --input-border: #6b7280; --ok: #0a6b3d; --bad: #b42318;
+    --button: #111827; --button-fg: #ffffff; --sol-bg: #f7f5f0;
+    --link: #1d4ed8; --focus: #1d4ed8;
+  }
+  html.dark {
+    --bg: #1c1917; --fg: #e5e7eb; --muted: #b7bcc6; --card: #292524; --border: #44403c;
+    --head-bg: #363231; --head-fg: #ffffff; --accent: #cfb991; --accent-border: #cfb991;
+    --input-bg: #1c1917; --input-border: #9ca3af; --ok: #6ee7b7; --bad: #fca5a5;
+    --button: #cfb991; --button-fg: #000000; --sol-bg: #363231;
+    --link: #93c5fd; --focus: #93c5fd;
+  }
+  html.dark { color-scheme: dark; }   /* native radio buttons drawn for a dark page */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .card { border: 1px solid var(--border); border-left: 5px solid var(--accent-border); border-radius: 8px;
+          background: var(--card); overflow: hidden; }
+  .head { background: var(--head-bg); color: var(--head-fg); padding: 10px 16px; font-weight: 700; font-size: 1.15em;
+          display: flex; align-items: center; gap: 10px; }
+  .head svg { width: 22px; height: 22px; flex: none; }
+  .body { padding: 16px; }
+  i { font-style: italic; }
+  sub, sup { font-size: 0.75em; }
+  .ov { text-decoration: overline; }
+  .progress { margin: 0 0 6px; color: var(--muted); font-size: 0.95em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  legend:focus { outline: none; }
+  .progress:focus { outline: none; }
+  .bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin: 0 0 14px; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--accent-border); }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { padding: 0; margin: 0 0 4px; font-size: 1.08em; font-weight: 600; color: var(--head-fg); }
+  .opt { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 10px; padding: 10px 12px; margin: 8px 0 0;
+         border: 1px solid var(--input-border); border-radius: 6px; background: var(--input-bg); cursor: pointer; }
+  .opt input { flex: none; width: 1.05em; height: 1.05em; margin: 0.25em 0 0; accent-color: var(--button); }
+  .opt .text { flex: 1 1 12em; }
+  .opt .tag { flex: none; font-weight: 600; font-size: 0.92em; }
+  .opt:hover { border-color: var(--fg); }
+  .opt:has(input:checked) { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+  .opt:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 1px; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--input-border); }
+  .locked .opt.right, .locked .opt.right:hover { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .locked .opt.wrong, .locked .opt.wrong:hover { border-color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+  .opt.right .tag { color: var(--ok); }
+  .opt.wrong .tag { color: var(--bad); }
+  .feedback { margin: 14px 0 0; }
+  .feedback.show { border: 1px solid var(--border); border-left: 4px solid var(--accent-border); border-radius: 6px;
+                   background: var(--sol-bg); padding: 10px 14px; }
+  .verdict { font-weight: 700; }
+  .verdict.ok { color: var(--ok); }
+  .verdict.bad { color: var(--bad); }
+  .buttons { display: flex; gap: 12px; margin: 16px 0 0; }
+  button { font: inherit; font-weight: 600; padding: 9px 20px; border-radius: 6px; cursor: pointer; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .primary { background: var(--button); color: var(--button-fg); border: 1px solid var(--button); }
+  .score { margin: 0 0 8px; font-size: 1.15em; font-weight: 700; color: var(--head-fg); }
+  .score:focus { outline: none; }
+  .result p { margin: 8px 0; }
+  .result ul { margin: 8px 0 0; padding-left: 1.3em; }
+  .result li { margin: 4px 0; }
+  a { color: var(--link); }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M9 10l1.5 1.5L13.5 8.5M9 16h6"/></svg>
+    Quiz: Standard 3.1, Wind Tunnels
+  </div>
+  <div class="body">
+    <noscript><p>The quiz needs JavaScript.</p></noscript>
+    <p class="progress" id="progress" aria-hidden="true"></p>
+    <div class="bar" aria-hidden="true"><span id="fill"></span></div>
+    <form id="quiz" novalidate>
+      <fieldset>
+        <legend id="legend" tabindex="-1"></legend>
+        <div id="opts"></div>
+      </fieldset>
+      <div class="feedback" id="feedback" role="status"></div>
+      <div class="buttons">
+        <button type="submit" class="primary" id="go">Check answer</button>
+      </div>
+    </form>
+    <div class="result" id="result" hidden>
+      <p class="score" id="score" tabindex="-1"></p>
+      <p id="reviewIntro">Review these sections, then start over:</p>
+      <ul id="review"></ul>
+      <div class="buttons">
+        <button type="button" class="primary" id="again">Start over</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="data">{"questions": [{"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "What a wind tunnel is for", "anchor": "what-a-wind-tunnel-is-for", "question": "Why are the forces on a wing held still in a 60 m/s tunnel stream the same as on that wing flying at 60 m/s through still air?", "options": ["Only the motion of the air relative to the wing sets the forces, and it is the same in both cases", "The tunnel air is denser than the open air, which makes up for the wing standing still", "The balance subtracts the wing's own speed from the readings before they are recorded", "They do not: a tunnel only shows the flow pattern, never the forces on the wing"], "explanation": "A wing moving through still air and a still wing in moving air see the same relative wind, so they feel the same forces. The tunnel air has the room's density, the balance measures the forces directly, and measuring forces is what a balance is for."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "The parts of a low-speed tunnel", "anchor": "p31-tunnel-parts", "question": "In which order does the air meet the parts of an open-circuit tunnel?", "options": ["Settling chamber, contraction, test section, diffuser, fan", "Contraction, settling chamber, test section, fan, diffuser", "Settling chamber, diffuser, test section, contraction, fan", "Fan, test section, contraction, settling chamber, diffuser"], "explanation": "The settling chamber straightens and calms the slow air, the contraction speeds it up, the test section holds the model, the diffuser slows the air again, and the fan pulls it through. A diffuser ahead of the test section would slow the air just before the model, and a fan ahead of the settling chamber is not the open-circuit layout."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "Test-section speed from a manometer", "anchor": "p31-test-section-speed", "question": "A tunnel has a contraction ratio <i>A<\/i><sub>1<\/sub>/<i>A<\/i><sub>2<\/sub> = 5. The pressure difference between the settling chamber and the test section is 1,200 Pa, and the air density is 1.2250 kg/m<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>3<\/sup>. What is the test-section speed?", "options": ["45.18 m/s", "44.26 m/s", "49.49 m/s", "31.94 m/s"], "explanation": "<i>V<\/i><sub>2<\/sub> = √(2 × 1,200/(1.2250 × [1 − (1/5)<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>2<\/sup>])) = √(2,400/1.176) = 45.18 m/s. Leaving out the area term gives 44.26 m/s; using 1 − 1/5 instead of 1 − (1/5)<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>2<\/sup> gives 49.49 m/s; dropping the 2 gives 31.94 m/s."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "Test-section speed from a manometer", "anchor": "p31-test-section-speed", "question": "A U-tube manometer filled with a liquid of density 800 kg/m<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>3<\/sup> reads Δ<i>h<\/i> = 17.5 cm. What is the pressure difference? (Use <i>g<\/i> = 9.81 m/s<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>2<\/sup>.)", "options": ["1,373 Pa", "2.103 Pa", "137,340 Pa", "1,717 Pa"], "explanation": "<i>p<\/i><sub>1<\/sub> − <i>p<\/i><sub>2<\/sub> = <i>ρ<\/i><sub>ℓ<\/sub> <i>g<\/i> Δ<i>h<\/i> = 800 × 9.81 × 0.175 = 1,373 Pa, with the liquid's density and the height in meters. The density of air gives 2.103 Pa, the height left in centimeters gives 137,340 Pa, and the density of water instead of the stated liquid gives 1,717 Pa."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "Viscosity, laminar and turbulent flow", "anchor": "viscosity-laminar-and-turbulent-flow", "question": "The air in a closed-circuit tunnel warms up during a long run. What happens to its viscosity?", "options": ["It rises, because the viscosity of a gas grows with temperature", "It falls, because warm fluids always flow more easily", "It stays the same, because viscosity depends only on the pressure", "It falls, because the density of the air drops as it warms"], "explanation": "By Sutherland's law the viscosity of air rises with temperature, because faster molecules carry more momentum between layers. Liquids such as honey do the opposite, which is why \"warm fluids flow more easily\" sounds right. The viscosity of air hardly depends on pressure, and the density does not set it."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "Viscosity, laminar and turbulent flow", "anchor": "viscosity-laminar-and-turbulent-flow", "question": "Air flows at 40 m/s over a model in a tunnel. What is the speed of the air touching the model's surface?", "options": ["Zero, by the no-slip condition", "40 m/s, the free-stream speed", "About 20 m/s, half the free-stream speed", "Faster than 40 m/s, because the air speeds up over the surface"], "explanation": "Air touching a surface sticks to it, so its speed there is zero. Across the boundary layer the speed rises from zero to the speed outside it. Over a curved surface the air outside the layer can be faster than 40 m/s, but not the air at the wall."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "The Reynolds number", "anchor": "p31-reynolds-number", "question": "A smooth flat plate is tested at 40 m/s in sea-level air (<i>ρ<\/i> = 1.2250 kg/m<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>3<\/sup>, <i>μ<\/i> = 1.789 × 10<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>−5<\/sup> kg/(m s)). Using <i>Re<sub>x<\/sub><\/i> = 5 × 10<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>5<\/sup>, how far from the leading edge does transition begin?", "options": ["0.1826 m", "0.2236 m", "1.826 m", "0.01826 m"], "explanation": "<i>x<\/i><sub>tr<\/sub> = <i>Re<\/i><sub>x,tr<\/sub> <i>μ<\/i>/(<i>ρV<\/i>) = 5 × 10<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>5<\/sup> × 1.789 × 10<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>−5<\/sup>/(1.2250 × 40) = 0.1826 m. Leaving out the density gives 0.2236 m; one power of ten too many or too few in the transition value gives 1.826 m or 0.01826 m."}, {"page": "wind-tunnels", "pageTitle": "3.1 Wind Tunnels", "section": "Scale models and similarity", "anchor": "p31-scale-models", "question": "Which change raises the Reynolds number of a model in a low-speed tunnel without raising the test-section speed?", "options": ["Raising the pressure of the tunnel air, which raises its density", "Heating the tunnel air, which makes it more viscous", "Building a smaller model so it fits the test section better", "Gluing trip strips near the model's leading edge"], "explanation": "<i>Re<\/i> = <i>ρVL<\/i>/<i>μ<\/i> grows with the density, so a pressurized tunnel raises it at the same speed. Heating at the same pressure raises the viscosity and lowers the density, which lowers <i>Re<\/i>; a smaller model lowers <i>L<\/i>. Trip strips force transition but leave the Reynolds number unchanged."}]}</script>
+<script>
+(function () {
+  // In a page, follow the page's theme; opened on its own, follow the reader's setting.
+  function syncTheme() {
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (window.parent !== window) {
+      try { dark = window.parent.document.documentElement.classList.contains("dark"); } catch (e) {}
+    }
+    document.documentElement.classList.toggle("dark", dark);
+  }
+  syncTheme();
+  try { new MutationObserver(syncTheme).observe(window.parent.document.documentElement, { attributes: true }); } catch (e) {}
+  function fit() {
+    try {
+      var fe = window.frameElement;
+      if (fe && fe.parentElement) fe.parentElement.style.height = (Math.ceil(document.body.getBoundingClientRect().height) + 2) + "px";
+    } catch (e) {}
+  }
+  try { new ResizeObserver(fit).observe(document.body); } catch (e) {}
+  window.addEventListener("load", fit);
+
+  var Q = JSON.parse(document.getElementById("data").textContent).questions;
+  var n = Q.length, i = 0, answered = false, right = [];
+  var el = {};
+  ["progress", "fill", "quiz", "legend", "opts", "feedback", "go", "result", "score", "reviewIntro", "review", "again"]
+    .forEach(function (id) { el[id] = document.getElementById(id); });
+
+  function shuffle(a) {
+    for (var j = a.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1)), t = a[j]; a[j] = a[k]; a[k] = t;
+    }
+    return a;
+  }
+
+  // Show question i. The options are drawn in a new order each time; option 0 is the correct one.
+  function show(moveFocus) {
+    var q = Q[i];
+    answered = false;
+    el.progress.textContent = "Question " + (i + 1) + " of " + n;
+    el.fill.style.width = (100 * i / n) + "%";
+    el.legend.innerHTML = '<span class="sr-only">Question ' + (i + 1) + " of " + n + ": </span>" + q.question;
+    el.opts.innerHTML = "";
+    el.opts.className = "";
+    shuffle([0, 1, 2, 3]).forEach(function (k) {
+      var label = document.createElement("label"), input = document.createElement("input"),
+          text = document.createElement("span"), tag = document.createElement("span");
+      label.className = "opt";
+      input.type = "radio"; input.name = "answer"; input.value = String(k);
+      text.className = "text"; text.innerHTML = q.options[k];
+      tag.className = "tag";
+      label.appendChild(input); label.appendChild(text); label.appendChild(tag);
+      el.opts.appendChild(label);
+    });
+    el.feedback.className = "feedback";
+    el.feedback.textContent = "";
+    el.go.textContent = "Check answer";
+    el.result.hidden = true;
+    el.quiz.hidden = false;
+    el.progress.setAttribute("aria-hidden", "true");
+    if (moveFocus) el.legend.focus();
+  }
+
+  function check() {
+    var chosen = el.quiz.querySelector("input[name=answer]:checked");
+    if (!chosen) {
+      el.feedback.className = "feedback show";
+      el.feedback.textContent = "Choose an answer first.";
+      return;
+    }
+    answered = true;
+    right[i] = chosen.value === "0";
+    Array.prototype.forEach.call(el.opts.querySelectorAll("label"), function (label) {
+      var input = label.querySelector("input"), tag = label.querySelector(".tag");
+      if (input.value === "0") { label.classList.add("right"); tag.textContent = "✓ correct answer"; }
+      else if (input.checked) { label.classList.add("wrong"); tag.textContent = "✗ your answer"; }
+      input.disabled = true;
+    });
+    el.opts.className = "locked";
+    el.feedback.className = "feedback show";
+    el.feedback.innerHTML = '<span class="verdict ' + (right[i] ? "ok" : "bad") + '">' +
+      (right[i] ? "Correct." : "Not correct.") + "</span> " + Q[i].explanation;
+    el.go.textContent = i + 1 < n ? "Next question" : "See your score";
+    el.go.focus();
+  }
+
+  function finish() {
+    var count = right.filter(Boolean).length;
+    el.progress.textContent = "Result";
+    el.progress.removeAttribute("aria-hidden");
+    el.fill.style.width = "100%";
+    el.score.textContent = count === n ? "All " + n + " correct." : count + " of " + n + " correct.";
+    el.review.innerHTML = "";
+    el.reviewIntro.hidden = count === n;
+    el.review.hidden = count === n;
+    // Each link opens its section; the page name follows in parentheses.
+    Q.forEach(function (q, j) {
+      if (right[j]) return;
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "../" + q.page + "#" + q.anchor; a.target = "_top"; a.textContent = q.section;
+      // On the quiz's own page, scroll to the section and move focus there, without
+      // reloading the page (which would also reset the quiz).
+      a.addEventListener("click", function (e) {
+        try {
+          var top = window.top, here = top.location.pathname.replace(/\/$/, ""),
+              there = new URL(a.href).pathname.replace(/\/$/, "");
+          if (here !== there) return;
+          var target = top.document.getElementById(q.anchor);
+          if (!target) return;
+          e.preventDefault();
+          top.history.pushState(null, "", "#" + q.anchor);
+          target.scrollIntoView();
+          // Focus the heading's text, not the heading: the heading also holds the
+          // pilcrow link, whose label a screen reader would read with it.
+          var spot = target.querySelector(".heading-text") || target;
+          if (!spot.hasAttribute("tabindex")) spot.setAttribute("tabindex", "-1");
+          spot.focus({ preventScroll: true });
+        } catch (err) {}
+      });
+      li.appendChild(document.createTextNode("Question " + (j + 1) + ": "));
+      li.appendChild(a);
+      li.appendChild(document.createTextNode(" (" + q.pageTitle + ")"));
+      el.review.appendChild(li);
+    });
+    el.quiz.hidden = true;
+    el.result.hidden = false;
+    el.score.focus();
+  }
+
+  el.quiz.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!answered) { check(); return; }
+    i++;
+    if (i < n) show(true); else finish();
+  });
+  el.again.addEventListener("click", function () { i = 0; right = []; show(true); });
+  show(false);
+})();
+</script>
+</body>
+</html>

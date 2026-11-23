@@ -16,7 +16,7 @@ project:
     - rocket design
     - aircraft performance
   authors:
-    - name: Thiago Guimaraes
+    - name: Thiago Guimarães
       affiliations:
         - Purdue University, School of Aeronautics and Astronautics
   github: https://github.com/ThiagoPurdue/AAE251_Lecture_Notes
@@ -47,6 +47,12 @@ project:
         - file: notes/chapter-2/launch-to-orbit.md
         - file: notes/chapter-2/patched-conics.md
         - file: notes/chapter-2/ground-tracks-and-orbit-lifetime.md
+    - title: "Chapter 3: Aerodynamics"
+      children:
+        - file: notes/chapter-3/wind-tunnels.md
+        - file: notes/chapter-3/airfoil-and-finite-wing.md
+        - file: notes/chapter-3/drag-polar.md
+        - file: notes/chapter-3/wing-loading.md
     - file: notes/glossary.md
     - file: notes/accessibility.md
 site:

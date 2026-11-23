@@ -490,7 +490,7 @@ def duct_example():
     ax.plot([x2s + t, xd + 0.006], [lev2, lev2], color=GRAY, lw=0.8, ls=(0, (2, 2)), zorder=2)
     dimension_outside(ax, (xd, lev1), (xd, lev2), None)
     text(ax, (xd, 0.5 * (lev1 + lev2)),
-         f"$h$ = {fmt_dec(e['h'] * 1000, 1)} mm\n$p_1 - p_2$ = {fmt(e['dp'])} Pa", direction=0, dist=10)
+         f"$\Delta h$ = {fmt_dec(e['h'] * 1000, 1)} mm\n$p_1 - p_2$ = {fmt(e['dp'])} Pa", direction=0, dist=10)
     text(ax, (0.5 * (x1s + x2s), bot - t), "water", direction=-90, dist=4)
     close_to(lev2 - lev1, e["h"], 1e-12, "the water column is drawn to the scale of the duct")
     close_to(e["V2"], V1 * (D1 / D2) ** 2, 1e-9, "the speed ratio is the area ratio")
@@ -730,7 +730,7 @@ def values():
     e2 = _ex2()
     r("ex2-T", fmt_dec(e2["T"], 2))
     r("ex2-expo", fmt(e2["expo"], 5))
-    r("ex2-rho", fmt(e2["rho"]))
+    r("ex2-rho", fmt(e2["rho"], 5))           # five figures, so the airspeed follows from the printed density
     r("ex2-V", fmt(e2["V"]))
     r("ex2-Vdial", fmt(e2["V_dial"]))
     # Example 3
@@ -770,6 +770,8 @@ def values():
     r("a-sl", fmt(a_sl))
     r("a-sl-03", fmt(0.3 * a_sl))
     r("rho-g-1m", fmt(RHO_SL * G * 1.0))
+    r("g", fmt(G, 3))                                            # 9.81 m/s^2, printed in the steps
+    r("ex4-expo", fmt(-G0 / (LAYERS[0][1] * R_AIR), 5))          # the pressure exponent of the troposphere
     r("q-50", fmt(float(dynamic_pressure(RHO_SL, 50.0))))
     r("water-1cm", fmt(manometer_dp(0.01)))
     r("ex1-frac-atm", fmt(e["dp"] / P_SL * 100, 2))

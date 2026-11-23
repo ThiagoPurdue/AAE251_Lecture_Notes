@@ -4,7 +4,7 @@ for another planet or moon. SI units throughout: m, K, Pa, kg/m^3, m/s.
 The model is the one of Anderson's textbooks, the 1959 ARDC model atmosphere: temperature
 falls linearly from sea level to 11 km (lapse rate -6.5 K/km), stays at 216.66 K from 11 km to
 25 km, rises at +3 K/km to 47 km (282.66 K), stays constant to 53 km, then falls at -4.5 K/km.
-Gravity is the constant g0 = 9.8 m/s^2 and the altitude is taken as geopotential (the tables
+Gravity is the constant g0 = 9.81 m/s^2 and the altitude is taken as geopotential (the tables
 list both; the difference is under 0.3% below 20 km).
 
 Sources:
@@ -14,7 +14,8 @@ Sources:
     breaks and lapse rates above were checked against its rows up to 59.5 km, and the unit
     checks below compare with its rows.
   - The sea-level values and the constants of the values these notes use: T = 288.16 K,
-    p = 101,325 Pa, rho = 1.2250 kg/m^3, R = 287 J/(kg K), gamma = 1.4, g0 = 9.8 m/s^2.
+    p = 101,325 Pa, rho = 1.2250 kg/m^3, R = 287 J/(kg K), gamma = 1.4, g0 = 9.81 m/s^2 (the value used
+    throughout the course).
 
 Run this file for its unit checks:  python3 -B scripts/chapter_1/atmosphere.py
 """
@@ -28,7 +29,8 @@ P_SL = 101325.0            # Pa, sea-level standard pressure
 RHO_SL = 1.2250            # kg/m^3, sea-level standard density
 R_AIR = 287.0              # J/(kg K), specific gas constant of air
 GAMMA_AIR = 1.4            # ratio of specific heats of air
-G0 = 9.8                   # m/s^2, gravity (constant with altitude in these notes)
+G0 = 9.81                  # m/s^2, gravity: 9.81 m/s^2, the value used throughout the course
+                           # (constant with altitude; Chapters 1 and 3 take it from here)
 
 # Layers: (base altitude m, lapse rate K/m). Each layer runs to the next base. Gradient
 # layers have a != 0, isothermal layers a = 0. Names as the text uses them.
@@ -48,7 +50,7 @@ H_ISO_TOP = 25000.0        # m, top of the isothermal layer
 def gradient_layer(h, h1, T1, p1, rho1, a, g0=G0, R=R_AIR):
     """T (K), p (Pa), rho (kg/m^3) at altitude h (m) in a gradient layer of lapse rate a (K/m)
     whose base h1 has T1, p1, rho1: T = T1 + a (h - h1), p/p1 = (T/T1)^(-g0/(aR)),
-    rho/rho1 = (T/T1)^(-(g0/(aR) + 1)). Example: gradient_layer(5000, 0, 288.16, 101325, 1.225, -0.0065)[1] -> 54,038"""
+    rho/rho1 = (T/T1)^(-(g0/(aR) + 1)). Example: gradient_layer(5000, 0, 288.16, 101325, 1.225, -0.0065)[1] -> 54,003"""
     T = T1 + a * (np.asarray(h, dtype=float) - h1)
     n = g0 / (a * R)
     r = T / T1
@@ -58,7 +60,7 @@ def gradient_layer(h, h1, T1, p1, rho1, a, g0=G0, R=R_AIR):
 def isothermal_layer(h, h1, T1, p1, rho1, g0=G0, R=R_AIR):
     """T (K), p (Pa), rho (kg/m^3) at altitude h (m) in an isothermal layer at temperature T1
     whose base h1 has p1, rho1: p/p1 = rho/rho1 = exp[-g0 (h - h1)/(R T1)].
-    Example: isothermal_layer(16000, 11000, 216.66, 22650, 0.3642)[1] -> 10,300"""
+    Example: isothermal_layer(16000, 11000, 216.66, 22616, 0.3636)[1] -> 10,276"""
     h = np.asarray(h, dtype=float)
     f = np.exp(-g0 * (h - h1) / (R * T1))
     return T1 + 0.0 * h, p1 * f, rho1 * f
@@ -66,7 +68,7 @@ def isothermal_layer(h, h1, T1, p1, rho1, g0=G0, R=R_AIR):
 
 def layer_bases(T0=T_SL, p0=P_SL, rho0=RHO_SL, layers=LAYERS, g0=G0, R=R_AIR):
     """The base of every layer carried up from sea level: list of dicts h1, a, T1, p1, rho1,
-    h2 (the top of the layer) and name. Example: layer_bases()[1]["p1"] -> 22,650 (Pa at 11 km)"""
+    h2 (the top of the layer) and name. Example: layer_bases()[1]["p1"] -> 22,616 (Pa at 11 km)"""
     out = []
     T1, p1, rho1 = T0, p0, rho0
     for i, (h1, a) in enumerate(layers):
@@ -96,7 +98,7 @@ def layer_of(h):
 def standard(h):
     """Standard-atmosphere T (K), p (Pa), rho (kg/m^3) at altitude h (m, scalar or array),
     found by carrying the base values up through each layer.
-    Example: standard(11000.0) -> (216.66, 22,650, 0.3642)"""
+    Example: standard(11000.0) -> (216.66, 22,616, 0.3636)"""
     h_arr = np.atleast_1d(np.asarray(h, dtype=float))
     T, p, rho = np.empty_like(h_arr), np.empty_like(h_arr), np.empty_like(h_arr)
     for i, hh in enumerate(h_arr):
@@ -113,7 +115,7 @@ def standard(h):
 
 def altitude_from_pressure(p):
     """Altitude (m) where the standard pressure is p (Pa): find the layer whose base and top
-    pressures bracket p, then invert its equation. Example: altitude_from_pressure(54038.0) -> 5,000"""
+    pressures bracket p, then invert its equation. Example: altitude_from_pressure(54003.0) -> 5,000"""
     for L in _BASES:
         p_top = standard(L["h2"])[1]
         if p_top <= p <= L["p1"] * (1 + 1e-12):
@@ -126,7 +128,7 @@ def altitude_from_pressure(p):
 
 def altitude_from_density(rho):
     """Altitude (m) where the standard density is rho (kg/m^3). The density altitude of a
-    measured density. Example: altitude_from_density(0.7364) -> 5,000"""
+    measured density. Example: altitude_from_density(0.7359) -> 5,000"""
     for L in _BASES:
         r_top = standard(L["h2"])[2]
         if r_top <= rho <= L["rho1"] * (1 + 1e-12):
@@ -228,8 +230,8 @@ def _close(a, b, rtol, what):
 
 if __name__ == "__main__":
     # The source table (Anderson 1999, Appendix D, 1959 ARDC): geopotential altitude h, T, p, rho.
-    # The table uses g0 = 9.80665 m/s^2 and R = 287.05; these notes use 9.8 and 287, so pressure
-    # and density agree within 0.3% to 25 km and 0.8% at 47 km; temperatures agree to 0.01 K.
+    # The table uses g0 = 9.80665 m/s^2 and R = 287.05; these notes use 9.81 and 287, so pressure
+    # and density agree within 0.2% to 25 km and 0.4% at 47 km; temperatures agree to 0.01 K.
     TABLE = [  # h (geopotential, m), T, p, rho
         (4996.0, 255.69, 5.4048e4, 7.3643e-1),
         (9984.0, 223.26, 2.6500e4, 4.1351e-1),

@@ -11,10 +11,19 @@ visible text, which fails WCAG 2.1 success criterion 2.5.3 (Label in Name):
 2. Previous and next page links in the footer are labelled "Next: <title>".
    Without the label, their name is their visible text.
 
+It also restores the row headers of tables written in HTML (WCAG 1.3.1): MyST
+drops scope="row" from <th>, so every <th> in a row that also holds a <td> gets
+scope="row" again.
+
 Both the server-rendered HTML and the JavaScript bundle are patched, so the
-pages stay correct after client-side navigation. The script stops with an
+pages stay correct after client-side navigation.
+
+Last, the search index (myst.search.json) loses the hidden words that a subscript
+carries for screen readers ("NACA 64, subscript,3-618" becomes "NACA 64₃-618"), so
+search results show the text as it reads on the page. The script stops with an
 error if the theme code has changed and a patch no longer applies.
 """
+import json
 import re
 import sys
 from pathlib import Path
@@ -34,6 +43,18 @@ JS_PATCHES = [
     ("footer link label",
      re.compile(r'"aria-label":`\$\{\w+\?["`]Previous: ["`]:["`]Next: ["`]\}\$\{\w+\}`,'),
      ""),
+    # Row headers (WCAG 1.3.1). A table written in HTML marks its row headers
+    # <th scope="row">, but MyST keeps only "header" on a cell and drops the scope.
+    # A header cell in a row that also holds data cells gets scope="row" again:
+    # the row passes it to its cells, and the cell writes it on the <th>.
+    ("row header scope, row",
+     re.compile(r'(tableRow\(\{node:(\w+),className:\w+\}\)\{return[^}]*?'
+                r'children:\(0,[\w$]+\.jsx\)\([\w$]+,\{ast:)\2\.children\}'),
+     r'\1\2.children.some(c=>!c.header)?\2.children.map(c=>c.header&&!c.scope?'
+     r'{...c,scope:"row"}:c):\2.children}'),
+    ("row header scope, cell",
+     re.compile(r'((\w+)\.header\?\(0,[\w$]+\.jsx\)\(`th`,Object\.assign\(\{)'),
+     r'\1scope:\2.scope,'),
 ]
 
 applied = {name: 0 for name, _, _ in JS_PATCHES}
@@ -57,6 +78,15 @@ footer_label = re.compile(r' aria-label="(?:Next|Previous): [^"]*"')
 # widgets get the <title> of their own HTML file; anything else a plain name.
 iframe_tag = re.compile(r'<iframe(?![^>]*\btitle=)([^>]*\bsrc="([^"]*?)([^"/]+)\.html"[^>]*)>')
 title_tag = re.compile(r"<title>(.*?)</title>", re.S)
+# The same row-header rule for the server-rendered pages: a <th> without a scope
+# in a row that also holds a <td>.
+table_row = re.compile(r"<tr\b[^>]*>.*?</tr>", re.S)
+bare_th = re.compile(r"<th\b(?![^>]*\bscope=)")
+
+
+def row_scope(m):
+    row = m.group(0)
+    return bare_th.sub('<th scope="row"', row) if "<td" in row else row
 
 
 def iframe_title(m):
@@ -78,8 +108,41 @@ for html in root.glob("**/*.html"):
     new = caption_label.sub(r"\1\2", text)
     new = footer_label.sub("", new)
     new = iframe_tag.sub(iframe_title, new)
+    new = table_row.sub(row_scope, new)
     if new != text:
         html.write_text(new, encoding="utf-8")
         pages += 1
 
-print(f"Patched the theme bundle ({sum(applied.values())} changes) and {pages} HTML pages.")
+# The site search is built from the text of each page, hidden text included, so a subscript
+# that carries a hidden word for screen readers (NACA 64<span class="sr-only">, subscript,</span>
+# <sub>3</sub>-618) shows in the search results as "NACA 64\n\n, subscript,3-618". Every string
+# of the search index gets the subscript back as one character ("NACA 64₃-618"), whatever
+# spaces and line breaks the index puts around the hidden words.
+hidden_sub = re.compile(r"(\d)\s*,\s*subscript\s*,\s*(\d+)")
+SUB_DIGITS = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+
+
+def search_text(value):
+    global searched
+    if isinstance(value, str):
+        new, n = hidden_sub.subn(lambda m: m.group(1) + m.group(2).translate(SUB_DIGITS), value)
+        searched += n
+        return new
+    if isinstance(value, list):
+        return [search_text(v) for v in value]
+    if isinstance(value, dict):
+        return {k: search_text(v) for k, v in value.items()}
+    return value
+
+
+searched = 0
+for index in root.glob("**/myst.search.json"):
+    data = json.loads(index.read_text(encoding="utf-8"))
+    new = search_text(data)
+    if new != data:
+        index.write_text(json.dumps(new, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    if re.search(r"\d(?:\s|\\n)*,\s*subscript\s*,", json.dumps(new, ensure_ascii=False)):
+        sys.exit(f"fix_theme_a11y: hidden subscript text is still in {index}")
+
+print(f"Patched the theme bundle ({sum(applied.values())} changes), {pages} HTML pages, "
+      f"and {searched} hidden subscripts in the search index.")

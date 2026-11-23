@@ -12,7 +12,7 @@
     "The inputs and outputs: it lists what crosses into the system",
     "The form: it describes what the aircraft physically is and holds"
    ],
-   "explanation": "Saying where the system ends and its environment begins is the boundary. The function is what the system does (a verb), the inputs and outputs are what cross the boundary, and the form is its shape, size, and parts. Airports and weather are outside the boundary, not inputs to it."
+   "explanation": "Saying where the system ends and its environment begins is the boundary. The function is what the system does (a verb). The inputs and outputs are what cross the boundary, and the form is its shape, size, and parts. Airports and the weather lie outside the boundary; they are not inputs to it."
   },
   {
    "id": "S1.1-q2",
@@ -25,7 +25,7 @@
     "They count only if some of them buy tickets on the airliner",
     "They are listed in place of the regulator, which then need not be listed"
    ],
-   "explanation": "A stakeholder is anyone affected by the system or with a stake in it, not only its buyers and users. Neighbors are affected by noise, and their needs arrive as constraints such as noise rules. The regulator is a stakeholder of its own and is listed as well."
+   "explanation": "A stakeholder is anyone affected by the system or with a stake in it, and that goes beyond its buyers and users. The neighbors hear the noise, and their needs reach the design as constraints such as noise rules. The regulator is a stakeholder of its own, so you list it as well."
   },
   {
    "id": "S1.1-q3",
@@ -38,20 +38,20 @@
     "The aircraft shall stay airborne for at least 10 hours with its weather radar running and its crew of six on board",
     "A reliable, advanced, and cost-effective airborne system that serves the National Weather Service and its forecasters"
    ],
-   "explanation": "A mission statement gives the capability and the benefit and names no design. The turboprop names a design, the \"shall\" sentence is a requirement (a metric and a value), and the \"reliable, advanced\" statement names neither what the system does nor what it brings: \"reliable\" and \"advanced\" are qualities, not a capability."
+   "explanation": "A mission statement gives the capability and the benefit, and it names no design. The turboprop names a design. The \"shall\" sentence is a requirement, with a metric and a value. The \"reliable, advanced\" statement says neither what the system does nor what it brings, because \"reliable\" and \"advanced\" are qualities, not a capability."
   },
   {
    "id": "S1.1-q4",
    "page": "needs-and-requirements",
    "section": "Need statements",
-   "question": "A traffic-reporting helicopter pilot says: \"Put a bigger fuel tank in it, so I don't have to land during the morning rush.\" Which need statement follows the guidelines?",
+   "question": "A traffic-reporting helicopter pilot says: \"Put a bigger fuel tank in it, so I do not have to land during the morning rush.\" Which need statement follows the guidelines?",
    "options": [
     "The helicopter stays airborne through the whole morning rush hour without refueling.",
     "The helicopter has a fuel tank larger than the one on the helicopter it replaces.",
     "The helicopter should land less often during the morning rush hour than it does now.",
     "The fuel truck can reach the helicopter quickly between flights in the morning rush."
    ],
-   "explanation": "The larger tank is a solution (how, not what); \"should land less often\" uses \"should\" and is vague; the fuel truck sentence is written from the truck's point of view, not as an attribute of the helicopter. The statement about staying airborne through the rush says what is needed, specifically, as an attribute of the system."
+   "explanation": "The larger tank is a solution: it says how, not what. \"Should land less often\" uses \"should\" and is vague. The fuel truck sentence is written from the truck's point of view, not as an attribute of the helicopter. Staying airborne through the whole rush says what is needed, specifically, as an attribute of the system."
   },
   {
    "id": "S1.1-q5",
@@ -64,7 +64,7 @@
     "11.00",
     "3.500"
    ],
-   "explanation": "<i>r</i><sub>avg</sub> = (5 + 2 + 4)/3 = 11/3 = 3.667. 4.000 is the middle value (the median), 11.00 is the sum without dividing by the number of stakeholders, and 3.500 averages only the highest and lowest ratings."
+   "explanation": "<i>r</i><sub>avg</sub> = (5 + 2 + 4)/3 = 11/3 = 3.667. If you picked 4.000, you took the middle value (the median). 11.00 is the sum before you divide by the number of stakeholders, and 3.500 averages only the highest and lowest ratings."
   },
   {
    "id": "S1.1-q6",
@@ -77,20 +77,20 @@
     "The arrays deliver plenty of power for every instrument, at every point of the orbit.",
     "The arrays are as light as possible for the power the instruments need to run."
    ],
-   "explanation": "Power delivered is a result of the design (dependent) with a value that can be checked (verifiable). The cell material names the design (independent). \"Plenty\" and \"as light as possible\" have no value, so no analysis or test can show they are met."
+   "explanation": "The power delivered is a result of the design, so the requirement is dependent, and its value can be checked, so it is verifiable. The cell material names the design itself. \"Plenty\" and \"as light as possible\" have no value, so no analysis or test can show that they are met."
   },
   {
    "id": "S1.1-q7",
    "page": "needs-and-requirements",
    "section": "Traceability",
-   "question": "In a traceability matrix with one row per need and one column per requirement, the column of R9 holds no mark. What does this mean, and what is done?",
+   "question": "In a traceability matrix with one row per need and one column per requirement, the column of R9 holds no mark. What does this mean, and what do you do?",
    "options": [
     "R9 traces to no need: write down the need it serves, or remove R9",
     "A need has no requirement yet: write a new requirement for that need",
     "R9 has already been verified, so no more work on it is needed",
     "R9 is the most important requirement, because no need places a limit on it"
    ],
-   "explanation": "Columns are requirements, so an empty column is a requirement that answers no need: either a need was left out of the list, or the requirement is work nobody asked for and is removed. An empty row would be a need with no requirement. The matrix says nothing about verification."
+   "explanation": "Columns are requirements, so an empty column is a requirement that answers no need. Either a need was left out of the list, and you write it down, or the requirement is work nobody asked for, and you remove it. An empty row would be a need with no requirement. The matrix says nothing about verification."
   },
   {
    "id": "S1.1-q8",

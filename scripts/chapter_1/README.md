@@ -202,7 +202,7 @@ glyphs; contrast; the pixel test), plus, for the artists the Chapter 1 helpers m
 
 - Atmosphere: the 1959 ARDC model of Anderson's textbooks; values checked against Anderson,
   *Aircraft Performance and Design* (McGraw-Hill, 1999), Appendix D. Sea-level values, R, gamma
-  and g0 as the notes use them. Venus: NASA NSSDC Venus Fact Sheet; lapse rate from
+  and g0 (9.81 m/s², the value used throughout the course) as the notes use them. Venus: NASA NSSDC Venus Fact Sheet; lapse rate from
   ECSS-E-ST-10-04C, Annex G.7.2.
 - Sizing: Raymer, *Aircraft Design: A Conceptual Approach*, 4th ed. (AIAA, 2006), Table 3.1 and
   the segment fractions of Chapter 3. Jet weights: Jenkinson, Simpkin and Rhodes, *Civil Jet Aircraft Design*

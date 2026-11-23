@@ -12,7 +12,7 @@
         "It passes through the burn point, with the same semi-major axis and a higher speed everywhere",
         "It starts a little above the burn point, because the burn lifts the spacecraft"
       ],
-      "explanation": "An impulsive burn changes the velocity and not the position, so the new orbit goes through the burn point. A higher speed at the same radius means a larger <i>a</i> by the vis-viva equation. The orbit is an ellipse, not a circle: a second burn would be needed for a larger circle. Keeping <i>a</i> while the speed rises would break the vis-viva equation, and the burn does not move the spacecraft."
+      "explanation": "An impulsive burn changes the velocity and not the position, so the new orbit goes through the burn point. A higher speed at the same radius means a larger <i>a</i> by the vis-viva equation. The new orbit is an ellipse. To reach a larger circle you would need a second burn. Keeping <i>a</i> while the speed rises would break the vis-viva equation, and the burn does not move the spacecraft."
     },
     {
       "id": "S2.2-q2",
@@ -38,7 +38,7 @@
         "16,356 km",
         "1,200 km"
       ],
-      "explanation": "The radii are 6,978 km and 9,378 km, and <i>a<sub>t</sub></i> = (<i>r</i><sub>1</sub> + <i>r</i><sub>2</sub>)/2 = 8,178 km. 1,800 km averages the altitudes instead of the radii; 16,356 km is <i>r</i><sub>1</sub> + <i>r</i><sub>2</sub>, the major axis, not half of it; 1,200 km is half the difference of the altitudes."
+      "explanation": "The radii are 6,978 km and 9,378 km, and <i>a<sub>t</sub></i> = (<i>r</i><sub>1</sub> + <i>r</i><sub>2</sub>)/2 = 8,178 km. If you average the altitudes instead of the radii, you get 1,800 km; 16,356 km is <i>r</i><sub>1</sub> + <i>r</i><sub>2</sub>, the major axis, not half of it; 1,200 km is half the difference of the altitudes."
     },
     {
       "id": "S2.2-q4",
@@ -90,7 +90,7 @@
         "75.0 km/s",
         "0.654 km/s"
       ],
-      "explanation": "<i>ΔV</i> = 2<i>v</i> sin(<i>Δi</i>/2) = 2(7.5) sin 5° = 1.307 km/s. 2.605 km/s uses sin 10° instead of the half angle; 75.0 km/s is <i>v Δi</i> with the angle in degrees instead of radians; 0.654 km/s leaves out the factor 2."
+      "explanation": "<i>ΔV</i> = 2<i>v</i> sin(<i>Δi</i>/2) = 2(7.5) sin 5° = 1.307 km/s. 2.605 km/s uses sin 10° instead of the half angle; 75.0 km/s is what you get from <i>v Δi</i> with the angle in degrees instead of radians; 0.654 km/s leaves out the factor 2."
     },
     {
       "id": "S2.2-q8",
@@ -103,7 +103,7 @@
         "At the periapsis of the transfer orbit, right after the first burn",
         "Anywhere: the cost depends only on the angle"
       ],
-      "explanation": "The cost is 2<i>v</i> sin(<i>Δi</i>/2), so it is lowest where the speed is lowest, at the apoapsis of the transfer orbit. The low orbit and the transfer periapsis are the fastest points of the trip, so the plane change costs most there. The angle alone does not set the cost: the speed multiplies it."
+      "explanation": "The cost is 2<i>v</i> sin(<i>Δi</i>/2), so it is lowest where the speed is lowest, at the apoapsis of the transfer orbit. The low orbit and the transfer periapsis are the fastest points of the trip, so the plane change costs most there. The angle alone does not set the cost, because the speed multiplies it."
     }
   ]
 }

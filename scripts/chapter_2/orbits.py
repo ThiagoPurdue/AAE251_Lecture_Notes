@@ -65,7 +65,7 @@ ORBIT_DAYS = {              # orbital period around the Sun, days (no Mars entry
 }
 OMEGA_EARTH = 7.292e-5      # Earth's rotation rate, rad/s
 T_SIDEREAL = 86164.0        # sidereal day, s
-G0 = 9.80665                # standard gravity, m/s^2 (SI: the rocket equation uses it)
+G0 = 9.81                   # m/s^2: 9.81 m/s^2, the value used throughout the course (the rocket equation uses it)
 G_SI = 6.674e-11            # universal gravitational constant, N m^2/kg^2 (SI; CODATA 2018), quoted only
 DAY = 86400.0               # solar day, s (unit conversion only)
 

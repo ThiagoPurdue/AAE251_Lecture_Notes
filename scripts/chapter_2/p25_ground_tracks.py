@@ -497,7 +497,7 @@ def values():
     a_geo = float(semi_major_axis_from_period(E, T_SIDEREAL))
     R("a_geo", fmt(a_geo)); R("h_geo", fmt(a_geo - RE))
     # aerobraking
-    R("muV", fmt_sci(V)); R("RV", fmt(RV)); R("m_sc", fmt(M_SC)); R("isp", fmt(ISP, 3)); R("g0", fmt(G0, 6))
+    R("muV", fmt_sci(V)); R("RV", fmt(RV)); R("m_sc", fmt(M_SC)); R("isp", fmt(ISP, 3)); R("g0", fmt(G0, 3))
     R("hp0", fmt(HP0, 3)); R("ha0", fmt(HA0, 5)); R("hp_ab", fmt(HP_AB, 3))
     R("rp0", fmt(s["rp0"])); R("ra0", fmt(s["ra0"])); R("a0", fmt(s["a0"])); R("rp_ab", fmt(s["rp_ab"]))
     R("T0_h", fmt(s["T0_h"], 3))

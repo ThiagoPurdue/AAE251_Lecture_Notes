@@ -12,7 +12,7 @@
         "The sum of the planet's and the Sun's gravity",
         "The planet's gravity during a burn and the Sun's gravity between burns"
       ],
-      "explanation": "Patched conics treats one body at a time: inside the sphere of influence only the planet counts, so the path is a conic around the planet. Adding both bodies is the real problem the method avoids, and the Sun counts only outside the sphere."
+      "explanation": "Patched conics treats one body at a time: inside the sphere of influence only the planet counts, so the path is a conic around the planet. Adding both bodies gives the real problem, which the method avoids, and the Sun counts only outside the sphere."
     },
     {
       "id": "S2.4-q2",
@@ -38,7 +38,7 @@
         "+1.5 km<sup>2</sup>/s<sup>2</sup>",
         "&minus;4.5 km<sup>2</sup>/s<sup>2</sup>"
       ],
-      "explanation": "Far away, &mu;/<i>r</i> goes to zero, so the energy is <i>v</i><sub>∞</sub><sup>2</sup>/2 = 9.0/2 = 4.5 km<sup>2</sup>/s<sup>2</sup>, positive as for every hyperbola. 9.0 forgets the half, 1.5 halves the speed without squaring it, and a negative value would belong to a closed orbit."
+      "explanation": "Far away, &mu;/<i>r</i> goes to zero, so the energy is <i>v</i><sub>∞</sub><sup>2</sup>/2 = 9.0/2 = 4.5 km<sup>2</sup>/s<sup>2</sup>, positive as for every hyperbola. If you forget the half, you get 9.0; if you halve the speed without squaring it, 1.5; and a negative value would belong to a closed orbit."
     },
     {
       "id": "S2.4-q4",
@@ -51,7 +51,7 @@
         "7.49 km/s",
         "0.99 km/s"
       ],
-      "explanation": "With <i>r<sub>p</sub></i> = 6,878 km, the hyperbola speed is &radic;(16.0 + 2&mu;/<i>r<sub>p</sub></i>) = 11.49 km/s and the circular speed is 7.61 km/s, so &Delta;<i>V</i> = 3.87 km/s. 4.00 km/s takes the burn equal to <i>v</i><sub>∞</sub>, 7.49 km/s subtracts <i>v</i><sub>∞</sub> from the hyperbola speed, and 0.99 km/s drops the factor 2 in 2&mu;/<i>r</i>."
+      "explanation": "With <i>r<sub>p</sub></i> = 6,878 km, the hyperbola speed is &radic;(16.0 + 2&mu;/<i>r<sub>p</sub></i>) = 11.49 km/s and the circular speed is 7.61 km/s, so &Delta;<i>V</i> = 3.87 km/s. If you take the burn equal to <i>v</i><sub>∞</sub>, you get 4.00 km/s; 7.49 km/s subtracts <i>v</i><sub>∞</sub> from the hyperbola speed, and 0.99 km/s drops the factor 2 in 2&mu;/<i>r</i>."
     },
     {
       "id": "S2.4-q5",
@@ -70,14 +70,14 @@
       "id": "S2.4-q6",
       "page": "patched-conics",
       "section": "Worked example: a Mercury orbiter",
-      "question": "In the Mercury example, the capture burn (7.604 km/s) is almost as large as <i>v</i><sub>∞</sub> at Mercury (9.613 km/s), while the departure burn at Earth (5.557 km/s) is smaller than <i>v</i><sub>∞</sub> at Earth. Why?",
+      "question": "In the Mercury example, the capture burn (7.604 km/s) is most of <i>v</i><sub>∞</sub> at Mercury (9.613 km/s), while the departure burn at Earth (5.557 km/s) is smaller than <i>v</i><sub>∞</sub> at Earth. Why?",
       "options": [
         "Mercury's shallow gravity well adds little speed at periapsis",
         "Burns that slow a spacecraft always cost more than burns that speed it up",
         "Mercury's capture orbit is lower, so its circular speed is higher than Earth's",
         "The capture burn is made at the apoapsis of the arrival hyperbola, where the speed is lowest"
       ],
-      "explanation": "The burn is &radic;(<i>v</i><sub>∞</sub><sup>2</sup> + <i>v</i><sub>esc</sub><sup>2</sup>) minus the circular speed. At Earth, the escape and circular speeds are large, so 7.534 km/s of <i>v</i><sub>∞</sub> costs only 2.329 km/s beyond the cost of escaping. At Mercury they are small next to <i>v</i><sub>∞</sub>, so the burn is close to <i>v</i><sub>∞</sub>. The capture orbit (400 km) is higher than the parking orbit (185 km), and its circular speed, 2.785 km/s, is far below the 7.793 km/s at Earth. Slowing and speeding up cost the same for the same speed change, and a hyperbola has no apoapsis."
+      "explanation": "The burn is &radic;(<i>v</i><sub>∞</sub><sup>2</sup> + <i>v</i><sub>esc</sub><sup>2</sup>) minus the circular speed. At Earth, the escape and circular speeds are large, so 7.534 km/s of <i>v</i><sub>∞</sub> costs only 2.329 km/s beyond the cost of escaping. At Mercury they are small next to <i>v</i><sub>∞</sub>, so the burn is most of <i>v</i><sub>∞</sub>. The capture orbit (400 km) is higher than the parking orbit (185 km), and its circular speed, 2.785 km/s, is far below the 7.793 km/s at Earth. Slowing and speeding up cost the same for the same speed change, and a hyperbola has no apoapsis."
     },
     {
       "id": "S2.4-q7",

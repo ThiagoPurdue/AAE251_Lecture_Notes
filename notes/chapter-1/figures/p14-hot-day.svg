@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="435.775894pt" height="284.144641pt" viewBox="0 0 435.775894 284.144641" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="435.718944pt" height="284.144641pt" viewBox="0 0 435.718944 284.144641" xmlns="http://www.w3.org/2000/svg" version="1.1">
  <metadata>
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
@@ -21,8 +21,8 @@
  <g id="figure_1">
   <g id="patch_1">
    <path d="M 0 284.144641 
-L 435.775894 284.144641 
-L 435.775894 0 
+L 435.718944 284.144641 
+L 435.718944 0 
 L 0 0 
 z
 " style="fill: #ffffff"/>
@@ -462,41 +462,41 @@ L 419.898438 243.984797
 " style="fill: none; stroke: #000000; stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="line2d_39">
-    <path d="M 327.178973 139.203197 
-L 327.178973 107.227983 
+    <path d="M 327.122023 139.203197 
+L 327.122023 107.276409 
 " clip-path="url(#p5a29ad8677)" style="fill: none; stroke-dasharray: 1.8,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
    </g>
    <g id="line2d_40">
     <path d="M 398.71269 243.984797 
-L 387.888995 224.774837 
-L 377.326184 205.564877 
-L 367.019868 186.354917 
-L 356.9657 167.144957 
-L 347.159377 147.934997 
-L 337.596633 128.725037 
-L 327.994411 108.932957 
-L 318.6417 89.140877 
-L 309.533972 69.348797 
-L 300.666747 49.556717 
-L 291.78526 29.182517 
-L 284.123863 11.136797 
-L 284.123863 11.136797 
+L 388.200101 225.356957 
+L 377.61675 206.146997 
+L 367.290752 186.937037 
+L 357.217739 167.727077 
+L 347.393381 148.517117 
+L 337.813391 129.307157 
+L 328.194201 109.515077 
+L 318.82531 89.722997 
+L 309.702168 69.930917 
+L 300.820269 50.138837 
+L 291.924427 29.764637 
+L 284.006574 11.136797 
+L 284.006574 11.136797 
 " clip-path="url(#p5a29ad8677)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_41">
     <path d="M 376.303006 243.984797 
-L 366.262566 223.610597 
-L 356.185623 202.654277 
-L 346.358259 181.697957 
-L 336.776158 160.741637 
-L 327.435049 139.785317 
-L 318.081141 118.246877 
-L 308.972782 96.708437 
-L 300.105471 75.169997 
-L 291.474754 53.631557 
-L 282.852416 31.510997 
-L 275.123384 11.136797 
-L 275.123384 11.136797 
+L 366.25011 223.610597 
+L 356.161075 202.654277 
+L 346.322324 181.697957 
+L 336.72952 160.741637 
+L 327.378369 139.785317 
+L 318.014807 118.246877 
+L 308.897448 96.708437 
+L 300.021767 75.169997 
+L 291.383288 53.631557 
+L 282.753589 31.510997 
+L 275.018304 11.136797 
+L 275.018304 11.136797 
 " clip-path="url(#p5a29ad8677)" style="fill: none; stroke-dasharray: 0.2,5.2; stroke-dashoffset: 0; stroke: #d55e00; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_42">
@@ -514,7 +514,7 @@ z
 " style="stroke: #000000"/>
     </defs>
     <g clip-path="url(#p5a29ad8677)">
-     <use xlink:href="#mc2717a6084" x="327.178973" y="139.203197" style="fill: #ffffff; stroke: #000000"/>
+     <use xlink:href="#mc2717a6084" x="327.122023" y="139.203197" style="fill: #ffffff; stroke: #000000"/>
     </g>
    </g>
    <g id="line2d_43">
@@ -527,7 +527,7 @@ z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g clip-path="url(#p5a29ad8677)">
-     <use xlink:href="#m432883bae2" x="327.178973" y="107.227983" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#m432883bae2" x="327.122023" y="107.276409" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="line2d_44">
@@ -545,7 +545,7 @@ z
 " style="stroke: #000000"/>
     </defs>
     <g clip-path="url(#p5a29ad8677)">
-     <use xlink:href="#m69c382f00d" x="342.782734" y="139.203197" style="stroke: #000000"/>
+     <use xlink:href="#m69c382f00d" x="342.718283" y="139.203197" style="stroke: #000000"/>
     </g>
    </g>
    <g id="text_20">
@@ -556,41 +556,41 @@ z
    </g>
    <g id="text_22">
     <g id="patch_9">
-     <path d="M 255.535305 167.778592 
-L 322.370617 167.778592 
-L 322.370617 143.025498 
-L 255.535305 143.025498 
+     <path d="M 255.478355 167.778592 
+L 322.313668 167.778592 
+L 322.313668 143.025498 
+L 255.478355 143.025498 
 z
 " style="fill: #ffffff"/>
     </g>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(281.91468 152.219092)">hot day:</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(256.855305 164.143435)">0.9718 kg/m³</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(281.85773 152.219092)">hot day:</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(256.798355 164.143435)">0.9716 kg/m³</text>
    </g>
    <g id="text_23">
     <g id="patch_10">
-     <path d="M 334.316206 105.469802 
-L 429.895894 105.469802 
-L 429.895894 57.608458 
-L 334.316206 57.608458 
+     <path d="M 334.259257 105.518227 
+L 429.838944 105.518227 
+L 429.838944 57.656884 
+L 334.259257 57.656884 
 z
 " style="fill: #ffffff"/>
     </g>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.636206 66.802052)">density altitude</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.636206 78.565521)">2,349 m, where</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.636206 90.200083)">standard air has</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.636206 101.834646)">the hot-day density</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.579257 66.850477)">density altitude</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.579257 78.613946)">2,348 m, where</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.579257 90.248509)">standard air has</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(335.579257 101.883071)">the hot-day density</text>
    </g>
    <g id="text_24">
     <g id="patch_11">
-     <path d="M 348.015951 135.934585 
-L 408.734232 135.934585 
-L 408.734232 111.439304 
-L 348.015951 111.439304 
+     <path d="M 347.951499 135.934585 
+L 408.66978 135.934585 
+L 408.66978 111.439304 
+L 347.951499 111.439304 
 z
 " style="fill: #ffffff"/>
     </g>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(349.335951 120.503992)">standard:</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(349.335951 132.299429)">1.027 kg/m³</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(349.271499 120.503992)">standard:</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(349.271499 132.299429)">1.027 kg/m³</text>
    </g>
   </g>
  </g>

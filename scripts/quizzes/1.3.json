@@ -12,7 +12,7 @@
     "The horizontal stabilizer",
     "The winglets"
    ],
-   "explanation": "The vertical stabilizer is the fixed fin; it gives stability in yaw and the rudder is hinged to its trailing edge. The rudder is the moving surface, not the fixed one; the horizontal stabilizer acts in pitch; the winglets weaken the wingtip vortices."
+   "explanation": "The vertical stabilizer is the fixed fin. It gives stability in yaw, and the rudder is hinged to its trailing edge. The rudder itself is the moving surface, not the fixed one. The horizontal stabilizer works in pitch, and the winglets weaken the wingtip vortices."
   },
   {
    "id": "S1.3-q2",
@@ -25,7 +25,7 @@
     "The elevator trailing edge goes up, the tail is pushed up, and the nose pitches down",
     "The two elevators move in opposite directions, and the aircraft rolls"
    ],
-   "explanation": "Up elevator makes a downward force on the tail; the tail moves down and the nose pitches up about the center of gravity. A tail pushed up would lower the nose. Surfaces that move in opposite directions to roll the aircraft are the ailerons."
+   "explanation": "When the trailing edge of the elevator goes up, the tail makes a downward force. The tail moves down, and the nose pitches up about the center of gravity. A tail pushed up would lower the nose. The surfaces that move in opposite directions to roll the aircraft are the ailerons."
   },
   {
    "id": "S1.3-q3",
@@ -38,7 +38,7 @@
     "Wing at the top; nose toward the bottom",
     "Wing at the bottom; nose toward the top"
    ],
-   "explanation": "Facing the nose, which points left, your right hand is toward the top of the page. Positive yaw swings the nose toward the right wing, so the nose moves up the page. A right wing at the bottom describes a view from below, and a nose turning away from the right wing reverses the sense of positive yaw."
+   "explanation": "Face the nose, which points left, and your right hand is toward the top of the page. Positive yaw swings the nose toward the right wing, so the nose moves up the page. A right wing at the bottom describes a view from below, and a nose turning away from the right wing reverses the sense of positive yaw."
   },
   {
    "id": "S1.3-q4",
@@ -51,7 +51,7 @@
     "Its tail wheel cannot be steered, so the pilot has no control on the ground",
     "It sits nose up, so its wing makes lift on the ground and lifts the main wheels"
    ],
-   "explanation": "On a tail-dragger the main wheels are ahead of the center of gravity, so a swerve grows; on a tricycle the center of gravity is ahead of the main wheels and the weight keeps it straight. Many tail wheels can be steered, and the stance is not the cause."
+   "explanation": "On a tail-dragger the main wheels are ahead of the center of gravity, and once a swerve starts, the weight keeps pushing the aircraft further around. On a tricycle the center of gravity is ahead of the main wheels, and the weight keeps the aircraft straight. Many tail wheels can be steered, and the nose-up stance is not the cause."
   },
   {
    "id": "S1.3-q5",
@@ -64,7 +64,7 @@
     "6.67",
     "5.40"
    ],
-   "explanation": "<i>AR</i> = <i>b</i>²/<i>S</i> = 72 × 72/480 = 5,184/480 = 10.8. Using half the span gives 36 × 36/480 = 2.70; 480/72 = 6.67 ft is the average chord, not a ratio; 5.40 divides by twice the area."
+   "explanation": "<i>AR</i> = <i>b</i>²/<i>S</i> = 72 × 72/480 = 5,184/480 = 10.8. If you use half the span, you get 36 × 36/480 = 2.70. 480/72 = 6.67 ft is the average chord, not a ratio, and 5.40 comes from dividing by twice the area."
   },
   {
    "id": "S1.3-q6",
@@ -77,7 +77,7 @@
     "0.06 m, at 0.04 m from the leading edge",
     "0.36 m, at 0.6 m from the leading edge"
    ],
-   "explanation": "M = 2: the camber is 2% of 2.0 m, 0.04 m. P = 3: it is 3 tenths, 30%, of the chord from the leading edge, 0.6 m. Reading P as 3% gives 0.06 m; reading the second digit as the camber and the first as its position, both in percent, gives 0.06 m at 0.04 m; 0.36 m is the thickness, 18% of the chord."
+   "explanation": "M = 2, so the camber is 2% of 2.0 m, or 0.04 m. P = 3, so it sits 3 tenths, 30%, of the chord from the leading edge, 0.6 m. If you read P as 3%, you get 0.06 m. If you read the second digit as the camber and the first as its position, both in percent, you get 0.06 m at 0.04 m. And 0.36 m is the thickness, 18% of the chord."
   },
   {
    "id": "S1.3-q7",
@@ -90,7 +90,7 @@
     "The liquid-oxygen tank, because the oxidizer must last longer than the fuel",
     "Both tanks are the same size, because the engine burns equal volumes of each"
    ],
-   "explanation": "In the first version of the stage the hydrogen tank held 390 m³ against 120 m³ of oxygen, although the oxygen was 5.1 times heavier: a large mass of oxygen fits in a small volume. Mass and volume are not the same, and the engine burns both propellants for the whole burn, in neither equal volumes nor equal masses."
+   "explanation": "In the first version of the stage the hydrogen tank held 390 m³ and the oxygen tank 120 m³, although the oxygen had 5.1 times the mass. Oxygen is dense, and a large mass of it fits in a small volume. A larger mass does not mean a larger tank. The engine burns both propellants for the whole burn, in neither equal volumes nor equal masses."
   },
   {
    "id": "S1.3-q8",
@@ -103,7 +103,7 @@
     "From 0 to 5; <i>W</i><sub>2</sub> is the weight at the start of the climb",
     "From 0 to 4; <i>W</i><sub>2</sub> is the weight during the cruise"
    ],
-   "explanation": "The ends of the segments are numbered from 0 at the start of the takeoff, so five segments give six points, 0 to 5, and point 2 is the end of the second segment, the climb. Numbering the segments instead of their ends gives 1 to 5 or 0 to 4; the start of the climb is point 1."
+   "explanation": "We number the ends of the segments, starting from 0 at the start of the takeoff. Five segments give six points, 0 to 5, and point 2 is the end of the second segment, the climb. If you number the segments instead of their ends, you get 1 to 5 or 0 to 4. The start of the climb is point 1."
   }
  ]
 }

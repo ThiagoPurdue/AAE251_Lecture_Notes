@@ -315,28 +315,28 @@ L 212.993343 310.512797
    </g>
    <g id="line2d_27">
     <path d="M 174.913888 310.512797 
-L 174.913888 270.401369 
+L 174.913888 270.440347 
 " clip-path="url(#pe11156a438)" style="fill: none; stroke-dasharray: 1.8,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
    </g>
    <g id="line2d_28">
-    <path d="M 41.908438 270.401369 
-L 174.913888 270.401369 
+    <path d="M 41.908438 270.440347 
+L 174.913888 270.440347 
 " clip-path="url(#pe11156a438)" style="fill: none; stroke-dasharray: 1.8,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
    </g>
    <g id="line2d_29">
     <path d="M 191.036366 310.512797 
-L 184.602407 294.047117 
-L 178.224531 278.329877 
-L 171.811867 263.111597 
-L 165.36994 248.392277 
-L 158.905057 234.171917 
-L 152.424383 220.450517 
-L 145.936019 207.228077 
-L 137.698105 191.011877 
-L 61.992597 42.321797 
-L 52.445105 22.862357 
-L 46.809637 11.136797 
-L 46.809637 11.136797 
+L 184.595841 294.047117 
+L 178.211457 278.329877 
+L 171.79225 263.111597 
+L 165.34375 248.392277 
+L 158.87227 234.171917 
+L 152.384983 220.450517 
+L 145.889998 207.228077 
+L 137.643679 191.011877 
+L 61.860919 42.321797 
+L 52.303686 22.862357 
+L 46.662467 11.136797 
+L 46.662467 11.136797 
 " clip-path="url(#pe11156a438)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_30">
@@ -354,7 +354,7 @@ z
 " style="stroke: #000000"/>
     </defs>
     <g clip-path="url(#pe11156a438)">
-     <use xlink:href="#mf36f1b4b74" x="145.185601" y="205.731197" style="fill: #ffffff; stroke: #000000"/>
+     <use xlink:href="#mf36f1b4b74" x="145.138814" y="205.731197" style="fill: #ffffff; stroke: #000000"/>
     </g>
    </g>
    <g id="line2d_31">
@@ -367,7 +367,7 @@ z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g clip-path="url(#pe11156a438)">
-     <use xlink:href="#m8d3f286096" x="91.76917" y="100.949597" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#m8d3f286096" x="91.667877" y="100.949597" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="line2d_32">
@@ -379,7 +379,7 @@ z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g clip-path="url(#pe11156a438)">
-     <use xlink:href="#maf65332274" x="174.913888" y="270.401369" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#maf65332274" x="174.913888" y="270.440347" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_15">
@@ -405,24 +405,24 @@ z
     <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(49.113837 301.275643)">curved</text>
    </g>
    <g id="text_19">
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(45.567869 251.422863)">Ex. 3: 61.5 kPa</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(45.567869 263.096613)">gives 4,020 m</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(45.567869 251.461841)">Ex. 3: 61.5 kPa</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(45.567869 263.135591)">gives 4,015 m</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(65.064432 215.416524)">Ex. 1, 10.5 km:</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(88.889745 227.051086)">24.49 kPa</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(65.017646 215.416524)">Ex. 1, 10.5 km:</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(88.842958 227.051086)">24.46 kPa</text>
    </g>
    <g id="text_21">
     <g id="patch_7">
-     <path d="M 95.645323 99.269597 
-L 162.472041 99.269597 
-L 162.472041 74.935191 
-L 95.645323 74.935191 
+     <path d="M 95.54403 99.269597 
+L 162.370748 99.269597 
+L 162.370748 74.935191 
+L 95.54403 74.935191 
 z
 " style="fill: #efefef"/>
     </g>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(96.965323 84.128784)">Ex. 2, 21 km:</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(96.965323 95.763347)">4.684 kPa</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(96.86403 84.128784)">Ex. 2, 21 km:</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(96.86403 95.763347)">4.670 kPa</text>
    </g>
   </g>
   <g id="axes_2">
@@ -662,52 +662,52 @@ L 404.608437 310.512797
    </g>
    <g id="line2d_59">
     <path d="M 388.779468 310.512797 
-L 383.086748 292.550237 
-L 377.400475 275.336117 
-L 371.644163 258.620957 
-L 365.910712 242.654237 
-L 360.213809 227.435957 
-L 354.469335 212.716637 
-L 349.484627 200.492117 
-L 276.845191 58.288517 
-L 266.770103 39.826997 
-L 256.811505 21.115997 
-L 251.599965 11.136797 
-L 251.599965 11.136797 
+L 383.079573 292.550237 
+L 377.386134 275.336117 
+L 371.710391 258.870437 
+L 365.973456 242.903717 
+L 360.27325 227.685437 
+L 354.525612 212.966117 
+L 349.435133 200.492117 
+L 276.721701 58.288517 
+L 266.637162 39.826997 
+L 256.669223 21.115997 
+L 251.452795 11.136797 
+L 251.452795 11.136797 
 " clip-path="url(#p37947b7c4b)" style="fill: none; stroke: #000000; stroke-width: 2; stroke-linecap: square"/>
    </g>
    <g id="line2d_60">
     <g clip-path="url(#p37947b7c4b)">
-     <use xlink:href="#mf36f1b4b74" x="351.656723" y="205.731197" style="fill: #ffffff; stroke: #000000"/>
+     <use xlink:href="#mf36f1b4b74" x="351.609936" y="205.731197" style="fill: #ffffff; stroke: #000000"/>
     </g>
    </g>
    <g id="line2d_61">
     <g clip-path="url(#p37947b7c4b)">
-     <use xlink:href="#m8d3f286096" x="298.721067" y="100.949597" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#m8d3f286096" x="298.619774" y="100.949597" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="line2d_62">
     <g clip-path="url(#p37947b7c4b)">
-     <use xlink:href="#maf65332274" x="375.730846" y="270.401369" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#maf65332274" x="375.727717" y="270.440347" style="fill: #ffffff; stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
    <g id="text_28">
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="344.895242" y="215.550586" transform="rotate(-0 344.895242 215.550586)">Ex. 1: 0.3880 kg/m³</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="344.848456" y="215.550586" transform="rotate(-0 344.848456 215.550586)">Ex. 1: 0.3875 kg/m³</text>
    </g>
    <g id="text_29">
     <g id="patch_12">
-     <path d="M 302.597219 99.269597 
-L 375.549563 99.269597 
-L 375.549563 74.774316 
-L 302.597219 74.774316 
+     <path d="M 302.495926 99.269597 
+L 375.44827 99.269597 
+L 375.44827 74.774316 
+L 302.495926 74.774316 
 z
 " style="fill: #efefef"/>
     </g>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(303.917219 83.839003)">Ex. 2:</text>
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(303.917219 95.634441)">0.07532 kg/m³</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(303.815926 83.839003)">Ex. 2:</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif" transform="translate(303.815926 95.634441)">0.07509 kg/m³</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="368.730846" y="273.247619" transform="rotate(-0 368.730846 273.247619)">Ex. 3: 0.8178 kg/m³</text>
+    <text style="font-size: 11px; font-family: Arial, Helvetica, sans-serif; text-anchor: end" x="368.727717" y="273.286597" transform="rotate(-0 368.727717 273.286597)">Ex. 3: 0.8177 kg/m³</text>
    </g>
   </g>
  </g>

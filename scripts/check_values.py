@@ -29,7 +29,8 @@ TAGS = {"p11": "needs-and-requirements", "p12": "hazards-and-risk", "p13": "vehi
         "p14": "standard-atmosphere", "p15": "bernoulli-and-pitot-static", "p16": "aircraft-sizing",
         "p17": "concepts-and-trade-studies",
         "p21": "orbit-properties", "p22": "orbit-transfers", "p23": "launch-to-orbit",
-        "p24": "patched-conics", "p25": "ground-tracks-and-orbit-lifetime"}
+        "p24": "patched-conics", "p25": "ground-tracks-and-orbit-lifetime",
+        "p31": "wind-tunnels", "p32": "airfoil-and-finite-wing", "p33": "drag-polar", "p34": "wing-loading"}
 
 
 def chapters():
