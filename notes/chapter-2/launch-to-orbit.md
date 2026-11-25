@@ -287,7 +287,7 @@ The orbit speed is the circular speed at $r = R_E + h$ ([circular speed](#p21-ci
 v_{\text{orbit}} = \sqrt{\frac{\mu}{r}} = \sqrt{\frac{\mu}{R_E + h}}
 :::
 
-The total is what the stages of the vehicle must provide. Through the rocket equation, it sets how much propellant they carry.
+The total is what the stages of the vehicle must provide. Through [the rocket equation](#p42-rocket-equation), it sets how much propellant they carry.
 
 :::{tip} Method: delta-V from a launch site to a low circular orbit
 1. Convert the altitude to a radius: $r = R_E + h$.

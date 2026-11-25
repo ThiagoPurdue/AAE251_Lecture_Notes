@@ -412,6 +412,7 @@ Computed from the NACA four-digit equations for the worked example. Drawn to the
 - A percentage is not a length. Multiply by the chord, in the unit the chord is given in.
 :::
 
+(p13-launch-vehicle)=
 ## The launch vehicle
 
 We now turn from airplanes to launch vehicles. A launch vehicle carries a payload, such as a satellite or spacecraft, from the ground into orbit; how it builds the required speed is the subject of [launch to orbit](../chapter-2/launch-to-orbit.md). Most of a launch vehicle's liftoff mass is propellant: the core stage of the Ariane 5 ECA has a dry mass of 14.7 t (1 t is 1,000 kg) and carries 170 t of liquid oxygen and liquid hydrogen (Arianespace 2016, Section 1.5.1). Most of the vehicle's structure is also jettisoned during ascent once its job is done. {numref}`fig-p13-launcher-parts` labels the exterior of a heavy launch vehicle, the Ariane 5. On this page launch vehicles are drawn horizontally with the nose to the right, so "ahead of" means toward the nose and "behind" means toward the engines.

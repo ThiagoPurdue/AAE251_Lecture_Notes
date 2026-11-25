@@ -8,8 +8,9 @@ material that no standard assesses. The book carries no dates and no assignments
 Status: Chapter 1, Systems Engineering and Fundamental Thoughts (seven pages, 63 figures,
 six quizzes), Chapter 2, Introduction to Orbits (five pages, 37 figures, four quizzes),
 Chapter 3, Aerodynamics (four pages, 29 figures and a photograph, three quizzes),
-and Chapter 5, Aircraft Performance and Propulsion (five pages, 25 figures, four quizzes),
-are written and published. Chapter 4 is not written yet. The site is published at
+Chapter 4, Rocket Design (five pages, four of them for a standard and one on engines and
+tanks, 35 figures and two photographs, four quizzes), and Chapter 5, Aircraft Performance
+and Propulsion (five pages, 25 figures, four quizzes), are written and published. The site is published at
 https://thiagopurdue.github.io/AAE251_Lecture_Notes/.
 
 ## Layout
@@ -27,7 +28,7 @@ https://thiagopurdue.github.io/AAE251_Lecture_Notes/.
 | `scripts/make_figures.py` | Shared figure helpers. Each chapter has its own `make_chapter_N_figures.py` |
 | `scripts/figkit.py` | The figure kit every chapter shares: Arial math, number formatting, the text, arrow and dimension helpers, the layout check that every figure must pass, `save_figure` and the record of printed values (one `Chapter` object per chapter) |
 | `scripts/render_svg.py` | Renders figure SVGs to PNG through headless Chrome, as a browser shows them (`--gray` adds a grayscale copy) |
-| `scripts/chapter_N/` | The figure and value code of a chapter: shared modules (constants, formulas, drawing helpers on top of `figkit.py`) and one module per page. Every number printed on a page is computed here and recorded in `values.json`. See `scripts/chapter_1/README.md` and `scripts/chapter_2/README.md` |
+| `scripts/chapter_N/` | The figure and value code of a chapter: shared modules (constants, formulas, drawing helpers on top of `figkit.py`) and one module per page. Every number printed on a page is computed here and recorded in `values.json`. See the `README.md` in each `scripts/chapter_N/` |
 | `scripts/check_values.py`, `scripts/check_chains.py` | Stop when a recorded value is missing from its page, or when a printed calculation step does not reproduce from the digits printed before it |
 | `scripts/make_quizzes.py`, `scripts/quizzes/<id>.json` | The quiz of each standard, built from question data |
 | `scripts/check_pages.py` | Stops on a date, an assignment, a dash, a figure with no alt text or a figure or table with no caption |
@@ -68,6 +69,9 @@ To redraw the figures of a chapter and recompute its numbers (needs `matplotlib`
 ```bash
 python3 -B scripts/make_chapter_1_figures.py     # all figures of a chapter, strict layout check, values.json
 python3 -B scripts/make_chapter_2_figures.py
+python3 -B scripts/make_chapter_3_figures.py
+python3 -B scripts/make_chapter_4_figures.py
+python3 -B scripts/make_chapter_5_figures.py
 python3 -B scripts/check_values.py --strict      # values on their pages, calculation steps
 python3 -B scripts/make_quizzes.py               # rebuild the quizzes from scripts/quizzes/
 ```

@@ -35,6 +35,9 @@ Angle of attack
 Apoapsis
 : The point of an orbit farthest from the central body, at radius $r_a = a(1 + e)$. Around Earth it is called the apogee, around the Sun the aphelion.
 
+Area ratio
+: The exit area of a nozzle divided by its throat area, $A_e/A_t$; also called the expansion ratio. A larger area ratio expands the gas further, to a lower exit pressure and a higher exit velocity.
+
 Ascending node
 : The point where an orbit crosses the reference plane (the equator, for an Earth orbit) going north. The inclination is measured there.
 
@@ -53,17 +56,29 @@ Ballistic coefficient
 Bernoulli's equation
 : $p + \tfrac12\rho V^2 + \rho g z$ is the same at every point of a streamline in steady, incompressible flow without friction. Where the fluid speeds up, its pressure falls.
 
+Bipropellant
+: A rocket propellant made of two liquids, a fuel and an oxidizer, kept in separate tanks and mixed only in the combustion chamber. Most launch-vehicle engines burn a bipropellant.
+
 Blockage
 : The crowding of the flow around a model by the walls of a wind tunnel's test section, measured by the model's frontal area divided by the test-section area. Above about 5% the measured forces need corrections.
 
 Body axes
 : Three perpendicular axes fixed to an aircraft and crossing at its center of gravity: $x$ forward through the nose, $y$ out along the right wing, and $z$ down. Roll, pitch, and yaw are rotations about them.
 
+Boil-off
+: The loss of a cryogenic propellant that heat leaking into its tank boils away; the vapor is vented to hold the tank pressure. Its rate is the heat leak divided by the heat of vaporization, $\dot Q/h_\text{vap}$.
+
 Boundary layer
 : The thin layer of fluid next to a surface in which the speed rises from zero at the wall (no slip) to the speed of the flow outside. Viscous forces matter inside it; outside it the flow behaves as if it had no viscosity.
 
 Breguet range equation
 : The weight fraction of a jet's cruise segment, flown in steady level flight at constant speed, specific fuel consumption, and lift-to-drag ratio: $W_i/W_{i-1} = \exp[-R\,C/(V\,(L/D))]$, with the range $R$ in nautical miles, the speed $V$ in knots, and $C$ in 1/h.
+
+Bulk density
+: The density of a propellant pair as loaded: the total mass of fuel and oxidizer divided by their total volume. At mixture ratio O/F it is $\rho_\text{bulk} = (1 + \text{O/F})/(\text{O/F}/\rho_\text{ox} + 1/\rho_\text{fuel})$.
+
+Burn time
+: $t_b$, the time an engine runs on a load of propellant: the propellant mass divided by the mass flow, $t_b = m_\text{prop}/\dot m$, in s.
 
 Bypass ratio
 : The ratio $\beta = \dot{m}_{\text{bypass}}/\dot{m}_{\text{core}}$ of air mass flow that passes through the fan duct around the core of a turbofan to the air mass flow that passes through the gas-turbine core.
@@ -80,6 +95,12 @@ Center of gravity
 Center of pressure
 : The point on the chord where the resultant aerodynamic force acts, so that the moment about it is zero. It moves along the chord as the angle of attack changes.
 
+Chamber pressure
+: $p_c$, the pressure of the hot gas in the combustion chamber of a rocket engine, in Pa. A higher chamber pressure passes the same mass flow through a smaller throat.
+
+Characteristic velocity
+: $c^* = p_c A_t/\dot m$, in m/s: the chamber pressure times the throat area per unit mass flow. A more energetic combustion gives a higher $c^*$, which depends on the propellants and their mixture ratio, not on the nozzle. A higher $c^*$ needs less flow for the same chamber pressure and throat.
+
 Chord
 : The distance from the leading edge to the trailing edge of an airfoil, measured along the chord line; $c$. The root chord $c_r$ is at the centerline and the tip chord $c_t$ at the wing tip.
 
@@ -92,8 +113,14 @@ Circularization burn
 Closed-circuit wind tunnel
 : A wind tunnel that sends the same air around a closed loop: corners with turning vanes and a return leg bring the air from the diffuser back to the settling chamber, and the fan only makes up for the losses. Also called a Göttingen or closed-return tunnel.
 
+Cold-gas thruster
+: A thruster that lets a stored gas, often nitrogen, out through a nozzle with no combustion. It is simple and safe and gives small, precise pushes, at the lowest specific impulse of any rocket.
+
 Combination table
 : A table with the functions of a vehicle in rows and several ways to perform each function in columns. Picking one option for each function gives one concept, so the table holds every combination of the options.
+
+Combustion chamber
+: The part of a rocket engine where the fuel and the oxidizer burn, giving a hot gas at high pressure that then flows into the nozzle.
 
 Common-cause failure
 : The failure of several units from one event or one shared fault, such as the same software error or a shared power supply. It defeats redundancy, which assumes the units fail independently.
@@ -128,6 +155,9 @@ Contraction ratio
 Criterion
 : A property on which competing concepts are compared in a decision matrix, such as payload and range or operating cost. Criteria (the plural) come from the requirements, and each one measures something the others do not.
 
+Cryogenic propellant
+: A liquefied gas that boils below −146 °C at sea-level pressure, such as liquid oxygen, liquid hydrogen, or liquid methane. It must be kept cold, and some of it boils away while it waits.
+
 Decision matrix
 : A table that compares concepts, with the criteria in rows and the concepts in columns. Each concept is scored on each criterion, usually from 1 (poor) to 5 (excellent), and its weighted total is the sum of weight times score.
 
@@ -161,6 +191,9 @@ Drag
 Drag coefficient
 : The dimensionless drag $C_D = D/(qS)$ of a wing or aircraft; for an airfoil, per unit span, $c_d = D'/(qc)$.
 
+Drag loss
+: The part of a launch vehicle's ideal velocity change that air drag takes away during the climb, $\Delta V_\text{drag} = \int (D/m)\,dt$ over the burn. It is added to the mission's delta-V when a stage is sized.
+
 Drag polar
 : The relation between the drag coefficient and the lift coefficient of an aircraft, a wing, or an airfoil section, for one configuration, Reynolds number, and Mach number. In its parabolic form, $C_D = C_{D,0} + K C_L^2$ with $K = 1/(\pi e\,\textit{AR})$.
 
@@ -175,6 +208,12 @@ Eccentricity
 
 Effective angle of attack
 : The angle $\alpha_\text{eff}$ between the local relative wind and the chord line of a finite wing, the angle its sections actually work at: $\alpha_\text{eff} = \alpha - \alpha_i$.
+
+Effective exhaust velocity
+: The thrust of a rocket engine divided by its propellant mass flow rate, $c = F/\dot m = V_e + (p_e - p_a)A_e/\dot m$: the exit velocity corrected for the pressure term. It equals the exit velocity when the nozzle is ideally expanded.
+
+Electric propulsion
+: Rocket propulsion that uses electric power to accelerate the propellant, as ion and Hall-effect thrusters do. It gives the highest specific impulse and a thrust of millinewtons, limited by the power available.
 
 Elevator
 : The moving surface hinged to the trailing edge of the horizontal stabilizer. It pitches the aircraft: trailing edge up, nose up.
@@ -200,6 +239,9 @@ Escape speed
 Excess power
 : The difference $P_A - P_R$ between power available from the engines and power required for steady level flight at a given speed. Dividing excess power by aircraft weight $mg$ gives the steady rate of climb.
 
+Exit velocity
+: The speed $V_e$ of the exhaust gas as it leaves the exit plane of a nozzle.
+
 Finite wing
 : A real wing, with tips. Air flows around the tips, so its lift coefficient and drag coefficient, written in capitals ($C_L$, $C_D$), differ from those of its airfoil.
 
@@ -214,6 +256,9 @@ Flow separation
 
 Free-stream velocity
 : The velocity of the undisturbed air far ahead of a vehicle, relative to the vehicle, $V_\infty$. A vehicle moving through still air at a speed $V$ sees a free-stream velocity of the same size.
+
+Fuel
+: In a chemical rocket, the propellant that burns, such as kerosene, liquid hydrogen, or MMH.
 
 Fuel fraction
 : $W_f/W_0$, the weight of all the fuel loaded divided by the takeoff weight: $W_f/W_0 = 1.06\,(1 - W_x/W_0)$, where $W_x/W_0$ is the product of the segment weight fractions. It does not depend on the size of the aircraft.
@@ -239,6 +284,9 @@ Gravitational parameter
 Gravity loss
 : The part of a launch vehicle's velocity change spent holding the vehicle up against gravity while it climbs, $g\sin\gamma$ for each second at flight-path angle $\gamma$.
 
+Gross liftoff mass
+: The mass of a launch vehicle on the pad at liftoff, with all its stages, propellant and payload: the initial mass of stage 1. Often abbreviated GLOW, for gross liftoff weight.
+
 Ground loop
 : A sudden swerve of an aircraft on the ground. A tail-dragger can fall into one because its center of gravity is behind the main wheels, so its weight keeps a turn going.
 
@@ -248,14 +296,29 @@ Ground track
 Hazard
 : A condition of the operating environment that can harm a vehicle or its mission, such as icing, bird strikes, atomic oxygen, or radiation. It is described by its cause, its effect, and the mitigations that reduce it.
 
+Heat of vaporization
+: $h_\text{vap}$, the energy that turns one kilogram of a liquid at its boiling point into vapor, in J/kg (tables often give kJ/kg). About 446 kJ/kg for hydrogen and 213 kJ/kg for oxygen at atmospheric pressure.
+
 Hohmann transfer
 : A transfer between two circular orbits in the same plane along half of an ellipse that touches both, with one tangential burn at each end. Of all two-burn transfers between such orbits, it needs the least delta-V.
+
+Hoop stress
+: The tension that runs around the wall of a pressurized cylinder or sphere. In a thin wall of radius $r$ and thickness $t_\text{w}$ under the pressure $p$ it is $p\,r/t_\text{w}$ for a cylinder and half that for a sphere.
+
+Hybrid rocket
+: A rocket that keeps a solid fuel in its case and a liquid or gaseous oxidizer in a tank. It burns only while the oxidizer flows, so a valve starts and stops it.
 
 Hydrostatic equation
 : The force balance on a thin slab of fluid at rest, $dp = -\rho\,g_0\,dh$: the pressure falls with height by the weight of the fluid passed.
 
 Hyperbolic excess speed
 : The speed $v_\infty$ a spacecraft has relative to a planet when it is far from the planet, after climbing out of the planet's gravity well. On the hyperbola, $v^2 = v_\infty^2 + 2\mu/r$.
+
+Hypergolic
+: Said of a fuel and an oxidizer that ignite on contact, with no igniter, such as nitrogen tetroxide with MMH. Restarts are simple; a leak that mixes them is dangerous.
+
+Ideally expanded
+: The state of a nozzle whose exit pressure equals the ambient pressure, $p_e = p_a$: the pressure term of the thrust is zero and the jet leaves straight. It is the best nozzle for that one ambient pressure.
 
 Impulsive burn
 : A burn treated as instantaneous: the velocity changes at once and the position does not, so the new orbit passes through the burn point.
@@ -274,6 +337,12 @@ Induced angle of attack
 
 Induced drag
 : The drag a finite wing pays for its lift: the downwash tilts the lift back by the induced angle of attack, and the backward component is the induced drag. Its coefficient is $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$, so it is zero when the wing makes no lift.
+
+Inert mass
+: Everything in a stage that is not propellant: the empty tanks, the engines, the pipes and the structure, written $m_\text{inert}$.
+
+Inert mass fraction
+: $f_\text{inert} = m_\text{inert}/(m_\text{inert} + m_\text{prop})$, the inert mass of a stage divided by its own loaded mass, inert mass plus propellant. The payload is not part of it. Real stages have about 0.057 to 0.23.
 
 Infinite wing
 : A wing of constant section with no tips, so the flow over it is two-dimensional. A wind tunnel model that spans the test section from wall to wall behaves as one; its coefficients, the airfoil data, are written in lowercase ($c_l$, $c_d$, $c_m$).
@@ -344,6 +413,9 @@ Manometer
 Mass flow rate
 : $\dot{m} = \rho A V$, the mass of fluid that crosses a cross section of area $A$ per second, in kg/s.
 
+Mass ratio
+: The initial mass of a rocket divided by its final mass, $m_i/m_f$. By the rocket equation it equals $e^{\Delta V/c}$.
+
 Maximum lift coefficient
 : $C_{L,\max}$, the highest lift coefficient a wing (or $c_{l,\max}$, an airfoil) reaches before it stalls. Flaps and slats raise it for takeoff and landing.
 
@@ -371,6 +443,15 @@ Mission statement
 Mitigation
 : An action, taken or planned, that makes harm from a hazard or a risk less likely or less severe. It acts on the cause, on the hazard itself, or on the effect.
 
+Mixture ratio
+: The mass of oxidizer burned for each unit mass of fuel in a bipropellant engine, written O/F.
+
+Momentum thrust
+: The part of rocket thrust that comes from the momentum the exhaust carries away, $\dot m V_e$.
+
+Monopropellant
+: A single propellant that releases its energy without a second one, usually by decomposing over a catalyst, as hydrazine does.
+
 Nautical mile
 : The unit of distance of air and sea navigation, exactly 1,852 m; written nmi.
 
@@ -379,6 +460,12 @@ Need statement
 
 No-slip condition
 : The fact that a fluid touching a solid surface moves with the surface: on a body at rest the fluid speed at the wall is zero.
+
+Nozzle
+: The converging and diverging duct behind the combustion chamber of a rocket engine. It speeds the gas up to the speed of sound at the throat and beyond it in the diverging section, trading pressure and temperature for speed.
+
+Nuclear thermal rocket
+: A rocket that heats hydrogen in a nuclear reactor and expands it through a nozzle. It was tested on the ground in the NERVA program and has not flown.
 
 Open-circuit wind tunnel
 : A wind tunnel that draws air from the room, passes it once through the test section, and returns it to the room. Also called an Eiffel or open-return tunnel.
@@ -392,6 +479,15 @@ Orbit decay
 Orbital period
 : The time $T$ for one revolution of a closed orbit: $T = 2\pi\sqrt{a^3/\mu}$. It depends only on the semi-major axis.
 
+Overexpanded
+: The state of a nozzle whose exit pressure is below the ambient pressure, $p_e < p_a$: the nozzle expanded the gas too far. The pressure term of the thrust is negative and the outside pressure squeezes the plume inward.
+
+Oxidizer
+: In a chemical rocket, the propellant that supplies the oxygen (or another element) the fuel burns with, such as liquid oxygen or nitrogen tetroxide.
+
+Parallel staging
+: Staging in which several stages, usually solid boosters, are strapped around a central stage and burn beside it from liftoff, then drop away when they are empty.
+
 Parasite drag
 : The drag an aircraft has just by moving through the air, whether or not it makes lift: skin friction drag, pressure drag, and interference drag. Its coefficient at zero lift is $C_{D,0}$.
 
@@ -402,10 +498,13 @@ Patched conics
 : An approximate method for interplanetary trajectories: inside a planet's sphere of influence the spacecraft moves on a conic around the planet, outside it on a conic around the Sun, and the conics are joined at the edge of the sphere of influence.
 
 Payload
-: What a mission exists to carry: passengers and their bags, cargo, sensors, or weapons. It does not include the crew.
+: What a mission exists to carry: passengers and their bags, cargo, sensors, or weapons. It does not include the crew. For a rocket, the payload is the satellite or spacecraft it carries; for one stage, it is everything above that stage.
 
 Payload fairing
 : The light shell at the nose of a launch vehicle that shields the payload on the climb through the atmosphere. It is dropped once the air is thin.
+
+Payload fraction
+: The payload of a stage or a vehicle divided by its initial mass, $m_\text{pay}/m_i$. For one stage it falls to zero at $\Delta V = c\ln(1/f_\text{inert})$.
 
 Periapsis
 : The point of an orbit closest to the central body, at radius $r_p = a(1 - e)$. Around Earth it is called the perigee, around the Sun the perihelion.
@@ -446,11 +545,23 @@ Power specific fuel consumption
 Pressure drag
 : The parasite drag from the difference between the high pressure on the front of a body and the low pressure in the wake behind it, where the flow has left the surface. Also called form drag; streamlining reduces it.
 
+Pressure thrust
+: The part of rocket thrust that comes from the difference between the exit pressure and the ambient pressure over the exit area, $(p_e - p_a)A_e$. It is positive, zero, or negative.
+
+Pressure-fed
+: Said of a liquid rocket engine whose propellants are pushed from the tanks into the combustion chamber by gas pressure, usually helium from a high-pressure bottle. It is simple, but its tanks must hold more than the chamber pressure, so they are heavy. Compare pump-fed engines, which use a turbopump.
+
 Prograde orbit
 : An orbit with an inclination below ${90}^\circ$, in which the satellite moves eastward, the same way as Earth turns.
 
 Project risk
 : A risk that comes from the work of building a vehicle (design, suppliers, tests, money, time) and not from its operating environment, such as a late engine or mass growth.
+
+Propellant
+: All the mass a rocket carries to throw out of its nozzle; in a chemical rocket, the fuel and the oxidizer.
+
+Propellant mass
+: The mass of fuel and oxidizer a burn uses, $m_\text{prop} = m_i - m_f$.
 
 Propulsive efficiency
 : The ratio of useful propulsive power $T V_\infty$ to the rate of kinetic energy added to the airstream. For an air-breathing jet with matched exit pressure and small fuel flow, $\eta_p = 2/(1 + V_e/V_\infty)$.
@@ -485,6 +596,9 @@ Risk
 Risk matrix
 : A five by five grid with likelihood on one axis and consequence on the other, in which each risk is placed by its two scores. In these notes a risk is High when likelihood times consequence is 15 or more, Medium from 5 to 12, and Low at 4 or less.
 
+Rocket equation
+: $\Delta V = c\ln(m_i/m_f)$, with $c = I_\text{sp}\,g_0$: the velocity change of a rocket that burns from an initial mass $m_i$ to a final mass $m_f$, with no gravity and no drag (the ideal rocket equation). First published by Konstantin Tsiolkovsky in 1903.
+
 Roll
 : Rotation of an aircraft about its $x$ body axis, the axis forward through the nose. Positive roll lowers the right wing.
 
@@ -500,6 +614,9 @@ Semi-major axis
 Sensitivity check
 : A test of a decision: change one weight (or one score), rescale the other weights so that they still add up to 1, recompute the totals, and see whether the winner changes. The result is reported with the decision.
 
+Serial staging
+: Staging in which the stages are stacked one on top of another and fire one after the other, each lit after the stage below it is dropped.
+
 Service ceiling
 : The practical operational altitude limit of an aircraft, defined as the altitude where the maximum rate of climb drops to $0.5$ m/s (about $100$ ft/min).
 
@@ -508,6 +625,9 @@ Settling chamber
 
 Shear stress
 : The tangential force per unit area that a moving fluid exerts on a surface by friction, in Pa. With pressure, it is one of the two sources of every aerodynamic force.
+
+Shock
+: A thin zone in a gas flow where the gas slows down and its pressure jumps. The bright diamonds in a rocket plume are shocks.
 
 Sidereal day
 : The time a planet takes to turn once relative to the stars. For Earth it is 86,164 s, a little shorter than the 86,400 s solar day.
@@ -530,6 +650,9 @@ Solar cycle
 Solar radiation pressure
 : The small, steady push of sunlight on each square meter of a spacecraft. It is nearly the same at every altitude of an Earth orbit, so above about 1,000 km, where drag is weak, it usually turns a spacecraft more than drag does.
 
+Solid rocket motor
+: A rocket whose fuel and oxidizer are mixed in one solid grain cast inside the motor case. It gives high thrust from a compact package and, once lit, burns until the grain is gone.
+
 South Atlantic Anomaly
 : A region over South America and the southern Atlantic Ocean where Earth's magnetic field is weaker than elsewhere, so the inner radiation belt reaches down to the altitudes of low orbits.
 
@@ -541,6 +664,9 @@ Specific fuel consumption
 
 Specific gas constant
 : The universal gas constant divided by the molar mass of a gas, $R = R_u/M$, in J/(kg K). For air $R = 287$ J/(kg K).
+
+Specific impulse
+: The impulse an engine delivers per unit weight of propellant burned, with the weight taken at standard gravity: $I_\text{sp} = F/(\dot m g_0) = c/g_0$, in seconds. It measures how well an engine uses its propellant.
 
 Specific orbital energy
 : The kinetic plus potential energy per unit mass, $\varepsilon = v^2/2 - \mu/r = -\mu/(2a)$, in km²/s². It is the same at every point of an orbit; its sign tells whether the orbit is closed.
@@ -560,6 +686,9 @@ Stability
 Stage
 : A complete rocket within a launch vehicle, with its own tanks, engines, and structure, dropped when its propellant is used up.
 
+Staging
+: Building a launch vehicle as a set of rockets, called stages, each dropped once its propellant is used, so later burns do not push empty tanks and engines.
+
 Stagnation point
 : A point where the flow is brought to rest against a body, such as the tip of a pitot tube. The pressure there is the total pressure of the flow.
 
@@ -578,6 +707,9 @@ Standard
 Standard atmosphere
 : An agreed model of temperature, pressure, and density as functions of altitude alone, representative of year-round midlatitude conditions, used as a common reference for aircraft performance and instrument calibration.
 
+Standard gravity
+: The fixed acceleration $g_0$ used to convert between specific impulse and effective exhaust velocity, 9.81 m/s² in these notes, on every planet and in orbit. It is not the local gravity.
+
 Static port
 : A small hole flush with the side of an aircraft or a probe, placed where the flow runs parallel to the surface, so that it senses the static pressure of the free stream.
 
@@ -589,6 +721,9 @@ Steady flow
 
 Steady level flight
 : Flight at constant speed and constant altitude, with no acceleration: lift equals weight and thrust equals drag.
+
+Storable propellant
+: A liquid propellant that stays liquid over a reasonable range of temperature and pressure and can be kept in closed tanks for a year or more, such as nitrogen tetroxide, hydrazine, and MMH.
 
 Stratosphere
 : The layer of the atmosphere above the troposphere. In the standard atmosphere its lower part, from 11 to 25 km, is isothermal at 216.66 K, and its upper part warms with height.
@@ -623,6 +758,12 @@ Taper ratio
 Test section
 : The narrowest part of a low-speed wind tunnel, where the air is fastest and the model is mounted; station 2 in these notes.
 
+Throat
+: The narrowest section of a rocket nozzle, where the gas reaches the speed of sound.
+
+Thrust
+: The force an engine exerts on its vehicle by throwing mass backward, $F$, in newtons. For a rocket it is $F = \dot m V_e + (p_e - p_a)A_e$.
+
 Thrust available
 : The thrust $T_A$ that an aircraft's engines can produce at a given altitude, speed, and throttle setting: $T_A = n\,\delta_t\,T_0(\rho/\rho_0)^{m_{\text{ad}}}$ for a jet, and $T_A = P_A/V$ for a propeller aircraft.
 
@@ -633,7 +774,7 @@ Thrust specific fuel consumption
 : The weight of fuel burned per unit thrust per unit time by a jet engine, $c_t$, with SI base units of $1/\text{s}$ (often quoted in $1/\text{h}$; divide by $3{,}600$ to get $1/\text{s}$).
 
 Thrust-to-weight ratio
-: $T/W$, the thrust of the engines divided by the weight of the aircraft, which sets the size of the engines. A propeller aircraft uses the power-to-weight ratio $P/W$ instead.
+: $T/W$, the thrust of the engines divided by the weight of the aircraft, which sets the size of the engines. A propeller aircraft uses the power-to-weight ratio $P/W$ instead. For a rocket it is written $F/W$, with the weight taken at standard gravity, $W = m g_0$.
 
 Total ionizing dose
 : The energy that charged particles leave in electronic parts over a mission, and the damage that builds up with it until the parts fail.
@@ -680,6 +821,9 @@ Turbojet
 Turboprop
 : A gas-turbine engine in which extra power-turbine stages drive a front propeller through a shaft and reduction gearbox, combining turbine power-to-weight with high propeller efficiency below about Mach $0.55$.
 
+Turbopump
+: A pump for each propellant driven by a turbine on the same shaft; it raises the pressure of the propellants between the tanks and the combustion chamber, so the tanks can stay at low pressure. The turbine is driven by hot gas from a small gas generator or a preburner.
+
 Turboshaft
 : A gas-turbine engine built to deliver nearly all of its energy as shaft torque, not jet exhaust, commonly used to drive helicopter rotors and auxiliary power units.
 
@@ -691,6 +835,12 @@ Turning vanes
 
 Two-body problem
 : The motion of two point masses under their mutual gravity alone. Its solution is a conic section with the central body at a focus.
+
+Ullage
+: The gas space left on purpose above the liquid in a propellant tank, for the pressurizing gas and for the liquid to expand as it warms. Usually given as a percentage of the liquid volume.
+
+Underexpanded
+: The state of a nozzle whose exit pressure is above the ambient pressure, $p_e > p_a$: the nozzle did not expand the gas far enough. The pressure term of the thrust is positive and the plume spreads outward.
 
 Validation
 : Showing that a system meets its stakeholders' needs: that the right system was built.

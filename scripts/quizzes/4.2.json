@@ -1,0 +1,109 @@
+{
+  "standard": "4.2",
+  "questions": [
+    {
+      "id": "S4.2-q1",
+      "page": "rocket-equation",
+      "section": "Deriving the rocket equation",
+      "question": "The ideal rocket equation is derived by setting the momentum of the rocket and its exhaust equal before and after a small step of the burn. What does that step leave out?",
+      "options": [
+        "Gravity and drag: no outside force acts on the rocket during the burn",
+        "The mass the rocket loses, which is taken as constant over the burn",
+        "The pressure thrust at the nozzle exit, which no form of it can include",
+        "The exit velocity of the exhaust, which only matters for the thrust"
+      ],
+      "explanation": "Momentum is conserved only when no outside force acts, so the ideal equation leaves out gravity and drag; they come back as losses. The changing mass is the heart of the derivation, the pressure thrust is included through the effective exhaust velocity <i>c</i>, and the exit velocity is what the delta-V is proportional to."
+    },
+    {
+      "id": "S4.2-q2",
+      "page": "rocket-equation",
+      "section": "Deriving the rocket equation",
+      "question": "A stage fires in orbit around the Moon. Its engine has a specific impulse of 280 s. Which effective exhaust velocity goes into the rocket equation?",
+      "options": [
+        "2,747 m/s: 280 s times 9.81 m/s², wherever the stage is",
+        "A smaller value, because near the Moon the local gravity replaces 9.81 m/s²",
+        "280 m/s, because the specific impulse is the exhaust speed",
+        "28.54 m/s, the specific impulse divided by 9.81 m/s²"
+      ],
+      "explanation": "<i>c</i> = <i>I</i><sub>sp</sub> <i>g</i><sub>0</sub> = 280 × 9.81 = 2,747 m/s. The standard gravity is a fixed number that defines the specific impulse; it does not change with the place where the engine fires. The specific impulse is in seconds, not a speed, and dividing by 9.81 m/s² turns the conversion upside down."
+    },
+    {
+      "id": "S4.2-q3",
+      "page": "rocket-equation",
+      "section": "What the equation says",
+      "question": "A stage with an effective exhaust velocity of 3,400 m/s burns until its mass is 35% of its mass at ignition. What ideal delta-V does it give?",
+      "options": [
+        "3,569 m/s",
+        "−3,569 m/s",
+        "1,190 m/s",
+        "2,210 m/s"
+      ],
+      "explanation": "The mass ratio is <i>m<sub>i</sub></i>/<i>m<sub>f</sub></i> = 1/0.35 = 2.857, so Δ<i>V</i> = 3,400 × ln 2.857 = 3,569 m/s. The negative value comes from the mass ratio written upside down, final over initial. Multiplying <i>c</i> by 0.35 or by the 65% burned treats the equation as linear, when the delta-V grows with the logarithm of the mass ratio."
+    },
+    {
+      "id": "S4.2-q4",
+      "page": "rocket-equation",
+      "section": "Three kinds of mass",
+      "question": "A stage has 700 kg of inert mass and 4,300 kg of propellant, and it carries a 1,300 kg payload. What is its inert mass fraction?",
+      "options": [
+        "0.14",
+        "0.111",
+        "0.163",
+        "0.317"
+      ],
+      "explanation": "The inert mass fraction is measured over the stage alone: 700/(700 + 4,300) = 700/5,000 = 0.14. Dividing by the initial mass, 6,300 kg, which includes the payload, gives 0.111. Dividing the inert mass by the propellant alone gives 0.163, and counting the payload as inert gives 2,000/6,300 = 0.317."
+    },
+    {
+      "id": "S4.2-q5",
+      "page": "rocket-equation",
+      "section": "Sizing a stage",
+      "question": "Why does the sizing of a stage need the inert mass fraction?",
+      "options": [
+        "The inert mass grows with the propellant, so neither is known first; the fraction links them",
+        "The rocket equation needs it to turn the specific impulse into an effective exhaust velocity",
+        "It gives the payload the stage can carry, so the payload does not need to be known",
+        "It replaces the delta-V, which is not known until the stage is sized"
+      ],
+      "explanation": "Bigger tanks hold more propellant and weigh more, so the inert mass depends on the propellant mass. With <i>f</i><sub>inert</sub> the inert mass becomes <i>f</i><sub>inert</sub> <i>m</i><sub>prop</sub>/(1 − <i>f</i><sub>inert</sub>), and the four equations close. The conversion to <i>c</i> uses <i>g</i><sub>0</sub> only, and the payload and the delta-V are inputs of the sizing."
+    },
+    {
+      "id": "S4.2-q6",
+      "page": "rocket-equation",
+      "section": "How far one stage can go",
+      "question": "In the formula for the propellant of a stage, the product of the inert mass fraction and <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup> reaches 1. What does that mean?",
+      "options": [
+        "No payload is left; past that delta-V, no amount of propellant is enough",
+        "The stage needs no propellant at all for that delta-V",
+        "The stage is at its most efficient point, where the payload fraction is largest",
+        "The payload has become equal to the inert mass of the stage"
+      ],
+      "explanation": "The denominator 1 − <i>f</i><sub>inert</sub> <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup> goes to zero, and the propellant mass grows without bound. At that point Δ<i>V</i> = <i>c</i> ln(1/<i>f</i><sub>inert</sub>), the delta-V of an empty stage flying alone: the payload fraction there is zero, not largest, and no particular link between payload and inert mass appears."
+    },
+    {
+      "id": "S4.2-q7",
+      "page": "rocket-equation",
+      "section": "Gravity and drag",
+      "question": "Which delta-V goes into the rocket equation when you size a launch stage?",
+      "options": [
+        "The budget total: orbit speed plus gravity and drag losses, less Earth's rotation",
+        "The orbit speed minus the losses, since the losses take speed away from the vehicle",
+        "The orbit speed alone, since the losses are already in the specific impulse",
+        "The losses alone, since Earth's rotation supplies the orbit speed"
+      ],
+      "explanation": "With gravity and drag, Δ<i>V</i> = <i>c</i> ln(<i>m<sub>i</sub></i>/<i>m<sub>f</sub></i>) − Δ<i>V</i><sub>gravity</sub> − Δ<i>V</i><sub>drag</sub>, so the ideal delta-V the stage must produce is the mission's plus the losses. Subtracting them sizes a stage that never reaches orbit, the specific impulse says nothing about gravity or drag, and Earth's rotation gives only a few tenths of a km/s."
+    },
+    {
+      "id": "S4.2-q8",
+      "page": "rocket-equation",
+      "section": "Judging a single-stage design",
+      "question": "A proposed single stage has an inert mass fraction of 0.13. For the required delta-V, losses included, <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup> = 8.4. Is the design feasible?",
+      "options": [
+        "No: 8.4 is larger than 1/0.13 = 7.69, so no payload can be carried",
+        "Yes: 8.4 is larger than 1/0.13 = 7.69, which leaves a margin",
+        "Yes, as long as the payload is made small enough",
+        "It cannot be judged until the payload mass is given"
+      ],
+      "explanation": "A stage can carry a payload only if <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup> is smaller than 1/<i>f</i><sub>inert</sub>. Here 8.4 is larger than 7.69, so even an empty stage falls short; reading the comparison the other way round turns a failed design into a margin. A smaller payload does not help, and the test does not need the payload at all."
+    }
+  ]
+}

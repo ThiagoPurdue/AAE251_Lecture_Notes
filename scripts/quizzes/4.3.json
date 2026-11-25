@@ -1,0 +1,109 @@
+{
+  "standard": "4.3",
+  "questions": [
+    {
+      "id": "S4.3-q1",
+      "page": "multistage-rockets",
+      "section": "Why stage",
+      "question": "For the same payload and the same delta-V, why can two stages need less initial mass than one stage?",
+      "options": [
+        "The empty first stage is dropped, so the later burn does not have to speed it up",
+        "Splitting the vehicle in two raises the specific impulse of each engine",
+        "The delta-Vs of the two stages multiply, so each stage needs less",
+        "Two stages carry more propellant in total, which gives more thrust"
+      ],
+      "explanation": "Staging changes neither the engines nor the rule that stage delta-Vs add. It removes empty tanks and engines before the next burn, so less inert mass is pushed and less propellant is needed in total. In worked example 1 the two stages burn 4,436 kg of propellant against 5,629 kg for one stage."
+    },
+    {
+      "id": "S4.3-q2",
+      "page": "multistage-rockets",
+      "section": "How a staged vehicle is described",
+      "question": "A rocket has three stages stacked one on top of the other. What is the payload of stage 1?",
+      "options": [
+        "Stages 2 and 3 fully loaded, the fairing and the spacecraft",
+        "Only the spacecraft at the top of the vehicle",
+        "Stage 2 alone, the stage that sits directly on it",
+        "Stage 3 and the spacecraft, because stage 1 is the top stage"
+      ],
+      "explanation": "The payload of a stage is everything above it. Stage 1 is the lowest stage, so it carries both upper stages fully loaded, the fairing and the spacecraft. The spacecraft alone is the payload of the top stage, and calling the top stage stage 1 numbers the stages the wrong way."
+    },
+    {
+      "id": "S4.3-q3",
+      "page": "multistage-rockets",
+      "section": "Sizing from the top down",
+      "question": "You size a two-stage rocket. Which stage do you size first, and why?",
+      "options": [
+        "The top stage, because its payload is the only mass known at the start",
+        "Stage 1, because it is the largest stage and sets the liftoff mass",
+        "Stage 1, because it burns first and its delta-V comes first",
+        "Either one, because the stage factors can be multiplied in any order"
+      ],
+      "explanation": "To size a stage you need its payload. The payload of stage 1 is the whole upper stage, which is not known until that stage is sized. Only the real payload, on the top stage, is known at the start, so the sizing goes from the top down."
+    },
+    {
+      "id": "S4.3-q4",
+      "page": "multistage-rockets",
+      "section": "Sizing from the top down",
+      "question": "A stage has a mass ratio <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup> = 2.00 and an inert mass fraction of 0.10. By what factor does it multiply the mass above it?",
+      "options": [
+        "2.25",
+        "2.00",
+        "1.80",
+        "2.50"
+      ],
+      "explanation": "The factor is <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup>(1 − <i>f</i>)/(1 − <i>f e</i><sup>Δ<i>V</i>/<i>c</i></sup>) = 2.00 × 0.90/(1 − 0.20) = 1.80/0.80 = 2.25. Using the mass ratio alone gives 2.00 and leaves out the inert mass; 1.80 forgets the denominator; 2.50 forgets the 1 − <i>f</i> in the numerator."
+    },
+    {
+      "id": "S4.3-q5",
+      "page": "multistage-rockets",
+      "section": "How many stages",
+      "question": "In this page's model, more identical stages always lower the initial mass. Why do launch vehicles still stop at two or three stages?",
+      "options": [
+        "Each stage adds engines, an interstage and separation hardware, while the saving shrinks",
+        "Past three stages the initial mass starts to rise again in the staging equation",
+        "The total delta-V is fixed, so more stages cannot change the initial mass",
+        "A fourth stage would always be past its single-stage limit"
+      ],
+      "explanation": "The identical-stage equation gives a lower mass for every added stage, by less each time: 3,219 kg for the third stage of worked example 2 and only 990 kg for a fourth. The equation does not count the costs of an extra stage, such as engines, interstage, separation hardware and one more event that must work, and those costs soon outweigh the saving."
+    },
+    {
+      "id": "S4.3-q6",
+      "page": "multistage-rockets",
+      "section": "Splitting the delta-V between two stages",
+      "question": "Two identical stages share a delta-V. What split of the delta-V gives the smallest initial mass?",
+      "options": [
+        "An equal split, since swapping identical stages leaves the mass unchanged",
+        "All of it on stage 1, because the largest stage should do the work",
+        "A share of 0.4 for stage 1, the best split of any two-stage vehicle",
+        "The split that brings both stages close to their limit"
+      ],
+      "explanation": "For identical stages the curve of initial mass against the share of stage 1 is symmetric about one half, so its single minimum is at one half. Putting all of it on stage 1 makes one stage do the whole job, which costs far more mass and is impossible past its limit. The share of 0.401 belongs to worked example 3, whose stages differ."
+    },
+    {
+      "id": "S4.3-q7",
+      "page": "multistage-rockets",
+      "section": "Splitting the delta-V between two stages",
+      "question": "At a trial split of a two-stage rocket, <i>c</i>(1 − <i>f</i> <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup>) is 2,100 m/s for stage 1 and 2,600 m/s for stage 2. How should you change the split?",
+      "options": [
+        "Give more of the delta-V to stage 2",
+        "Give more of the delta-V to stage 1",
+        "Keep it, because the best split is where the two values differ most",
+        "Split the delta-V equally between the two stages"
+      ],
+      "explanation": "The stage with the larger value of <i>c</i>(1 − <i>f</i> <i>e</i><sup>Δ<i>V</i>/<i>c</i></sup>) is the cheaper place for the next meter per second. Moving delta-V toward stage 2 lowers the mass until the two values are equal, which is the best split. An equal split is best only for identical stages."
+    },
+    {
+      "id": "S4.3-q8",
+      "page": "multistage-rockets",
+      "section": "A real vehicle: the Saturn V",
+      "question": "The three Saturn V stages of Apollo 11 give 12.48 km/s of ideal delta-V, but the vehicle reached 10.84 km/s. What explains most of the difference?",
+      "options": [
+        "The gravity and drag losses of the climb, left out of the ideal equation",
+        "The stage delta-Vs should be averaged, not added",
+        "The ideal equation counts the payload twice, once for each upper stage",
+        "Earth's rotation took speed away from an eastward launch"
+      ],
+      "explanation": "The ideal rocket equation has no gravity and no drag. During the climb they take their share, so the speed reached is less than the sum of the ideal stage delta-Vs. Stage delta-Vs add, and Earth's rotation helps an eastward launch, so it makes the difference smaller, not larger."
+    }
+  ]
+}

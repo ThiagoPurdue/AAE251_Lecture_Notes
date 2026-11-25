@@ -45,7 +45,7 @@ An {term}`impulsive burn` changes the velocity of a spacecraft in an instant, wi
 
 Two consequences follow. First, the orbit after the burn passes through the burn point, because the spacecraft has not moved. Second, two spacecraft at the same point with different speeds are on different orbits. The vis-viva equation, $v^2 = \mu\,(2/r - 1/a)$, ties the speed $v$ at radius $r$ to the {term}`semi-major axis` $a$. At a given $r$, a higher speed means a larger $a$. Speeding up raises the specific orbital energy $\varepsilon = -\mu/(2a)$ and makes the orbit larger; slowing down makes it smaller.
 
-The $\Delta V$ of a burn measures the demand placed on the propulsion system. Through the rocket equation in Chapter 4, it determines how much propellant the burn requires, so we plan a mission with a $\Delta V$ budget and report every maneuver on this page in km/s.
+The $\Delta V$ of a burn measures the demand placed on the propulsion system. Through [the rocket equation](#p42-rocket-equation) in Chapter 4, it determines how much propellant the burn requires, so we plan a mission with a $\Delta V$ budget and report every maneuver on this page in km/s.
 
 (p22-hohmann)=
 ## The Hohmann transfer

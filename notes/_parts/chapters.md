@@ -25,10 +25,11 @@
 
 **Chapter 4: Rocket Design**
 
-- 4.1 Thrust and Specific Impulse
-- 4.2 Rocket Equation
-- 4.3 Multistage Rockets
-- 4.4 Propellant Selection
+- [4.1 Thrust and Specific Impulse](chapter-4/thrust-and-specific-impulse.md)
+- [4.2 Rocket Equation](chapter-4/rocket-equation.md)
+- [4.3 Multistage Rockets](chapter-4/multistage-rockets.md)
+- [4.4 Propellant Selection](chapter-4/propellant-selection.md)
+- [Engines and tanks](chapter-4/engines-and-tanks.md)
 
 **Chapter 5: Aircraft Performance and Propulsion**
 

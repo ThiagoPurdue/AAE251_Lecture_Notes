@@ -1,0 +1,109 @@
+{
+  "standard": "4.4",
+  "questions": [
+    {
+      "id": "S4.4-q1",
+      "page": "propellant-selection",
+      "section": "Two questions",
+      "question": "An electric thruster has a specific impulse of 2,400 s and a thrust of 0.04 N. A solid motor has a specific impulse of 260 s and a thrust of 380 kN. Which statement is right?",
+      "options": [
+        "The thruster uses its propellant far better; the motor pushes far harder",
+        "The thruster pushes harder, because its specific impulse is higher",
+        "The motor uses its propellant better, because its thrust is higher",
+        "They cannot be compared, because specific impulse is a speed in m/s"
+      ],
+      "explanation": "Specific impulse is the thrust each kilogram per second of propellant buys, so the thruster wastes far less propellant. Thrust is how hard an engine pushes, and the motor pushes millions of times harder. The two numbers measure different things, and specific impulse is in seconds, not m/s."
+    },
+    {
+      "id": "S4.4-q2",
+      "page": "propellant-selection",
+      "section": "Kinds of rocket propulsion",
+      "question": "The first stage of a launch vehicle must lift a 480 t vehicle off the pad. Which kinds of propulsion can do it?",
+      "options": [
+        "Chemical: solid motors or liquid bipropellant engines",
+        "Electric, because it has the highest specific impulse",
+        "Nuclear thermal, because it doubles the specific impulse of chemical rockets",
+        "Cold gas, because it is the simplest and safest"
+      ],
+      "explanation": "Only chemical rockets give a thrust greater than the weight of a launch vehicle. Electric thrusters give millinewtons, cold gas a few newtons, and the nuclear thermal engines tested on the ground gave at most about 1.1 MN, far below the 4.7 MN weight of 480 t. Specific impulse does not lift a vehicle; thrust does."
+    },
+    {
+      "id": "S4.4-q3",
+      "page": "propellant-selection",
+      "section": "Classifying launch vehicles",
+      "question": "A launch vehicle with a liftoff mass of 700 t places 14,000 kg in low Earth orbit. In which class is it?",
+      "options": [
+        "Medium: its payload lies between 2 and 20 t",
+        "Heavy: its liftoff mass is above 500 t",
+        "Small: its payload is only 2% of its liftoff mass",
+        "Super heavy: its payload is more than 10 t"
+      ],
+      "explanation": "The classes go by payload to low Earth orbit: small up to 2 t, medium 2 to 20 t, heavy 20 to 50 t, super heavy above 50 t. Liftoff mass and the payload share do not set the class, and 10 t is not one of the limits."
+    },
+    {
+      "id": "S4.4-q4",
+      "page": "propellant-selection",
+      "section": "What makes a propellant good",
+      "question": "How do we classify liquid oxygen with liquid methane?",
+      "options": [
+        "A cryogenic bipropellant: both liquids boil far below room temperature",
+        "A storable bipropellant, because methane is a common fuel at room temperature",
+        "A hypergolic pair, because methane burns easily in oxygen",
+        "A monopropellant, because both liquids are loaded together"
+      ],
+      "explanation": "Both liquids boil far below room temperature (oxygen at about minus 183 °C, methane at about minus 161 °C), so the pair is cryogenic, and a fuel with an oxidizer in separate tanks is a bipropellant. Burning easily is not the same as igniting on contact, and the two liquids are kept in two tanks."
+    },
+    {
+      "id": "S4.4-q5",
+      "page": "propellant-selection",
+      "section": "What real vehicles burn, and why",
+      "question": "The Saturn V burned liquid oxygen with kerosene in its first stage and liquid oxygen with hydrogen in the two stages above. Why that order?",
+      "options": [
+        "Near the ground, thrust and density matter most; high up, specific impulse does",
+        "Hydrogen is denser than kerosene, so it fits the smaller upper stages",
+        "Kerosene has the higher specific impulse, so it goes where the most mass is lifted",
+        "The upper stages wait longer before they fire, so they need a storable propellant"
+      ],
+      "explanation": "The first stage lifts the whole vehicle, so it needs high thrust from compact tanks, and oxygen with kerosene is about 3.6 times denser as a pair than oxygen with hydrogen. Every kilogram saved in an upper stage is a kilogram the stages below do not lift, so the upper stages use the pair with the higher specific impulse. Liquid hydrogen is cryogenic, not storable."
+    },
+    {
+      "id": "S4.4-q6",
+      "page": "propellant-selection",
+      "section": "What makes a propellant good",
+      "question": "A tank must hold 4,800 kg of kerosene with a density of 800 kg/m<sup>3</sup>. What volume of kerosene is that?",
+      "options": [
+        "6.000 m<sup>3</sup>",
+        "4.800 m<sup>3</sup>",
+        "0.1667 m<sup>3</sup>",
+        "3,840,000 m<sup>3</sup>"
+      ],
+      "explanation": "The volume is the mass divided by the density: 4,800 / 800 = 6.000 m<sup>3</sup>. Using the density of water, 1,000 kg/m<sup>3</sup>, gives 4.800; dividing the density by the mass gives 0.1667; multiplying them gives a number with the wrong units."
+    },
+    {
+      "id": "S4.4-q7",
+      "page": "propellant-selection",
+      "section": "How much thrust",
+      "question": "A launch vehicle of 330 t has engines that give 2,850 kN at liftoff. With g<sub>0</sub> = 9.81 m/s<sup>2</sup>, what happens when they ignite?",
+      "options": [
+        "It stays on the pad: the thrust-to-weight ratio is 0.880",
+        "It rises slowly, because any thrust lifts a vehicle",
+        "It rises, because 2,850 kN is more than 330 t",
+        "It rises with an acceleration of 0.880 g"
+      ],
+      "explanation": "The weight is 330,000 × 9.81 = 3,237 kN, more than the thrust, so the ratio 2,850/3,237 = 0.880 is below 1 and the vehicle cannot leave the pad. Comparing kN with tonnes mixes a force with a mass, and a ratio below 1 is not an acceleration upward."
+    },
+    {
+      "id": "S4.4-q8",
+      "page": "propellant-selection",
+      "section": "Justifying a choice",
+      "question": "In the worked example the storable bipropellant starts heavier than the solid motor, yet it is recommended. Why?",
+      "options": [
+        "It can stop and restart, and later feeds the small burns that hold its position",
+        "Its higher specific impulse makes it burn much less propellant than the solid",
+        "Once its inert mass is counted it is lighter than the solid motor",
+        "Its propellants are cryogenic, so they keep longer in the cold of space"
+      ],
+      "explanation": "Both options burn almost the same propellant mass, because the heavier tanks of the liquid system cancel its higher specific impulse, and the liquid option is 183 kg heavier in all. It is chosen for restarts and for sharing its tanks with the later burns. Its propellants are storable, not cryogenic."
+    }
+  ]
+}

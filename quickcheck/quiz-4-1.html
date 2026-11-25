@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quiz: Standard 4.1, Thrust and Specific Impulse</title>
+<style>
+  /* The color variables match the quick checks (quickcheck/*.html). Change them together. */
+  :root {
+    --bg: #ffffff; --fg: #1f2937; --muted: #4b5563; --card: #ffffff; --border: #d9d6ce;
+    --head-bg: #f7f5f0; --head-fg: #111827; --accent: #6f5630; --accent-border: #cfb991;
+    --input-bg: #ffffff; --input-border: #6b7280; --ok: #0a6b3d; --bad: #b42318;
+    --button: #111827; --button-fg: #ffffff; --sol-bg: #f7f5f0;
+    --link: #1d4ed8; --focus: #1d4ed8;
+  }
+  html.dark {
+    --bg: #1c1917; --fg: #e5e7eb; --muted: #b7bcc6; --card: #292524; --border: #44403c;
+    --head-bg: #363231; --head-fg: #ffffff; --accent: #cfb991; --accent-border: #cfb991;
+    --input-bg: #1c1917; --input-border: #9ca3af; --ok: #6ee7b7; --bad: #fca5a5;
+    --button: #cfb991; --button-fg: #000000; --sol-bg: #363231;
+    --link: #93c5fd; --focus: #93c5fd;
+  }
+  html.dark { color-scheme: dark; }   /* native radio buttons drawn for a dark page */
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .card { border: 1px solid var(--border); border-left: 5px solid var(--accent-border); border-radius: 8px;
+          background: var(--card); overflow: hidden; }
+  .head { background: var(--head-bg); color: var(--head-fg); padding: 10px 16px; font-weight: 700; font-size: 1.15em;
+          display: flex; align-items: center; gap: 10px; }
+  .head svg { width: 22px; height: 22px; flex: none; }
+  .body { padding: 16px; }
+  i { font-style: italic; }
+  sub, sup { font-size: 0.75em; }
+  .ov { text-decoration: overline; }
+  .progress { margin: 0 0 6px; color: var(--muted); font-size: 0.95em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  legend:focus { outline: none; }
+  .progress:focus { outline: none; }
+  .bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin: 0 0 14px; }
+  .bar span { display: block; height: 100%; width: 0; background: var(--accent-border); }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { padding: 0; margin: 0 0 4px; font-size: 1.08em; font-weight: 600; color: var(--head-fg); }
+  .opt { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 4px 10px; padding: 10px 12px; margin: 8px 0 0;
+         border: 1px solid var(--input-border); border-radius: 6px; background: var(--input-bg); cursor: pointer; }
+  .opt input { flex: none; width: 1.05em; height: 1.05em; margin: 0.25em 0 0; accent-color: var(--button); }
+  .opt .text { flex: 1 1 12em; }
+  .opt .tag { flex: none; font-weight: 600; font-size: 0.92em; }
+  .opt:hover { border-color: var(--fg); }
+  .opt:has(input:checked) { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+  .opt:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 1px; }
+  .locked .opt { cursor: default; }
+  .locked .opt:hover { border-color: var(--input-border); }
+  .locked .opt.right, .locked .opt.right:hover { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+  .locked .opt.wrong, .locked .opt.wrong:hover { border-color: var(--bad); box-shadow: inset 0 0 0 1px var(--bad); }
+  .opt.right .tag { color: var(--ok); }
+  .opt.wrong .tag { color: var(--bad); }
+  .feedback { margin: 14px 0 0; }
+  .feedback.show { border: 1px solid var(--border); border-left: 4px solid var(--accent-border); border-radius: 6px;
+                   background: var(--sol-bg); padding: 10px 14px; }
+  .verdict { font-weight: 700; }
+  .verdict.ok { color: var(--ok); }
+  .verdict.bad { color: var(--bad); }
+  .buttons { display: flex; gap: 12px; margin: 16px 0 0; }
+  button { font: inherit; font-weight: 600; padding: 9px 20px; border-radius: 6px; cursor: pointer; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .primary { background: var(--button); color: var(--button-fg); border: 1px solid var(--button); }
+  .score { margin: 0 0 8px; font-size: 1.15em; font-weight: 700; color: var(--head-fg); }
+  .score:focus { outline: none; }
+  .result p { margin: 8px 0; }
+  .result ul { margin: 8px 0 0; padding-left: 1.3em; }
+  .result li { margin: 4px 0; }
+  a { color: var(--link); }
+  a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4.5h6M9 10l1.5 1.5L13.5 8.5M9 16h6"/></svg>
+    Quiz: Standard 4.1, Thrust and Specific Impulse
+  </div>
+  <div class="body">
+    <noscript><p>The quiz needs JavaScript.</p></noscript>
+    <p class="progress" id="progress" aria-hidden="true"></p>
+    <div class="bar" aria-hidden="true"><span id="fill"></span></div>
+    <form id="quiz" novalidate>
+      <fieldset>
+        <legend id="legend" tabindex="-1"></legend>
+        <div id="opts"></div>
+      </fieldset>
+      <div class="feedback" id="feedback" role="status"></div>
+      <div class="buttons">
+        <button type="submit" class="primary" id="go">Check answer</button>
+      </div>
+    </form>
+    <div class="result" id="result" hidden>
+      <p class="score" id="score" tabindex="-1"></p>
+      <p id="reviewIntro">Review these sections, then start over:</p>
+      <ul id="review"></ul>
+      <div class="buttons">
+        <button type="button" class="primary" id="again">Start over</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/json" id="data">{"questions": [{"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "Thrust from the momentum of the exhaust", "anchor": "p41-thrust-from-momentum", "question": "Why does a rocket engine still make thrust in the vacuum of space?", "options": ["It throws exhaust backward, and the exhaust carries momentum away", "It pushes its exhaust against the air that stays around the vehicle", "It pushes on the gas left behind from earlier burns of the engine", "It does not: a rocket needs an atmosphere to push against"], "explanation": "Thrust is the rate at which the exhaust carries momentum away, F = <i>ṁc<\/i>. Nothing outside the rocket is needed: in vacuum there is no air to push against, and the 1920 idea that a rocket needs air was wrong."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "Inside a rocket engine", "anchor": "inside-a-rocket-engine", "question": "Where does the gas in a rocket nozzle first reach the speed of sound?", "options": ["At the throat, the narrowest point of the nozzle", "At the exit plane, where the gas leaves the engine", "In the combustion chamber, where the gas is hottest", "Nowhere: the gas stays slower than sound in the nozzle"], "explanation": "The gas is slower than sound in the converging section, reaches the speed of sound at the throat, and keeps speeding up beyond it in the diverging section. At the exit it is already much faster than sound."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "The thrust equation", "anchor": "p41-thrust-equation", "question": "An engine has an exit pressure of 60 kPa and an exit area of 0.5 m<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>2<\/sup>. The ambient pressure is 100 kPa. What is its pressure thrust?", "options": ["−20,000 N", "+20,000 N", "−20 N", "+30,000 N"], "explanation": "(<i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>e<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i> − <i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>a<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i>)<i>A<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>e<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i> = (60,000 − 100,000) × 0.5 = −20,000 N, negative because the exit pressure is below the ambient one. +20,000 N swaps the two pressures, −20 N uses kilopascals, and +30,000 N forgets the ambient pressure."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "Effective exhaust velocity and specific impulse", "anchor": "p41-specific-impulse", "question": "A lander engine fires on the Moon with an effective exhaust velocity of 3,200 m/s. What is its specific impulse?", "options": ["326.2 s, using 9.81 m/s<sup><span class=\"sr-only\">&nbsp;to the power&nbsp;<\/span>2<\/sup> as on any other body", "3,200 s, since specific impulse is the exhaust velocity", "31,390 s, from the exhaust velocity times standard gravity", "More than 326.2 s, using the weaker gravity of the Moon"], "explanation": "<i>I<\/i><sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>sp<span class=\"sr-only\">&nbsp;<\/span><\/sub> = <i>c<\/i>/<i>g<\/i><sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>0<span class=\"sr-only\">&nbsp;<\/span><\/sub> = 3,200/9.81 = 326.2 s. Standard gravity is a fixed conversion number, the same on the Moon, so the same engine has the same specific impulse everywhere. Specific impulse is in seconds, not a velocity, and multiplying by <i>g<\/i><sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>0<span class=\"sr-only\">&nbsp;<\/span><\/sub> goes the wrong way."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "Overexpanded, underexpanded, ideally expanded", "anchor": "p41-expansion", "question": "High in the climb, a nozzle has an exit pressure of 30 kPa while the outside pressure is 20 kPa. How is it expanded, and what does its plume do?", "options": ["Underexpanded: the pressure term is positive and the plume spreads out", "Overexpanded: the pressure term is positive and the plume spreads out", "Underexpanded: the pressure term is negative and the plume narrows", "Ideally expanded: the exit and outside pressures are close enough"], "explanation": "With <i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>e<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i> &gt; <i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>a<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i> the nozzle did not expand the gas enough: it is underexpanded, the pressure term is positive, and the gas keeps expanding outside the exit, so the plume spreads. Overexpanded means <i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>e<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i> &lt; <i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>a<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i>."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "Area ratio", "anchor": "p41-area-ratio", "question": "Why does an engine that fires only in vacuum carry a much larger nozzle than a first-stage engine?", "options": ["In vacuum a larger area ratio always raises the specific impulse", "In vacuum the gas must be slowed down before it leaves the nozzle", "A large nozzle raises the exit pressure, which helps in vacuum", "A large nozzle is needed to reach the speed of sound in vacuum"], "explanation": "A larger area ratio expands the gas further: lower exit pressure, higher exit speed. With no outside pressure there is nothing to overexpand against, so specific impulse keeps rising, and size and mass set the limit. A larger nozzle lowers the exit pressure, and the gas reaches the speed of sound at the throat in any case."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "Thrust changes with altitude", "anchor": "thrust-changes-with-altitude", "question": "A first-stage engine with a fixed nozzle is ideally expanded at 11 km. How does its thrust change as the vehicle climbs from 11 km toward vacuum?", "options": ["It keeps rising, because the outside pressure keeps falling", "It falls, because the nozzle is no longer ideally expanded", "It stays the same, because the flow through the engine is fixed", "It falls, because there is less air for the exhaust to push on"], "explanation": "For a fixed nozzle, <i>F<\/i> = <i>F<\/i><sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>vac<span class=\"sr-only\">&nbsp;<\/span><\/sub> − <i>p<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>a<span class=\"sr-only\">&nbsp;<\/span><\/sub>A<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>e<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i>: as the outside pressure falls, the thrust rises all the way to vacuum. Ideal expansion is the best nozzle for one outside pressure; it is not the altitude of highest thrust for a nozzle that already exists."}, {"page": "thrust-and-specific-impulse", "pageTitle": "4.1 Thrust and Specific Impulse", "section": "The same equation for an engine that breathes air", "anchor": "p41-air-breathing", "question": "A ramjet takes in 40 kg/s of air at 500 m/s and sends it out at 1,100 m/s, with the nozzle ideally expanded. What is its thrust?", "options": ["24,000 N", "44,000 N", "64,000 N", "20,000 N"], "explanation": "<i>F<\/i> = <i>ṁ<\/i>(<i>V<sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>e<span class=\"sr-only\">&nbsp;<\/span><\/sub><\/i> − <i>V<\/i><sub><span class=\"sr-only\">,&nbsp;sub,&nbsp;<\/span>∞<span class=\"sr-only\">&nbsp;<\/span><\/sub>) = 40 × (1,100 − 500) = 24,000 N; the pressure term is zero. 44,000 N leaves out the speed the air already had, 64,000 N adds it instead of subtracting it, and 20,000 N uses the incoming speed alone."}]}</script>
+<script>
+(function () {
+  // In a page, follow the page's theme; opened on its own, follow the reader's setting.
+  function syncTheme() {
+    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (window.parent !== window) {
+      try { dark = window.parent.document.documentElement.classList.contains("dark"); } catch (e) {}
+    }
+    document.documentElement.classList.toggle("dark", dark);
+  }
+  syncTheme();
+  try { new MutationObserver(syncTheme).observe(window.parent.document.documentElement, { attributes: true }); } catch (e) {}
+  function fit() {
+    try {
+      var fe = window.frameElement;
+      if (fe && fe.parentElement) fe.parentElement.style.height = (Math.ceil(document.body.getBoundingClientRect().height) + 2) + "px";
+    } catch (e) {}
+  }
+  try { new ResizeObserver(fit).observe(document.body); } catch (e) {}
+  window.addEventListener("load", fit);
+
+  var Q = JSON.parse(document.getElementById("data").textContent).questions;
+  var n = Q.length, i = 0, answered = false, right = [];
+  var el = {};
+  ["progress", "fill", "quiz", "legend", "opts", "feedback", "go", "result", "score", "reviewIntro", "review", "again"]
+    .forEach(function (id) { el[id] = document.getElementById(id); });
+
+  function shuffle(a) {
+    for (var j = a.length - 1; j > 0; j--) {
+      var k = Math.floor(Math.random() * (j + 1)), t = a[j]; a[j] = a[k]; a[k] = t;
+    }
+    return a;
+  }
+
+  // Show question i. The options are drawn in a new order each time; option 0 is the correct one.
+  function show(moveFocus) {
+    var q = Q[i];
+    answered = false;
+    el.progress.textContent = "Question " + (i + 1) + " of " + n;
+    el.fill.style.width = (100 * i / n) + "%";
+    el.legend.innerHTML = '<span class="sr-only">Question ' + (i + 1) + " of " + n + ": </span>" + q.question;
+    el.opts.innerHTML = "";
+    el.opts.className = "";
+    shuffle([0, 1, 2, 3]).forEach(function (k) {
+      var label = document.createElement("label"), input = document.createElement("input"),
+          text = document.createElement("span"), tag = document.createElement("span");
+      label.className = "opt";
+      input.type = "radio"; input.name = "answer"; input.value = String(k);
+      text.className = "text"; text.innerHTML = q.options[k];
+      tag.className = "tag";
+      label.appendChild(input); label.appendChild(text); label.appendChild(tag);
+      el.opts.appendChild(label);
+    });
+    el.feedback.className = "feedback";
+    el.feedback.textContent = "";
+    el.go.textContent = "Check answer";
+    el.result.hidden = true;
+    el.quiz.hidden = false;
+    el.progress.setAttribute("aria-hidden", "true");
+    if (moveFocus) el.legend.focus();
+  }
+
+  function check() {
+    var chosen = el.quiz.querySelector("input[name=answer]:checked");
+    if (!chosen) {
+      el.feedback.className = "feedback show";
+      el.feedback.textContent = "Choose an answer first.";
+      return;
+    }
+    answered = true;
+    right[i] = chosen.value === "0";
+    Array.prototype.forEach.call(el.opts.querySelectorAll("label"), function (label) {
+      var input = label.querySelector("input"), tag = label.querySelector(".tag");
+      if (input.value === "0") { label.classList.add("right"); tag.textContent = "✓ correct answer"; }
+      else if (input.checked) { label.classList.add("wrong"); tag.textContent = "✗ your answer"; }
+      input.disabled = true;
+    });
+    el.opts.className = "locked";
+    el.feedback.className = "feedback show";
+    el.feedback.innerHTML = '<span class="verdict ' + (right[i] ? "ok" : "bad") + '">' +
+      (right[i] ? "Correct." : "Not correct.") + "</span> " + Q[i].explanation;
+    el.go.textContent = i + 1 < n ? "Next question" : "See your score";
+    el.go.focus();
+  }
+
+  function finish() {
+    var count = right.filter(Boolean).length;
+    el.progress.textContent = "Result";
+    el.progress.removeAttribute("aria-hidden");
+    el.fill.style.width = "100%";
+    el.score.textContent = count === n ? "All " + n + " correct." : count + " of " + n + " correct.";
+    el.review.innerHTML = "";
+    el.reviewIntro.hidden = count === n;
+    el.review.hidden = count === n;
+    // Each link opens its section; the page name follows in parentheses.
+    Q.forEach(function (q, j) {
+      if (right[j]) return;
+      var li = document.createElement("li"), a = document.createElement("a");
+      a.href = "../" + q.page + "#" + q.anchor; a.target = "_top"; a.textContent = q.section;
+      // On the quiz's own page, scroll to the section and move focus there, without
+      // reloading the page (which would also reset the quiz).
+      a.addEventListener("click", function (e) {
+        try {
+          var top = window.top, here = top.location.pathname.replace(/\/$/, ""),
+              there = new URL(a.href).pathname.replace(/\/$/, "");
+          if (here !== there) return;
+          var target = top.document.getElementById(q.anchor);
+          if (!target) return;
+          e.preventDefault();
+          top.history.pushState(null, "", "#" + q.anchor);
+          target.scrollIntoView();
+          // Focus the heading's text, not the heading: the heading also holds the
+          // pilcrow link, whose label a screen reader would read with it.
+          var spot = target.querySelector(".heading-text") || target;
+          if (!spot.hasAttribute("tabindex")) spot.setAttribute("tabindex", "-1");
+          spot.focus({ preventScroll: true });
+        } catch (err) {}
+      });
+      li.appendChild(document.createTextNode("Question " + (j + 1) + ": "));
+      li.appendChild(a);
+      li.appendChild(document.createTextNode(" (" + q.pageTitle + ")"));
+      el.review.appendChild(li);
+    });
+    el.quiz.hidden = true;
+    el.result.hidden = false;
+    el.score.focus();
+  }
+
+  el.quiz.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!answered) { check(); return; }
+    i++;
+    if (i < n) show(true); else finish();
+  });
+  el.again.addEventListener("click", function () { i = 0; right = []; show(true); });
+  show(false);
+})();
+</script>
+</body>
+</html>

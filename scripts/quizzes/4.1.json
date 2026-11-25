@@ -1,0 +1,109 @@
+{
+  "standard": "4.1",
+  "questions": [
+    {
+      "id": "S4.1-q1",
+      "page": "thrust-and-specific-impulse",
+      "section": "Thrust from the momentum of the exhaust",
+      "question": "Why does a rocket engine still make thrust in the vacuum of space?",
+      "options": [
+        "It throws exhaust backward, and the exhaust carries momentum away",
+        "It pushes its exhaust against the air that stays around the vehicle",
+        "It pushes on the gas left behind from earlier burns of the engine",
+        "It does not: a rocket needs an atmosphere to push against"
+      ],
+      "explanation": "Thrust is the rate at which the exhaust carries momentum away, F = <i>ṁc</i>. Nothing outside the rocket is needed: in vacuum there is no air to push against, and the 1920 idea that a rocket needs air was wrong."
+    },
+    {
+      "id": "S4.1-q2",
+      "page": "thrust-and-specific-impulse",
+      "section": "Inside a rocket engine",
+      "question": "Where does the gas in a rocket nozzle first reach the speed of sound?",
+      "options": [
+        "At the throat, the narrowest point of the nozzle",
+        "At the exit plane, where the gas leaves the engine",
+        "In the combustion chamber, where the gas is hottest",
+        "Nowhere: the gas stays slower than sound in the nozzle"
+      ],
+      "explanation": "The gas is slower than sound in the converging section, reaches the speed of sound at the throat, and keeps speeding up beyond it in the diverging section. At the exit it is already much faster than sound."
+    },
+    {
+      "id": "S4.1-q3",
+      "page": "thrust-and-specific-impulse",
+      "section": "The thrust equation",
+      "question": "An engine has an exit pressure of 60 kPa and an exit area of 0.5 m<sup>2</sup>. The ambient pressure is 100 kPa. What is its pressure thrust?",
+      "options": [
+        "−20,000 N",
+        "+20,000 N",
+        "−20 N",
+        "+30,000 N"
+      ],
+      "explanation": "(<i>p<sub>e</sub></i> − <i>p<sub>a</sub></i>)<i>A<sub>e</sub></i> = (60,000 − 100,000) × 0.5 = −20,000 N, negative because the exit pressure is below the ambient one. +20,000 N swaps the two pressures, −20 N uses kilopascals, and +30,000 N forgets the ambient pressure."
+    },
+    {
+      "id": "S4.1-q4",
+      "page": "thrust-and-specific-impulse",
+      "section": "Effective exhaust velocity and specific impulse",
+      "question": "A lander engine fires on the Moon with an effective exhaust velocity of 3,200 m/s. What is its specific impulse?",
+      "options": [
+        "326.2 s, using 9.81 m/s<sup>2</sup> as on any other body",
+        "3,200 s, since specific impulse is the exhaust velocity",
+        "31,390 s, from the exhaust velocity times standard gravity",
+        "More than 326.2 s, using the weaker gravity of the Moon"
+      ],
+      "explanation": "<i>I</i><sub>sp</sub> = <i>c</i>/<i>g</i><sub>0</sub> = 3,200/9.81 = 326.2 s. Standard gravity is a fixed conversion number, the same on the Moon, so the same engine has the same specific impulse everywhere. Specific impulse is in seconds, not a velocity, and multiplying by <i>g</i><sub>0</sub> goes the wrong way."
+    },
+    {
+      "id": "S4.1-q5",
+      "page": "thrust-and-specific-impulse",
+      "section": "Overexpanded, underexpanded, ideally expanded",
+      "question": "High in the climb, a nozzle has an exit pressure of 30 kPa while the outside pressure is 20 kPa. How is it expanded, and what does its plume do?",
+      "options": [
+        "Underexpanded: the pressure term is positive and the plume spreads out",
+        "Overexpanded: the pressure term is positive and the plume spreads out",
+        "Underexpanded: the pressure term is negative and the plume narrows",
+        "Ideally expanded: the exit and outside pressures are close enough"
+      ],
+      "explanation": "With <i>p<sub>e</sub></i> &gt; <i>p<sub>a</sub></i> the nozzle did not expand the gas enough: it is underexpanded, the pressure term is positive, and the gas keeps expanding outside the exit, so the plume spreads. Overexpanded means <i>p<sub>e</sub></i> &lt; <i>p<sub>a</sub></i>."
+    },
+    {
+      "id": "S4.1-q6",
+      "page": "thrust-and-specific-impulse",
+      "section": "Area ratio",
+      "question": "Why does an engine that fires only in vacuum carry a much larger nozzle than a first-stage engine?",
+      "options": [
+        "In vacuum a larger area ratio always raises the specific impulse",
+        "In vacuum the gas must be slowed down before it leaves the nozzle",
+        "A large nozzle raises the exit pressure, which helps in vacuum",
+        "A large nozzle is needed to reach the speed of sound in vacuum"
+      ],
+      "explanation": "A larger area ratio expands the gas further: lower exit pressure, higher exit speed. With no outside pressure there is nothing to overexpand against, so specific impulse keeps rising, and size and mass set the limit. A larger nozzle lowers the exit pressure, and the gas reaches the speed of sound at the throat in any case."
+    },
+    {
+      "id": "S4.1-q7",
+      "page": "thrust-and-specific-impulse",
+      "section": "Thrust changes with altitude",
+      "question": "A first-stage engine with a fixed nozzle is ideally expanded at 11 km. How does its thrust change as the vehicle climbs from 11 km toward vacuum?",
+      "options": [
+        "It keeps rising, because the outside pressure keeps falling",
+        "It falls, because the nozzle is no longer ideally expanded",
+        "It stays the same, because the flow through the engine is fixed",
+        "It falls, because there is less air for the exhaust to push on"
+      ],
+      "explanation": "For a fixed nozzle, <i>F</i> = <i>F</i><sub>vac</sub> − <i>p<sub>a</sub>A<sub>e</sub></i>: as the outside pressure falls, the thrust rises all the way to vacuum. Ideal expansion is the best nozzle for one outside pressure; it is not the altitude of highest thrust for a nozzle that already exists."
+    },
+    {
+      "id": "S4.1-q8",
+      "page": "thrust-and-specific-impulse",
+      "section": "The same equation for an engine that breathes air",
+      "question": "A ramjet takes in 40 kg/s of air at 500 m/s and sends it out at 1,100 m/s, with the nozzle ideally expanded. What is its thrust?",
+      "options": [
+        "24,000 N",
+        "44,000 N",
+        "64,000 N",
+        "20,000 N"
+      ],
+      "explanation": "<i>F</i> = <i>ṁ</i>(<i>V<sub>e</sub></i> − <i>V</i><sub>∞</sub>) = 40 × (1,100 − 500) = 24,000 N; the pressure term is zero. 44,000 N leaves out the speed the air already had, 64,000 N adds it instead of subtracting it, and 20,000 N uses the incoming speed alone."
+    }
+  ]
+}

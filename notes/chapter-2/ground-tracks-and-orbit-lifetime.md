@@ -179,11 +179,11 @@ Aerobraking saves propellant while increasing mission duration and thermal risk.
 
 ### Worked example: a Venus orbiter
 
-A 1,200 kg orbiter with an engine of $I_{\text{sp}} = 320$ s is captured into a 250 km by 25,000 km orbit around Venus and must end in a 250 km circular orbit. Compare two plans: burns only, and aerobraking with the periapsis at 140 km. Venus: $\mu = 3.249 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}052$ km. We find the propellant for each plan from the rocket equation, which Chapter 4 covers with propulsion:
+A 1,200 kg orbiter with an engine of $I_{\text{sp}} = 320$ s is captured into a 250 km by 25,000 km orbit around Venus and must end in a 250 km circular orbit. Compare two plans: burns only, and aerobraking with the periapsis at 140 km. Venus: $\mu = 3.249 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}052$ km. We find the propellant for each plan from [the rocket equation](#p42-rocket-equation), which Chapter 4 covers with propulsion:
 
 :::{math}
 :label: eq-p25-propellant
-m_p = m_0\left[1 - \exp\left(-\frac{\Delta V}{I_{\text{sp}}\,g_0}\right)\right], \qquad g_0 = 9.81\ \text{m/s}^2
+m_\text{prop} = m_i\left[1 - \exp\left(-\frac{\Delta V}{I_{\text{sp}}\,g_0}\right)\right], \qquad g_0 = 9.81\ \text{m/s}^2
 :::
 
 **Plan A, burns only.**
@@ -191,14 +191,14 @@ m_p = m_0\left[1 - \exp\left(-\frac{\Delta V}{I_{\text{sp}}\,g_0}\right)\right],
 1. **Capture orbit.** $r_p = 6{,}052 + 250 = 6{,}302$ km, $r_a = 6{,}052 + 25{,}000 = 31{,}052$ km, $a = (r_p + r_a)/2 = 18{,}677$ km. One revolution takes 7.82 hours.
 2. **Speeds at periapsis.** On the capture orbit $v_p = \sqrt{\mu(2/r_p - 1/a)} = 9.25821$ km/s. On the 250 km circle $v_c = \sqrt{\mu/r_p} = 7.18019$ km/s. We keep five decimals because Plan B's burns are differences of close speeds.
 3. **Burn.** One burn against the motion at periapsis brings the apoapsis down to 250 km: $\Delta V = 9.25821 - 7.18019 = 2.078$ km/s.
-4. **Propellant.** $m_p = 1{,}200\,[1 - \exp(-2{,}078/(320 \times 9.81))] = 581$ kg.
+4. **Propellant.** $m_\text{prop} = 1{,}200\,[1 - \exp(-2{,}078/(320 \times 9.81))] = 581$ kg.
 
 **Plan B, aerobraking.**
 
 1. **Lower the periapsis.** At apoapsis, lower the periapsis to 140 km ($r = 6{,}192$ km). The speed at apoapsis drops from 1.87895 to 1.86523 km/s: $\Delta V_1 = 1.86523 - 1.87895 = -0.01372$ km/s, a burn of 0.01372 km/s against the motion.
 2. **Drag passes.** The atmosphere lowers the apoapsis from 25,000 km to 250 km while the periapsis stays near 140 km. This step uses no propellant, apart from small trim burns that we leave out.
 3. **Raise the periapsis.** At the apoapsis of the final 140 km by 250 km orbit the speed is 7.14851 km/s; the 250 km circle needs 7.18019 km/s: $\Delta V_2 = 7.18019 - 7.14851 = 0.03168$ km/s, along the motion.
-4. **Total.** $\Delta V = 0.01372 + 0.03168 = 0.04540$ km/s, and $m_p = 17.2$ kg.
+4. **Total.** $\Delta V = 0.01372 + 0.03168 = 0.04540$ km/s, and $m_\text{prop} = 17.2$ kg.
 
 :::{table} Burns only against aerobraking for the 1,200 kg Venus orbiter ($I_{\text{sp}} = 320$ s), from a 250 km by 25,000 km capture orbit to a 250 km circular orbit.
 :label: tbl-p25-aerobraking
@@ -296,7 +296,7 @@ Debris-mitigation regulations limit how long a retired satellite may remain in o
 | Track spacing at the equator | $d = 2\pi R\,T/T_{\text{day}}$ |
 | Swath width | $w = 2h\tan(\text{FOV}/2)$ |
 | Days to cover the equator (ideal) | $N_{\text{days}} = 2\pi R/(w\,n)$, $n = 86{,}400\ \text{s}/T$ |
-| Propellant for a burn | $m_p = m_0\,[1 - \exp(-\Delta V/(I_{\text{sp}}\,g_0))]$ |
+| Propellant for a burn | $m_\text{prop} = m_i\,[1 - \exp(-\Delta V/(I_{\text{sp}}\,g_0))]$ |
 | Ballistic coefficient | $B = m/(C_D A)$ |
 | Decay of a nearly circular orbit | $da/dt = -\rho\sqrt{\mu a}/B$, $\Delta a_{\text{rev}} = -2\pi\rho a^2/B$ |
 

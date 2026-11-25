@@ -18,7 +18,7 @@ Question data (one file per standard):
 "page" is a page of the standard's chapter folder (notes/chapter-3/drag-polar.md).
 options[0] is the correct answer; the widget shuffles the order. Strings are HTML
 fragments with <i>, <sub>, <sup> and <strong> only (each <sup> is given a hidden " to the
-power " for screen readers when the widget is written). The script stops on a question whose
+power " and each <sub> a hidden ", sub, " for screen readers when the widget is written). The script stops on a question whose
 page or section heading does not exist, on a tag outside that list, and on a dash.
 The link to a section uses the "(label)=" line just above its heading when there is one,
 otherwise the heading's slug as MyST writes it.
@@ -146,9 +146,22 @@ def spoken_sup(text):
     return text.replace("<sup>", SUP_SPOKEN)
 
 
+SUB_SPOKEN = '<sub><span class="sr-only">,&nbsp;sub,&nbsp;</span>'
+SUB_END = '<span class="sr-only">&nbsp;</span></sub>'
+
+
+def spoken_sub(text):
+    """Every <sub> gets a visually hidden ", sub, " in front of its content and a hidden space
+    after it, the way math is read aloud: without them "m<sub>prop</sub>" is heard as "mprop"
+    and "p<sub>a</sub>A<sub>e</sub>" as "paAe". With them they read "m, sub, prop" and
+    "p, sub, a A, sub, e"."""
+    return text.replace("<sub>", SUB_SPOKEN).replace("</sub>", SUB_END)
+
+
 def prepare(text):
-    """A question string as the widget shows it: overlined letters and spoken superscripts."""
-    return spoken_sup(overbar(text))
+    """A question string as the widget shows it: overlined letters, spoken superscripts and
+    spoken subscripts."""
+    return spoken_sub(spoken_sup(overbar(text)))
 
 
 TEMPLATE = r"""<!DOCTYPE html>

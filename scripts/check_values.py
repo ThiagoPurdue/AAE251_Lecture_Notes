@@ -31,6 +31,8 @@ TAGS = {"p11": "needs-and-requirements", "p12": "hazards-and-risk", "p13": "vehi
         "p21": "orbit-properties", "p22": "orbit-transfers", "p23": "launch-to-orbit",
         "p24": "patched-conics", "p25": "ground-tracks-and-orbit-lifetime",
         "p31": "wind-tunnels", "p32": "airfoil-and-finite-wing", "p33": "drag-polar", "p34": "wing-loading",
+        "p41": "thrust-and-specific-impulse", "p42": "rocket-equation", "p43": "multistage-rockets",
+        "p44": "propellant-selection", "p45": "engines-and-tanks",
         "p51": "thrust-and-power", "p52": "range-and-endurance", "p53": "climb-and-ceiling",
         "p54": "engines", "p55": "constraint-diagram-and-field-length"}
 
