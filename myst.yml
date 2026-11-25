@@ -53,6 +53,13 @@ project:
         - file: notes/chapter-3/airfoil-and-finite-wing.md
         - file: notes/chapter-3/drag-polar.md
         - file: notes/chapter-3/wing-loading.md
+    - title: "Chapter 5: Aircraft Performance and Propulsion"
+      children:
+        - file: notes/chapter-5/thrust-and-power.md
+        - file: notes/chapter-5/range-and-endurance.md
+        - file: notes/chapter-5/climb-and-ceiling.md
+        - file: notes/chapter-5/engines.md
+        - file: notes/chapter-5/constraint-diagram-and-field-length.md
     - file: notes/glossary.md
     - file: notes/accessibility.md
 site:

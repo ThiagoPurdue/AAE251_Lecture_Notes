@@ -3,18 +3,18 @@ title: "Ground tracks, aerobraking, and orbit lifetime"
 short_title: Ground tracks and orbit lifetime
 ---
 
-Seen from the ground, an orbit fixed in space looks different, because the planet turns underneath it. On this page we follow the point directly below a spacecraft across the surface. We use that path to find the period of the orbit and the time an instrument needs to see the whole planet. Then we turn to the atmosphere: how a spacecraft can use drag to shrink its orbit, and how drag ends the life of a low orbit. No course standard is assessed on this page.
+Because a planet rotates beneath an orbit fixed in inertial space, the path traced across the surface shifts on every revolution. We use that ground track to determine a satellite's orbital period and how many days an instrument needs to image the planet, and we then examine how atmospheric drag can intentionally shrink an orbit through aerobraking or gradually decay a low orbit until reentry. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - A ground track is a great circle on a planet that does not turn. With the planet turning, each pass crosses the equator $\Delta L = {360}^\circ\,T/T_{\text{day}}$ farther west, and the highest latitude reached equals the inclination.
 - The swath width, the track spacing, and the number of orbits per day give the days an instrument needs to see the whole equator.
-- Aerobraking lowers the apoapsis with drag at periapsis and saves most of the propellant that a burn would cost, at the price of months of passes.
-- Drag lowers a low orbit a little every revolution and faster as it sinks. The lifetime grows steeply with altitude and with the ballistic coefficient $B = m/(C_D A)$.
+- Aerobraking lowers apoapsis using atmospheric drag at periapsis, saving most of the propellant of a capture burn, but requires months of carefully monitored passes.
+- Drag lowers a low orbit slightly on each revolution and decays it faster as altitude drops. The lifetime grows steeply with altitude and with the ballistic coefficient $B = m/(C_D A)$.
 :::
 
 ## What a ground track is
 
-A {term}`ground track` is the path traced on the surface by the point directly below the spacecraft. Every orbit lies in a plane through the center of the planet. On a planet that does not turn, the track is where that plane cuts the surface. That is a great circle: its center is the center of the planet, and it is tilted to the equator by the inclination. Ground tracks decide what a mission can do. An imaging satellite must pass over its targets, and every satellite must pass within sight of a ground station to send its data down.
+A {term}`ground track` is the path traced on the surface by the point directly below the spacecraft. Because every orbit lies in a plane through the center of the planet, the track on a non-rotating planet is a great circle centered on the planet and tilted to the equator by the inclination. The ground track determines which regions a satellite can observe and when it passes within view of a ground station to transmit its data.
 
 A flat map changes how that circle looks. Picture the planet as a soda can with a tilted ring around it. Cut the label along one side and unroll it: the ring becomes a single wave, one crest and one trough per turn. On the can the wave is an exact sine curve. On a sphere drawn as a latitude-longitude map it is close to one, as {numref}`fig-p25-great-circle-to-map` shows for an orbit of 50° inclination.
 
@@ -37,14 +37,14 @@ Here $u$ is the angle the spacecraft has traveled around the orbit from the {ter
 
 ## The planet turns under the orbit
 
-So far the planet stood still. A real planet turns east beneath the orbit, while the orbit plane stays fixed in space. During one orbit the planet turns through ${360}^\circ\,T/T_{\text{day}}$, so the next pass crosses the equator that much farther west:
+So far we have assumed a non-rotating planet. In reality, the planet rotates eastward beneath the orbit while the orbit plane remains fixed in inertial space. During one revolution the planet rotates through ${360}^\circ\,T/T_{\text{day}}$, so the next pass crosses the equator that much farther west:
 
 :::{math}
 :label: eq-p25-shift
 \Delta L = {360}^\circ\,\frac{T}{T_{\text{day}}}
 :::
 
-Here $T$ is the {term}`orbital period` and $T_{\text{day}}$ is the {term}`sidereal day`, the time the planet takes to turn once relative to the stars. For Earth it is 86,164 s, or 23.93 h, which is 236 s shorter than the 86,400 s solar day. The solar day is longer because Earth also moves around the Sun. It must turn a little more than once to bring the Sun back overhead. The orbit plane is fixed relative to the stars, so the sidereal day is the one we use. Earth turns 15.04° per hour, not 15°.
+Here $T$ is the {term}`orbital period` and $T_{\text{day}}$ is the {term}`sidereal day`, the time the planet takes to complete one full rotation relative to the stars. For Earth, $T_{\text{day}}$ is 86,164 s (23.93 h), which is 236 s shorter than the 86,400 s solar day because Earth advances along its solar orbit and must rotate slightly more than 360° to bring the Sun back overhead. Since the orbit plane stays fixed relative to the stars, we use the sidereal day, corresponding to a rotation rate of 15.04° per hour instead of 15°.
 
 {numref}`fig-p25-ground-track` shows three successive orbits of an Earth-observation satellite at 700 km altitude and 98.2° inclination. The period at 700 km is 5,926 s, or 98.77 min, so each pass crosses the equator 24.76° farther west. At the equator that is 2,756 km. The shift is westward for prograde and retrograde orbits alike, because it comes from the turning of the planet alone.
 
@@ -165,7 +165,7 @@ At Earth one more effect matters. Earth's equatorial bulge (the $J_2$ term of it
 
 ## Aerobraking
 
-A planet with an atmosphere offers a way to save propellant. Capturing into a large, elongated orbit costs much less {term}`delta-V` than capturing straight into a low circular one. The atmosphere can then do the rest of the job, bringing the apoapsis down. In {term}`aerobraking`, a small burn at apoapsis lowers the periapsis into the upper atmosphere. Each pass through periapsis removes a little speed, the way a short burn against the motion would. That lowers the apoapsis, while the periapsis stays at about the same altitude. After hundreds of passes over weeks or months, the orbit is nearly circular. A second small burn at apoapsis then raises the periapsis out of the atmosphere ({numref}`fig-p25-aerobraking`).
+Around a planet with an atmosphere, capturing into a large, elongated orbit requires far less {term}`delta-V` than capturing directly into a low circular orbit, and atmospheric drag can then lower the apoapsis. In {term}`aerobraking`, a small burn at apoapsis dips the periapsis into the upper atmosphere. Each pass through periapsis removes a small amount of speed, acting like a brief retrograde burn that lowers apoapsis while leaving periapsis near the same altitude. After hundreds of passes over weeks or months, the orbit becomes nearly circular, and a second small burn at apoapsis lifts the periapsis clear of the atmosphere ({numref}`fig-p25-aerobraking`).
 
 :::{figure} figures/p25-aerobraking.svg
 :label: fig-p25-aerobraking
@@ -175,7 +175,7 @@ A planet with an atmosphere offers a way to save propellant. Capturing into a la
 Computed for the Venus orbiter of the worked example. Left, to scale: the 250 km by 25,000 km capture orbit, two orbits after drag passes (apoapsis altitudes of 15,000 and 7,000 km chosen for the drawing, periapsis at 140 km), and the final 250 km circular orbit. $\Delta V_1$ lowers the periapsis into the atmosphere; $\Delta V_2$ lifts it out. The burn arrows are drawn to scale with their $\Delta V$. Right, altitude near periapsis: the drag passes dip to 140 km, below the final orbit.
 :::
 
-The trade is propellant against time and risk. Aerobraking takes months of operations instead of minutes of burning. Every pass heats the spacecraft, so it must be designed for the loads and the heating. The team must also adjust the periapsis altitude as the density of the upper atmosphere changes from day to day. A pass that goes too deep can destroy the vehicle. In 1993 the Magellan spacecraft became the first planetary orbiter to aerobrake, at Venus (Jet Propulsion Laboratory 1993). Mars Global Surveyor, Mars Odyssey, and Mars Reconnaissance Orbiter later used aerobraking at Mars (Long et al. 2007).
+Aerobraking saves propellant while increasing mission duration and thermal risk. Instead of finishing in minutes with a main engine burn, the spacecraft spends months passing through the upper atmosphere, so its structure and solar arrays must tolerate aerodynamic loads and heating. Because upper-atmosphere density varies from day to day, mission operators must monitor each pass and adjust periapsis altitude to avoid excessive heating or structural overload. In 1993 the Magellan spacecraft became the first planetary orbiter to aerobrake, at Venus (Jet Propulsion Laboratory 1993), and Mars Global Surveyor, Mars Odyssey, and Mars Reconnaissance Orbiter later used the technique at Mars (Long et al. 2007).
 
 ### Worked example: a Venus orbiter
 
@@ -215,7 +215,7 @@ Aerobraking needs 0.04540 km/s of delta-V instead of 2.078 km/s and saves 564 kg
 (p25-orbit-lifetime)=
 ## Orbit lifetime and the end of the mission
 
-Aerobraking uses drag on purpose. Around Earth, drag acts on every low orbit. The thin air at a few hundred kilometers drags on the spacecraft at every point of the orbit, and the orbit sinks. This {term}`orbit decay` is slow at first and then speeds up, because the air gets denser as the orbit gets lower.
+While aerobraking uses drag intentionally, atmospheric drag also acts continuously on every satellite in low Earth orbit. Even the tenuous air a few hundred kilometers up opposes the spacecraft's motion around the entire orbit, causing it to lose altitude. This {term}`orbit decay` starts slowly and accelerates as the satellite descends into denser air.
 
 ### How drag lowers an orbit
 
@@ -228,14 +228,14 @@ B = \frac{m}{C_D A}
 
 is the {term}`ballistic coefficient`. A dense, compact spacecraft has a high $B$ and slows down less.
 
-Drag takes energy out of the orbit. Per unit mass, the rate is the deceleration times the speed: $d\varepsilon/dt = -\rho v^3/(2B)$. The {term}`specific orbital energy` is $\varepsilon = -\mu/(2a)$, so $d\varepsilon/dt = (\mu/2a^2)\,da/dt$. Setting the two equal gives $da/dt = -a^2\rho v^3/(\mu B)$. For a nearly circular orbit $v = \sqrt{\mu/a}$, and
+Drag removes orbital energy at a rate equal to the drag power per unit mass, $-(D/m)v$, which gives $d\varepsilon/dt = -\rho v^3/(2B)$. Because the {term}`specific orbital energy` is $\varepsilon = -\mu/(2a)$, differentiating with respect to time gives $d\varepsilon/dt = (\mu/2a^2)\,da/dt$. Equating the two expressions gives $da/dt = -a^2\rho v^3/(\mu B)$. For a nearly circular orbit, substituting $v = \sqrt{\mu/a}$ leaves
 
 :::{math}
 :label: eq-p25-decay
 \frac{da}{dt} = -\frac{\rho\sqrt{\mu a}}{B}, \qquad \Delta a_{\text{rev}} = -\frac{2\pi\rho a^2}{B}
 :::
 
-The second form is the loss in one revolution: the rate times the period $2\pi\sqrt{a^3/\mu}$. Work it in SI units: $\rho$ in kg/m³, $a$ in m, $B$ in kg/m², $\mu$ in m³/s². For example, take 400 km, with the density of the U.S. Standard Atmosphere 1976 ($2.803 \times {10}^{-12}$ kg/m³), $a = 6.778 \times {10}^{6}$ m, and $B = 100$ kg/m². The orbit drops 8.091 m in one revolution. It goes around 15.6 times a day, and the drop grows as the air thickens.
+The second form gives the altitude loss in one revolution, found by multiplying $da/dt$ by the orbital period $2\pi\sqrt{a^3/\mu}$. Use consistent SI units here: $\rho$ in kg/m³, $a$ in m, $B$ in kg/m², and $\mu$ in m³/s². At 400 km altitude, with the U.S. Standard Atmosphere 1976 density ($2.803 \times {10}^{-12}$ kg/m³), $a = 6.778 \times {10}^{6}$ m, and $B = 100$ kg/m², the orbit drops 8.091 m in one revolution. Because the satellite completes 15.6 revolutions per day, this loss accumulates steadily and accelerates as the air grows denser.
 
 ### Lifetimes at 300, 400, and 500 km
 
@@ -260,7 +260,7 @@ Computed for circular Earth orbits with $B = 100$ kg/m², U.S. Standard Atmosphe
 
 :::
 
-These are estimates for one fixed atmosphere. The density of the upper atmosphere depends on solar activity. At a given altitude it can change by about ten times between a quiet and an active Sun, and the lifetime changes with it (Wertz and Larson 1999).
+These lifetimes assume one fixed standard atmosphere. In reality, upper-atmosphere density depends strongly on solar activity and can vary by roughly a factor of ten at a given altitude between a quiet and an active Sun, changing the orbit lifetime accordingly (Wertz and Larson 1999).
 
 :::{warning} Units in the decay equation
 [](#eq-p25-decay) mixes the density in kg/m³ with the radius. Put $a$ in meters and $\mu$ in m³/s² ($3.986 \times {10}^{14}$), or the result is off by factors of a thousand. The radius is $R + h$, not the altitude.
@@ -271,10 +271,10 @@ These are estimates for one fixed atmosphere. The density of the upper atmospher
 We plan the end of a satellite's life before launch. There are three options:
 
 - **Deorbit.** A burn against the motion lowers the periapsis deep into the atmosphere, and the spacecraft reenters within days. A large spacecraft whose parts could survive reentry is brought down over an empty stretch of ocean.
-- **Let drag do it.** A low orbit decays on its own. A lower final orbit or a drag device that lowers $B$ makes it reenter sooner.
-- **Move out of the way.** No atmosphere reaches the geostationary orbit. So a geostationary satellite is boosted into a storage orbit above the geostationary zone, whose upper edge is at 35,986 km altitude. Its perigee is set high enough that it stays outside the zone, clear of working satellites, for at least 100 years (U.S. Government 2019, practice 4-1d).
+- **Passive decay.** A low orbit decays naturally under atmospheric drag. Moving to a lower end-of-life altitude or deploying a drag device to reduce $B$ shortens the time to reentry.
+- **Disposal (graveyard) orbit.** Because atmospheric drag is negligible at geostationary altitude, a retiring geostationary satellite is boosted into a disposal orbit above the geostationary protected zone, whose upper edge lies at 35,986 km altitude. Its perigee is set high enough to remain clear of active satellites for at least 100 years (U.S. Government 2019, practice 4-1d).
 
-The rules set the time allowed. The long-standing U.S. Government guideline allows 25 years in orbit after the end of the mission (U.S. Government 2019). In 2022 the Federal Communications Commission adopted a five-year rule for satellites in low Earth orbit that it licenses (Federal Communications Commission 2022). With $B = 100$ kg/m², the 400 km orbit of the table meets it with years to spare. The 500 km orbit, at 6.8 years, does not, and it would need a deorbit burn or a lower orbit at the end. Around another planet the rule can run the other way. Planetary protection rules can require an orbiter to stay in orbit for decades, so that it does not crash onto a surface that must be kept free of Earth microbes.
+Debris-mitigation regulations limit how long a retired satellite may remain in orbit. The long-standing U.S. Government standard allows up to 25 years after end of mission (U.S. Government 2019), while in 2022 the Federal Communications Commission adopted a five-year post-mission disposal rule for low-Earth-orbit satellites under its license (Federal Communications Commission 2022). With $B = 100$ kg/m², the 400 km orbit in {numref}`tbl-p25-lifetime` meets the five-year limit easily, while the 500 km orbit (6.8 years) exceeds it and requires a deorbit burn or a lower disposal altitude. Around other planets, the requirement can be reversed: planetary protection rules may require an orbiter to stay aloft for decades so that it does not impact a surface that must remain free of terrestrial microbes.
 
 ## Summary
 

@@ -31,10 +31,10 @@ Schematic, not to scale. Pressure comes from molecules striking a surface, densi
 :label: def-p14-state
 - **Pressure** $p$ is the normal force per unit area that a gas exerts on a surface: $p = dF/dA$ as the area $dA$ shrinks toward zero. The force comes from the momentum of the molecules that strike the surface. Unit: pascal, 1 Pa = 1 N/m². The pressure of still air on any surface, whatever its direction, is the {term}`static pressure`.
 - **Density** $\rho$ is the mass per unit volume: $\rho = dm/dv$ as the volume $dv$ shrinks toward zero. Unit: kg/m³.
-- **Temperature** $T$ measures the average kinetic energy of the molecules: the mean kinetic energy of one molecule (the energy of its motion from place to place) is $\tfrac{3}{2} k T$, where $k = 1.380649 \times {10}^{-23}$ J/K is the Boltzmann constant (NIST n.d.). Unit: kelvin, K.
+- **Temperature** $T$ measures the average translational kinetic energy of the molecules (their motion through space): the mean value for one molecule is $\tfrac{3}{2} k T$, where $k = 1.380649 \times {10}^{-23}$ J/K is the Boltzmann constant (NIST n.d.). Unit: kelvin, K.
 :::
 
-A bicycle pump shows all three. When you push the handle, the same mass of air fills a smaller volume. The density rises, more molecules strike the walls each second, and the pressure rises. The work you do also warms the air. At sea level the mean kinetic energy of a molecule of air is $\tfrac{3}{2}(1.380649 \times {10}^{-23})(288.16) = 5.968 \times {10}^{-21}$ J. That number is tiny, but the molecules are so many that their impacts add up to 101,325 Pa on every surface.
+A bicycle pump shows all three. When you push the handle, the same mass of air fills a smaller volume: density rises, more molecules strike the walls each second, and pressure rises, while the compression work warms the air. At sea level the mean translational kinetic energy of one air molecule is $\tfrac{3}{2}(1.380649 \times {10}^{-23})(288.16) = 5.968 \times {10}^{-21}$ J. That number is tiny, yet there are so many molecules striking every square meter each second that their combined impacts add up to 101,325 Pa on every surface.
 
 The temperature here is absolute. It is in kelvin, counted from the zero at which the molecules would stop, and only on this scale is the energy proportional to $T$.
 
@@ -73,9 +73,9 @@ The real atmosphere changes with place, season, time of day, and weather. An air
 A **standard atmosphere** is an agreed model of the temperature, pressure, and density of the air as functions of altitude alone. The World Meteorological Organization defines it as a vertical distribution that "is roughly representative of year-round, midlatitude conditions," in which the air obeys the equation of state and the hydrostatic equation (NOAA, NASA, and U.S. Air Force 1976).
 :::
 
-The same document lists its uses: altimeter calibration, aircraft performance calculations, and aircraft and rocket design. No real day matches it. A performance number quoted "at standard conditions" was computed in this model.
+The same document lists its main uses: altimeter calibration, aircraft performance calculations, and aircraft and rocket design. Although weather on any real day differs from this reference, quoting performance "at standard conditions" lets engineers compare vehicles on a common baseline.
 
-In these notes we use the model of Anderson (2016, Chapter 3) and of the NASA Glenn atmosphere model (NASA Glenn Research Center n.d.a). Its sea-level values are $T = 288.16$ K, $p = 101{,}325$ Pa, and $\rho = 1.2250$ kg/m³. The U.S. Standard Atmosphere, 1976 uses 288.15 K, a difference that does not show at four significant figures. Up to 20 km the two models agree to within 0.2%. Above 20 km they differ. The 1976 standard starts warming at 20 km, while our model stays isothermal to 25 km and then warms faster, reaching 282.66 K at 47 km against 270.65 K. At 47 km our model's pressure is about 8.2% above the 1976 value. Use the model of these notes for the work here, and the 1976 tables when a design needs the upper atmosphere.
+In these notes we use the model of Anderson (2016, Chapter 3) and the NASA Glenn atmosphere model (NASA Glenn Research Center n.d.a), whose sea-level values are $T = 288.16$ K, $p = 101{,}325$ Pa, and $\rho = 1.2250$ kg/m³. The U.S. Standard Atmosphere, 1976 uses 288.15 K, a difference that does not show at four significant figures.
 
 ## The hydrostatic equation
 
@@ -147,7 +147,7 @@ $$
 where $h_1$ is the altitude of the base of the layer, $T_1$ the temperature there, and $a = dT/dh$ the **lapse rate**, in K/m. The lapse rate is negative when temperature falls with height. In an **isothermal layer** the temperature is the same at every altitude: $a = 0$ and $T = T_1$.
 :::
 
-The lowest layer, the {term}`troposphere`, runs from sea level to 11,000 m with a {term}`lapse rate` $a = -0.0065$ K/m: the air cools by 6.5 K for every kilometer of climb. Its top, the {term}`tropopause`, sits at 216.66 K. Above it lies the {term}`stratosphere`. Its lower part, from 11,000 m to 25,000 m, is isothermal in this model. In its upper part the temperature rises again, at $a = +0.003$ K/m. The ozone at those heights absorbs ultraviolet light from the Sun, and that energy heats the air (Salawitch et al. 2023, Q2). A common shorthand calls the layers where the temperature changes "spheres" and those where it is constant "pauses." This shorthand is loose. The isothermal layer from 11 to 25 km is the lower stratosphere, and the tropopause is only its lower boundary.
+The lowest layer, the {term}`troposphere`, runs from sea level to 11,000 m with a {term}`lapse rate` $a = -0.0065$ K/m: the air cools by 6.5 K for every kilometer of climb. Its top, the {term}`tropopause`, sits at 216.66 K. Above it lies the {term}`stratosphere`. Its lower part, from 11,000 m to 25,000 m, is isothermal in this model. In its upper part the temperature rises again, at $a = +0.003$ K/m. The ozone at those heights absorbs ultraviolet light from the Sun, and that energy heats the air (Salawitch et al. 2023, Q2). A common shorthand calls the layers where temperature changes "spheres" and those where it stays constant "pauses," although that usage is imprecise: the isothermal layer from 11 to 25 km is the lower stratosphere, and the tropopause is its lower boundary at 11 km.
 
 {numref}`tbl-p14-layers` lists the layers and the values at the base of each. The base values are not new data. We compute each one from the layer below with the equations of the next two sections, starting from sea level.
 
@@ -164,6 +164,8 @@ The lowest layer, the {term}`troposphere`, runs from sea level to 11,000 m with 
 | 53,000 | Mesosphere | Gradient | −0.0045 | 282.66 | 58.11 | 0.0007162 |
 
 :::
+
+Up to 20 km, this model and the U.S. Standard Atmosphere, 1976 agree to within 0.2%. Above 20 km they diverge: the 1976 standard begins warming at 20 km, while our model stays isothermal to 25 km and then warms faster, reaching 282.66 K at 47 km against 270.65 K. At 47 km our model's pressure is about 8.2% above the 1976 value. Use the model of these notes for the problems here, and consult the 1976 tables when a design requires upper-atmosphere data.
 
 ## Pressure and density in an isothermal layer
 
@@ -199,7 +201,7 @@ We take the exponential of both sides. For the density, we write the equation of
 \frac{p}{p_1} = \frac{\rho}{\rho_1} = \exp\left[-\frac{g_0\,(h - h_1)}{R T}\right]
 :::
 
-So in an isothermal layer, pressure and density fall exponentially. Every $R T/g_0 = 287 \times 216.66/9.81 = 6{,}339$ m of climb divides them by $e = 2.718$. On a logarithmic axis an exponential is a straight line, and that is how the isothermal layer appears in {numref}`fig-p14-pressure-density`.
+So in an isothermal layer, pressure and density fall exponentially. Every $R T/g_0 = 287 \times 216.66/9.81 = 6{,}339$ m of climb multiplies them by $1/e$ (dividing by $e = 2.718$, leaving about 37% remaining). On a logarithmic axis an exponential is a straight line, and that is how the isothermal layer appears in {numref}`fig-p14-pressure-density`.
 
 ## Pressure and density in a gradient layer
 
@@ -242,7 +244,7 @@ and adding the exponents,
 \frac{\rho}{\rho_1} = \left(\frac{T}{T_1}\right)^{-\left(\frac{g_0}{a R} + 1\right)}
 :::
 
-In the troposphere $a$ is negative, so the exponent of the pressure ratio is positive: $-g_0/(aR) = 9.81/(0.0065 \times 287) = 5.2586$, and the density exponent is $5.2586 - 1 = 4.2586$. A temperature ratio below 1 raised to a positive power is below 1, so pressure and density fall with altitude, as they must.
+In the troposphere $a$ is negative, so the exponent of the pressure ratio is positive: $-g_0/(aR) = 9.81/(0.0065 \times 287) = 5.2586$, and the density exponent is $5.2586 - 1 = 4.2586$. A temperature ratio below 1 raised to a positive power is below 1, so pressure and density fall with altitude, as the hydrostatic equation requires.
 
 In the upper stratosphere $a = +0.003$ K/m and the exponent is negative: $-g_0/(aR) = -9.81/(0.003 \times 287) = -11.394$. There the temperature rises with altitude and the temperature ratio is above 1. A number above 1 raised to a negative power is below 1, so the pressure still falls. For example, at 35,000 m, ten kilometers above the base of the layer at 25,000 m,
 
@@ -284,7 +286,7 @@ Schematic of the method that gives the properties at a given altitude. Step 2 ma
 
 :::{tip} Method: temperature, pressure, and density at a given altitude
 1. Write the altitude $h$ in meters and every temperature in kelvin.
-2. Find the layer that holds $h$ ({numref}`tbl-p14-layers`).
+2. Find the layer that contains altitude $h$ ({numref}`tbl-p14-layers`).
 3. Take the base values $h_1$, $T_1$, $p_1$, $\rho_1$ of that layer. Above 11,000 m they are not the sea-level values: compute them from the layer below, or take them from {numref}`tbl-p14-layers`.
 4. Compute the temperature, then the pressure and density, with {eq}`eq-p14-gradient-p` and {eq}`eq-p14-gradient-rho` in a gradient layer or {eq}`eq-p14-isothermal` in an isothermal layer.
 5. Check: $p = \rho R T$ holds to about four figures, and $p$ lies between the pressures at the base and the top of the layer.
@@ -470,7 +472,7 @@ $$
 (p14-speed-of-sound)=
 ## Speed of sound and Mach number
 
-A small pressure disturbance, such as the sound of an engine, travels through air at the {term}`speed of sound`. For a given ideal gas it depends on the temperature alone:
+A small pressure disturbance, such as the sound of an engine, travels through air at the {term}`speed of sound`. For a given ideal gas, acoustic wave speed depends on the ratio $p/\rho$; because the equation of state gives $p/\rho = R T$, pressure and density cancel out and the speed of sound depends on temperature alone:
 
 :::{math}
 :label: eq-p14-sound
@@ -599,7 +601,7 @@ p &= 101{,}325 \times {0.962033}^{5.2586}\\
 \end{aligned}
 $$
 
-On a standard day the airport's air would be at 276.46 K, with a density of 1.027 kg/m³. The hot day removes 5.4% of the density, and with it some lift and engine thrust.
+On a standard day the airport's air would be at 276.46 K, with a density of 1.027 kg/m³. The 20 K temperature increase lowers air density by 5.4%, reducing both wing lift and engine thrust at a given airspeed.
 
 :::{prf:definition} Density altitude
 :label: def-p14-density-altitude

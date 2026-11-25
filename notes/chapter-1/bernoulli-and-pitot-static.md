@@ -19,7 +19,7 @@ Air that moves past a vehicle pushes on it, and how hard it pushes depends on ho
 
 We describe a flowing gas point by point. At each point it has a pressure $p$, a density $\rho$, and a temperature $T$, the three properties of the [standard atmosphere page](standard-atmosphere.md). It also has a velocity $\mathbf{V}$. Together, at every point, they make up the flow field.
 
-The velocity at a point B is the velocity of a tiny piece of fluid, a fluid element, at the moment it passes through B. It can differ from one point to the next, in size and in direction. Far ahead of a vehicle the air is undisturbed; its velocity relative to the vehicle is the {term}`free-stream velocity` $V_\infty$. A vehicle moving through still air feels the same forces as a vehicle at rest in moving air. So we picture the vehicle at rest, with the air flowing past it.
+The velocity at any point in the flow is the velocity of a tiny parcel of fluid, a fluid element, at the instant it passes through that point, and it can vary from point to point in both magnitude and direction. Far ahead of a vehicle the air is undisturbed; its velocity relative to the vehicle is the {term}`free-stream velocity` $V_\infty$. Because a vehicle moving through still air experiences the same aerodynamic forces as a vehicle held at rest in moving air, we picture the vehicle fixed in place with air flowing past it.
 
 :::{prf:definition} Steady flow, streamline, stream tube
 :label: def-p15-streamline
@@ -53,7 +53,7 @@ These quantities set the force on the vehicle. Air acts on a surface in only two
 Schematic, lengths not to scale (at cruise the drag is a small fraction of the lift). Pressure pushes normal to the surface and shear drags along it (left). Their sum over the surface is the resultant $R$ (right): the lift $L$ across the free stream and the drag $D$ along it are the sides of the rectangle whose diagonal is $R$.
 :::
 
-Lift needs a fluid in contact with the body and motion between the two. It comes from the body turning the flow: the wing pushes the air downward, and the air pushes the wing up (NASA Glenn Research Center n.d.h). We compute lift in [Chapter 3 of these notes, page 3.2](../chapter-3/airfoil-and-finite-wing.md).
+Lift requires a fluid in contact with the body and relative motion between the two. We can view that same force from a momentum perspective as well: integrating surface pressure and shear over the wing and applying Newton's third law to the downward turning of the airflow are two descriptions of the same physical force, because the wing pushes air downward and the air pushes the wing upward (NASA Glenn Research Center n.d.h). We compute lift in [Chapter 3 of these notes, page 3.2](../chapter-3/airfoil-and-finite-wing.md).
 
 (p15-continuity)=
 ## The continuity equation
@@ -172,7 +172,7 @@ The volume $dx\,dy\,dz$ appears on both sides and cancels. We multiply both side
 dp = -\rho\,V\,dV
 :::
 
-The minus sign matters. Along a streamline, a rise in speed ($dV > 0$) comes with a fall in pressure ($dp < 0$). The pressure difference pushes the element faster: it moves from high pressure toward low pressure and gains speed on the way. {eq}`eq-p15-euler` holds for compressible flow too, because we never assumed a constant density in the derivation.
+Pay close attention to the minus sign: along a streamline, an increase in speed ($dV > 0$) requires a drop in pressure ($dp < 0$). Moving from higher pressure toward lower pressure creates a net forward force that accelerates the fluid element. {eq}`eq-p15-euler` holds for compressible flow too, because we did not assume constant density in the derivation.
 
 (p15-bernoulli)=
 ## Bernoulli's equation
@@ -206,7 +206,7 @@ The sum $p + \tfrac12\rho V^2$ is the same at every point of the streamline (NAS
 :::{prf:definition} Static, dynamic, and total pressure
 :label: def-p15-pressures
 
-The **{term}`static pressure`** $p$ is the pressure of the flowing fluid itself, the pressure a small surface moving with the fluid would feel. It is the $p$ of the equation of state.
+The **{term}`static pressure`** $p$ is the pressure of the flowing fluid itself, the pressure a small surface moving with the fluid would experience. It is the $p$ of the equation of state.
 
 The **{term}`dynamic pressure`** is $q = \tfrac12 \rho V^2$, in Pa. It measures the kinetic energy of the flow per unit volume.
 
@@ -216,13 +216,13 @@ The **{term}`total pressure`** is $p_0 = p + \tfrac12\rho V^2$, the pressure the
 In other words, static pressure and dynamic pressure trade against each other while their sum stays fixed. Where the air speeds up, its static pressure falls. We call this the Bernoulli effect.
 
 :::{warning} Three wrong explanations of lift
-Three popular accounts of lift are wrong (NASA Glenn Research Center n.d.c, n.d.f, n.d.g):
+Three popular explanations of lift are incorrect (NASA Glenn Research Center n.d.c, n.d.f, n.d.g):
 
-- **Equal transit times over the two surfaces.** Nothing forces the two flows to meet at the trailing edge.
-- **A skipping-stone bounce off the lower surface.** The upper surface turns more of the flow than the lower one.
-- **Half a venturi over the top.** There is no second wall.
+- **Equal transit times over the two surfaces.** Nothing forces air parcels split at the leading edge to rejoin at the trailing edge; in fact, air flowing over the upper surface accelerates enough to reach the trailing edge well ahead of air passing beneath the wing.
+- **A skipping-stone bounce off the lower surface.** Air does not bounce off the bottom like isolated pellets; the upper surface turns more of the flow and generates most of the lift.
+- **Half a venturi over the top.** A wing flies in open air with no solid upper wall forming a constricted nozzle above it.
 
-The first and the third rest on a true fact: faster air has a lower pressure. The second rests on another: air turned downward pushes the wing up. None of them explains why the air over the top moves faster.
+The first and third accounts borrow one real fact (faster flow has lower static pressure) and the second borrows another (downward flow turning produces upward lift), yet none of them explains why the air over the upper surface speeds up in the first place.
 :::
 
 **The height term.** For a liquid we cannot leave out the weight of the element. Let $z$ now be the height of the streamline above a reference level (not the side of the box in {numref}`fig-p15-fluid-element`), and let the streamline climb at an angle $\theta$, so that $\sin\theta = dz/dx$. The weight of the element is $\rho g$ times its volume, and its part along the streamline is $\rho g \sin\theta$ times the volume, pointing backward when the streamline climbs. We add it to the pressure force in Newton's second law and divide by the volume:
@@ -377,16 +377,16 @@ $$
 p_\text{stagnation} = p_0
 $$
 
-The stagnation point feels the total pressure of the free stream. A small hole at the tip, connected to a tube, carries that pressure to a gauge. A tube used this way is a pitot tube.
+The stagnation point is exposed to the total pressure of the free stream. A small opening at the tip, connected to a tube, carries that pressure to a gauge; a tube used this way is a pitot tube.
 
-We measure the static pressure through small holes in the side of the probe, a few diameters behind the nose. The lower panel of {numref}`fig-p15-pitot-static-tube` shows why they sit there. Just behind the nose the air speeds up around the shoulder and the surface pressure dips below $p$. Farther back the flow runs parallel to the surface at the free-stream speed, and the surface pressure returns to $p$. Holes there feel it.
+We measure static pressure through small ports in the side of the probe, a few diameters behind the nose. The lower panel of {numref}`fig-p15-pitot-static-tube` shows why they are placed there: just behind the nose the air accelerates around the shoulder and surface pressure dips below $p$, while farther back the flow runs parallel to the surface at the free-stream speed and surface pressure returns to $p$. Side ports located in that recovered region accurately sense the static pressure.
 
 :::{figure} figures/p15-pitot-static-tube.svg
 :label: fig-p15-pitot-static-tube
 :alt: Top: a pitot-static probe in section, pointing into a flow from the left. The streamline on the axis ends at a stagnation point just ahead of the open nose hole, labeled V equals 0 and pressure p0; from the hole a central tube carries p0 to the gauge. Static holes in the side, three diameters behind the nose, open into an outer chamber that carries p to the gauge. Bottom: the computed surface pressure along the probe, minus the free-stream static pressure, divided by q. It starts at 1 at the nose, dips to minus 0.33 just behind it, and returns to almost exactly zero by the static holes.
 :width: 90%
 
-Computed for ideal flow past a round-nosed probe. The nose hole feels the total pressure $p_0$. By three diameters behind the nose the surface pressure differs from $p$ by less than 1.6% of $q$, so the side holes feel $p$, and the gauge measures the difference, $p_0 - p = q$.
+Computed for ideal flow past a round-nosed probe. The nose port senses the total pressure $p_0$. By three diameters behind the nose the surface pressure differs from $p$ by less than 1.6% of $q$, so the side ports measure $p$, and the gauge reads the difference, $p_0 - p = q$.
 :::
 
 The gauge measures $p_0 - p$, which is the dynamic pressure, and Bernoulli's equation gives the speed (NASA Glenn Research Center n.d.d):
@@ -473,7 +473,7 @@ Schematic of the pitot-static system. The pitot line feeds only the airspeed ind
 
 :::
 
-The altimeter is the [standard atmosphere](#p14-layers) worked backward. It measures a pressure and shows the altitude at which the standard atmosphere has that pressure. The vertical speed indicator has a diaphragm fed straight from the static line, inside a case fed through a calibrated leak. In a climb the static pressure falls. The diaphragm feels the change at once, but the case lags behind, and the difference shows as a rate of climb. In level flight the two pressures are equal and the needle reads zero.
+The altimeter applies the [standard atmosphere](#p14-layers) relations in reverse: it senses the outside static pressure and displays the standard-atmosphere altitude corresponding to that pressure. The vertical speed indicator uses a diaphragm connected directly to the static line inside a sealed case connected through a calibrated leak. During a climb, outside static pressure drops; the diaphragm senses that drop immediately while the case pressure lags behind, and the resulting pressure difference deflects the needle to indicate rate of climb. In level flight the two pressures equalize and the needle reads zero.
 
 ## Blocked pitot and static ports
 
@@ -486,11 +486,11 @@ Ice, water, dirt, or insects can block the openings of the system. A blockage tr
 4. For each instrument, compare the two pressures it now receives and read off the result.
 :::
 
-The three cases:
+Applying this procedure gives three blockage cases:
 
-1. **Pitot inlet blocked, drain hole open.** The air in the pitot line leaks out through the drain hole until the line holds the outside static pressure. Both sides of the airspeed indicator feel $p$, and it falls to zero. The altimeter and the vertical speed indicator still work.
-2. **Pitot inlet and drain hole both blocked.** The total pressure at the moment of the blockage is trapped. In level flight the airspeed indicator no longer responds to a change of speed. In a climb the outside static pressure falls while the trapped pressure stays, so the indicator reads higher and higher; in a descent it reads lower. It now behaves like an altimeter. The other two instruments still work.
-3. **Static port blocked.** The static pressure at the moment of the blockage is trapped. The altimeter freezes and the vertical speed indicator stays at zero. As long as the altitude does not change, the trapped pressure still equals the outside pressure and the airspeed indicator reads correctly. In a climb the total pressure falls but the trapped static pressure does not, so the airspeed indicator reads low; in a descent it reads high.
+1. **Pitot inlet blocked, drain hole open.** Air in the pitot line vents through the drain hole until the line equalizes with the outside static pressure. Both sides of the airspeed indicator then sense $p$, so the reading drops to zero. The altimeter and vertical speed indicator continue working normally.
+2. **Pitot inlet and drain hole both blocked.** The total pressure at the instant of blockage is trapped in the pitot line. In level flight the airspeed indicator no longer responds to speed changes. In a climb, outside static pressure falls while the trapped pitot pressure stays constant, widening $p_0 - p$ so the indicator reads progressively higher; in a descent it reads progressively lower, behaving like an altimeter. The other two instruments still work normally.
+3. **Static port blocked.** The static pressure at the instant of blockage is trapped in the static line, freezing the altimeter and holding the vertical speed indicator at zero. As long as altitude does not change, the trapped pressure still equals the outside static pressure and the airspeed indicator reads correctly. In a climb, outside static pressure $p$ drops, which lowers total pressure $p_0 = p + q$ while the trapped static pressure stays fixed; the measured difference shrinks, so the airspeed indicator reads low (and in a descent it reads high).
 
 :::{warning} The dangerous combination
 In case 2 a climb makes the airspeed reading rise. A pilot who believes it may raise the nose to slow down, which steepens the climb and raises the reading further while the true airspeed falls. After a blockage, find the trapped pressure before you trust any reading.

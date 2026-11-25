@@ -6,13 +6,13 @@ short_title: 1.2 Hazards and Risk
 :::{include} ../_parts/standards/1.2.md
 :::
 
-Every aerospace vehicle works in an environment that can hurt it. An airliner meets ice, birds, and storms. A satellite meets radiation, debris, and vacuum. On this page we define a {term}`hazard` and go through the hazards of the atmosphere, phase by phase, and of space, altitude by altitude. Then we turn hazards into {term}`risks <risk>`. We write each risk as a sentence, score it, place it on a {term}`risk matrix`, and move it with a {term}`mitigation`. A worked example does this for a small {term}`launch vehicle`. The last section shows how to find the parts whose failure alone ends a mission.
+Aerospace vehicles operate in demanding environments: an airliner flies through ice, birds, and severe weather, while a satellite faces radiation, orbital debris, and vacuum. In this lecture we define what a {term}`hazard` is and survey atmospheric hazards by flight phase and space hazards by altitude. We then turn those hazards into {term}`risks <risk>`, score each risk on a {term}`risk matrix`, and apply a {term}`mitigation` to reduce it, working through an example for a small {term}`launch vehicle`. Finally, we examine how to locate critical parts whose failure alone would end a mission.
 
 :::{note} What to take from this page
 - A hazard is a condition of the operating environment that can harm the vehicle or the mission. Describe each one by its cause, its effect, and a mitigation that acts on one link of that chain.
 - Atmospheric hazards belong to phases of flight and bands of altitude; space hazards belong to altitude bands, from drag and atomic oxygen in low orbit to the radiation belts above.
 - A risk is a sentence, "If [event], then [consequence]," with a likelihood and a consequence from 1 to 5. In these notes the level is High when likelihood times consequence is 15 or more, Medium from 5 to 12, and Low at 4 or less.
-- Most mitigations lower the likelihood; some lower the consequence. A {term}`single-point failure` is found by walking the mission timeline, and is removed by {term}`redundancy`, margin, or test, or accepted with a reason.
+- Most mitigations lower the likelihood; some lower the consequence. A {term}`single-point failure` is identified by stepping through the mission timeline: adding {term}`redundancy` removes it, while added margin and testing lower its likelihood without eliminating the single point, or the project accepts it with a documented reason.
 :::
 
 (p12-what-is-a-hazard)=
@@ -75,19 +75,19 @@ A **risk** is an uncertain future event that would hurt the mission or the proje
 :::
 
 :::{warning} A hazard must belong to the environment
-List only hazards the vehicle can meet. Icing needs liquid water in air, so it is no hazard for a satellite in orbit. Atomic oxygen erodes surfaces only in low orbit, so it is no hazard for an airliner. Before you score a hazard, say where and when the vehicle meets it.
+List only hazards the vehicle can encounter during its mission. Icing requires liquid water in air, so it is not a hazard for a satellite in orbit. Atomic oxygen erodes surfaces only in low orbit, so it does not affect an airliner. Before scoring a hazard, state where and when the vehicle faces it.
 :::
 
 ## Hazards in the atmosphere
 
-In the atmosphere, the hazards change with the phase of flight. Most of them are met at the airports and in the low air around them: debris on the runway, birds, wind near the ground, and the weather at the arrival airport. {numref}`fig-p12-flight-hazards` places nine hazards along the flight of a jet transport. {numref}`tbl-p12-flight-hazards` gives the cause, the effect, and one mitigation of each, under the same numbers.
+In the atmosphere, the hazards change with the phase of flight. Most of them occur at airports and in the low airspace around them: debris on the runway, birds, wind near the ground, and weather at the arrival airport. {numref}`fig-p12-flight-hazards` places nine hazards along the flight of a jet transport. {numref}`tbl-p12-flight-hazards` gives the cause, the effect, and one mitigation of each, under the same numbers.
 
 :::{figure} figures/p12-flight-hazards.svg
 :label: fig-p12-flight-hazards
 :alt: A flight path climbs from a runway to a cruise altitude of 11 kilometers, cruises, and descends to a second runway beside a thunderstorm cloud with a flat base at 1.6 kilometers, a tower of rounded bulges, and a flat anvil top near 12 kilometers. A shaded band near the ground, edged by dashed lines, marks where most bird strikes happen, and a second band from about 2.3 to 5.4 kilometers marks the icing band of a standard day. Nine numbered circles mark the hazards, named in a key under the plot: 1 hot and high airport and 2 runway debris on the departure runway; 3 bird strike and 4 icing on the climb; 5 clear-air turbulence and 6 volcanic ash at cruise; 7 thunderstorm and lightning in the cloud; 8 wind shear and microburst on the final approach beside the storm; 9 low visibility on the arrival runway.
 :width: 90%
 
-Schematic, distance not to scale, altitude to scale. Most hazards are met at the airports and on the way up or down; only two, clear-air turbulence and volcanic ash, are marked at cruise. Airports drawn at sea level; icing band computed for a standard day; bird band after FAA (n.d., AIM 7-5-1).
+Schematic, distance not to scale, altitude to scale. Most hazards occur at airports and during climb or descent; only two, clear-air turbulence and volcanic ash, are marked at cruise. Airports drawn at sea level; icing band computed for a standard day; bird band after FAA (n.d., AIM 7-5-1).
 :::
 
 :::{table} The hazards of {numref}`fig-p12-flight-hazards`: cause, effect, and one mitigation. Sources: FAA (n.d., Chapter 7), FAA (2023, Chapters 11 and 12), FAA (2015), FAA (2016), and FAA (2010).
@@ -111,7 +111,7 @@ Schematic, distance not to scale, altitude to scale. Most hazards are met at the
 Four of these hazards come with numbers worth knowing:
 
 - **Icing.** Ice builds fastest a little below 0 °C. Below about −20 °C most clouds are ice crystals, which bounce off (FAA 2015). On a standard day (the reference atmosphere of [1.4 Standard Atmosphere](standard-atmosphere.md)) the air is at 0 °C at 2,309 m and at −20 °C at 5,386 m. Cloud between those heights is the icing band. On a warmer day the band moves up.
-- **Wind shear and microbursts.** {term}`Wind shear` is a sudden change of wind speed or direction over a short distance. A {term}`microburst` is a small, intense downdraft that spreads out in all directions at the ground (FAA n.d., AIM 7-1-24). Its downdraft can reach 6,000 ft/min and its outflow 45 knots (a {term}`knot` is one nautical mile per hour, 0.514 m/s). An aircraft crossing it on approach meets first a 45-knot headwind, then the downdraft, then a 45-knot tailwind ({numref}`fig-p12-microburst`). That is a change of 90 knots within a few hundred feet of the ground, where the aircraft is slow and low.
+- **Wind shear and microbursts.** {term}`Wind shear` is a sudden change of wind speed or direction over a short distance. A {term}`microburst` is a small, intense downdraft that spreads out in all directions at the ground (FAA n.d., AIM 7-1-24). Its downdraft can reach 6,000 ft/min and its outflow 45 knots (a {term}`knot` is one nautical mile per hour, 0.514 m/s). An aircraft crossing it on approach flies first into a 45-knot headwind, then through the downdraft, and then into a 45-knot tailwind ({numref}`fig-p12-microburst`). That is a change of 90 knots within a few hundred feet of the ground, where the aircraft is slow and low.
 - **Clear-air turbulence.** The jet streams lie between about 6.1 and 13.7 km (20,000 to 45,000 ft) (FAA 2016).
 - **Birds.** Over 90% of reported bird strikes occur at or below 3,000 ft (914 m) above the ground, in the climb and the approach (FAA n.d., AIM 7-5-1).
 
@@ -126,11 +126,11 @@ Schematic, not to scale. The same outflow is a headwind on one side of the downd
 (p12-hot-and-high)=
 ### Hot and high airports
 
-Thin air is a hazard too. A wing and an engine both work by moving air. The less air there is in each cubic meter, the less lift and thrust they make at a given speed. Density falls with altitude and with temperature, so the worst case is a high airport on a hot afternoon. Pilots describe this with the {term}`density altitude`, the altitude in the {term}`standard atmosphere` where the density equals the density the aircraft actually meets (FAA 2023, Chapter 11).
+Thin air is a hazard too. A wing and an engine both work by moving air. The less air there is in each cubic meter, the less lift and thrust they make at a given speed. Density falls with altitude and with temperature, so the worst case is a high airport on a hot afternoon. Pilots describe this with the {term}`density altitude`, the altitude in the {term}`standard atmosphere` where the density equals the density the aircraft experiences (FAA 2023, Chapter 11).
 
-For example, take an airport 1,600 m above sea level on an afternoon at 35 °C. The air there has a density of 0.9622 kg/m³. On a standard day it would be 1.047 kg/m³ at that airport, and it is 1.2250 kg/m³ at sea level. The wing and the engines meet 21% less air than at a standard sea-level airport, and the altitude alone would cost 14%. The density altitude is 2,444 m. In other words, the aircraft performs as it would at 2,444 m on a standard day. Takeoff runs grow and climb rates shrink. On a hot enough day the aircraft must leave payload or fuel behind.
+For example, take an airport 1,600 m above sea level on an afternoon at 35 °C. The air there has a density of 0.9622 kg/m³. On a standard day it would be 1.047 kg/m³ at that airport, compared with 1.2250 kg/m³ at sea level. At this airport, air density is 21% lower than at sea level (14% lower from elevation alone). The density altitude is 2,444 m, meaning the aircraft performs as it would at 2,444 m on a standard day. Takeoff runs lengthen and climb rates drop, so on a hot enough day the aircraft must leave payload or fuel behind.
 
-To find the density, we shift the whole standard temperature profile until it reads 35 °C at the airport. Then we start from the standard sea-level pressure and apply the layer equations ([a non-standard day](#p14-nonstandard) shows the calculation). If you combine the standard pressure at 1,600 m with 35 °C instead, the density comes out a little low. The warm column of air gives a slightly higher pressure there.
+To find the density, we shift the whole standard temperature profile until it reads 35 °C at the airport, then start from the standard sea-level pressure and apply the layer equations ([a non-standard day](#p14-nonstandard) shows the calculation). If you combine the standard pressure at 1,600 m with 35 °C instead, the density comes out a little low. Because warmer air is less dense, each meter of climb leaves behind less air weight, so pressure drops more slowly with height and stays slightly higher at 1,600 m (a direct consequence of the hydrostatic balance derived on [1.4 Standard Atmosphere](standard-atmosphere.md)).
 
 :::{warning} Sea level standard is not the design case
 Performance worked out at sea level on a standard day makes the aircraft look better than it is. Check takeoff and climb at the highest airport the aircraft will use, on its hottest day, with the temperature in kelvin.
@@ -146,7 +146,7 @@ Above the atmosphere, the hazards depend mostly on altitude. {numref}`fig-p12-sp
 :alt: Bar chart on a logarithmic altitude axis from 100 to 100,000 kilometers. Drag spans 100 to 600 kilometers, atomic oxygen 180 to 650 kilometers, most debris 100 to 2,000 kilometers with a small extra bar labeled debris in the geostationary ring, the inner radiation belt about 1,600 to 12,900 kilometers with a dashed extension down to about 500 kilometers labeled South Atlantic Anomaly, and the outer belt about 19,300 to 40,200 kilometers. Dashed lines mark Hubble's orbit at 500 kilometers and the geostationary orbit at 35,786 kilometers, which lies inside the outer belt.
 :width: 80%
 
-Plotted from published values: the altitudes where each space hazard matters. Low orbits meet drag, atomic oxygen, and most of the debris; the radiation belts lie higher, except where the inner belt dips over the South Atlantic. Belt edges from NASA (2013), atomic oxygen from Banks et al. (2004), debris and drag from NASA Orbital Debris Program Office (n.d.); the belt edges move with solar activity.
+Plotted from published values: the altitudes where each space hazard matters. Low orbits experience drag, atomic oxygen, and most of the debris; the radiation belts lie higher, except where the inner belt dips over the South Atlantic. Belt edges from NASA (2013), atomic oxygen from Banks et al. (2004), debris and drag from NASA Orbital Debris Program Office (n.d.); the belt edges move with solar activity.
 :::
 
 We take the space hazards one at a time. {numref}`tbl-p12-space-hazards`, after the solar cycle, sums them up.
@@ -157,7 +157,7 @@ We take the space hazards one at a time. {numref}`tbl-p12-space-hazards`, after 
 - **Atomic oxygen.** Ultraviolet sunlight splits oxygen molecules into single atoms. Between 180 and 650 km, {term}`atomic oxygen` is the most common gas. A spacecraft at orbital speed hits these atoms hard enough to oxidize and wear away polymers, such as Kapton film, and carbon composites on its forward-facing surfaces (Banks et al. 2004).
 - **Debris and micrometeoroids.** Old satellites, spent stages, and fragments share the orbits with working spacecraft, mostly below 2,000 km. Pieces larger than about 10 cm are tracked; smaller ones are not. In low orbit, debris strikes at about 10 km/s on average and up to 15 km/s. At that speed a millimeter-sized fragment can puncture a wall (NASA Orbital Debris Program Office n.d.). Natural micrometeoroids add to the hazard. The International Space Station normally maneuvers out of the way when the chance of a hit by a tracked object exceeds 1 in 10,000 (NASA Orbital Debris Program Office n.d.).
 - **Radiation.** Three sources of fast charged particles reach a spacecraft: the particles trapped in Earth's radiation belts, the protons the Sun throws out in solar particle events, and galactic cosmic rays from outside the solar system.
-- **Solar radiation pressure.** Sunlight itself pushes on a spacecraft. The push on each square meter is the {term}`solar radiation pressure`. The force is tiny but steady. Drag fades with height and this force does not. Above about 1,000 km, sunlight turns a spacecraft with large surfaces more than drag does (NASA 1969, Sections 1 and 2.1).
+- **Solar radiation pressure.** Sunlight exerts a tiny, steady force on every illuminated surface, measured per square meter as {term}`solar radiation pressure`. Unlike atmospheric drag, this force does not fade with altitude. Above about 1,000 km, when the center of solar pressure is offset from the spacecraft's center of mass, solar radiation pressure produces a larger disturbance torque than drag does (NASA 1969, Sections 1 and 2.1).
 
 ### Radiation and its effects
 
@@ -210,7 +210,7 @@ From the data, the running mean falls to about 68 sfu at a minimum and reaches b
 - When the Sun is active, it puts extra energy into the upper atmosphere, and denser air rises to the altitudes of low orbits. Drag rises and satellites come down sooner (NOAA n.d.b). The denser air also carries more atomic oxygen.
 - The energetic electrons at the geostationary orbit, which charge spacecraft, vary by up to 100 to 1 over the cycle (NASA 2022).
 
-So a mission plan states where in the cycle the mission flies, and we design the vehicle for the worst part of the cycle it will meet.
+So a mission plan states where in the cycle the mission flies, and we design the vehicle for the worst part of the cycle it will experience.
 
 :::{table} Hazards in space: where they matter, their effect, and mitigations.
 :label: tbl-p12-space-hazards
@@ -260,7 +260,7 @@ A list of hazards does not tell us which one to work on first. For that, we writ
 S = L \times C
 :::
 
-The score $S$ runs from 1 to 25. In these notes we sort it into three levels: **High** when $S$ is 15 or more, **Medium** from 5 to 12, and **Low** at 4 or less. (No product of two whole numbers from 1 to 5 falls between 12 and 15.) Real projects set their own rule.
+The score $S$ runs from 1 to 25. In these notes we sort it into three levels: **High** when $S$ is 15 or more, **Medium** from 5 to 12, and **Low** at 4 or less. (No product of two whole numbers from 1 to 5 falls between 12 and 15.) Individual aerospace programs set their own thresholds; for example, many human-spaceflight programs flag any catastrophic $C = 5$ risk as High even when its likelihood is low.
 
 :::{figure} figures/p12-risk-matrix.svg
 :label: fig-p12-risk-matrix
@@ -273,7 +273,7 @@ Schematic of the risk matrix of these notes. A risk sits in the row of its likel
 The {term}`risk matrix` of {numref}`fig-p12-risk-matrix` is the picture of this rule. Each risk goes in the cell of its two scores, and we work first on the High risks, at the top right.
 
 :::{tip} Method: ranking a hazard on the risk matrix
-1. Say where and when the vehicle meets the hazard, and check that it belongs to that environment.
+1. Say where and when the vehicle encounters the hazard, and check that it belongs to that environment.
 2. Write the risk statement: "If [event], then [consequence]."
 3. Score the likelihood L from 1 to 5, with one sentence of reason.
 4. Score the consequence C from 1 to 5, with one sentence of reason.
@@ -285,14 +285,14 @@ The {term}`risk matrix` of {numref}`fig-p12-risk-matrix` is the picture of this 
 Some documents put likelihood on the horizontal axis and consequence on the vertical one. The product, and so the level, does not change. But if you place a risk by habit, it lands in the wrong cell. Read both axis titles first, every time. On such a matrix a lower likelihood moves a risk left, not down. Say first which score the mitigation changes; the direction then follows from the axes in front of you.
 :::
 
-A matrix is a summary, and it has limits. It shows each risk alone, and it hides how uncertain each score is (NASA 2011, Section 4.3.2.6). Use it to decide what to work on first, and back each score with its reason.
+Keep in mind that a risk matrix is only a starting summary. Because it displays each risk separately and hides the uncertainty in each score (NASA 2011, Section 4.3.2.6), use it to prioritize your engineering effort and always support every score with a written justification.
 
 ## Mitigation moves a risk
 
 Once a risk is on the matrix, we want to move it toward Low. A mitigation does this by lowering one of the two scores, or both.
 
 - **Most mitigations lower the likelihood.** Testing a part early, holding a larger mass margin (weight held in reserve for growth), qualifying a second supplier, or avoiding a cloud make the event less likely. The likelihood score falls, for example from 4 to 2. On the matrix of these notes the risk moves **down**.
-- **Some lower the consequence.** When the event cannot be made less likely, as with weather, the mitigation makes it cost less when it happens: a spare day in the {term}`launch window`, a backup unit, a safe mode (a minimal state the spacecraft drops into after a fault). The consequence score falls, and on the matrix of these notes the risk moves **left**.
+- **Some lower the consequence.** When the event cannot be made less likely, as with weather, the mitigation limits the impact when it occurs: a spare day in the {term}`launch window`, a backup unit, or a safe mode (a minimal state the spacecraft drops into after a fault). The consequence score falls, and on the matrix of these notes the risk moves **left**.
 
 The rule limits how far a risk can move. Suppose its consequence is 5, the loss of the mission. Lowering its likelihood cannot make it Low, because $1 \times 5 = 5$ is still Medium. Such a risk stays on the list and is tracked, or we reduce its consequence by design. A risk that remains after mitigation is accepted by the project, with its reason written down, and is watched in case its scores change.
 
@@ -322,7 +322,7 @@ An invented two-stage small launch vehicle is preparing for its first flight. It
    - R4: the only supplier also builds for other customers, so a late delivery is possible (L = 3); a slip in integration and test is a long delay (C = 3).
    - R5 comes from a hazard of the launch environment. A launch vehicle climbing through an electrified cloud can trigger lightning. Apollo 12 triggered two strikes, at 36.5 s and 52 s after liftoff in 1969, and recovered. Atlas/Centaur-67 triggered a strike in 1987 and was destroyed (NASA 2000; NASA 2023). With launch rules in place a strike is unlikely (L = 2). The consequence is the loss of the vehicle (C = 5).
 2. **Scores.** With $S = L \times C$, R1 scores $4 \times 3 = 12$, Medium. The table gives the other four. No risk is High, so we work first on the two risks scored 12.
-3. **Mitigations and new scores.** Each mitigation in the table lowers one score, or both. Early component tests (R1), a larger margin (R2), and the launch rules (R5) make the event less likely, so L falls. Nobody can make the wind less likely (R3). With a window of several days, though, a scrub costs the mission nothing, and C falls from 2 to 1. A second supplier (R4) makes a late delivery less likely and cheaper to absorb, so both scores fall. After mitigation the scores are 6, 8, 4, 4, and 5.
+3. **Mitigations and new scores.** Each mitigation in the table lowers one score, or both. Early component tests (R1), a larger margin (R2), and the launch rules (R5) make the event less likely, so L falls. Nobody can make the wind less likely (R3), but with a multi-day launch window a scrub has minimal mission impact, so C falls from 2 to 1. Qualifying a second supplier (R4) makes a late delivery both less likely and less disruptive to the schedule, so both scores fall. After mitigation the scores are 6, 8, 4, 4, and 5.
 4. **Moves.** {numref}`fig-p12-risk-moves` draws the moves.
 
 :::{figure} figures/p12-risk-moves.svg
@@ -355,14 +355,14 @@ Examples are the only engine of a single-engine airplane, a single elevator cont
 Schematic of the launch of the invented small launch vehicle, with times after liftoff. Walking the events in order shows where one failure ends the mission.
 :::
 
-The walk finds four single-point failures:
+Stepping through this timeline identifies four single-point failures:
 
 1. **Stage separation (event 2).** If the stages do not separate, the second stage cannot fly.
 2. **Second-stage ignition (event 3).** The second stage has one engine; if it does not start and run, the vehicle cannot reach orbit.
 3. **Fairing separation (event 4).** The fairing, the shell that protects the payload through the atmosphere, must come off. With its mass still attached, the vehicle cannot reach orbit. This happened twice to the same rocket. The Taurus XL fairing failed to separate on the launches of NASA's Orbiting Carbon Observatory in 2009 and Glory in 2011, and both satellites were lost (NASA 2019).
 4. **Payload separation (event 6).** If the payload does not separate, its mission never starts.
 
-For each single-point failure there are four choices: add redundancy (a second unit), add design margin, test it more, or accept it, say why, and show it on the risk matrix. In our example, the project accepts the single second-stage engine, because a second engine would cost too much mass, and it tests that engine more. Risk R1 is part of that choice.
+For each single-point failure, a design team has four options: add redundancy (a second independent unit) to eliminate the single point, add design margin or extra testing to lower its failure likelihood while keeping it as a single-point failure, or accept the risk, document the rationale, and track it on the risk matrix. In our example, the project accepts the single second-stage engine because a second engine would add too much mass, and mitigates it through extra testing. Risk R1 is part of that choice.
 
 (p12-redundancy)=
 ### Redundancy

@@ -6,7 +6,7 @@ short_title: 2.1 Orbit Properties
 :::{include} ../_parts/standards/2.1.md
 :::
 
-Every orbit in this chapter starts from Newton's law of gravitation. From it we build the two-body model, the orbit equation, and the four conic sections. Then come Kepler's laws, the energy and the vis-viva equation, and the two speeds that let us classify any trajectory from one position and one speed. Three worked examples use every equation: an Earth satellite, a Venus orbiter, and a small body crossing Earth's orbit around the Sun.
+Every orbit in this chapter starts from Newton's law of gravitation, which leads to the two-body model, the orbit equation, Kepler's laws, and the vis-viva equation. Together, these relations let us find a spacecraft's speed at any point and classify any trajectory from a single position and speed, as we will apply to an Earth satellite, a Venus orbiter, and a small body crossing Earth's orbit.
 
 :::{note} What to take from this page
 - In the two-body problem every path is a conic section with the central body at a focus. Two numbers fix its size and shape: the semi-major axis $a$ and the eccentricity $e$.
@@ -17,7 +17,7 @@ Every orbit in this chapter starts from Newton's law of gravitation. From it we 
 
 ## Gravity between two bodies
 
-Two masses attract each other along the line between their centers. Newton's law of universal gravitation gives the size of the force:
+Two masses attract each other along the line between their centers. Newton's law of universal gravitation gives the magnitude of the force:
 
 :::{math}
 :label: eq-p21-gravity
@@ -31,7 +31,7 @@ Here $m_1$ and $m_2$ are the two masses, $r$ is the distance between their cente
 :alt: A large sphere of mass m 1 on the left and a small sphere of mass m 2 on the right. An arrow labeled F starts at the large sphere and points right, toward the small one; an equal arrow labeled F starts at the small sphere and points left, toward the large one. A dimension line below gives the distance r between the two centers.
 :width: 60%
 
-Schematic, not to scale. Each body pulls on the other with a force of the same size $F$, along the line between the centers; $r$ is measured from center to center.
+Schematic, not to scale. Each body pulls on the other with a force of the same magnitude $F$, along the line between the centers; $r$ is measured from center to center.
 :::
 
 In orbit work we do not use $G$ and the mass of the central body separately. We use their product, the {term}`gravitational parameter`
@@ -67,27 +67,27 @@ Tables in SI units give $\mu$ in m³/s² (Earth: $3.986 \times {10}^{14}$ m³/s�
 
 ## The two-body problem
 
-Now we want the path this force produces. The motion of many bodies that all attract each other has no general solution in closed form. For three bodies, Heinrich Bruns in 1887 and Henri Poincaré a few years later showed that no solution can be written with algebraic expressions and integrals (O'Connor and Robertson 2006). Two bodies do have an exact solution, and it describes most spacecraft orbits well. The {term}`two-body problem` rests on four assumptions:
+To find the path that gravity produces, we start with a simplified case. When three or more bodies attract one another, the equations of motion have no general closed-form solution, a result proved by Heinrich Bruns in 1887 and extended by Henri Poincaré a few years later (O'Connor and Robertson 2006). Two isolated bodies do have an exact solution, and it gives a reliable baseline for most spacecraft orbits. This {term}`two-body problem` rests on four assumptions:
 
-1. Each body is a point mass, or a sphere whose mass is spread evenly in layers, so that it attracts as if all its mass sat at its center.
+1. Each body is a point mass, or a sphere whose mass is spread evenly in layers, so that it attracts as if all its mass were concentrated at its center.
 2. Only two bodies are present.
 3. Gravity is the only force. There is no drag, no thrust, and no pressure from sunlight.
 4. The spacecraft is so light that the central body does not move in response to it.
 
-Under these assumptions the spacecraft moves in a fixed plane through the center of the central body, on a curve we can write in closed form. Real orbits drift slowly away from it. Air drag lowers low orbits a little on every revolution. The Moon and the Sun pull on high Earth orbits. Earth's equatorial bulge slowly turns the plane of an inclined orbit (Mesarch 2018). We start from the two-body orbit and add these effects when they matter.
+Under these assumptions the spacecraft moves in a fixed plane through the center of the central body, along a curve we can write in closed form. Real orbits slowly depart from this ideal path because atmospheric drag lowers low orbits on every revolution, the Moon and the Sun pull on high Earth orbits, and Earth's equatorial bulge slowly rotates the plane of an inclined orbit (Mesarch 2018). We begin with the two-body orbit and include these perturbations when they matter.
 
 ## The orbit equation
 
-Solving the two-body problem gives the orbit equation:
+Solving the two-body equations of motion in polar coordinates $(r, \theta)$ centered on the attracting body gives the orbit equation:
 
 :::{math}
 :label: eq-p21-orbit
 r = \frac{a\,(1 - e^2)}{1 + e\cos\theta}
 :::
 
-It gives the distance $r$ from the center of the central body as a function of one angle, the {term}`true anomaly` $\theta$. We measure it at the central body, from the point of closest approach, in the direction of motion. Two constants fix the curve. The {term}`semi-major axis` $a$ sets its size, and the {term}`eccentricity` $e$ sets its shape. The numerator, $p = a(1 - e^2)$, is the semi-latus rectum. It is the radius at $\theta = 90°$.
+This relation gives the radial distance $r$ from the center of the central body as a function of one angle, the {term}`true anomaly` $\theta$, measured at the central body from the point of closest approach in the direction of motion. Two constants fix the curve: the {term}`semi-major axis` $a$ sets its size, and the {term}`eccentricity` $e$ sets its shape. The numerator $p = a(1 - e^2)$ is the semi-latus rectum; because $\cos 90° = 0$, the denominator becomes 1 at $\theta = 90°$, leaving $r = p$.
 
-For a closed orbit the curve is an ellipse ({numref}`fig-p21-ellipse-geometry`). The central body sits at one focus; the other focus is empty. The longest diameter of the ellipse is $2a$ and the shortest is $2b$, where $b$ is the semi-minor axis. The center lies a distance $c$ from each focus, and
+For a closed orbit the curve is an ellipse ({numref}`fig-p21-ellipse-geometry`). The central body lies at one focus, and the other focus is empty. The longest diameter of the ellipse is $2a$ and the shortest is $2b$, where $b$ is the semi-minor axis. The center lies a distance $c$ from each focus, and
 
 :::{math}
 :label: eq-p21-ellipse
@@ -136,12 +136,12 @@ Mission data gives altitudes $h$ above the surface. Every equation on this page 
 
 ## Conic sections
 
-The eccentricity decides which of four curves the orbit follows. All four are {term}`conic sections <conic section>`, the shapes a plane cuts from a cone. In an orbit the central body always sits at a focus ({numref}`fig-p21-conic-sections`).
+The eccentricity determines which of four curves the orbit follows. All four are {term}`conic sections <conic section>`, the shapes formed when a plane cuts a cone, and in every orbit the central body lies at a focus ({numref}`fig-p21-conic-sections`).
 
 - **Circle**, $e = 0$: the radius is constant and equal to $a$.
 - **Ellipse**, $0 < e < 1$: a closed orbit between $r_p$ and $r_a$.
 - **Parabola**, $e = 1$: an open path. The spacecraft passes periapsis once and moves away forever, its speed falling toward zero. Its $a$ is infinite.
-- **Hyperbola**, $e > 1$: an open path that keeps some speed far from the body. With the orbit equation as written, its $a$ is negative.
+- **Hyperbola**, $e > 1$: an open path that retains positive speed far from the body. Because $1 - e^2$ is negative when $e > 1$, the semi-major axis $a$ is taken as negative so that $p = a(1 - e^2)$ and the radius $r$ remain positive.
 
 :::{figure} figures/p21-conic-sections.svg
 :label: fig-p21-conic-sections
@@ -185,7 +185,7 @@ In the rest of this chapter we use only the {term}`inclination`. An orbit with $
 
 ## Kepler's laws
 
-The orbit equation gives the shape of the path. Kepler's laws add how fast the satellite moves along it. Johannes Kepler found three laws of planetary motion from the observations of Tycho Brahe. He published the first two in 1609 and the third in 1619 (Field 1999). Newton later derived all three from his law of gravitation. The laws hold for any satellite of any central body.
+While the orbit equation describes the geometry of the path, Kepler's laws connect that geometry to motion in time, including how the satellite's speed varies around the orbit and how long each revolution takes. Johannes Kepler discovered three laws of planetary motion from the observations of Tycho Brahe, publishing the first two in 1609 and the third in 1619 (Field 1999). Newton later derived all three from his law of gravitation, showing that they hold for any satellite around any central body.
 
 **First law.** A satellite moves on an ellipse with the central body at one focus. This is the closed case of the orbit equation.
 
@@ -243,7 +243,7 @@ Dividing by $m$ removes the mass of the spacecraft and leaves the {term}`specifi
 \varepsilon = \frac{v^2}{2} - \frac{\mu}{r}
 :::
 
-As the spacecraft climbs toward apoapsis, $\mu/r$ falls and $v^2/2$ falls by the same amount. The sum stays the same.
+As the spacecraft climbs toward apoapsis, its specific potential energy $-\mu/r$ rises (becomes less negative) and its specific kinetic energy $v^2/2$ falls by the same amount, keeping $\varepsilon$ constant.
 
 The energy also depends on the size of the orbit, and the second law gives us the link. We write [](#eq-p21-energy) at periapsis and at apoapsis and set the two equal:
 
@@ -281,7 +281,7 @@ If we set the two expressions for $\varepsilon$ equal, $v^2/2 - \mu/r = -\mu/(2a
 v^2 = \mu\left(\frac{2}{r} - \frac{1}{a}\right)
 :::
 
-With it you can find the speed at any radius on any conic section. Use $1/a = 0$ for a parabola and the negative $a$ for a hyperbola. We compute every burn on [orbit transfers](orbit-transfers.md) from it. Notice that it gives the size of the velocity only. The velocity is perpendicular to the radius at the apsides and on a circle; elsewhere on an ellipse it is tilted from the local horizontal.
+With it you can find the speed at any radius on any conic section, using $1/a = 0$ for a parabola and the negative $a$ for a hyperbola. We compute every burn on [orbit transfers](orbit-transfers.md) from this equation. Notice that it gives the speed (the magnitude of the velocity), not its direction. The velocity is perpendicular to the radius at the apsides and on a circle; elsewhere on an ellipse it is tilted from the local horizontal.
 
 (p21-circular-and-escape)=
 ## Circular speed and escape speed
@@ -303,7 +303,7 @@ At Earth's surface, $\mu/R = 62.496$ km²/s² and $v_c = 7.905$ km/s. That is th
 Computed: circular speed around the Sun with $\mu_{\text{Sun}}$ from {numref}`tbl-p21-constants`, at the mean distance of each of the eight planets (Standish and Williams). The farther a planet is from the Sun, the slower it moves.
 :::
 
-To leave the central body for good, a spacecraft needs an open path. A larger ellipse is not enough, because every ellipse returns. The limit between the two is the parabola, with $e = 1$ and an infinite $a$. With $1/a = 0$, the vis-viva equation gives the {term}`escape speed`:
+To escape the central body permanently, a spacecraft must enter an open path, since any elliptical orbit eventually returns to periapsis. The boundary between bound and open paths is the parabola, which has $e = 1$ and an infinite semi-major axis $a$. Setting $1/a = 0$ in the vis-viva equation gives the {term}`escape speed`:
 
 :::{math}
 :label: eq-p21-vesc
@@ -345,7 +345,7 @@ Computed for Earth, to scale, from a start at radius 13,000 km with the velocity
 3. Read the type from the sign. A negative energy means a bound ellipse (or a circle); then $a = -\mu/(2\varepsilon)$, and the period follows from [](#eq-p21-period). Zero means a parabola, and a positive energy means a hyperbola: the spacecraft leaves.
 :::
 
-The speed sets the energy and $a$, but not the eccentricity, which also depends on the direction of the velocity. Suppose two spacecraft pass the same point at the same speed, below the escape speed, one moving horizontally and one climbing. Their ellipses have the same size and different shapes.
+The speed determines the specific energy $\varepsilon$ and the semi-major axis $a$, but not the eccentricity $e$, which also depends on the direction of the velocity. Suppose two spacecraft pass the same point at the same speed below escape speed, one moving horizontally and one climbing. Both follow ellipses with the same semi-major axis $a$ and orbital period $T$, but with different eccentricities $e$ and different apsis radii.
 
 ## Worked examples
 

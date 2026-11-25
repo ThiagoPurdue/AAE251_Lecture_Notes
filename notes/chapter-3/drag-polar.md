@@ -6,7 +6,7 @@ short_title: 3.3 Drag Polar
 :::{include} ../_parts/standards/3.3.md
 :::
 
-An aircraft pays for flight in drag: in steady flight the engines must push as hard as the air pushes back. We first sort that drag into two kinds, the drag the aircraft has just by moving and the drag it pays for making lift. Then we put both on one curve, the {term}`drag polar`, which gives the {term}`drag coefficient` for every {term}`lift coefficient`. In steady level flight the polar turns into drag against speed, and that curve has a lowest point.
+In steady level flight, an aircraft's engines must generate enough thrust to balance aerodynamic drag. On this page we separate subsonic drag into two physical parts: the drag caused by moving a vehicle through the air, and the induced drag caused by generating lift. We then combine both into one relation, the {term}`drag polar`, which gives the {term}`drag coefficient` at every {term}`lift coefficient`. Applying the polar to steady level flight produces the curve of total drag versus airspeed, which reaches a clear minimum.
 
 :::{note} What to take from this page
 - Subsonic drag has two parts. {term}`Parasite drag` (skin friction, pressure drag, interference) comes from moving through the air; induced drag comes from making lift.
@@ -20,13 +20,13 @@ An aircraft pays for flight in drag: in steady flight the engines must push as h
 
 Drag is the part of the aerodynamic force that acts along the free stream, against the motion ([page 1.5](../chapter-1/bernoulli-and-pitot-static.md) splits the total force into lift and drag). At subsonic speeds it comes from two sources (FAA 2023, Chapter 5):
 
-1. **Moving through the air.** A body that moves through air has drag even when it makes no lift: a strut, a landing gear leg, or a fuselage. This is {term}`parasite drag`, so called because it does nothing to help the aircraft fly.
-2. **Making lift.** A finite wing that makes lift sheds a vortex from each tip, which tilts the air behind it downward and tilts the lift backward. The backward part is the {term}`induced drag` of [page 3.2](#p32-induced-drag). With no lift there is no induced drag.
+1. **Moving through the air.** Any component moving through the air experiences drag even when it produces no lift, such as a strut, a landing-gear leg, or a fuselage. This is {term}`parasite drag`, defined as the drag not directly associated with lift generation.
+2. **Generating lift.** A finite wing producing lift sheds wingtip vortices that induce downwash and tilt the local lift vector backward. That rearward component is the {term}`induced drag` of [page 3.2](#p32-induced-drag), which vanishes at zero lift.
 
 Parasite drag has three parts, drawn in {numref}`fig-p33-parasite-drag-kinds` (FAA 2023, Chapter 5):
 
-- **{term}`Skin friction drag`.** The air right at a surface does not slip over it: it moves with the surface (the {term}`no-slip condition`). A thin layer of air, the {term}`boundary layer` ([page 3.1](wind-tunnels.md) treats it), shears between the surface and the free stream. The {term}`shear stress` of that layer pulls every square meter of skin downstream. This drag grows with the wetted area, the area of skin the air touches, and with roughness. That is why designers use flush rivets and a smooth finish.
-- **{term}`Pressure drag`**, also called form drag. Behind a blunt body the boundary layer leaves the surface, and the flow breaks into a wide, swirling wake. The pressure in that wake stays low while the pressure on the front of the body is high, and together they push the body back. Streamlining keeps the flow attached nearly to the tail and the wake thin. Shape matters a great deal. NASA Glenn Research Center (n.d.a) gives a drag coefficient of 1.28 for a flat plate across the flow and 0.045 for a streamlined airfoil shape, both based on the frontal area, a factor of almost 30. An airfoil chart bases $c_d$ on the chord, which is several times the thickness, so the same shape has a much smaller section drag coefficient.
+- **{term}`Skin friction drag`.** Air directly in contact with a surface moves with the surface under the {term}`no-slip condition`, forming a thin {term}`boundary layer` ([page 3.1](wind-tunnels.md)) that shears between the surface and the free stream. The resulting {term}`shear stress` pulls every square meter of exposed surface downstream. Skin friction grows with wetted area (the total surface area in contact with the air) and surface roughness, which is why aircraft use flush rivets and smooth finishes.
+- **{term}`Pressure drag`**, also called form drag. Behind a blunt body, the boundary layer separates from the surface and leaves a wide, swirling wake of low pressure. Combined with the high stagnation pressure on the nose, this pressure imbalance pushes the body rearward. Streamlining keeps the flow attached nearly to the trailing edge and narrows the wake, cutting drag sharply: based on frontal area, NASA Glenn Research Center (n.d.a) lists a drag coefficient of 1.28 for a flat plate perpendicular to the flow compared with 0.045 for a streamlined airfoil shape, nearly a factor of 30 lower. Because an airfoil chart references $c_d$ to the chord (several times larger than the thickness), the section drag coefficient of the same airfoil is smaller still.
 - **{term}`Interference drag`.** Where two parts meet, at a wing root or a pylon, the flows around them collide and the drag of the pair is more than the sum of the two alone. A rounded fairing in the corner, called a fillet, reduces it.
 
 :::{figure} figures/p33-parasite-drag-kinds.svg
@@ -82,11 +82,11 @@ We can write the polar in three ways, all with the same information:
 2. **A table** of $C_L$ against $C_D$, as in worked example 1 below.
 3. **A graph** of one against the other, {numref}`fig-p33-polar-anatomy`.
 
-You will usually see the graph drawn with $C_L$ up and $C_D$ across. The curve is a parabola lying on its side, with its nose at $C_D = C_{D,0}$ on the axis $C_L = 0$. The gap between the vertical line $C_D = C_{D,0}$ and the curve is the induced drag coefficient. It is zero at zero lift and grows with the square of the lift coefficient.
+You will usually see the graph plotted with $C_L$ on the vertical axis and $C_D$ on the horizontal axis. The curve is a horizontal parabola with its vertex at $C_D = C_{D,0}$ along $C_L = 0$. The horizontal distance between the vertical line $C_D = C_{D,0}$ and the curve is the induced drag coefficient, which starts at zero at zero lift and grows with $C_L^2$.
 
 :::{figure} figures/p33-polar-anatomy.svg
 :label: fig-p33-polar-anatomy
-:alt: Graph of lift coefficient from minus 0.6 to 1.4 against drag coefficient from 0 to 0.09. A sideways parabola has its nose at C sub D equals 0.017, C sub L equals 0. A gray band from C sub D equals 0 to 0.017 is labeled zero-lift drag; the light gold region between that band and the curve is labeled induced drag, K C sub L squared. Seven open circles on the curve mark the points of worked example 1, from C sub L of 0 to 1.2.
+:alt: Graph of lift coefficient from minus 0.6 to 1.4 against drag coefficient from 0 to 0.09. A sideways parabola has its vertex at C sub D equals 0.017, C sub L equals 0. A gray band from C sub D equals 0 to 0.017 is labeled zero-lift drag; the light gold region between that band and the curve is labeled induced drag, K C sub L squared. Seven open circles on the curve mark the points of worked example 1, from C sub L of 0 to 1.2.
 :width: 90%
 
 Computed for the airliner of worked example 1, $C_{D,0} = 0.017$, $K = 0.038527$ (invented values typical of a twin-jet wide-body airliner). The drag coefficient at any lift coefficient is the zero-lift part, the same at every $C_L$, plus the induced part, which grows with $C_L^2$. The circles are the rows of {numref}`tbl-p33-example-polar`.
@@ -94,7 +94,7 @@ Computed for the airliner of worked example 1, $C_{D,0} = 0.017$, $K = 0.038527$
 
 ### Worked example 1: the drag polar of an airliner
 
-An invented twin-jet wide-body airliner weighs $W = 1{,}500{,}000$ N in cruise. Its wing has an area $S = 300$ m² and a span $b = 54.0$ m. Its span efficiency factor is $e = 0.85$, and its zero-lift drag coefficient is $C_{D,0} = 0.017$. Build its drag polar.
+Consider a twin-jet wide-body airliner weighing $W = 1{,}500{,}000$ N in cruise, with a wing area $S = 300$ m², a span $b = 54.0$ m, a span efficiency factor $e = 0.85$, and a zero-lift drag coefficient $C_{D,0} = 0.017$. Build its drag polar.
 
 1. **Aspect ratio.**
    $$
@@ -170,7 +170,7 @@ Redrawn from published data, NACA Report 824, page 195: the NACA 64<span class="
 
 :::
 
-The polar of this section is not a parabola. Its drag stays low over a band of lift coefficients and rises sharply outside it. This airfoil family was designed for a range of low drag around a design lift coefficient ([page 3.2](#p32-airfoil-data) explains the name). A whole aircraft, with its fuselage and tails, has a smoother polar, which the parabola of [](#eq-p33-polar) fits well enough for design.
+Notice that this airfoil's polar departs from a simple parabola: its drag stays nearly flat inside a low-drag bucket and climbs steeply outside that band, because this 6-series family was shaped for laminar flow around a design lift coefficient ([page 3.2](#p32-airfoil-data)). Adding the fuselage, tails, and other components smooths out the bucket, so the parabolic model of [](#eq-p33-polar) fits a complete aircraft well for preliminary design.
 
 ### Symmetric and cambered sections
 
@@ -187,7 +187,7 @@ The polar of a symmetric section is symmetric about $c_l = 0$: the section has i
 Redrawn from published data, NACA Report 824, pages 192 and 195, at a Reynolds number of 9 million, with $c_l$ up as in the other polars of this page. Camber moves the low-drag range of the polar from zero lift to positive lift; the least drag is about the same. The bars mark where $c_d$ stays within 10% of its minimum.
 :::
 
-An aircraft with a cambered wing behaves the same way, with its least drag at a small positive lift coefficient. The parabolic polar [](#eq-p33-polar) ignores that shift and puts the least drag at $C_L = 0$. We use it from here on.
+A complete aircraft with a cambered wing behaves the same way, reaching minimum drag at a small positive lift coefficient. For simplicity, the parabolic polar [](#eq-p33-polar) neglects that small shift and places minimum drag at $C_L = 0$, which is accurate enough for the analysis that follows.
 
 ### One polar for each configuration
 
@@ -210,10 +210,10 @@ A polar belongs to one aircraft in one configuration, at one [Reynolds number](#
 :alt: Graph of lift coefficient from 0 to 2.0 against drag coefficient from 0 to 0.25 with three polars: clean, solid black, starting at 0.017; takeoff, dashed blue, starting at 0.042; landing, dotted vermilion, starting at 0.062. Each flapped polar lies to the right of the one before it and bends over more. A filled square on the takeoff polar marks C sub L equals 1.3, where L over D is 10.74; a filled diamond on the landing polar marks C sub L equals 1.7, where L over D is 8.621.
 :width: 85%
 
-Computed from {numref}`tbl-p33-configurations`. Flaps and landing gear move the polar to the right and make it flatter, so every lift coefficient costs more drag. The flap increments hold near $C_L = 1.3$ for takeoff and 1.7 for landing (Scholz n.d., Section 5.4); the two marked points give $L/D$ there, 10.74 and 8.621.
+Computed from {numref}`tbl-p33-configurations`. Flaps and landing gear shift the polar to the right and flatten it, so every lift coefficient produces more drag. The flap increments hold near $C_L = 1.3$ for takeoff and 1.7 for landing (Scholz n.d., Section 5.4); the two marked points give $L/D$ there, 10.74 and 8.621.
 :::
 
-The poorer polar is not always a loss. On the approach to landing, the aircraft must fly slowly and descend steeply, and the extra drag helps it do both.
+Higher drag is often useful during landing. On final approach, the extra drag from flaps and landing gear lets the pilot fly slowly along a steeper descent path without picking up excess airspeed.
 
 (p33-drag-speed)=
 ## Drag against speed in steady level flight
@@ -253,7 +253,7 @@ Their sum is a U-shaped curve with a minimum ({numref}`fig-p33-drag-speed`). Nea
 Computed for the airliner of worked example 2 at 7,500 m. Drag is least, and $L/D$ is largest, at one speed: where the falling induced drag meets the rising parasite drag. The two squares are the speeds of worked example 2, one on each side of the minimum, with drags within a few percent of each other. The curves stop where the polar stops holding (shaded). Below 109.5 m/s, level flight needs more than the clean $C_{L,\max}$, taken as 1.5. Above Mach 0.75 (232.6 m/s), also an invented limit, wave drag adds to the drag.
 :::
 
-**Where the angle of attack hides.** The drag curve has no angle of attack on it, yet every point of it has one. Equation [](#eq-p33-level-CL) gives each speed its own lift coefficient: a fast aircraft needs only a small $C_L$, and so a small angle of attack; a slow one needs a large $C_L$ and a large angle. Flying faster in level flight means lowering the nose. Each speed of {numref}`fig-p33-drag-speed` is one point of the polar of {numref}`fig-p33-polar-anatomy`, and each point of the polar is one angle of attack ([page 3.2](#p32-lift-curve) links $C_L$ to $\alpha$).
+**How angle of attack relates to speed.** Even though angle of attack does not appear on the horizontal axis of {numref}`fig-p33-drag-speed`, every steady level airspeed corresponds to a specific angle of attack. Equation [](#eq-p33-level-CL) sets $C_L = W/(qS)$ at each speed: flying faster requires a smaller $C_L$ and a lower angle of attack, while flying slower requires a larger $C_L$ and a higher angle of attack. Each speed on {numref}`fig-p33-drag-speed` maps to one point on the drag polar ({numref}`fig-p33-polar-anatomy`), which in turn corresponds to one angle of attack via the lift curve ([page 3.2](#p32-lift-curve)).
 
 :::{warning} Weight in newtons, density of the air
 $W$ in [](#eq-p33-drag-speed) is a force: the mass times $g_0$, in newtons, or pounds-force in English units (with $\rho$ in slug/ft³). An airliner of 152,905 kg weighs 1,500,000 N. If you put the mass in kilograms in place of $W$, the induced drag comes out ${9.81}^{2} = 96.24$ times too small. The density is that of the air at the flight altitude, from the standard atmosphere ([page 1.4](../chapter-1/standard-atmosphere.md)).
@@ -268,7 +268,7 @@ $$
 D = \frac{D}{L}\,L = \frac{C_D}{C_L}\,W
 $$
 
-The weight is fixed, so the drag is least where $C_D/C_L$ is least, that is, where $L/D$ is largest. Minimum drag and the maximum lift-to-drag ratio are one flight condition.
+Because weight is fixed, drag is minimized where $C_D/C_L$ is smallest, which is the same condition where $L/D$ reaches its maximum. In steady level flight, minimum drag and maximum lift-to-drag ratio occur at the same airspeed.
 
 ### The lift coefficient for minimum drag
 
@@ -313,7 +313,7 @@ The weight is fixed, so the drag is least where $C_D/C_L$ is least, that is, whe
    \end{aligned}
    :::
 
-Notice that the drag coefficient at minimum drag is twice the zero-lift drag coefficient. $C_{D,0}$ is the drag at zero lift, and no aircraft can fly there in level flight, because it would carry no weight. Carrying the weight costs induced drag, and at the best lift coefficient that induced drag equals the parasite drag.
+Notice that the drag coefficient at minimum drag is twice $C_{D,0}$. An aircraft cannot hold level flight at $C_L = 0$ because it would generate no lift to support its weight. Supporting the weight produces induced drag, and at the optimal lift coefficient $C_L^*$, that induced drag equals the parasite drag.
 
 {numref}`fig-p33-polar-tangent` shows the same result on the polar. The ratio $C_L/C_D$ at any point of the polar is the slope of the straight line from the origin to that point. The steepest such line just touches the polar: it is the tangent from the origin, and it touches at $C_L^*$.
 
@@ -360,7 +360,7 @@ The smallest drag coefficient on the polar, $C_{D,0}$ at $C_L = 0$, describes an
 
 ### Why designers care
 
-In level flight the thrust equals the drag, so the minimum drag is the least thrust that keeps the aircraft in the air. A jet engine burns fuel roughly in proportion to its thrust, so flying near $(L/D)_{\max}$ makes the fuel last longest. This is why a jet loiters near its maximum $L/D$ ([page 1.6](../chapter-1/aircraft-sizing.md)), and the [Breguet range equation](#eq-p16-range) shows that range also grows with $L/D$. The polar tells a designer how to raise $(L/D)_{\max}$: lower $C_{D,0}$ (a cleaner, smoother aircraft) or lower $K$ (a wing of higher aspect ratio, or a higher $e$). Chapter 5 of these notes uses the drag curve to find the thrust and power required, the best speeds for range and endurance, and the climb performance.
+In steady level flight thrust equals drag, so minimum drag corresponds to the least thrust needed to stay aloft. Because a jet engine burns fuel roughly in proportion to thrust, flying near $(L/D)_{\max}$ minimizes fuel burn per unit time (maximum endurance). That is why a jet loiters near its maximum $L/D$ ([page 1.6](../chapter-1/aircraft-sizing.md)), and the [Breguet range equation](#eq-p16-range) shows that range also improves with higher $L/D$. Equation [](#eq-p33-LDmax) shows two ways we can increase $(L/D)_{\max}$: reduce $C_{D,0}$ through a cleaner, smoother airframe, or reduce $K$ by using a higher aspect ratio or higher span efficiency $e$. In Chapter 5 we will use the drag curve to calculate thrust and power required, best range and endurance speeds, and climb performance.
 
 ### Worked example 2: minimum drag of the airliner
 
@@ -463,9 +463,9 @@ The airliner of worked example 1 ($W = 1{,}500{,}000$ N, $S = 300$ m², $C_{D,0}
 
 ### Worked example 3: the polar from measurements
 
-Worked examples 1 and 2 go from $C_{D,0}$ and $K$ to the drag. A flight test goes the other way. It measures the thrust needed for steady level flight, which equals the drag, and from those drags we find $C_{D,0}$ and $K$. Each drag measured in level flight at a known speed gives one point $(C_L, C_D)$ of the polar, and two points fix its two constants.
+In worked examples 1 and 2 we started from $C_{D,0}$ and $K$ and computed drag. In flight testing we work in reverse: we measure the thrust needed for steady level flight (which equals drag) at known speeds, and from those drag measurements we solve for $C_{D,0}$ and $K$. Each level-flight measurement gives one point $(C_L, C_D)$ on the polar, so two measurements determine the two constants.
 
-**(a) Two measured drags.** An invented single-aisle airliner weighs $W = 650{,}000$ N and has a wing area $S = 122$ m². In level flight at 4,500 m ($\rho = 0.7766$ kg/m³, [page 1.4](../chapter-1/standard-atmosphere.md)) its measured drag is 41,600 N at 115 m/s and 40,400 N at 175 m/s. Find $C_{D,0}$ and $K$.
+**(a) Two drag measurements.** Consider a single-aisle airliner weighing $W = 650{,}000$ N with a wing area $S = 122$ m². In steady level flight at 4,500 m ($\rho = 0.7766$ kg/m³, [page 1.4](../chapter-1/standard-atmosphere.md)), its measured drag is 41,600 N at 115 m/s and 40,400 N at 175 m/s. Find $C_{D,0}$ and $K$.
 
 1. **One point of the polar for each speed**: $q = \tfrac12\rho V^2$, then $C_L = W/(qS)$ from [](#eq-p33-level-CL) and $C_D = D/(qS)$ ({numref}`tbl-p33-flight-test`).
 
@@ -510,7 +510,7 @@ Worked examples 1 and 2 go from $C_{D,0}$ and $K$ to the drag. A flight test goe
 K = \frac{1}{4\,C_{D,0}\,(L/D)_{\max}^2}
 :::
 
-An invented fighter, clean and well below the speed of sound, has $C_{D,0} = 0.020$ and $(L/D)_{\max} = 11.0$:
+Consider a fighter aircraft in clean configuration well below the speed of sound, with $C_{D,0} = 0.020$ and $(L/D)_{\max} = 11.0$:
 
 $$
 \begin{aligned}
@@ -525,7 +525,7 @@ $$
 ## Summary
 
 :::{important} Summary
-- Subsonic drag is parasite drag (skin friction, pressure drag, and interference, present with or without lift) plus induced drag (the price of lift). Wave drag adds to them near the speed of sound.
+- Subsonic drag consists of parasite drag (skin friction, pressure drag, and interference drag, present even at zero lift) plus induced drag (the drag caused by generating lift). Wave drag adds to both as flight speed nears Mach 1.
 - The drag polar $C_D = C_{D,0} + K C_L^2$, $K = 1/(\pi e\,\textit{AR})$, can be written as an equation, a table, or a graph. Each point is one angle of attack, and each configuration has its own polar. Two measured drags give two points of the polar and fix $C_{D,0}$ and $K$.
 - In steady level flight $L = W$ gives $C_L = W/(qS)$ and $D = qSC_{D,0} + KW^2/(qS)$: parasite drag grows with $V^2$, induced drag falls with $1/V^2$.
 - Minimum drag and $(L/D)_{\max}$ come at $C_L^* = \sqrt{C_{D,0}/K}$, where the two parts are equal and $C_D = 2C_{D,0}$; then $(L/D)_{\max} = 1/(2\sqrt{KC_{D,0}})$, $V = \sqrt{2W/(\rho S C_L^*)}$, and $D_{\min} = W/(L/D)_{\max}$.

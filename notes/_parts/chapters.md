@@ -32,7 +32,8 @@
 
 **Chapter 5: Aircraft Performance and Propulsion**
 
-- 5.1 Thrust and Power
-- 5.2 Range and Endurance
-- 5.3 Climb and Ceiling
-- 5.4 Engines
+- [5.1 Thrust and Power](chapter-5/thrust-and-power.md)
+- [5.2 Range and Endurance](chapter-5/range-and-endurance.md)
+- [5.3 Climb and Ceiling](chapter-5/climb-and-ceiling.md)
+- [5.4 Engines](chapter-5/engines.md)
+- [Constraint diagram and field length](chapter-5/constraint-diagram-and-field-length.md)

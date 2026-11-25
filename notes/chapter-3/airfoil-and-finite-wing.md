@@ -12,13 +12,13 @@ We design a wing in two steps. First we test its cross-section, the {term}`airfo
 - The angle of attack $\alpha$ is measured from the free stream to the chord line. Lift is perpendicular to the free stream and drag is parallel to it.
 - Forces and moment are written as $L = qSC_L$, $D = qSC_D$, $M = qScC_M$. Lowercase coefficients ($c_l$, $c_d$, $c_m$) belong to the airfoil, an infinite wing; uppercase ones to the finite wing or the whole aircraft.
 - To read an airfoil chart, compute the Reynolds number first and pick the closest curve. Read $c_l$ and $c_{m,c/4}$ at the angle of attack, then $c_d$ at that $c_l$.
-- Tip vortices push the air down behind the wing. The wing then works at a smaller effective angle, its lift curve is less steep, $a = a_0/(1 + 57.3\,a_0/(\pi e\,\textit{AR}))$, and it pays an induced drag $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$.
+- Tip vortices push the air down behind the wing. As a result, the wing operates at a smaller effective angle of attack, its lift curve is less steep ($a = a_0/(1 + 57.3\,a_0/(\pi e\,\textit{AR}))$), and it generates induced drag $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$.
 :::
 
 (p32-angle-of-attack)=
 ## Free stream, angle of attack, lift, and drag
 
-Put your hand flat out of the window of a moving car and tilt the front edge up. The hand is pushed up and back, and more tilt pushes harder. What matters is the tilt relative to the air rushing at the hand. That is the angle of attack.
+If you hold your hand flat out the window of a moving car and tilt the front edge upward, the airflow pushes your hand upward and backward, and tilting it further increases that force. What sets the force is the tilt of your hand relative to the oncoming airstream, which is the same idea as an airfoil's angle of attack.
 
 :::{prf:definition} Free stream, chord line, and angle of attack
 :label: def-p32-angle-of-attack
@@ -63,7 +63,7 @@ On every sketch, draw $V_\infty$ first, then the chord line, then lift perpendic
 (p32-coefficients)=
 ## Lift, drag, and moment coefficients
 
-A tunnel model is smaller than the aircraft and is often tested at another speed, so we need numbers that carry over from one to the other. Lift grows with the wing area $S$, the speed, the air density, and, up to a point, the angle of attack. It also depends on the shape of the airfoil and of the planform, on the viscosity of the air, and on its compressibility. Viscosity enters through the {term}`Reynolds number` ([page 3.1](#p31-reynolds-number)), here based on the chord, $\textit{Re} = \rho V c/\mu$. Compressibility enters through the {term}`Mach number`. Here is the idea of a coefficient: the area, the speed, and the density combine into the {term}`dynamic pressure` times the area, and everything else goes into one dimensionless number. Measured once in a wind tunnel, that coefficient holds for the same shape at any size and speed with the same angle of attack, Reynolds number, and Mach number.
+A wind-tunnel model is smaller than the aircraft and is often tested at a different speed, so we need dimensionless quantities that carry over from model to full scale. Lift grows with the wing area $S$, airspeed, air density, and, up to stall, angle of attack; it also depends on the airfoil and wing shape, viscosity, and compressibility. Viscosity enters through the chord-based {term}`Reynolds number` ([page 3.1](#p31-reynolds-number)), $\textit{Re} = \rho V c/\mu$, and compressibility enters through the {term}`Mach number`. Dividing each force by $qS$ (the {term}`dynamic pressure` times the wing area) removes the direct scaling with size, speed, and air density, isolating the effects of geometry, $\alpha$, $\textit{Re}$, and $M$ inside one dimensionless coefficient. Once measured in a wind tunnel, that coefficient applies to any geometrically similar wing at the same angle of attack, Reynolds number, and Mach number.
 
 ::::{prf:definition} Force and moment coefficients
 :label: def-p32-coefficients
@@ -101,7 +101,7 @@ In English units, "lb" for lift and drag means pound-force (lbf), and mass is in
 
 ### Worked example 1: the lift coefficient of a fighter
 
-An invented fighter with a wing area $S = 280$ ft² flies at 240 knots at sea level ($\rho = 0.002377$ slug/ft³), and its wing makes $L = 22{,}000$ lb of lift. Find the lift coefficient.
+Consider a fighter aircraft with a wing area $S = 280$ ft² flying at 240 knots at sea level ($\rho = 0.002377$ slug/ft³) while its wing generates $L = 22{,}000$ lb of lift. Find the lift coefficient.
 
 1. **Speed in ft/s.** One knot is 1.6878 ft/s:
    $$
@@ -133,7 +133,7 @@ An invented fighter with a wing area $S = 280$ ft² flies at 240 knots at sea le
 (p32-moment)=
 ## The pitching moment and the aerodynamic center
 
-Worked example 1 needed only the lift. To know where that lift acts on the chord, we also need the moment of the surface forces. The pressure and shear forces on an airfoil add up to one force, and they also tend to rotate the airfoil. The **{term}`pitching moment`** $M$ is the moment of all the surface forces about a chosen point on the chord, per unit span for an airfoil. We take a moment that raises the leading edge (nose up) as positive. Its size depends on the point we choose.
+Worked example 1 needed only the lift. To know where that lift acts on the chord, we also need the moment of the surface forces. The pressure and shear forces on an airfoil add up to one force, and they also tend to rotate the airfoil. The **{term}`pitching moment`** $M$ is the moment of all the surface forces about a chosen point on the chord, per unit span for an airfoil. We take a moment that raises the leading edge (nose up) as positive. Its magnitude depends on the reference point we choose.
 
 :::{prf:definition} Center of pressure and aerodynamic center
 :label: def-p32-centers
@@ -156,7 +156,7 @@ Dividing by $q c^2$ turns the moment and the lift into the section coefficients,
 \frac{x_\text{cp}}{c} = \frac{1}{4} - \frac{c_{m,c/4}}{c_l}
 :::
 
-For a cambered airfoil the moment coefficient hardly changes with the angle of attack, while $c_l$ does. So $x_\text{cp}$ runs aft as the lift falls, and it goes to infinity as $c_l$ goes to zero. {numref}`tbl-p32-cp` evaluates [](#eq-p32-cp) for the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-618 at a Reynolds number of 6 million, with data from the chart of the next section. Here we take the lift for the normal force, which holds at small angles. Over a 9° change of angle of attack, the center of pressure travels from 0.55$c$ to 0.35$c$.
+For a cambered airfoil, $c_{m,c/4}$ stays nearly constant as angle of attack changes, while $c_l$ varies widely. Equation [](#eq-p32-cp) shows that $x_\text{cp}$ moves aft as lift decreases, and approaches infinity as $c_l$ approaches zero. Physically, at zero lift a cambered airfoil still produces a nonzero pitching couple, and a pure couple with zero net force cannot be represented by a single force acting at any finite point on the chord. {numref}`tbl-p32-cp` evaluates [](#eq-p32-cp) for the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-618 at a Reynolds number of 6 million, using data from the chart in the next section (approximating the normal force by the lift, which is accurate at small angles). Over a 9° change in angle of attack, the center of pressure shifts from 0.55$c$ to 0.35$c$.
 
 :::{table} Center of pressure of the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-618 from its section lift and moment coefficients, read from its chart at a Reynolds number of 6 million.
 :label: tbl-p32-cp
@@ -170,7 +170,7 @@ For a cambered airfoil the moment coefficient hardly changes with the angle of a
 
 :::
 
-With the aerodynamic center we avoid a moving point: we put the lift there and add one moment $M_\text{ac}$ that is the same at every angle of attack ({numref}`fig-p32-moment-and-ac`). For this section at a Reynolds number of 6 million, NACA Report 824 gives the aerodynamic center at 0.275$c$, and its chart shows $c_{m,\text{ac}} \approx -0.092$ (Abbott, von Doenhoff, and Stivers 1945, page 195). Where this point sits relative to the center of gravity matters later, for stability.
+Using the aerodynamic center avoids a moving reference point. We place the lift at the aerodynamic center and add one constant pitching moment $M_\text{ac}$ that does not vary with angle of attack ({numref}`fig-p32-moment-and-ac`). For this section at a Reynolds number of 6 million, NACA Report 824 locates the aerodynamic center at 0.275$c$, and its chart gives $c_{m,\text{ac}} \approx -0.092$ (Abbott, von Doenhoff, and Stivers 1945, page 195). The position of this point relative to the center of gravity will become important later when we study longitudinal stability.
 
 :::{figure} figures/p32-moment-and-ac.svg
 :label: fig-p32-moment-and-ac
@@ -180,7 +180,7 @@ With the aerodynamic center we avoid a moving point: we put the lift there and a
 Computed from the NACA Report 824 data of the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-618 at a Reynolds number of 6 million, arrows in proportion to $c_l$, section drawn level. The center of pressure moves with $\alpha$ (left); the aerodynamic center stays fixed and carries one constant moment $M_\text{ac}$ (right).
 :::
 
-Camber sets the sign of that moment. A cambered airfoil carries more of its lift on the rear part of the chord than a flat one does, which pitches it nose down: $c_{m,\text{ac}}$ is negative. A symmetric airfoil makes no moment at zero lift, by symmetry. Its $c_{m,\text{ac}}$ does not change with $\alpha$, so it is zero at every angle below stall, and the center of pressure stays at the aerodynamic center. On the chart of the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-018 in NACA Report 824, page 192, $c_{m,\text{ac}}$ stays within about 0.01 of zero.
+Camber determines the sign of $c_{m,\text{ac}}$. A positively cambered airfoil carries more lift toward the rear of the chord than a flat plate does, which creates a nose-down pitching moment, so $c_{m,\text{ac}}$ is negative. By symmetry, a symmetric airfoil produces no pitching moment at zero lift. Because $c_{m,\text{ac}}$ does not change with $\alpha$, it remains zero at every angle of attack below stall, and the center of pressure coincides with the aerodynamic center. On the chart of the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-018 in NACA Report 824, page 192, $c_{m,\text{ac}}$ stays within about 0.01 of zero.
 
 (p32-airfoil-data)=
 ## Reading airfoil data
@@ -209,12 +209,12 @@ First compute the Reynolds number based on the chord, $\textit{Re} = \rho V c/\m
 The chart gives five section characteristics, all used later on this page.
 
 - **{term}`Lift-curve slope <lift-curve slope>` $a_0$.** Between about −6° and 5° the lift curve is a straight line, $c_l = a_0(\alpha - \alpha_{L=0})$. Its slope, measured between −2° and 4°, is $a_0 = 0.115$ per degree, the same at the three Reynolds numbers.
-- **{term}`Zero-lift angle of attack <zero-lift angle of attack>` $\alpha_{L=0}$.** The cambered section still makes lift at $\alpha = 0$. Its lift is zero at $\alpha_{L=0} \approx -3.7$°, read from the chart.
+- **{term}`Zero-lift angle of attack <zero-lift angle of attack>` $\alpha_{L=0}$.** The cambered section still produces lift at $\alpha = 0$. Its lift is zero at $\alpha_{L=0} \approx -3.7$°, read from the chart.
 - **Stall and maximum lift.** Above about 6° the curve bends over as the flow starts to separate from the upper surface. The section then reaches its {term}`maximum lift coefficient`, $c_{l,\max}$ = 1.37, 1.51, and 1.61 at 3, 6, and 9 million. A higher Reynolds number delays separation.
 - **Drag bucket.** Inside the low-drag range the drag curve forms a bucket, because there the {term}`boundary layer` stays laminar over much of the chord ([page 3.1](#fig-p31-boundary-layer)). Its floor falls from 0.0058 at 3 million to 0.0051 at 6 million and 0.0047 at 9 million. Outside it the drag climbs quickly. Roughness such as insects, rain, or rivet heads trips the boundary layer turbulent: on the report's curve for a model with standard roughness the bucket is gone and the drag is about twice as high.
 - **Moment.** $c_{m,\text{ac}}$ is nearly flat, about −0.092 at 6 million, up to stall.
 
-{numref}`fig-p32-symmetric-cambered` compares the cambered section with its symmetric twin. The two lift curves have nearly the same slope, 0.115 and 0.110 per degree between −2° and 4°. The cambered curve is shifted to the left: its lift is zero at −3.7° instead of 0°, and at $\alpha$ = 0 it already makes $c_l \approx 0.44$.
+{numref}`fig-p32-symmetric-cambered` compares the cambered section with its symmetric twin. The two lift curves have nearly the same slope, 0.115 and 0.110 per degree between −2° and 4°. The cambered curve is shifted to the left: its lift is zero at −3.7° instead of 0°, and at $\alpha$ = 0 it already produces $c_l \approx 0.44$.
 
 :::{figure} figures/p32-symmetric-cambered.svg
 :label: fig-p32-symmetric-cambered
@@ -266,12 +266,12 @@ A model wing of constant chord $c = 1.2$ m with the NACA 64<span class="sr-only"
    \end{aligned}
    $$
 
-**Check.** The section lift-to-drag ratio is $c_l/c_d = 0.66/0.0053 = 124.5$, typical of a smooth airfoil in its drag bucket. A whole wing never does this well, as the next sections show.
+**Check.** The section lift-to-drag ratio is $c_l/c_d = 0.66/0.0053 = 124.5$, typical of a smooth airfoil operating inside its drag bucket. A complete finite wing cannot reach this value because of three-dimensional tip effects, as we will see next.
 
 (p32-finite-wing)=
 ## Why a finite wing is different
 
-So far the wing had no ends. A real wing does. On a lifting wing the pressure below is higher than the pressure above, so at each tip the air flows around the edge from the lower surface to the upper one (FAA 2023, Chapter 5). This flow rolls up behind the wing into two **{term}`wingtip vortices <wingtip vortex>`** that trail downstream. Between the tips the two vortices push the air down. We call this downward flow, at the wing and behind it, the **{term}`downwash`** $w$. Outside the tips they push the air up, the upwash ({numref}`fig-p32-tip-vortices`).
+So far we have treated the wing as infinite in span, with no wingtips. On a real finite wing producing lift, the higher pressure on the lower surface drives air around each wingtip toward the lower-pressure upper surface (FAA 2023, Chapter 5). That curling flow rolls up behind the wing into two trailing **{term}`wingtip vortices <wingtip vortex>`**. Between the tips, these vortices induce a downward velocity component at and behind the wing, called the **{term}`downwash`** $w$. Outboard of the tips, they induce an upward velocity called upwash ({numref}`fig-p32-tip-vortices`).
 
 :::{figure} figures/p32-tip-vortices.svg
 :label: fig-p32-tip-vortices
@@ -293,14 +293,14 @@ Photograph. Colored smoke rising from the ground rolls up behind the wing tip in
 
 A smaller airplane that flies into these vortices can be rolled harder than its ailerons can counter (FAA 2014, Sections 3 and 6). This is why air traffic controllers keep wake turbulence separations between airplanes (FAA 2014, Section 8).
 
-Each section of the wing now meets the free stream plus the downward velocity $w$, a flow tilted down by a small angle. We build the vectors of {numref}`fig-p32-downwash-vectors` in the steps below; the numbers on the figure are the step numbers.
+Each section of the wing now experiences the free stream combined with the downward velocity $w$, tilting the incoming flow downward by a small angle. We build the vectors of {numref}`fig-p32-downwash-vectors` in the steps below; the numbers on the figure are the step numbers.
 
 :::{tip} The downwash construction, step by step
 1. Draw the airfoil at angle of attack $\alpha$ to the free stream $V_\infty$. This $\alpha$, the angle the pilot sets, is the **geometric angle of attack**.
 2. Add the downwash $w$, a small velocity pointing down.
-3. Add the two vectors: $V_\infty + w$ is the **local relative wind**, the flow the airfoil actually meets, tilted down from $V_\infty$.
+3. Add the two vectors: $V_\infty + w$ is the **local relative wind**, the flow the airfoil section experiences, tilted downward from $V_\infty$.
 4. Mark the angles. The angle between the free stream and the local relative wind is the **{term}`induced angle of attack`** $\alpha_i$. The angle between the local relative wind and the chord line is the **{term}`effective angle of attack`** $\alpha_\text{eff}$, the angle the section works at. From the figure, $\alpha = \alpha_\text{eff} + \alpha_i$.
-5. Draw the lift the section makes: perpendicular to the local relative wind, so tilted back by $\alpha_i$.
+5. Draw the local section lift perpendicular to the local relative wind, which tilts it backward by $\alpha_i$.
 6. Split that local lift into a part perpendicular to $V_\infty$, the lift $L$ of the wing, and a part parallel to $V_\infty$ pointing back, the **{term}`induced drag`** $D_i$. The angle between the local lift and $L$ is again $\alpha_i$.
 :::
 
@@ -315,7 +315,7 @@ Schematic drawn for worked example 3 ($C_L$ = 0.55, $\textit{AR}$ = 8, $e$ = 0.9
 (p32-induced-drag)=
 ## Induced drag
 
-The size of the induced angle comes from vortex theory, a later course, so we take the result. For a wing whose lift per unit span varies along the span as an ellipse, the downwash is the same all along the span, and the induced angle, in radians, is (Anderson 2016, Chapter 5)
+Computing the exact magnitude of the induced angle requires lifting-line vortex theory, which you will derive in a later aerodynamics course; here we use the standard result. For a wing whose spanwise lift distribution is elliptical, the downwash is uniform along the span, and the induced angle of attack in radians is (Anderson 2016, Chapter 5)
 
 $$
 \alpha_i = \frac{C_L}{\pi\,\textit{AR}}
@@ -356,7 +356,7 @@ C_D = c_d + \frac{C_L^2}{\pi e\,\textit{AR}}
 
 Here $c_d$, the section drag read from the chart, is the drag of skin friction and pressure that the wing has even without tips. Read it at $c_l = C_L$: every section works at $\alpha_\text{eff}$, and there its lift coefficient equals the wing's. [Page 3.3](#p33-drag-kinds) adds the fuselage, tail, and other parts to it to build the drag of a whole aircraft.
 
-Equation [](#eq-p32-cdi) shows two ways to lower the induced drag at a given lift coefficient. The first is a larger aspect ratio, which spreads the same lift over a longer span (NASA Glenn Research Center n.d.a). This is why sailplanes, which must lose as little energy as possible, have long slender wings. The price is a heavier, more flexible wing for the same load (FAA 2023, Chapter 5). The second is a lift distribution closer to the ellipse, which raises $e$. A {term}`winglet` on an airliner's tip also lowers the induced drag in cruise (FAA 2014, Section 14).
+Equation [](#eq-p32-cdi) shows two ways to lower induced drag at a given lift coefficient. The first is to increase the aspect ratio, which spreads the same lift over a longer span (NASA Glenn Research Center n.d.a). This is why sailplanes, which must lose as little energy as possible, have long, slender wings. The structural trade-off is a heavier, more flexible wing for the same load (FAA 2023, Chapter 5). The second is to shape the spanwise lift distribution closer to an ellipse, which raises $e$. Adding a {term}`winglet` at an airliner's wingtip also weakens the tip vortex and lowers induced drag in cruise (FAA 2014, Section 14).
 
 :::{warning} Degrees or radians
 $\alpha_i = C_L/(\pi e\,\textit{AR})$ is in radians; $\alpha_i = 57.3\,C_L/(\pi e\,\textit{AR})$ is in degrees. $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$ has no 57.3, because it came from $C_L\,\alpha_i$ with $\alpha_i$ in radians. If you put the 57.3 in the wrong equation, the answer is 57.3 times too large or too small. In the slope equation [](#eq-p32-a), $a_0$ and $a$ are per degree. With slopes per radian the same equation has no 57.3: $a = a_0/(1 + a_0/(\pi e\,\textit{AR}))$.
@@ -367,7 +367,7 @@ $\alpha_i = C_L/(\pi e\,\textit{AR})$ is in radians; $\alpha_i = 57.3\,C_L/(\pi 
 
 The airfoil chart gives $c_l$ against the angle the section works at, but on a finite wing we set the geometric $\alpha$. We need the wing's own lift curve, $C_L$ against $\alpha$, and two facts fix it.
 
-1. **Each geometric angle gives a smaller effective angle**, $\alpha_\text{eff} = \alpha - \alpha_i$, so at every $\alpha$ the wing makes less lift than its airfoil: its lift curve is less steep.
+1. **Each geometric angle produces a smaller effective angle**, $\alpha_\text{eff} = \alpha - \alpha_i$, so at any given $\alpha$ the finite wing generates less lift than its two-dimensional airfoil, giving a flatter lift-curve slope.
 2. **The zero-lift angle is the same.** At zero lift there is no downwash and $\alpha_i = 0$, so the wing's lift is zero at the airfoil's $\alpha_{L=0}$. The wing's line is the airfoil's line turned about the zero-lift point, with no shift to the right.
 
 Now we derive the slope. The wing works like its airfoil at the effective angle, so on the straight part of the curve
@@ -425,11 +425,11 @@ The chart's $c_l$ at the geometric angle is not the wing's $C_L$, and its $c_d$ 
 
 ## From airfoil data to a finite wing
 
-In worked example 3 we go through the whole page in the order a designer works. Then we stretch the wing.
+In worked example 3 we apply the full procedure from airfoil data to finite-wing performance, and then examine how increasing the aspect ratio changes the lift-to-drag ratio.
 
 ### Worked example 3: the wing of a seaplane
 
-An invented twin-engine seaplane that flies short hops between islands cruises at 48 m/s at 1,500 m. The wing has a mean chord of 2.3 m, an aspect ratio of 8, a span efficiency factor $e$ = 0.90, and the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-618 section. In cruise it needs $C_L$ = 0.55. Find the wing's lift-curve slope, the angle of attack, the induced and effective angles, the drag coefficient, and $L/D$. Then repeat with the span stretched to an aspect ratio of 14 at the same wing area.
+Consider a twin-engine seaplane flying short routes between islands, cruising at 48 m/s at 1,500 m. Its wing has a mean chord of 2.3 m, an aspect ratio of 8, a span efficiency factor $e$ = 0.90, and the NACA 64<span class="sr-only">, subscript,</span><sub>3</sub>-618 section, and in cruise it requires $C_L$ = 0.55. Find the wing's lift-curve slope, angle of attack, induced and effective angles, drag coefficient, and $L/D$. Then repeat the calculation with the aspect ratio increased to 14 at the same wing area.
 
 1. **Air at 1,500 m.** From the [standard atmosphere](../chapter-1/standard-atmosphere.md), $T = 278.41$ K and $\rho = 1.0580$ kg/m³; [Sutherland's law, page 3.1](#eq-p31-sutherland), gives $\mu = 1.742 \times {10}^{-5}$ kg/(m·s).
 2. **Reynolds number**, based on the mean chord:
@@ -527,9 +527,9 @@ An invented twin-engine seaplane that flies short hops between islands cruises a
                &= 42.18
    \end{aligned}
    $$
-   The effective angle is again $1.879 - 0.796 = 1.083$°: the same $C_L$ needs the same $\alpha_\text{eff}$, whatever the aspect ratio.
+   The effective angle of attack is again $1.879 - 0.796 = 1.083$°, because generating the same $C_L$ requires the same $\alpha_\text{eff}$ regardless of aspect ratio.
 
-**Check and trade.** Stretching the wing from $\textit{AR}$ = 8 to 14 cuts the induced drag coefficient from 0.01337 to 0.00764, in the ratio 8/14, and raises $L/D$ from 29.30 to 42.18 ({numref}`fig-p32-induced-drag-ar`). It also lowers the angle of attack. The cost is a longer, heavier, and more flexible wing.
+**Check and trade.** Increasing the aspect ratio from $\textit{AR}$ = 8 to 14 cuts the induced drag coefficient from 0.01337 to 0.00764, in the ratio 8/14, and raises $L/D$ from 29.30 to 42.18 ({numref}`fig-p32-induced-drag-ar`), while reducing the required angle of attack. The structural trade-off is a longer, heavier, and more flexible wing.
 
 :::{figure} figures/p32-induced-drag-ar.svg
 :label: fig-p32-induced-drag-ar
@@ -543,9 +543,9 @@ Computed from [](#eq-p32-wing-cd) for worked example 3 ($e$ = 0.90), with the se
 
 :::{important} Summary
 - The angle of attack is measured from the free stream to the chord line. About the aerodynamic center, near $c/4$, the pitching moment does not change with $\alpha$; it is negative (nose down) for a cambered airfoil.
-- Coefficients collect what is hard to predict: $L = qSC_L$, $D = qSC_D$, $M = qScC_M$. Airfoil data ($c_l$, $c_d$, $c_m$) come from a model spanning a tunnel, an infinite wing.
+- Force and moment coefficients nondimensionalize aerodynamic loads by $qS$ (and $c$ for moments): $L = qSC_L$, $D = qSC_D$, $M = qScC_M$, isolating the effects of geometry, $\alpha$, $\textit{Re}$, and $M$. Airfoil data ($c_l$, $c_d$, $c_m$) represent a two-dimensional infinite wing.
 - Read a chart on the curve of the closest Reynolds number: $c_l$ and $c_{m,c/4}$ at $\alpha$, then $c_d$ at that $c_l$.
-- Tip vortices make downwash. The wing works at $\alpha_\text{eff} = \alpha - \alpha_i$, and the backward tilt of its lift is the induced drag, $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$. Its lift curve keeps the zero-lift angle and has the smaller slope $a$.
+- Wingtip vortices induce downwash. The wing works at $\alpha_\text{eff} = \alpha - \alpha_i$, and the backward tilt of its lift is the induced drag, $C_{D,i} = C_L^2/(\pi e\,\textit{AR})$. Its lift curve keeps the zero-lift angle and has the smaller slope $a$.
 :::
 
 :::{table} The equations of this page.

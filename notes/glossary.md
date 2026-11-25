@@ -5,11 +5,17 @@ title: Glossary
 Each term below has one meaning throughout the notes. In the text, a term with a dotted underline opens its definition.
 
 :::{glossary}
+Absolute ceiling
+: The altitude at which an aircraft's maximum rate of climb drops to zero, where available thrust equals minimum thrust required (or available power equals minimum power required). An aircraft can approach it only asymptotically.
+
 Aerobraking
 : Lowering the apoapsis of an orbit with atmospheric drag instead of a burn: the periapsis is placed in the upper atmosphere, and each pass removes a little speed. A small burn at the end lifts the periapsis out of the atmosphere.
 
 Aerodynamic center
 : The point on the chord of an airfoil about which the pitching moment does not change with the angle of attack. On airfoils at low speed it lies near the quarter chord; the moment coefficient about it is written $c_{m,\text{ac}}$.
+
+Afterburner
+: A second combustion section placed behind the turbine of a jet engine that burns extra fuel in the oxygen-rich exhaust to boost thrust briefly for takeoff or supersonic combat, at a sharp increase in fuel consumption.
 
 Aileron
 : A moving surface on the trailing edge near each wing tip. The two ailerons move in opposite directions and roll the aircraft.
@@ -59,6 +65,9 @@ Boundary layer
 Breguet range equation
 : The weight fraction of a jet's cruise segment, flown in steady level flight at constant speed, specific fuel consumption, and lift-to-drag ratio: $W_i/W_{i-1} = \exp[-R\,C/(V\,(L/D))]$, with the range $R$ in nautical miles, the speed $V$ in knots, and $C$ in 1/h.
 
+Bypass ratio
+: The ratio $\beta = \dot{m}_{\text{bypass}}/\dot{m}_{\text{core}}$ of air mass flow that passes through the fan duct around the core of a turbofan to the air mass flow that passes through the gas-turbine core.
+
 Camber
 : The distance between the mean camber line of an airfoil and its chord line, usually given at its largest value as a percentage of the chord. A symmetric airfoil has none.
 
@@ -103,6 +112,9 @@ Consequence
 
 Constraint
 : A limit the designers must respect but did not choose, such as a noise rule set by a regulator. Constraints come from the stakeholders, as needs do.
+
+Constraint diagram
+: A plot of sea-level thrust-to-weight ratio $T/W$ against wing loading $W/S$ that draws every performance requirement (stall, runway length, climb, cruise, ceiling) as a boundary curve. The overlap of the feasible sides shows the smallest acceptable wing and engines.
 
 Continuity equation
 : Conservation of mass for a steady flow: the mass flow rate $\rho A V$ is the same at every cross section of a duct or a stream tube. For incompressible flow it becomes $A_1 V_1 = A_2 V_2$.
@@ -185,11 +197,17 @@ Equation of state
 Escape speed
 : The lowest speed at radius $r$ that carries a spacecraft away from the central body for good: $v_{\text{esc}} = \sqrt{2\mu/r}$, which puts it on a parabola.
 
+Excess power
+: The difference $P_A - P_R$ between power available from the engines and power required for steady level flight at a given speed. Dividing excess power by aircraft weight $mg$ gives the steady rate of climb.
+
 Finite wing
 : A real wing, with tips. Air flows around the tips, so its lift coefficient and drag coefficient, written in capitals ($C_L$, $C_D$), differ from those of its airfoil.
 
 Flap
 : A moving surface on the trailing edge of the wing, between the fuselage and the aileron, that moves down (and often back) to add camber and area, so the wing makes enough lift at the low speeds of takeoff and landing.
+
+Flight-path angle
+: The angle $\gamma$ between the aircraft's velocity vector (flight path) and the horizontal, positive in a climb. In a steady climb, $\sin\gamma = (T_A - D)/(mg)$ and $R/C = V\sin\gamma$.
 
 Flow separation
 : The departure of a boundary layer from a surface, where a rising pressure has stopped the slow air near the wall. Behind it a wake forms; on a wing, separation causes the stall.
@@ -341,6 +359,9 @@ Microburst
 Minimum-drag speed
 : The speed at which an aircraft in steady level flight has the least drag. It gives the lift coefficient $C_L^* = \sqrt{C_{D,0}/K}$, where the induced drag equals the parasite drag and $L/D$ is largest.
 
+Minimum-power speed
+: The true airspeed $V_{P_R,\min}$ at which power required in steady level flight is smallest: $V_{P_R,\min} = {3}^{-1/4}\,V_{T_R,\min} \approx 0.760\,V_{T_R,\min}$, where $C_L = \sqrt{3 C_{D,0}/K}$ and induced drag is three times parasite drag.
+
 Mission profile
 : A sketch of a mission as altitude against distance (or time), cut into segments such as takeoff, climb, cruise, descent, loiter, and landing, with the end of each segment numbered from 0 at the start of the takeoff.
 
@@ -413,6 +434,15 @@ Planform
 Polar orbit
 : An orbit with an inclination of ${90}^\circ$, or close to it, which passes over both poles.
 
+Power available
+: The propulsive power $P_A$ that an aircraft's engines deliver to the airframe at a given altitude, speed, and throttle setting: $P_A = T_A V$ for a jet, and $P_A = n\,\delta_t\,\eta\,P_0(\rho/\rho_0)^{m_{\text{ad}}}$ for a propeller aircraft.
+
+Power required
+: The propulsive power $P_R = T_R V = D V$ needed to hold steady level flight at true airspeed $V$, equal to $\tfrac12 \rho V^3 S C_{D,0} + 2K(mg)^2/(\rho S V)$.
+
+Power specific fuel consumption
+: The weight of fuel burned per unit shaft power per unit time by a propeller engine, $c$, with SI base units of $\text{N}/(\text{W}\cdot\text{s}) = 1/\text{m}$. Manufacturers often quote fuel mass per second per kilowatt, which multiplies by ${10}^{-6}\,g$ to convert to $1/\text{m}$.
+
 Pressure drag
 : The parasite drag from the difference between the high pressure on the front of a body and the low pressure in the wake behind it, where the flow has left the surface. Also called form drag; streamlining reduces it.
 
@@ -422,8 +452,17 @@ Prograde orbit
 Project risk
 : A risk that comes from the work of building a vehicle (design, suppliers, tests, money, time) and not from its operating environment, such as a late engine or mass growth.
 
+Propulsive efficiency
+: The ratio of useful propulsive power $T V_\infty$ to the rate of kinetic energy added to the airstream. For an air-breathing jet with matched exit pressure and small fuel flow, $\eta_p = 2/(1 + V_e/V_\infty)$.
+
+Ramjet
+: A supersonic air-breathing engine with no rotating compressor or turbine: oncoming air is compressed only by slowing through shock waves in a contoured inlet before subsonic combustion and expansion through a nozzle. It produces zero static thrust and requires a booster to reach operating speed.
+
 Range
 : The distance an aircraft can fly on one load of fuel, usually given in nautical miles.
+
+Rate of climb
+: The vertical component of an aircraft's velocity, $R/C = V\sin\gamma = (P_A - P_R)/(mg)$, in m/s or ft/min.
 
 Redundancy
 : The use of more than one independent means to do the same job, so that one unit can fail without losing the function. Two independent units that each fail with probability $p$ both fail with probability $p^2$.
@@ -452,11 +491,17 @@ Roll
 Rudder
 : The moving surface hinged to the trailing edge of the vertical stabilizer. It yaws the aircraft.
 
+Scramjet
+: A supersonic-combustion ramjet designed for hypersonic flight (above about Mach 5), in which the air remains supersonic through the combustor to avoid the extreme temperatures caused by slowing hypersonic flow to subsonic speed.
+
 Semi-major axis
 : Half the longest diameter of an ellipse, $a = (r_p + r_a)/2$. It sets the size, the period, and the energy of an orbit. It is infinite for a parabola and negative for a hyperbola.
 
 Sensitivity check
 : A test of a decision: change one weight (or one score), rescale the other weights so that they still add up to 1, recompute the totals, and see whether the winner changes. The result is reported with the decision.
+
+Service ceiling
+: The practical operational altitude limit of an aircraft, defined as the altitude where the maximum rate of climb drops to $0.5$ m/s (about $100$ ft/min).
 
 Settling chamber
 : The widest part of a wind tunnel, just ahead of the contraction, where the air moves slowly; station 1 in these notes. Its honeycomb straightens the flow, and its fine screens break up large eddies.
@@ -578,6 +623,15 @@ Taper ratio
 Test section
 : The narrowest part of a low-speed wind tunnel, where the air is fastest and the model is mounted; station 2 in these notes.
 
+Thrust available
+: The thrust $T_A$ that an aircraft's engines can produce at a given altitude, speed, and throttle setting: $T_A = n\,\delta_t\,T_0(\rho/\rho_0)^{m_{\text{ad}}}$ for a jet, and $T_A = P_A/V$ for a propeller aircraft.
+
+Thrust required
+: The thrust $T_R$ needed to hold steady level flight at true airspeed $V$, equal to the drag $D = \tfrac12 \rho V^2 S C_{D,0} + 2K(mg)^2/(\rho S V^2) = mg/(L/D)$.
+
+Thrust specific fuel consumption
+: The weight of fuel burned per unit thrust per unit time by a jet engine, $c_t$, with SI base units of $1/\text{s}$ (often quoted in $1/\text{h}$; divide by $3{,}600$ to get $1/\text{s}$).
+
 Thrust-to-weight ratio
 : $T/W$, the thrust of the engines divided by the weight of the aircraft, which sets the size of the engines. A propeller aircraft uses the power-to-weight ratio $P/W$ instead.
 
@@ -616,6 +670,18 @@ True airspeed
 
 True anomaly
 : The angle $\theta$ at the central body from periapsis to the spacecraft, measured in the direction of motion.
+
+Turbofan
+: A gas-turbine engine in which the turbine drives a large ducted front fan that accelerates cool bypass air around the hot core. High-bypass turbofans power airliners; low-bypass turbofans power supersonic fighters.
+
+Turbojet
+: A gas-turbine engine whose entire airflow passes through five stages in order: inlet (diffuser), compressor, combustor, turbine, and nozzle, producing thrust only from the high-speed hot core exhaust.
+
+Turboprop
+: A gas-turbine engine in which extra power-turbine stages drive a front propeller through a shaft and reduction gearbox, combining turbine power-to-weight with high propeller efficiency below about Mach $0.55$.
+
+Turboshaft
+: A gas-turbine engine built to deliver nearly all of its energy as shaft torque, not jet exhaust, commonly used to drive helicopter rotors and auxiliary power units.
 
 Turbulent flow
 : Flow in which the fluid tumbles in eddies of many sizes that mix it across the layers. A turbulent boundary layer is thicker than a laminar one, has more skin friction, and stays attached longer against a rising pressure.

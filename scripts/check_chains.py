@@ -28,8 +28,8 @@ from pathlib import Path
 BOOK = Path(__file__).resolve().parent.parent
 # a printed result may be followed by its unit: these are stripped before the number is read
 UNITS = (r"km|m|s|days?|kg|km/s|m/s|hours?|minutes?|AU"                      # Chapter 2
-         r"|K|Pa|kPa|N|J|ft|ft/s|lb|nmi|mi|kt|knots?|h|hr|min|mm|cm|m/s²|m²|m³|kg/m³|kg/s|m³/s"
-         r"|N/m²|lb/ft²|J/\(kg K\)|1/h|%")
+         r"|K|Pa|kPa|N|kN|J|W|kW|MW|ft|ft/s|lb|nmi|mi|kt|knots?|h|hr|min|mm|cm|m/s²|m²|m³|kg/m³|kg/s|m³/s"
+         r"|N/m²|lb/ft²|J/\(kg K\)|1/h|1/s|1/m|%")
 
 
 def chapter_folders():

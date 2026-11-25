@@ -6,7 +6,7 @@ short_title: 1.1 Needs and Requirements
 :::{include} ../_parts/standards/1.1.md
 :::
 
-Every aerospace vehicle starts as a problem someone wants solved. On this page we follow that problem from the people who care about it to a list of numbers an engineer can design to and check. We start with what a {term}`system` is and who its {term}`stakeholders <stakeholder>` are. Then we write a {term}`mission statement` and {term}`need statements <need statement>`, rank the needs, and turn them into {term}`requirements <requirement>` that are complete, dependent, and verifiable. The word "traceable" in the standard means that every requirement traces to a need (see [traceability](#p11-traceability)). One example runs through the page: an aircraft for aerial survey. It flies a camera back and forth over farmland or forest so that a mapping company can make maps from the photographs.
+Before an engineering team sketches a wing or sizes an engine, it has to translate what people want into measurable targets a design can be checked against. In systems engineering, we begin by defining the {term}`system` and identifying its {term}`stakeholders <stakeholder>`. From there we draft a {term}`mission statement` and {term}`need statements <need statement>`, rank those needs, and convert them into {term}`requirements <requirement>` that are complete, dependent, verifiable, and traceable. Throughout the page we follow one running example: an aerial-survey aircraft that flies a camera over farmland or forest so a mapping company can produce maps from the photographs.
 
 :::{note} What to take from this page
 - A system is defined by its function, its inputs and outputs, its boundary, and its form. Its stakeholders are everyone it affects, and they are the source of its needs.
@@ -52,12 +52,12 @@ A system exists because someone needs what it does. We can describe it in four w
 Schematic of one aircraft described four ways: function, inputs and outputs, boundary, and form. Only the form says what the aircraft looks like; the other three would fit other designs too. Outline after the Boeing 737-800 (Boeing 2025).
 :::
 
-The 737-800 is 39.47 m long and seats 160 passengers in a two-class cabin. It spans 35.79 m with its winglets, the upturned wing tips, and 34.32 m without them (Boeing 2025, Sections 2.1.3 and 2.2.6). Those numbers are form. We can write the other three before the form exists, so they come first in design.
+The 737-800 is 39.47 m long and seats 160 passengers in a two-class cabin. It spans 35.79 m with its winglets, the upturned wing tips, and 34.32 m without them (Boeing 2025, Sections 2.1.3 and 2.2.6). All of those numbers describe the aircraft's form. Because we can define the function, inputs and outputs, and boundary before any physical form exists, those three come first in design.
 
-Where the boundary goes is a choice. For an airline, the aircraft is one part of a larger system that also holds its crews, its maintenance base, and its schedule. For an engine maker, the engine is the system and the aircraft is its environment. So say where the boundary is before you decide what the system must do.
+Where you draw the boundary is a design choice. For an airline, the aircraft is one part of a larger system that also includes its crews, its maintenance base, and its schedule. For an engine maker, the engine is the system and the aircraft is its environment. State where the boundary lies before you decide what the system must do.
 
 :::{warning} Describing a system by its form alone
-"A twin-engine jet with 160 seats" says what the aircraft is and nothing about what it is for. A description that starts with the form has already chosen the design. Start with the function, the inputs and outputs, and the boundary.
+Describing a vehicle as "a twin-engine jet with 160 seats" specifies hardware before stating the job to be done. Starting with the form locks you into one configuration before you have explored alternatives. Always define the function, inputs and outputs, and boundary first.
 :::
 
 ## Stakeholders
@@ -108,7 +108,7 @@ For our survey aircraft, the stakeholders are:
 - the people who live under the survey lines.
 
 :::{warning} Forgetting the stakeholders who never touch the system
-A list made only of buyers and users misses the regulator, the maintainers, and the neighbors. Their needs arrive anyway, later and at a higher cost, as a certification rule, a part nobody can reach, or a noise complaint.
+A list made only of buyers and users misses the regulator, the maintainers, and airport neighbors. Omitting those stakeholders does not remove their constraints; certification rules, maintenance access limits, and noise restrictions will surface later in the program, when design changes are far more expensive.
 :::
 
 (p11-mission-statement)=
@@ -134,7 +134,7 @@ An example: "An affordable, reliable attack vehicle that improves Air Force oper
 Schematic of two mission statements for the survey aircraft, compared row by row. The left one has already chosen the engines, the wing position, and the camera hatch, and says nothing about what the system does or whom it serves; the right one states the capability and the benefit and leaves every design open.
 :::
 
-The first statement of a problem is often not the right one. The ARPANET, the network that grew into the Internet, was built so that researchers could share distant computers. Within a few years its largest use was electronic mail between the researchers themselves (Leiner et al. 1997). The real need was to connect people. So before you write the mission statement, ask the stakeholders what problem they are trying to solve, and check that the answer is not a solution in disguise.
+Stakeholders often describe a preferred fix instead of the underlying problem. The ARPANET, the network that grew into the Internet, was built so that researchers could share distant computers, yet within a few years its largest use was electronic mail between the researchers themselves (Leiner et al. 1997). The deeper need was to connect people. Before writing the mission statement, ask the stakeholders what problem they are trying to solve and make sure their answer describes the need instead of a preconceived design.
 
 :::{tip} A test for a mission statement
 Name two designs that look nothing alike. If both could satisfy the statement, it names no solution. If only one could, rewrite it.
@@ -251,7 +251,7 @@ Three stakeholders (the owner, the pilot, and the data customer) rated the five 
 Computed from the ratings of {numref}`tbl-p11-ratings`: the average and the spread of the ratings of each need. The spread is what the average hides: N4 averages 3.667, but the pilot rates it 5 and the data customer 2. The averages set the order, and the owner's higher rating of N5 breaks the tie at 4.000.
 :::
 
-A low rank does not delete a need. N3 still gets a requirement. It is only the first to give way when it conflicts with a need ranked above it.
+A low rank does not remove a need from the design: N3 still gets a requirement, and we relax it first when it conflicts with a higher-ranked need.
 
 (p11-requirements)=
 ## Requirements
@@ -278,13 +278,13 @@ Many organizations write requirements with the word "shall." In NASA's usage, "s
 Schematic of one requirement and its reason. A requirement is a metric plus a value, and its reason stays with it. Solid arrows: the two parts that make the requirement; dashed line: the reason kept beside it. Here the reason shows why the value is larger than the route: 2,264 nmi is the great-circle distance between the two airports' published positions, on a sphere of radius 6,371 km (FAA n.d.).
 :::
 
-The reason pays off later. Suppose someone asks whether we can cut the 3,000 nmi to save weight. The reason tells us what that would cost: the Boston to Los Angeles route. It also catches errors. The great-circle distance (the shortest path over Earth's surface) from Boston to Los Angeles is 2,264 nmi. A value of 6,000 nmi beside that reason would show that one of the two is wrong.
+Recording the rationale alongside each requirement is useful throughout the design. If someone asks whether we can reduce the 3,000 nmi range to save weight, the rationale shows what capability would be lost, namely nonstop service between Boston and Los Angeles. Keeping the rationale also helps us spot errors. Because the great-circle distance (the shortest path over Earth's surface) from Boston to Los Angeles is 2,264 nmi, pairing that route with a 6,000 nmi requirement would immediately flag a mistake in one of the two.
 
 A good set of requirements has three qualities.
 
 **Complete.** Together the requirements address every need. A need with no requirement will not be designed for. The traceability matrix of the next section checks this.
 
-**Dependent.** A requirement names a result of the design, never the design itself. Think of a function $y = f(x)$. The designer chooses $x$, the inputs (materials, shapes, sizes). The system delivers $y$, the outputs (load carried, thrust, range). A requirement belongs on $y$, the dependent variable, which gives the quality its name. For example, the load an I-beam carries depends on its material, its depth, and its flange width. A requirement on the load leaves all three open. A requirement on the material fixes one of them and says nothing about the load. {numref}`fig-p11-dependent-requirement` shows the difference for a main landing gear.
+**Dependent.** A requirement names a result of the design, never the design itself. Think of a function $y = f(x)$. The designer chooses $x$, the independent design inputs (materials, shapes, sizes), and the system delivers $y$, the dependent outputs (load carried, thrust, range). A requirement belongs on the dependent output $y$, which gives this quality its name. Notice the wording carefully: "dependent" here means constraining the dependent output $y$, not making the requirement depend on a specific design choice. For example, the load an I-beam carries depends on its material, its depth, and its flange width. Placing a requirement on the load leaves all three choices open, while placing a requirement on the material fixes one choice without guaranteeing the load. {numref}`fig-p11-dependent-requirement` shows this distinction for a main landing gear.
 
 :::{figure} figures/p11-dependent-requirement.svg
 :label: fig-p11-dependent-requirement
@@ -294,9 +294,9 @@ A good set of requirements has three qualities.
 Schematic of two ways to state one need for the main landing gear. A requirement that names a design allows one answer; a requirement that names the result allows every design that delivers it. Solid arrows lead to the designs allowed; dashed lines ending in a bar, to those ruled out. Gear types after FAA (2023, Chapter 13).
 :::
 
-The 10 ft/s (3.05 m/s) is the descent rate that U.S. rules for transport aircraft use for landing loads (14 CFR 25.473). An oleo strut turns the energy of the touchdown into heat in a cylinder of oil and gas. A spring leg flexes (FAA 2023, Chapter 13). Either can be designed to absorb a 10 ft/s touchdown, and the requirement leaves that choice to the designer. Choosing among designs that meet the requirements is the job of a {term}`trade study`, the subject of [concept generation and trade studies](concepts-and-trade-studies.md).
+The 10 ft/s (3.05 m/s) is the descent rate that U.S. rules for transport aircraft specify for landing loads (14 CFR 25.473). An oleo strut absorbs the touchdown energy by compressing gas and forcing oil through an orifice, turning kinetic energy into heat. A spring leg absorbs that energy elastically by bending under the landing load (FAA 2023, Chapter 13). Either design can handle a 10 ft/s touchdown, and the requirement leaves that choice open to the team. Choosing among designs that satisfy the requirements is the job of a {term}`trade study`, covered in [concept generation and trade studies](concepts-and-trade-studies.md).
 
-**Verifiable.** We must be able to show, within the budget and the schedule, that the design meets the requirement. Words such as easy, sufficient, safe, flexible, user-friendly, maximize, and minimize cannot be verified (NASA 2016, Appendix C.4). Give the acceptable range with "at least," "at most," or "between," and do not make the range narrower than the need. A tight range looks precise and only adds cost.
+**Verifiable.** We must be able to show, within the budget and the schedule, that the design satisfies the requirement. Words such as easy, sufficient, safe, flexible, user-friendly, maximize, and minimize cannot be verified (NASA 2016, Appendix C.4). State the acceptable range with "at least," "at most," or "between," and avoid making that range narrower than the stakeholder need requires, because unnecessarily tight tolerances add weight, testing effort, and cost without improving the mission.
 
 :::{warning} An adjective in place of a value
 "The aircraft has a long range" cannot be checked, because nothing says how long is long. "The range with a full passenger load is at least 3,000 nmi" can be checked by analysis now and by test later.
@@ -339,7 +339,7 @@ The table uses three new terms. Endurance is the time the aircraft can stay in t
 (p11-traceability)=
 ## Traceability
 
-The second half of step 5 ties each requirement to the need it serves. We call this link {term}`traceability`.
+The second half of step 5 links each requirement back to the need it serves. We call this link {term}`traceability`, which is what the standard means when it asks for requirements that are "traceable."
 
 :::{prf:definition} Traceability
 :label: def-p11-traceability
@@ -413,10 +413,10 @@ A **compliance table** lists every requirement with the method that verifies it,
 | R6 | Operating cost at most 80% of the present aircraft | Analysis | Operating cost estimate | Not yet shown |
 :::
 
-Each "Not yet shown" or "Partly shown" is a task. The table grows with the design and tells you where the work stands.
+Every "Not yet shown" or "Partly shown" entry identifies remaining verification work. As the design matures from calculations to drawings and hardware tests, we update the table to track which requirements are closed and which still need evidence.
 
 :::{warning} "Meets" without evidence
-A status of "Meets" with nothing in the "Where it is shown" column is only a claim. Every "Meets" points to a calculation, a drawing, a demonstration, or a test result.
+Writing "Meets" with nothing in the "Where it is shown" column gives no proof that the requirement is satisfied. Every "Meets" entry must cite specific engineering evidence: a calculation, a drawing, a demonstration, or a test result.
 :::
 
 ## Summary

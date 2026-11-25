@@ -6,9 +6,10 @@ group of course standards, and one page per standard. A chapter may also have a 
 material that no standard assesses. The book carries no dates and no assignments.
 
 Status: Chapter 1, Systems Engineering and Fundamental Thoughts (seven pages, 63 figures,
-six quizzes), and Chapter 2, Introduction to Orbits (five pages, 37 figures, four quizzes),
-and Chapter 3, Aerodynamics (four pages, 29 figures and a photograph, three quizzes),
-are written and published. Chapters 4 and 5 are not written yet. The site is published at
+six quizzes), Chapter 2, Introduction to Orbits (five pages, 37 figures, four quizzes),
+Chapter 3, Aerodynamics (four pages, 29 figures and a photograph, three quizzes),
+and Chapter 5, Aircraft Performance and Propulsion (five pages, 25 figures, four quizzes),
+are written and published. Chapter 4 is not written yet. The site is published at
 https://thiagopurdue.github.io/AAE251_Lecture_Notes/.
 
 ## Layout

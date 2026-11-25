@@ -11,7 +11,7 @@ A launch vehicle often leaves a spacecraft in a low orbit, short of the orbit wh
 :::{note} What to take from this page
 - A burn changes the velocity at one point. The new orbit passes through that point, and the vis-viva equation gives the speed it needs there.
 - A Hohmann transfer is two tangential burns half an ellipse apart. Its cost is $\Delta V_1 + \Delta V_2$, and it takes half the period of the transfer ellipse.
-- A smaller orbit has a shorter period. To catch a target that is ahead in the same orbit, slow down.
+- A smaller orbit has a shorter period, so a chaser catches a target ahead in the same orbit by slowing down into a smaller phasing orbit.
 - Turning the orbit plane by $\Delta i$ costs $2v\sin(\Delta i/2)$, so it belongs where the spacecraft is slowest.
 :::
 
@@ -31,9 +31,9 @@ Computed, to scale: two routes to a circular orbit 20,200 km above Earth, a stee
 
 The usual route goes through a {term}`parking orbit`, a low circular orbit where the launch vehicle stops. The cost of reaching it is the delta-V budget of [launch to orbit](#p23-budget). Three reasons make this the standard plan:
 
-- The launch vehicle flies the ascent it does best, gaining horizontal speed early and reaching low orbit with small losses.
-- The spacecraft can coast in the parking orbit until it reaches the right point to start the transfer, and the operators can check it out first.
-- The transfer burns are tangential, so each km/s of burn becomes a km/s of speed.
+- The launch vehicle follows an efficient ascent profile, gaining horizontal speed early and reaching low orbit with small losses.
+- The spacecraft can coast in the parking orbit until it reaches the right point to start the transfer, and the operators can check out its systems first.
+- The transfer burns are tangential, so the entire velocity change alters the speed instead of turning the velocity direction.
 
 An engine burn lasts seconds to minutes, and one lap of a low orbit takes an hour and a half. We treat the burn as instantaneous.
 
@@ -45,7 +45,7 @@ An {term}`impulsive burn` changes the velocity of a spacecraft in an instant, wi
 
 Two consequences follow. First, the orbit after the burn passes through the burn point, because the spacecraft has not moved. Second, two spacecraft at the same point with different speeds are on different orbits. The vis-viva equation, $v^2 = \mu\,(2/r - 1/a)$, ties the speed $v$ at radius $r$ to the {term}`semi-major axis` $a$. At a given $r$, a higher speed means a larger $a$. Speeding up raises the specific orbital energy $\varepsilon = -\mu/(2a)$ and makes the orbit larger; slowing down makes it smaller.
 
-The $\Delta V$ of a burn is what the propulsion system pays. Through the rocket equation of Chapter 4, it sets the propellant the burn uses. So we plan a mission with a budget of $\Delta V$, and we give the cost of every maneuver on this page in km/s.
+The $\Delta V$ of a burn measures the demand placed on the propulsion system. Through the rocket equation in Chapter 4, it determines how much propellant the burn requires, so we plan a mission with a $\Delta V$ budget and report every maneuver on this page in km/s.
 
 (p22-hohmann)=
 ## The Hohmann transfer
@@ -60,7 +60,7 @@ The {term}`Hohmann transfer` moves a spacecraft between two circular orbits in t
 Computed for the worked example, to scale: the Hohmann transfer from a 400 km to a 20,200 km circular orbit around Earth. The transfer orbit is half an ellipse with its periapsis on the inner circle and its apoapsis on the outer circle, so $2a_t = r_1 + r_2$. The burn arrows are drawn to scale with their $\Delta V$.
 :::
 
-The geometry fixes the {term}`transfer orbit`. Its {term}`periapsis` lies on the initial circle and its {term}`apoapsis` on the final circle, on opposite sides of Earth ({numref}`fig-p22-hohmann`). With $r_p = r_1$ and $r_a = r_2$, the semi-major axis is half the major axis:
+The two circular radii completely determine the {term}`transfer orbit`, because its {term}`periapsis` lies on the initial circle and its {term}`apoapsis` lies on the final circle on opposite sides of Earth ({numref}`fig-p22-hohmann`). With $r_p = r_1$ and $r_a = r_2$, the semi-major axis is half the major axis:
 
 :::{math}
 :label: eq-p22-transfer-a
@@ -98,7 +98,7 @@ e_t = \frac{r_2 - r_1}{r_2 + r_1}
 \Delta V_{\text{total}} = |\Delta V_1| + |\Delta V_2|, \qquad t_f = \frac{T_t}{2} = \pi\sqrt{\frac{a_t^3}{\mu}}
 :::
 
-Both burns speed the spacecraft up, and yet it ends in the large circle slower than it was in the small one. It enters the transfer orbit at its fastest point and leaves it at its slowest. Between the burns it climbs and trades speed for height, slowing all the way from periapsis to apoapsis, as Kepler's second law requires.
+Both burns speed the spacecraft up, and yet it ends in the larger circle moving slower than it did in the smaller one. It enters the transfer orbit at its fastest point and leaves at its slowest: between the two burns it climbs and converts kinetic energy into potential energy, slowing all the way from periapsis to apoapsis by conservation of energy.
 
 Both burns are tangential. At periapsis and apoapsis the velocity is perpendicular to the radius, as it is on a circle. Then the transfer ellipse touches each circle, and the old and new velocities point the same way. All of the burn goes into speed and none into turning the velocity. A burn that turns the velocity costs extra, as the plane change below shows.
 
@@ -198,7 +198,7 @@ A single tangential burn at an apsis makes an elliptical orbit circular. At peri
 Computed to scale: the two circles a single burn can reach from an orbit of 1,000 km by 12,000 km altitude around Earth, an orbit more eccentric than the example below so that the circles stand apart. Speeding up at apoapsis gives the circle of radius $r_a$; slowing down at periapsis gives the circle of radius $r_p$. The burn arrows are drawn to scale with their $\Delta V$.
 :::
 
-**Example.** A satellite is in a 350 km by 1,100 km orbit around Earth. The burns are differences of close speeds, so we carry the speeds to five decimals. The orbit has $r_p = 6{,}728$ km, $r_a = 7{,}478$ km, $a = 7{,}103$ km, and $e = 0.05279$.
+**Example.** A satellite is in a 350 km by 1,100 km orbit around Earth. Find the $\Delta V$ required to circularize the orbit at apogee and at perigee. Because each burn is the difference of two close speeds, we carry the speeds to five decimals. The orbit has $r_p = 6{,}728$ km, $r_a = 7{,}478$ km, $a = 7{,}103$ km, and $e = 0.05279$.
 
 - *Circular at 1,100 km.* At apogee the satellite moves at $v_a = \sqrt{\mu(2/r_a - 1/a)} = 7.10555$ km/s. The circle there needs $\sqrt{\mu/r_a} = 7.30089$ km/s. The burn is $\Delta V = 7.30089 - 7.10555 = 0.1953$ km/s, or 195.3 m/s, along the motion.
 - *Circular at 350 km.* At perigee the satellite moves at $v_p = 7.89764$ km/s and the circle needs $7.69707$ km/s. The burn is $\Delta V = 7.69707 - 7.89764 = -0.2006$ km/s: 200.6 m/s against the motion.
@@ -209,7 +209,7 @@ A negative $\Delta V$ from "speed wanted minus speed now" means a burn against t
 
 ## Catching up: the phasing orbit
 
-Two spacecraft in the same circular orbit move at the same speed, so the one behind never gains on the one ahead. To catch up, the chaser must change its period for one lap. You might expect the chaser to speed up. That raises the orbit and lengthens the period, so the chaser falls further behind. Instead, the chaser slows down. It drops into a slightly smaller ellipse, the {term}`phasing orbit`, and completes one lap in less time than the target needs for its circle. It arrives back at the burn point just as the target gets there ({numref}`fig-p22-phasing`).
+Two spacecraft in the same circular orbit move at the same speed, so the chaser behind never gains on the target ahead unless it changes its orbital period for one lap. Speeding up raises the orbit and lengthens the period, causing the chaser to fall further behind. Instead, the chaser slows down to drop into a slightly smaller ellipse, called a {term}`phasing orbit`, which has a shorter period. The chaser completes that smaller orbit in less time than the target takes around the circle and arrives back at the burn point just as the target passes through it ({numref}`fig-p22-phasing`).
 
 **Example.** A chaser and a target share a circular Earth orbit of radius 7,000 km. The chaser crosses each point 100 s after the target. Plan the catch-up.
 
@@ -245,7 +245,7 @@ Two spacecraft in the same circular orbit move at the same speed, so the one beh
 Computed for the phasing example, to scale. Right, the whole orbit: the chaser slows down at the burn point and enters a phasing orbit that is barely smaller than the circle. Left, a detail of the region near perigee marked by the box, at a larger scale: the perigee lies 461.4 km above the surface.
 :::
 
-The orbit hardly changes. The perigee drops by only 161 km, and the burn is less than 1% of the orbital speed. The longer the lag, the lower the perigee. In one lap, a lag of more than 384 s (about 6.4 minutes) would put the perigee below the surface. A perigee much lower than in the example would already meet the atmosphere. So we spread a larger lag over several laps. With $k$ laps of the phasing orbit, its period is $T - \text{lag}/k$, and the orbit stays closer to the circle.
+The phasing orbit differs only slightly from the circle: perigee drops by just 161 km, and each burn is less than 1% of the orbital speed. A larger lag requires a lower perigee, and in a single lap any lag greater than 384 s (about 6.4 minutes) would drop perigee below Earth's surface. Even a moderately lower perigee than in the example would enter the upper atmosphere, so we spread a larger lag over multiple revolutions. Over $k$ laps of the phasing orbit, its period is $T - \text{lag}/k$, keeping the orbit closer to the original circle.
 
 :::{warning} Carry enough digits
 The burn is the difference of two speeds that share their first two figures. Rounded to four significant figures, the two speeds give $-0.044$ km/s, and only two figures of the answer survive. Keep five or six figures in the period, the semi-major axis, and both speeds, and round only the final answer. Watch the units too: periods in seconds with $\mu$ in km³/s², never minutes.
@@ -254,7 +254,7 @@ The burn is the difference of two speeds that share their first two figures. Rou
 (p22-plane-change)=
 ## Changing the orbit plane
 
-Velocity is a vector, and a burn can turn it as well as stretch it. A {term}`plane change` keeps the speed and turns the velocity by the angle $\Delta i$ between the old and the new orbit plane. We can make the burn only at a point that lies in both planes, on the {term}`line of nodes` where the two planes cross ({numref}`fig-p22-plane-change`).
+Because velocity is a vector, an engine burn can change its direction as well as its magnitude. A pure {term}`plane change` keeps the speed constant and turns the velocity vector by the angle $\Delta i$ between the initial and final orbit planes. This burn can be performed only at a point that lies in both planes, along the {term}`line of nodes` where the two planes intersect ({numref}`fig-p22-plane-change`).
 
 :::{figure} figures/p22-plane-change.svg
 :label: fig-p22-plane-change
@@ -264,7 +264,7 @@ Velocity is a vector, and a burn can turn it as well as stretch it. A {term}`pla
 Schematic of a plane change between two circular orbits of the same radius whose planes differ by $\Delta i$ (here 30°, with the initial orbit in the equatorial plane). Left, the burn is made where the orbits cross, on the line of nodes. Right, the velocity triangle at the burn: the speed stays the same, and $\Delta\mathbf{V}$ joins the tips of the two velocity vectors.
 :::
 
-The angular momentum per unit mass, $\mathbf{r} \times \mathbf{v}$, is perpendicular to the orbit plane, so turning the plane means turning this vector. On the line of nodes the position $\mathbf{r}$ lies in both planes. The burn turns $\mathbf{v}$ about $\mathbf{r}$ without changing its length, so the size of $\mathbf{r} \times \mathbf{v}$ stays the same. The orbit keeps its size and its shape and only tilts.
+The angular momentum per unit mass, $\mathbf{r} \times \mathbf{v}$, is perpendicular to the orbit plane, so turning the plane means turning this vector. On the line of nodes the position $\mathbf{r}$ lies in both planes. The burn turns $\mathbf{v}$ about $\mathbf{r}$ without changing its length, so the magnitude of $\mathbf{r} \times \mathbf{v}$ stays the same. The orbit keeps its size and its shape and only tilts.
 
 We get the cost from the triangle on the right of {numref}`fig-p22-plane-change`. Its two equal sides are the old and the new velocity, of length $v$, with the angle $\Delta i$ between them. The line from their common start to the midpoint of $\Delta\mathbf{V}$ bisects the angle and meets $\Delta\mathbf{V}$ at a right angle. Each half of the triangle is then a right triangle with hypotenuse $v$, and the side opposite the angle $\Delta i/2$ is $\Delta V/2$. So $\Delta V/2 = v\sin(\Delta i/2)$:
 
@@ -275,7 +275,7 @@ We get the cost from the triangle on the right of {numref}`fig-p22-plane-change`
 
 For a small angle, $\sin x \approx x$ gives $\Delta V \approx v\,\Delta i$, with $\Delta i$ in radians. At 8 km/s, a change of only 1° already costs 0.1396 km/s.
 
-The equation looks harmless, but the speed in it is the orbital speed. In low Earth orbit, at 8 km/s, a 30° change costs 4.141 km/s, more than the whole Hohmann transfer of the worked example. A 60° change costs 8 km/s, as much as the orbital speed itself: the velocity triangle is then equilateral. {numref}`fig-p22-plane-change-cost` shows the cost for every angle. This is why we launch a spacecraft into the inclination it needs whenever the launch site allows it; [launch to orbit](#p23-azimuth) shows which inclinations a site reaches directly.
+Because the speed $v$ in [](#eq-p22-plane-change) is the full orbital speed, plane changes require large amounts of $\Delta V$. In low Earth orbit at 8 km/s, a 30° change requires 4.141 km/s, more than the entire Hohmann transfer in the worked example. A 60° change requires 8 km/s, equal to the orbital speed itself, because the velocity triangle is then equilateral. {numref}`fig-p22-plane-change-cost` plots the required $\Delta V$ across all angles. This large penalty is why we launch a spacecraft directly into its target inclination whenever the launch site allows it; [launch to orbit](#p23-azimuth) shows which inclinations a site can reach directly.
 
 :::{figure} figures/p22-plane-change-cost.svg
 :label: fig-p22-plane-change-cost
@@ -307,7 +307,7 @@ Now we put the pieces together. The cost of a plane change is proportional to th
 Computed for the worked example with a 30° plane change: the total $\Delta V$ of the three plans. The plane change costs least at the apogee of the transfer orbit, where the spacecraft is slowest. The Hohmann burns are the same in each plan; only the speed at the plane change differs.
 :::
 
-The plane change at the apogee of the transfer orbit wins by 2.692 km/s over the plan that turns first, because the spacecraft moves at 2.469 km/s there instead of 7.669 km/s. This plan works only if the apogee of the transfer orbit falls on the line of nodes. A coast in the parking orbit lets us time the first burn so that it does. Going down, the order reverses. The slowest point is then at the start, just after the first burn at the apogee of the transfer orbit, so the plane change comes first, high up. A single burn that makes the plane change and the second Hohmann burn together costs less still, because one vector change replaces two. That method is beyond this chapter.
+Performing the plane change at the apogee of the transfer orbit saves 2.692 km/s compared with turning in the low orbit, because the spacecraft moves at 2.469 km/s there instead of 7.669 km/s. This sequence works only if the apogee of the transfer orbit lies on the line of nodes, which we can arrange by coasting in the parking orbit until the right moment for the first burn. For a transfer downward, the order reverses: the slowest point occurs just after the first burn at the high apogee of the transfer orbit, so the plane change belongs there. Combining the plane change and the second Hohmann burn into a single angled burn requires even less $\Delta V$, because by the triangle inequality one combined vector change is shorter than the sum of two separate legs; we leave combined maneuvers to a later course.
 
 ## Summary
 

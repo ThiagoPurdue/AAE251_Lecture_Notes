@@ -6,7 +6,7 @@ short_title: 3.1 Wind Tunnels
 :::{include} ../_parts/standards/3.1.md
 :::
 
-In this chapter we come back to the air of pages 1.4 and 1.5. Most of what we know about the forces on wings was first measured on a model held still in a stream of air. Here we see how a low-speed {term}`wind tunnel` makes that stream and how we find its speed with continuity, Bernoulli's equation, and the manometer of [page 1.5](../chapter-1/bernoulli-and-pitot-static.md). Then we add the {term}`viscosity` of air. It leads to the {term}`boundary layer` and to the {term}`Reynolds number`, the number that decides whether a small model behaves like the full-size aircraft.
+In Chapter 1 we studied the standard atmosphere and frictionless flow. Now we apply those tools to a low-speed {term}`wind tunnel`, where aerodynamic forces are measured on a stationary model in a moving stream of air. We use continuity, Bernoulli's equation, and the manometer of [page 1.5](../chapter-1/bernoulli-and-pitot-static.md) to find the test-section speed. We then introduce the {term}`viscosity` of air, which gives rise to the {term}`boundary layer` and the {term}`Reynolds number`, the dimensionless parameter that determines whether flow around a small model matches flow around the full-size aircraft.
 
 :::{note} What to take from this page
 - A low-speed tunnel speeds the air up in a contraction, tests the model in the narrow test section, and slows the air down again in a diffuser; a fan makes up for the losses.
@@ -25,25 +25,29 @@ We measure three things in a tunnel (Leishman 2022, Chapter 71):
 - **Surface pressures**, through small holes in the skin, called pressure taps, piped to pressure sensors.
 - **Flow pictures**, from smoke, oil films, tufts of yarn, and lasers, which show where the air goes, where it separates, and how fast it moves.
 
-A tunnel test is cheaper and safer than a flight test, repeats the same conditions day after day, and can be run before the aircraft exists. It has three limits. The walls crowd the flow: a model whose frontal area is more than about 5% of the test-section area needs corrections for this {term}`blockage` (Leishman 2022, Chapter 71). The model is usually much smaller than the aircraft, which changes the Reynolds number. And the support that holds the model disturbs the air around it.
+A tunnel test is cheaper and safer than a flight test, repeats the same conditions day after day, and can be run before the aircraft exists. Even so, wind-tunnel testing has three main limitations:
+
+- **Wall blockage.** The tunnel walls constrain the flow around the model. When a model's frontal area exceeds about 5% of the test-section area, the measurements require corrections for this {term}`blockage` (Leishman 2022, Chapter 71).
+- **Scale mismatch.** A wind-tunnel model is usually much smaller than the full-size aircraft, which lowers the Reynolds number and can alter how the boundary layer behaves.
+- **Support interference.** The strut or sting that holds the model disturbs the airflow around it.
 
 (p31-tunnel-parts)=
 ## The parts of a low-speed tunnel
 
-The simplest tunnel takes air from the room, passes it once through the test section, and blows it back out. This {term}`open-circuit tunnel <open-circuit wind tunnel>` is also called an Eiffel tunnel, after the French engineer who built an early one in 1909 (Leishman 2022, Chapter 71; NASA Glenn Research Center n.d.b). {numref}`fig-p31-open-circuit` names its parts in the order the air meets them.
+The simplest tunnel takes air from the room, passes it once through the test section, and blows it back out. This {term}`open-circuit tunnel <open-circuit wind tunnel>` is also called an Eiffel tunnel, after the French engineer who built an early one in 1909 (Leishman 2022, Chapter 71; NASA Glenn Research Center n.d.b). {numref}`fig-p31-open-circuit` names its parts in the order the air passes through them.
 
 :::{figure} figures/p31-open-circuit.svg
 :label: fig-p31-open-circuit
 :alt: Side view of an open-circuit wind tunnel with the air entering at the left and leaving at the right. In order: a flared bellmouth inlet; a wide settling chamber holding a honeycomb and three screens; a smoothly narrowing contraction; a short, narrow test section, shaded, with a small airliner model on a support strut; a long diffuser that widens slowly; and a fan with its hub fairing near the exit. The honeycomb is drawn as a block of cell walls that run with the flow, the screens as single lines across it. Numbered circles above the tunnel mark station 1 in the settling chamber, station 2 at the start of the test section, and station 3 at the end of the diffuser.
 :width: 90%
 
-Schematic of the open-circuit tunnel of worked example 1, to scale: test section 1.2 m square, contraction ratio 7.5. The air is fastest in the narrow test section, where the model sits. The numbered circles are the stations 1, 2, and 3 of the equations below.
+Schematic of the open-circuit tunnel of worked example 1, to scale: test section 1.2 m square, contraction ratio 7.5. The air is fastest in the narrow test section, where the model is mounted. The numbered circles are the stations 1, 2, and 3 of the equations below.
 :::
 
 - **Bellmouth.** A rounded inlet that lets the room air turn into the tunnel without separating from the lip.
 - **{term}`Settling chamber`.** The widest and slowest part. A honeycomb of small parallel cells straightens the flow, and fine wire screens break large eddies into small ones that die out quickly.
 - **{term}`Contraction`**, also called the nozzle. A smoothly narrowing duct that speeds the air up and evens out the unsteadiness that is left.
-- **{term}`Test section`.** The narrowest part, where the speed is highest and the model sits, often behind windows.
+- **{term}`Test section`.** The narrowest part, where the speed is highest and the model is mounted, often behind viewing windows.
 - **{term}`Diffuser`.** A long duct that widens slowly to slow the air down again. Each wall diverges by less than about 3°; a wider angle makes the air separate from the walls (Leishman 2022, Chapter 71).
 - **Fan.** Driven by an electric motor, it pulls the air through and makes up for the pressure lost on the way.
 
@@ -55,7 +59,7 @@ The **{term}`contraction ratio`** is the cross-section area of the settling cham
 In these notes we number the tunnel's cross sections this way: **station 1** in the settling chamber (the reservoir), **station 2** in the test section, and **station 3** at the exit of the diffuser.
 :::
 
-A {term}`closed-circuit tunnel <closed-circuit wind tunnel>` sends the same air around a loop ({numref}`fig-p31-closed-circuit`). It is also called a Göttingen tunnel, after the German university town where Ludwig Prandtl introduced this layout in 1907 (Leishman 2022, Chapter 71). After the diffuser the air turns four corners, each with a row of curved {term}`turning vanes` that guide it around the bend without separating. The fan sits in the return leg, which carries the air, still slowing down, back to the settling chamber.
+A {term}`closed-circuit tunnel <closed-circuit wind tunnel>` sends the same air around a loop ({numref}`fig-p31-closed-circuit`). It is also called a Göttingen tunnel, after the German university town where Ludwig Prandtl introduced this layout in 1907 (Leishman 2022, Chapter 71). After the diffuser the air turns four corners, each with a row of curved {term}`turning vanes` that guide it around the bend without separating. The fan is mounted in the return leg, which carries the air, still slowing down, back to the settling chamber.
 
 :::{figure} figures/p31-closed-circuit.svg
 :label: fig-p31-closed-circuit
@@ -79,7 +83,7 @@ Schematic of a closed-circuit tunnel in plan view, typical proportions. From the
 
 :::
 
-We also class tunnels by the test-section Mach number, which decides how much the density of the air changes ({numref}`tbl-p31-speed-classes`). On this page we stay with low-speed tunnels, below Mach 0.3, where we can treat the air as incompressible, as on [page 1.5](../chapter-1/bernoulli-and-pitot-static.md).
+We also classify tunnels by the test-section Mach number, which determines how much the air density changes ({numref}`tbl-p31-speed-classes`). On this page we focus on low-speed tunnels, below Mach 0.3, where we can treat the air as incompressible, as on [page 1.5](../chapter-1/bernoulli-and-pitot-static.md).
 
 :::{table} Wind tunnels by the Mach number of the test section (NASA Glenn Research Center n.d.d; Leishman 2022, Chapter 71).
 :label: tbl-p31-speed-classes
@@ -138,11 +142,11 @@ $$
 V_2 = \sqrt{\frac{2\,(p_1 - p_2)}{\rho\left[1 - (A_2/A_1)^2\right]}}
 :::
 
-This is the [venturi relation of page 1.5](#eq-p15-venturi), with $\rho$ the density of the air in the tunnel. Three things follow from it.
+This is the [venturi relation of page 1.5](#eq-p15-venturi), with $\rho$ as the density of the air in the tunnel. Equation [](#eq-p31-test-section-speed) highlights three practical points about operating a tunnel:
 
-- **The test-section pressure is lower than the settling-chamber pressure.** The air speeds up from station 1 to station 2, so by Bernoulli's equation $p_2 < p_1$.
-- **We run the tunnel by setting the pressure difference.** The contraction ratio is fixed, so [](#eq-p31-test-section-speed) ties each $p_1 - p_2$ to one test-section speed. The operator turns up the fan until the manometer shows the difference for the speed the test needs. No probe has to sit in front of the model.
-- **The settling-chamber term is small but not zero.** For a contraction ratio of 7.5, $(A_2/A_1)^2 = 0.017778$, so leaving it out would change the speed by less than 1%.
+- **The test-section pressure is lower than the settling-chamber pressure.** Because the air accelerates from station 1 to station 2, Bernoulli's equation requires $p_2 < p_1$.
+- **We control the tunnel speed by setting the pressure difference.** Because the contraction ratio is fixed, [](#eq-p31-test-section-speed) links each pressure difference $p_1 - p_2$ to a unique test-section speed. The operator adjusts the fan until the manometer reaches the target difference, using flush wall taps so no probe has to stand ahead of the model and shed a wake over it.
+- **The settling-chamber term is small but not zero.** For a contraction ratio of 7.5, $(A_2/A_1)^2 = 0.017778$, so omitting it would change the speed by less than 1%.
 
 **The manometer.** A U-tube {term}`manometer` connected to a pressure tap in the settling-chamber wall and another in the test-section wall reads the pressure difference ({numref}`fig-p31-manometer-tunnel`). The higher pressure, $p_1$, pushes its leg of the liquid down until the two levels differ by $\Delta h$ ([the manometer, page 1.5](#eq-p15-manometer)):
 
@@ -240,7 +244,7 @@ An open-circuit tunnel stands in a laboratory at sea-level standard conditions: 
    \end{aligned}
    $$
 
-**Check.** The room pressure minus the test-section pressure, $101{,}325 - 99{,}667.1 = 1{,}657.9$ Pa, equals $q_2$, as it must when no loss is counted ahead of the test section. The test-section pressure is only 1.6% below the room's, which is why we read it with a manometer and not a barometer.
+**Check.** The room pressure minus the test-section pressure, $101{,}325 - 99{,}667.1 = 1{,}657.9$ Pa, equals $q_2$, as it must when no loss is counted ahead of the test section. The test-section pressure is only 1.6% below room pressure, which is why we read it with a manometer and not a barometer.
 
 :::{figure} figures/p31-manometer-tunnel.svg
 :label: fig-p31-manometer-tunnel
@@ -280,7 +284,7 @@ Often a test calls for a speed, and we need the manometer reading that gives it.
 
 {numref}`fig-p31-pressure-along-tunnel` follows the air of worked example 1 from the settling chamber to the end of the diffuser, with the speed from continuity and the static pressure from Bernoulli's equation. The speed peaks where the static pressure dips, in the test section.
 
-In the diffuser the area grows to 2.546 times the test-section area at station 3, so the speed falls to 20.43 m/s and the static pressure rises. With no loss, the static pressure there would be 255.8 Pa below the room's, just the dynamic pressure left at that speed. In a real tunnel the air loses energy to the honeycomb and screens, to wall friction, to the drag of the model, and in a closed circuit to the turning vanes. Its {term}`total pressure` falls. Worked example 1 neglects the small loss ahead of the test section. Downstream of the model the figure assumes a loss of 10% of the test-section dynamic pressure, 165.8 Pa, which leaves the static pressure at station 3 at 421.6 Pa below the room's.
+A wind tunnel needs a diffuser to slow the airflow back down after the test section, recovering most of the static pressure and reducing the power the fan must supply. In this diffuser, the area grows to 2.546 times the test-section area at station 3, so the speed falls to 20.43 m/s and the static pressure rises. With no losses, the static pressure there would be 255.8 Pa below room pressure, equal to the remaining dynamic pressure at that speed. In a real tunnel the air loses mechanical energy to the honeycomb and screens, wall friction, model drag, and, in a closed circuit, the turning vanes, so its {term}`total pressure` falls. Worked example 1 neglects the small loss ahead of the test section. Downstream of the model, the figure assumes a loss of 10% of the test-section dynamic pressure, 165.8 Pa, which leaves the static pressure at station 3 at 421.6 Pa below room pressure.
 
 This loss is why even a closed-circuit tunnel needs a fan: the air comes back to the settling chamber with less total pressure than it left with. The fan raises the air from $p_3$ back to the room pressure in an open circuit, and adds the losses of one trip around the loop in a closed one (Leishman 2022, Chapter 71).
 
@@ -294,7 +298,7 @@ Computed for worked example 1, with an assumed total-pressure loss of 10% of $q_
 
 ## Viscosity, laminar and turbulent flow
 
-So far we have treated air as if it slid past every surface without friction. Real air is sticky, and that stickiness explains skin-friction drag, the stall of a wing, and why a small model can behave differently from a large aircraft.
+So far we have treated air as if it moved past surfaces without friction. Real air is viscous: its layers resist sliding past one another. That internal resistance explains skin-friction drag, wing stall, and why a small wind-tunnel model can behave differently from a full-size aircraft.
 
 ### Viscosity
 
@@ -324,7 +328,7 @@ with $T$ in kelvin and $\mu$ in kg/(m s). Both constants are fitted to measureme
 Computed from Sutherland's law, [](#eq-p31-sutherland), with the table values of the U.S. Standard Atmosphere, 1976 (Table III) as squares. The viscosity of air rises with temperature, the opposite of a liquid's, so air at 11 km is less viscous than air at sea level.
 :::
 
-Notice the trend: hot air is "stickier" than cold air, the opposite of honey or oil. A gas grows more viscous as it warms, because its faster molecules carry more momentum between layers. A liquid grows less viscous, because the bonds between its molecules weaken (Leishman 2022, Chapter 13). So the cold air at a cruise altitude of 11 km is less viscous than sea-level air.
+Notice an important trend: warm air is more viscous than cold air, the opposite of liquids like honey or oil. As a gas warms, its faster molecules transfer more momentum between neighboring layers, which increases its internal shear resistance. In a liquid, warming weakens the bonds between molecules and lowers viscosity (Leishman 2022, Chapter 13). For this reason, the cold air at a cruise altitude of 11 km is less viscous than sea-level air.
 
 ### The no-slip condition and the boundary layer
 
@@ -345,7 +349,7 @@ The change from one to the other is **{term}`transition`**. On a smooth flat pla
 Computed for a smooth flat plate: laminar profiles from the Blasius solution, turbulent ones from the one-seventh power law, and transition placed where $\textit{Re}_x$ reaches $5 \times {10}^{5}$. The speed is zero at the wall in both layers; the turbulent layer is several times thicker and fuller near the wall. Heights are drawn 23 times their true size. Across the transition zone the edge is blended from the laminar to the turbulent thickness; next to the wall the turbulent profiles are drawn leaving it at a finite slope.
 :::
 
-For a smooth flat plate with no pressure change along it, both thicknesses have published formulas. With $x$ the distance from the leading edge and $\textit{Re}_x = \rho V x/\mu$, a Reynolds number based on $x$ (the next section explains it), the laminar layer of the Blasius solution has
+For a smooth flat plate with constant pressure along its length, both boundary-layer thicknesses have standard relations. With $x$ the distance from the leading edge and $\textit{Re}_x = \rho V x/\mu$, a Reynolds number based on $x$ (the next section explains it), the laminar layer of the Blasius solution has
 
 :::{math}
 :label: eq-p31-delta-laminar
@@ -359,7 +363,7 @@ and a layer turbulent from the leading edge, with the empirical one-seventh powe
 \delta \approx \frac{0.37\,x}{\textit{Re}_x^{1/5}}
 :::
 
-Both come from boundary-layer theory, a later course; worked example 2 uses the first.
+You will derive both relations in a later aerodynamics course on boundary-layer theory; we use the laminar relation in worked example 2.
 
 **Separation and the wake.** Where the pressure rises along a surface, as over the rear of a wing at a high {term}`angle of attack`, the slow air near the wall can be stopped and pushed backward. The boundary layer then leaves the surface: the flow **{term}`separates <flow separation>`**, and a region of slow, swirling air, the **{term}`wake`**, forms behind the body (NASA Glenn Research Center n.d.c; Leishman 2022, Chapter 26). Separation changes the effective shape of the body, adds pressure drag, and on a wing causes the {term}`stall`. A turbulent layer, with fast air mixed down to the wall, stays attached longer against a rising pressure than a laminar one.
 
@@ -380,16 +384,16 @@ $$
 where $\rho$ is the density of the fluid, $V$ its speed relative to the body, $\mu$ its dynamic viscosity, $\nu$ its kinematic viscosity, and $L$ a **characteristic length** of the body: the chord of a wing, the length of a fuselage or a hull, the diameter of a pipe. It has no units. When a Reynolds number is quoted, the length it uses must be named (Leishman 2022, Chapter 18).
 :::
 
-The Reynolds number is the ratio of inertial to viscous forces in a flow (NASA Glenn Research Center n.d.c). Inertia keeps a fluid element moving as it was, and the force needed to change its momentum grows with $\rho V^2$. Viscosity resists the sliding of layers, and from [](#eq-p31-shear) its stress grows with $\mu V/L$. Their ratio is $\rho V^2/(\mu V/L) = \rho V L/\mu$. At a low Reynolds number viscosity dominates: the fluid behaves like honey, and a bacterium stops the moment it stops swimming. At a high Reynolds number inertia dominates, viscous effects stay inside thin boundary layers, and the flow tends to be turbulent.
+The Reynolds number is the ratio of inertial to viscous forces in a flow (NASA Glenn Research Center n.d.c). Inertia resists changes in a fluid element's motion, scaling with the dynamic pressure $\rho V^2$, while viscous shear stress from [](#eq-p31-shear) scales with $\mu V/L$. Taking their ratio gives $\rho V^2/(\mu V/L) = \rho V L/\mu$. When the Reynolds number is low, viscous forces dominate and internal friction damps out motion quickly. When the Reynolds number is high, inertial forces dominate, viscous effects are confined to thin boundary layers near the surface, and the flow readily turns turbulent.
 
-The Reynolds numbers we meet span more than twelve powers of ten ({numref}`fig-p31-reynolds-ladder`). A bacterium about 1 µm long swimming at 30 µm/s in water, whose kinematic viscosity is about ${10}^{-6}$ m²/s, has $\textit{Re} = 3 \times {10}^{-5}$. A goldfish is near ${10}^{2}$ and a person swimming near ${10}^{4}$ (Purcell 1977). Model aircraft and small drones fly at ${10}^{3}$ to ${10}^{5}$ (Leishman 2022, Chapter 18). Take a jet airliner wing with a mean chord of 2.75 m, at Mach 0.82 and 30,000 ft in the standard atmosphere of [page 1.4](../chapter-1/standard-atmosphere.md). Based on its chord, it has $\textit{Re} = 2.105 \times {10}^{7}$ (after Leishman 2022, Chapter 18).
+The Reynolds numbers we encounter in fluid mechanics span more than twelve powers of ten ({numref}`fig-p31-reynolds-ladder`). A bacterium about 1 µm long swimming at 30 µm/s in water, whose kinematic viscosity is about ${10}^{-6}$ m²/s, has $\textit{Re} = 3 \times {10}^{-5}$. A goldfish is near ${10}^{2}$ and a person swimming near ${10}^{4}$ (Purcell 1977). Model aircraft and small drones fly at ${10}^{3}$ to ${10}^{5}$ (Leishman 2022, Chapter 18). Take a jet airliner wing with a mean chord of 2.75 m, at Mach 0.82 and 30,000 ft in the standard atmosphere of [page 1.4](../chapter-1/standard-atmosphere.md). Based on its chord, it has $\textit{Re} = 2.105 \times {10}^{7}$ (after Leishman 2022, Chapter 18).
 
 :::{figure} figures/p31-reynolds-ladder.svg
 :label: fig-p31-reynolds-ladder
 :alt: A horizontal scale of Reynolds number from ten to the minus six at the left to ten to the nine at the right, one power of ten per tick. Flows in water are below the axis with open markers: a swimming bacterium at 3 times ten to the minus five, a goldfish at about one hundred, a person swimming at about ten thousand. Flows in air are above it with filled markers: a bracket for model aircraft and small drones from one thousand to one hundred thousand; the airship model of worked example 2 at 3.563 million; an airliner wing in cruise at 21.05 million; and the full-size airship at 128.4 million. A dashed line at 500,000 marks flat-plate transition. A bracket under the axis between the airship model and the full-size airship is labeled 36 times.
 :width: 85%
 
-Reynolds numbers of real flows on one logarithmic scale, each based on the body's length or chord: values from Purcell (1977) and Leishman (2022, Chapter 18), the airship and its model from worked example 2. The tunnel model sits 36 times below the aircraft it stands for.
+Reynolds numbers of real flows on one logarithmic scale, each based on the body's length or chord: values from Purcell (1977) and Leishman (2022, Chapter 18), the airship and its model from worked example 2. The tunnel model lies a factor of 36 below the full-size aircraft it represents.
 :::
 
 ### Where a boundary layer turns turbulent
@@ -403,7 +407,7 @@ For a boundary layer the length that matters is the distance $x$ from the leadin
 
 This value is only a guide. Surface roughness, turbulence in the oncoming air, noise, vibration, and a pressure rising along the surface all bring transition earlier. An unusually smooth surface in quiet air can delay it (Leishman 2022, Chapters 18 and 26).
 
-We set $\textit{Re}_x$ equal to the transition value and solve for $x$ to find where transition sits on a surface:
+We set $\textit{Re}_x$ equal to the transition value and solve for $x$ to find where transition occurs on a surface:
 
 :::{math}
 :label: eq-p31-xtr
@@ -413,7 +417,7 @@ x_\text{tr} = \frac{\textit{Re}_{x,\text{tr}}\, \mu}{\rho\, V}
 The faster the flow, the closer transition comes to the leading edge. A surface shorter than $x_\text{tr}$ stays laminar from end to end; one much longer is turbulent over almost all its length.
 
 :::{warning} Which length, and which units
-A wing's chord, a hull length, and the distance $x$ along a plate give different Reynolds numbers for the same flow. Use the length the problem calls for, in meters, with the viscosity in kg/(m s) and the density in kg/m³. If you put a chord in centimeters, the answer is off by a factor of 100. If you use $\nu$ where $\mu$ belongs, it is off by a factor of 1.2 at sea level. Either mistake can flip the laminar-or-turbulent judgment.
+A wing's chord, a hull length, and the distance $x$ along a plate give different Reynolds numbers for the same flow. Use the length the problem calls for, in meters, with the viscosity in kg/(m s) and the density in kg/m³. If you put a chord in centimeters, the answer is off by a factor of 100. If you use $\nu$ where $\mu$ belongs, it is off by a factor of 1.2 at sea level. Either mistake can lead you to classify a turbulent boundary layer as laminar, or the reverse.
 :::
 
 (p31-scale-models)=
@@ -426,11 +430,11 @@ A model gives the right answer for the aircraft only if the flow around it is a 
 
 When both hold, the pressure distribution, boundary layers, transition, and separation are scaled copies, and the force coefficients measured on the model ([page 3.2](#p32-coefficients) defines them) apply to the aircraft.
 
-The trouble is the length. A model 1/50 the size of the aircraft has 1/50 of its Reynolds number at the same speed. Making up for it takes 50 times the speed, which a low-speed tunnel cannot reach and which changes the Mach number. In ordinary air at room conditions, a small model cannot match both numbers (Leishman 2022, Chapter 71).
+Matching the Reynolds number is difficult because a wind-tunnel model is much smaller than the full-size aircraft. At the same airspeed and air properties, a 1/50-scale model has only 1/50 of the aircraft's Reynolds number. Compensating with airspeed alone would require 50 times the speed, which exceeds a low-speed tunnel's capability and raises the Mach number into a different flow regime. In air at room conditions, a small model cannot match both Reynolds number and Mach number at once (Leishman 2022, Chapter 71).
 
 ### Worked example 2: an airship model
 
-An airship 75 m long, with a hull diameter of 18 m, cruises at 25 m/s near sea level (invented values, typical of a large airship). A model built at 1:75 scale, 1.0 m long and 0.24 m in diameter, is tested in the tunnel of worked example 1 at $V_2 = 52.03$ m/s. Take sea-level standard air for both, $\rho = 1.2250$ kg/m³ and $\mu = 1.789 \times {10}^{-5}$ kg/(m s), and the hull length as the characteristic length. Find the Reynolds numbers of the airship and of the model, the speed the model would need to match the airship, where transition sits on each, the boundary-layer thickness on the model, and the blockage of the test section.
+An airship 75 m long, with a hull diameter of 18 m, cruises at 25 m/s near sea level (invented values, typical of a large airship). A model built at 1:75 scale, 1.0 m long and 0.24 m in diameter, is tested in the tunnel of worked example 1 at $V_2 = 52.03$ m/s. Take sea-level standard air for both, $\rho = 1.2250$ kg/m³ and $\mu = 1.789 \times {10}^{-5}$ kg/(m s), and the hull length as the characteristic length. Find the Reynolds numbers of the airship and of the model, the speed the model would need to match the airship, where transition occurs on each, the boundary-layer thickness on the model, and the blockage of the test section.
 
 1. **Full-size Reynolds number:**
    $$
@@ -503,7 +507,7 @@ Engineers have four ways to raise a model's Reynolds number or make up for the g
 1. **A bigger tunnel and a bigger model.** The Reynolds number grows with the length. The largest tunnels test full-size aircraft at low speed.
 2. **A pressurized tunnel.** Raising the pressure at a fixed temperature raises the density, and the Reynolds number with it, at the same speed. The NACA Variable Density Tunnel, running from 1922 at up to 20 atmospheres, produced the airfoil data used to design aircraft such as the Douglas DC-3 (Leishman 2022, Chapter 71). The airship model of worked example 2 would need a density 36.04 times that of sea-level air, more than even that tunnel could give.
 3. **A cryogenic tunnel.** Cooling the gas lowers its viscosity ({numref}`fig-p31-viscosity`) and, at a fixed pressure, raises its density; both raise $\textit{Re}$. NASA's National Transonic Facility, the largest pressurized cryogenic tunnel, runs on nitrogen as cold as 250 °F below zero to reach flight Reynolds numbers at transonic speeds (NASA Langley Research Center n.d.).
-4. **{term}`Trip strips <trip strip>`.** When the Reynolds number cannot be matched, a thin strip of roughness, such as grit or a row of small bumps, is glued near the model's nose or leading edge. It forces transition where it occurs on the full-size aircraft, so the model's boundary layer is turbulent where the aircraft's is. The engineers must already know where that is.
+4. **{term}`Trip strips <trip strip>`.** When the tunnel cannot match the flight Reynolds number, engineers glue a thin strip of roughness, such as grit or small bumps, near the model's nose or leading edge to force transition at the same relative location as on the full-size aircraft. That ensures the model has a turbulent boundary layer over the same fraction of its surface, although placing the trip strip accurately requires knowing beforehand where transition occurs at full scale.
 
 ## Summary
 
@@ -528,7 +532,7 @@ Engineers have four ways to raise a model's Reynolds number or make up for the g
 | Sutherland's law, SI units | $\mu = 1.458 \times {10}^{-6}\, T^{3/2}/(T + 110.4)$ |
 | Reynolds number | $\textit{Re} = \rho V L/\mu = VL/\nu$ |
 | Flat-plate transition, a guide | $\textit{Re}_{x,\text{tr}} \approx 5 \times {10}^{5}$ |
-| Where transition sits | $x_\text{tr} = \textit{Re}_{x,\text{tr}}\,\mu/(\rho V)$ |
+| Transition location | $x_\text{tr} = \textit{Re}_{x,\text{tr}}\,\mu/(\rho V)$ |
 | Boundary-layer thickness, laminar | $\delta \approx 5.0\,x/\sqrt{\textit{Re}_x}$ |
 | Boundary-layer thickness, turbulent | $\delta \approx 0.37\,x/\textit{Re}_x^{1/5}$ |
 

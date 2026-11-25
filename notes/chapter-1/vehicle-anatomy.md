@@ -6,7 +6,7 @@ short_title: 1.3 Vehicle Anatomy
 :::{include} ../_parts/standards/1.3.md
 :::
 
-Designers have a name for every part of an aircraft or a rocket: the {term}`flap`, the {term}`spoiler`, the {term}`interstage`, the {term}`mean aerodynamic chord`. We name the parts of an airliner, the Boeing 737-800, and of two {term}`launch vehicles <launch vehicle>`, the Ariane 5 and the Falcon 9, and say what each part does. We also need the few numbers that describe a wing and an {term}`airfoil`. We end with the {term}`mission profile`, a sketch of what the vehicle must do.
+Before we can analyze aerodynamics or size a vehicle, we need a shared engineering vocabulary for its major components, such as the {term}`flap`, {term}`spoiler`, {term}`interstage`, and {term}`mean aerodynamic chord`. Using the Boeing 737-800 airliner and two {term}`launch vehicles <launch vehicle>` (the Ariane 5 and the Falcon 9) as concrete examples, we identify each major part and its function, define the geometric parameters of a wing and an {term}`airfoil`, and introduce the {term}`mission profile` used to break a flight into sizing segments.
 
 :::{note} What to take from this page
 - An airplane is a few large parts with one job each. The {term}`fuselage` carries the payload, the wing makes the lift, the tail keeps the aircraft steady, the engines push, and the landing gear carries it on the ground.
@@ -41,7 +41,7 @@ Schematic of the airliner from the side: a few large parts, each with one job. T
 | Engine in its nacelle | Makes the thrust; the nacelle is the streamlined casing around it |
 | Pylon | The strut the engine hangs from; the engine's weight and thrust pass through it into the wing |
 | Landing gear | Carries the aircraft on the ground; the nose gear steers it |
-| Winglet | Stands up at the wing tip; it weakens the swirl of air there and so saves fuel |
+| Winglet | Rises nearly vertically at the wing tip; weakens the wingtip vortex and reduces drag |
 :::
 
 The two stabilizers keep the aircraft pointed into the airflow, as the tail of a weathervane keeps it pointed into the wind. If a gust pitches the nose up, the horizontal stabilizer meets the air at a new angle, and the force it then makes swings the nose back down. The vertical stabilizer does the same when a gust swings the nose to one side. We call this tendency to return to steady flight, with no action from the pilot, **{term}`stability`** (FAA 2023a, Chapter 5).
@@ -50,7 +50,7 @@ Each engine sits in a streamlined casing, the **nacelle**, and hangs from a shor
 
 The view from ahead, {numref}`fig-p13-front-view`, shows three more features. The wing rises from the root to the tip, and the upward angle it makes with the horizontal is the **{term}`dihedral`** angle, 6° on the 737-800 drawing. Dihedral helps the wings roll level after a gust. A gust that rolls the aircraft also makes it slip sideways toward the low wing. With dihedral, the low wing then meets the air at a steeper angle and makes more lift than the high wing, and the wings roll level again (FAA 2023a, Chapter 5).
 
-The engines hang low and close to the fuselage. At each wing tip a **{term}`winglet`** stands up. Air flows around the tip from the high-pressure lower surface to the low-pressure upper surface. This swirl, the wingtip vortex, costs energy that the engines have to supply, and the winglet weakens it.
+The engines hang low and close to the fuselage. At each wing tip a **{term}`winglet`** rises nearly vertically. Because air flows around the wing tip from the high-pressure lower surface to the low-pressure upper surface, it rolls up into a wingtip vortex that creates extra drag that the engines must overcome; the winglet weakens that vortex.
 
 :::{figure} figures/p13-front-view.svg
 :label: fig-p13-front-view
@@ -164,12 +164,12 @@ Schematic of six landing-gear arrangements, each from the side and from below. W
 | Quadricycle | Four main units at the corners of a rectangle | Carries a large weight with the fuselage level and close to the ground | B-52 |
 :::
 
-The tricycle arrangement is the most common, on small and large aircraft alike. The table gives the three reasons the FAA lists (FAA 2023b, Chapter 13), and the third needs a word. A **{term}`ground loop`** is a sudden swerve on the ground. A tail-dragger can fall into one because its center of gravity is behind the main wheels. Once the aircraft starts to turn, the weight keeps pushing it further around. In a tricycle the center of gravity is ahead of the main wheels, and the weight pulls the aircraft straight.
+The tricycle arrangement is the most common on both small and large aircraft for the three reasons listed by the FAA (FAA 2023b, Chapter 13). The third reason refers to a **{term}`ground loop`**, an uncontrolled, tightening swerve on the runway. A tail-dragger is prone to a ground loop because its center of gravity lies behind the main wheels: once the aircraft starts to swerve, the inertia of the mass concentrated behind the pivot swings the tail even farther around. On a tricycle gear the center of gravity lies ahead of the main wheels, so inertia pulls the aircraft back toward a straight path.
 
 (p13-wing-geometry)=
 ## Wing geometry
 
-Names are not enough to size a wing; we also need numbers. Seen from above, a wing has a flat shape, its **{term}`planform`**. Most wings are close to a trapezoid on each side of the centerline, a **straight-tapered** wing, and a few numbers describe it.
+To compare wings or size a new one, we describe the wing's flat shape seen from above, called its **{term}`planform`**, with a compact set of geometric parameters. Most wings are close to a trapezoid on each side of the centerline, a **straight-tapered** wing.
 
 :::{prf:definition} Wing span, wing area, and chord
 :label: def-p13-span-area
@@ -184,7 +184,7 @@ A real wing has kinks and rounded tips, so designers replace it with a **referen
 S = 2 \cdot \frac{b}{2}\cdot\frac{c_r + c_t}{2} = \frac{b\,(c_r + c_t)}{2}
 :::
 
-Two ratios and one angle describe the shape, whatever the size of the wing.
+To compare wing shapes independently of overall size, we use two dimensionless ratios and one angle.
 
 :::{prf:definition} Taper ratio, aspect ratio, and sweep
 :label: def-p13-ratios
@@ -214,7 +214,7 @@ The **{term}`wing loading`** is the {term}`takeoff weight` divided by the wing a
 
 ### Mean aerodynamic chord
 
-A tapered wing has a different chord at every station, a position along the span measured from the centerline. We still want one length to stand for the whole wing, and that length is the **mean aerodynamic chord** $\bar{c}$. It is an average chord in which each strip of the wing counts in proportion to its area:
+A tapered wing has a different chord at every spanwise station $y$ measured from the centerline. To represent the whole wing with one reference length, we define the **mean aerodynamic chord** $\bar{c}$ as the area-weighted average of the local chord. A thin spanwise strip of width $dy$ has area $dS = c(y)\,dy$, so weighting the chord by strip area gives $c(y)\,dS = c(y)^2\,dy$; integrating over one half-wing and doubling (since the wing is symmetric) produces
 
 :::{math}
 :label: eq-p13-mac-integral
@@ -228,7 +228,7 @@ For a straight-tapered wing, whose chord falls in a straight line from $c_r$ at 
 \bar{c} = \frac{2}{3}\,c_r\,\frac{1 + \lambda + \lambda^2}{1 + \lambda}
 :::
 
-The mean aerodynamic chord lies at $y_{\bar{c}} = (b/6)\,(1 + 2\lambda)/(1 + \lambda)$ from the centerline. You can also find it on a drawing, without a formula, as panel (b) of {numref}`fig-p13-wing-planform` shows:
+The spanwise station of the mean aerodynamic chord is $y_{\bar{c}} = (b/6)\,(1 + 2\lambda)/(1 + \lambda)$ from the centerline. Knowing $y_{\bar{c}}$ matters on a swept wing because it fixes where the mean aerodynamic chord lies fore-and-aft along the fuselage, which sets the reference origin for center-of-gravity placement. You can also find this station graphically without a formula, as panel (b) of {numref}`fig-p13-wing-planform` shows:
 
 1. Extend the root chord rearward by the tip chord.
 2. Extend the tip chord forward by the root chord.
@@ -350,7 +350,7 @@ Computed from the NACA four-digit equations for the NACA 4418. Three lines fix a
 The **leading edge** is the front point of the airfoil and the **trailing edge** the rear point. The **chord line** is the straight line joining them, and its length is the **chord** $c$. The **mean camber line** is the line halfway between the upper and the lower surfaces. The **{term}`camber`** is the distance between the mean camber line and the chord line, and the **thickness** is the distance between the upper and the lower surfaces. Both are usually given at their largest value, as a fraction or a percentage of the chord.
 :::
 
-An airfoil with no camber is **symmetric**: its surfaces are mirror images and its mean camber line lies on the chord line. It makes no lift when the air meets it along the chord line, while a cambered airfoil already makes some. Most wings are cambered; most tails, which must push both up and down, are symmetric.
+An airfoil with no camber is **symmetric**: its upper and lower surfaces are mirror images and its mean camber line coincides with the chord line. At zero angle of attack (airflow parallel to the chord line), a symmetric airfoil produces zero lift, while a cambered airfoil produces positive lift. Most wings are cambered to generate lift efficiently in cruise; most tail surfaces, which must generate force both upward and downward, are symmetric.
 
 The National Advisory Committee for Aeronautics (NACA), the forerunner of NASA, built families of airfoils from equations, so that four digits fix the whole shape (Jacobs et al. 1933; Abbott and von Doenhoff 1959).
 
@@ -414,7 +414,7 @@ Computed from the NACA four-digit equations for the worked example. Drawn to the
 
 ## The launch vehicle
 
-We now leave the airplane for the rocket. A launch vehicle carries a payload, a satellite or a spacecraft, from the ground to its orbit; how it gains the speed to stay there is the subject of [launch to orbit](../chapter-2/launch-to-orbit.md). Most of its mass is propellant. The core stage of the Ariane 5 ECA has a dry mass of 14.7 t (1 t is 1,000 kg) and carries 170 t of liquid oxygen and liquid hydrogen (Arianespace 2016, Section 1.5.1). Most of the vehicle is also thrown away on the way up. {numref}`fig-p13-launcher-parts` names the outside of a heavy launch vehicle, the Ariane 5. On this page the launch vehicles lie down with the nose to the right, so "ahead of" means toward the nose and "behind" means toward the engines.
+We now turn from airplanes to launch vehicles. A launch vehicle carries a payload, such as a satellite or spacecraft, from the ground into orbit; how it builds the required speed is the subject of [launch to orbit](../chapter-2/launch-to-orbit.md). Most of a launch vehicle's liftoff mass is propellant: the core stage of the Ariane 5 ECA has a dry mass of 14.7 t (1 t is 1,000 kg) and carries 170 t of liquid oxygen and liquid hydrogen (Arianespace 2016, Section 1.5.1). Most of the vehicle's structure is also jettisoned during ascent once its job is done. {numref}`fig-p13-launcher-parts` labels the exterior of a heavy launch vehicle, the Ariane 5. On this page launch vehicles are drawn horizontally with the nose to the right, so "ahead of" means toward the nose and "behind" means toward the engines.
 
 :::{figure} figures/p13-launcher-parts.svg
 :label: fig-p13-launcher-parts
@@ -452,11 +452,11 @@ Schematic of the same vehicle cut open. Most of it is propellant: fuel and oxidi
 
 The solid propellant of each booster is cast as a rubbery block, the **grain**, with a channel along its axis. It burns on the surface of the channel and outward toward the case. The shape of the channel therefore sets the burning area, and with it the thrust. A solid motor cannot be turned off; it burns until its grain is gone.
 
-:::{table} The parts of the Ariane 5, what each does, and when it leaves the vehicle, in the order of a flight (Arianespace 2016, Figure 2.3.a and Section 3.3.3.2; times and altitudes from ESA n.d.a and n.d.b).
+:::{table} The parts of the Ariane 5, what each does, and when it separates, in the order of a flight (Arianespace 2016, Figure 2.3.a and Section 3.3.3.2; times and altitudes from ESA n.d.a and n.d.b).
 :label: tbl-p13-launcher
 :align: center
 
-| Part | What it does | When it leaves the vehicle |
+| Part | What it does | When it separates |
 | --- | --- | --- |
 | Solid rocket boosters | About 92% of the thrust at liftoff | 1. Burned out, about 132 s after liftoff, at about 60 km |
 | Payload fairing | Shields the payload in the atmosphere | 2. Once the air is so thin that the heating of the bare payload stays below 1,135 W/m² |
@@ -464,7 +464,7 @@ The solid propellant of each booster is cast as a rubbery block, the **grain**, 
 | Upper stage, equipment bay, and payload adapter | Finish the climb to orbit and steer the vehicle | 4. Stay together to the end; the payload is released from the adapter |
 :::
 
-The core-stage engine is started and checked on the pad; only then are the boosters lit, and the vehicle lifts off. The parts then leave in the order of {numref}`tbl-p13-launcher`.
+The core-stage engine is started and checked on the pad; only then are the boosters ignited, and the vehicle lifts off. Each major section then separates or is jettisoned in the order shown in {numref}`tbl-p13-launcher`.
 
 The Falcon 9, in {numref}`fig-p13-two-stage`, is built another way. It has two stages and no boosters, and both stages burn one pair of propellants, rocket-grade kerosene (RP-1) and liquid oxygen. It is 70 m tall and 3.66 m across. Nine engines, eight in a ring around one, power the first stage, and one engine built for vacuum powers the second. In the first stage a common dome separates the oxygen tank from the kerosene tank behind it, and a transfer tube carries the oxygen through the kerosene tank to the engines. The interstage is fixed to the forward end of the first stage and stays with it (SpaceX 2025, Section 2). It carries four grid fins, which steer the stage through the atmosphere on its way back, and four landing legs fold against the rear of the stage.
 
@@ -477,7 +477,7 @@ Schematic of a two-stage launch vehicle, the Falcon 9, cut where the stages sepa
 :::
 
 :::{warning} The biggest tank is not always the fuel tank
-On the Ariane 5 core stage the larger tank holds the fuel, liquid hydrogen, even though the first version of the stage carried 5.1 times more oxygen than hydrogen by mass. Hydrogen is so light that 26 t of it fill 390 m³. Name a tank by what it holds, not by its size.
+On the Ariane 5 core stage the larger tank holds the fuel, liquid hydrogen, even though the first version of the stage carried 5.1 times more oxygen than hydrogen by mass. Liquid hydrogen has such a low density that 26 t of it fill 390 m³, so always identify a propellant tank from its contents and plumbing instead of assuming the larger tank is the oxidizer or the fuel.
 :::
 
 (p13-mission-profile)=
@@ -547,7 +547,7 @@ Schematic, not to scale, of three mission profiles. Each mission becomes a chain
 1. Why do airliners put the engines under the wing, while many business jets put them on the rear fuselage? Name one advantage of each.
 2. A tail-dragger and a tricycle aircraft land with a crosswind. Which one is more likely to swerve after touchdown, and why?
 3. Two wings have the same area and the same span, one rectangular and one tapered. Which of $\textit{AR}$, $\lambda$, and $\bar{c}$ differ between them?
-4. Why does the payload fairing leave the vehicle long before the payload reaches orbit, instead of staying on to the end?
+4. Why is the payload fairing jettisoned long before the payload reaches orbit, instead of staying attached to the end?
 5. An airliner and a business jet fly the same distance on one leg. Which segments of their mission profiles are the same, and which segment would you expect to take the largest share of the fuel?
 :::
 

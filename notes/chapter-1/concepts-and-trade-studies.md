@@ -3,7 +3,7 @@ title: "Concept generation and trade studies"
 short_title: Concepts and trade studies
 ---
 
-Requirements say what a vehicle must do. They do not say what it looks like. Between the two lies a choice among designs that differ in kind: a conventional airplane or one that takes off vertically, a piston engine or electric motors. Here we make that choice in a way others can check. We generate several concepts without judging them, compare them in a weighted decision matrix, check whether the answer depends on the weights, and write the decision down. One example runs through the page: an uncrewed cargo aircraft that carries supplies between small islands. No course standard is assessed on this page.
+Requirements specify what a vehicle must accomplish, leaving open what configuration will do the job: a conventional airplane or a vertical-takeoff aircraft, piston engines or electric motors. A structured trade study lets an engineering team make that choice transparently so others can audit it. On this page we generate candidate concepts before judging them, compare them with a weighted decision matrix, test how sensitive the ranking is to the criterion weights, and document the outcome. Throughout the page we follow an uncrewed cargo aircraft carrying supplies between small islands. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - Generate concepts before judging them: list the functions, list several ways to do each, and combine one way per function into a concept.
@@ -22,7 +22,7 @@ A design starts as a {term}`concept`: a short description of how the vehicle wil
 A {term}`trade study` compares alternative ways to meet the same requirements, ranks them against criteria taken from those requirements, and drops the less promising ones (NASA 2016, Appendix B). The word "trade" is short for trade-off: no concept is best on every criterion, so the study shows what each choice gives up.
 :::
 
-The order of the steps ({numref}`fig-p17-trade-study-steps`) matters more than any formula on this page. We generate concepts first, so that the comparison has real alternatives. We set the weights before the scores, so that nobody can tune them toward a favorite. The check and the record come last, so that the decision can be defended and revisited.
+Following the steps of {numref}`fig-p17-trade-study-steps` in order keeps the comparison honest. Generating concepts before judging them ensures we compare genuinely distinct alternatives, setting criterion weights before scoring prevents the team from steering the outcome toward a favorite design, and running a sensitivity check before recording the result ensures the choice can be defended or revisited later.
 
 :::{figure} figures/p17-trade-study-steps.svg
 :label: fig-p17-trade-study-steps
@@ -34,7 +34,7 @@ Schematic of a trade study in seven steps. The weights are fixed in step 3, befo
 
 ## Generate concepts before judging them
 
-The first concept that comes to mind is rarely the best one, and if we judge it at once, the search stops. So product designers keep the two activities apart: generate many concepts first, judge them later (Ulrich and Eppinger 2016, Chapter 7; Roemer 2006). One orderly way to generate them is the {term}`combination table`:
+The first concept that comes to mind is rarely the best one, and critiquing it immediately tends to shut down exploration. Aerospace design teams therefore separate generation from evaluation, listing many candidate concepts first and judging them afterward (Ulrich and Eppinger 2016, Chapter 7; Roemer 2006). One systematic way to generate candidates is the {term}`combination table`:
 
 :::{tip} Method: generating concepts with a combination table
 1. List the functions the vehicle must perform. Take them from the requirements: a requirement on the cargo load becomes the function "carry cargo."
@@ -65,10 +65,10 @@ We carry three concepts forward, chosen to differ in how they make thrust and ho
 | C, electric lift-plus-cruise VTOL | Wing plus lift rotors | Electric motors | Vertical | Inside fuselage |
 :::
 
-If a concept cannot meet a must-have requirement at all, we drop it here, before any scoring, and the log says why. Scoring it would only add noise to the matrix (NASA 2016, Section 6.8.1.2.1; Goldberg et al. 1994, Section 2.1.3).
+If a concept fails a mandatory requirement, we eliminate it before scoring and note the reason in the log. A concept that cannot satisfy a mandatory requirement is ineligible no matter how high its weighted score might be (NASA 2016, Section 6.8.1.2.1; Goldberg et al. 1994, Section 2.1.3).
 
 :::{warning} Three versions of one idea are not three concepts
-Three conventional airplanes that differ only in wing span give the matrix nothing to decide. Make the concepts differ in their main options: how the vehicle makes lift, makes thrust, or takes off.
+Comparing three conventional airplanes that differ only in wing span tests parameter tuning instead of genuine configuration choices. Make sure your candidate concepts differ in major architectural options, such as how the vehicle generates lift, produces thrust, or takes off.
 :::
 
 (p17-decision-matrix)=
@@ -81,7 +81,7 @@ We compare the concepts in a {term}`decision matrix`, which lists the criteria i
 \text{total}_j = \sum_{i=1}^{n} w_i\, s_{ij}, \qquad \sum_{i=1}^{n} w_i = 1
 :::
 
-where $n$ is the number of criteria, $w_i$ the weight of criterion $i$, and $s_{ij}$ the score of concept $j$ on criterion $i$. Because the weights add up to 1, the total is a weighted average of the scores and also lies between 1 and 5. The weight $w_i$ is a pure number. It has nothing to do with the weight of the aircraft.
+where $n$ is the number of criteria, $w_i$ is the weight of criterion $i$, and $s_{ij}$ is the score of concept $j$ on criterion $i$. Because the weights sum to 1, each total is a weighted average that also lies between 1 and 5; note that $w_i$ is a dimensionless importance factor and has nothing to do with aircraft weight.
 
 :::{tip} Method: building the decision matrix (steps 2 to 6)
 2. Pick four to six criteria from the requirements. Each must tell the concepts apart and must not measure the same thing as another criterion.
@@ -159,7 +159,13 @@ Suppose criterion $k$ has the weight $w_k$, and we change it to $w_k'$. To keep 
 f = \frac{1 - w_k'}{1 - w_k}
 :::
 
-The other weights add up to $1 - w_k$ before the change, so after it they add up to $f\,(1 - w_k) = 1 - w_k'$, and the total is 1 again. We call $r_j = \text{total}_j - w_k s_{kj}$ the part of concept $j$'s total that does not come from criterion $k$. It is scaled by the same factor, so the new total is
+The other weights add up to $1 - w_k$ before the change, so after rescaling they add up to $f\,(1 - w_k) = 1 - w_k'$, keeping the sum at 1. Let $r_j = \text{total}_j - w_k s_{kj}$ be the part of concept $j$'s original total coming from all criteria other than $k$. Factoring $f$ out of that sum shows that $r_j$ scales by $f$:
+
+$$
+\sum_{i \neq k} (f\, w_i)\, s_{ij} = f \sum_{i \neq k} w_i\, s_{ij} = f\, r_j
+$$
+
+Adding back the updated contribution of criterion $k$ gives the new total:
 
 :::{math}
 :label: eq-p17-new-total
@@ -226,11 +232,11 @@ At 0.35, C wins. {numref}`fig-p17-weight-sensitivity` draws all three lines. Any
 Computed from {numref}`tbl-p17-decision-matrix` with [](#eq-p17-new-total), the other four weights scaled to keep the sum at 1. The winner changes from B to C when the runway weight passes the tie weight, 0.2941, not far above the 0.20 set first.
 :::
 
-We test the scores the same way. The gap between B and A is $3.45 - 3.25 = 0.20$, smaller than the 0.25 that one step on the operating-cost score is worth. If B's operating cost were scored 2 instead of 3, B's total would fall to 3.20 and A would win. NASA's handbook asks that a recommendation say whether such changes could reverse the ranking, and that closely ranked alternatives be reported together (NASA 2016, Section 6.8.1.2.5). For the island aircraft, the fair result is B, by a small margin over A, and C if a short runway matters more than the weights say. Scores from 1 to 5 are judgments, so totals this close call for better data before the choice is final (Goldberg et al. 1994, Section 2.1.3). Here that means the operating cost and the runways of the islands.
+We test sensitivity to the scores the same way. The margin between B and A is $3.45 - 3.25 = 0.20$, which is smaller than the 0.25 change caused by a one-point shift in the operating-cost score: if B scored 2 instead of 3 on operating cost, its total would drop to 3.20 and A would move ahead. NASA's handbook asks teams to state whether plausible changes could reverse the ranking and to report closely ranked alternatives together (NASA 2016, Section 6.8.1.2.5). For the island cargo aircraft, we therefore report B as the leading concept by a narrow margin over A, with C overtaking B if short-runway capability carries higher priority than the baseline weights assume. Because 1-to-5 scores reflect engineering judgment, totals this close mean we should gather better operating-cost and island-runway data before locking in the final configuration (Goldberg et al. 1994, Section 2.1.3).
 
 ## The trade-study log
 
-A decision that is not written down gets argued again later, often by people who do not know why it was made. A {term}`trade-study log` keeps one entry per decision. {numref}`tbl-p17-log` shows the entry for the island cargo aircraft, with the fields that NASA's decision report asks for in short form (NASA 2016, Section 6.8.1.3 and Table 6.8-1).
+Recording each trade-study decision keeps the team from repeating the same debates later when new engineers join or requirements shift. A {term}`trade-study log` stores one concise entry per decision. {numref}`tbl-p17-log` shows the log entry for the island cargo aircraft, adapted in short form from NASA's decision report format (NASA 2016, Section 6.8.1.3 and Table 6.8-1).
 
 :::{table} One entry of a trade-study log: the concept decision of the island cargo aircraft.
 :label: tbl-p17-log
@@ -245,7 +251,7 @@ A decision that is not written down gets argued again later, often by people who
 | Who decided | The design group; the configuration engineer wrote the entry |
 :::
 
-The entry also carries the date of the decision. The line "what would change it" is the most useful one. When a requirement changes, a look through the log shows which decisions you must reopen.
+In practice, each log entry also records the date of the decision. The "What would change it" field is especially valuable: whenever a requirement changes, scanning that column shows immediately which earlier design decisions need to be reopened.
 
 ## Summary
 
