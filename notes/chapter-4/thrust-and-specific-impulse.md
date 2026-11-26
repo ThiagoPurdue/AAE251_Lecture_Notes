@@ -6,7 +6,7 @@ short_title: 4.1 Thrust and Specific Impulse
 :::{include} ../_parts/standards/4.1.md
 :::
 
-A rocket engine has one job: to push. To turn the delta-V of Chapter 2 into propellant, we need to know how it makes that push and how well it uses what it burns. On this page we start from momentum and derive the thrust of a rocket engine. We follow the gas through the engine, from the combustion chamber to the exit of the nozzle. Then we define the two numbers that describe an engine's performance, the effective exhaust velocity and the specific impulse. Last, we see how the exit pressure, the size of the nozzle, and the altitude change the thrust. The same equation then works for an engine that breathes air.
+A rocket engine exists to produce thrust. To turn the delta-V of Chapter 2 into propellant mass, we need to know how an engine produces thrust and how efficiently it uses its propellant. On this page we start from momentum and derive the thrust of a rocket engine. We follow the gas through the engine, from the combustion chamber to the exit of the nozzle. Then we define the two numbers that describe an engine's performance, the effective exhaust velocity and the specific impulse. Last, we see how the exit pressure, the size of the nozzle, and the altitude change the thrust. The same equation then works for an engine that breathes air.
 
 :::{note} What to take from this page
 - Thrust has two parts: the momentum the exhaust carries away, $\dot m V_e$, and the pressure term, $(p_e - p_a)A_e$, which can be positive, zero, or negative.
@@ -17,7 +17,7 @@ A rocket engine has one job: to push. To turn the delta-V of Chapter 2 into prop
 
 ## A rocket pushes on its own exhaust
 
-Picture a person standing on a skateboard with a heavy ball. The person throws the ball forward and rolls backward. Nothing outside pushed the person. Person and ball started at rest, so their total momentum was zero, and it is still zero after the throw. The ball carries momentum one way, and the person carries the same amount the other way.
+Picture a person standing on a skateboard holding a heavy ball. When the person throws the ball forward, the skateboard rolls backward even though no outside force pushed it. The person and the ball started at rest, so their total momentum was zero and stays zero after the throw. The ball carries momentum one way, and the person carries the same amount the other way.
 
 A rocket does the same thing many times a second. It throws mass, its exhaust gas, backward at high speed, and it gains the momentum the exhaust carries the other way. It does not need air, the ground, or anything else to push against. That is why a rocket works in the vacuum of space, and even works a little better there, as we see later on this page.
 
@@ -33,13 +33,13 @@ We now put the skateboard idea into an equation. Newton's second law, written fo
 F = \frac{\Delta m}{\Delta t}\,c = \dot m\,c
 :::
 
-Here $\dot m$ is the {term}`mass flow rate` of propellant through the engine, in kg/s (we met it with the continuity equation on [page 1.5](#p15-continuity)). The force on the rocket is the {term}`thrust` $F$, in newtons, and it points opposite to the exhaust.
+Here $\dot m$ is the {term}`mass flow rate` of propellant through the engine, in kg/s (we introduced it with the continuity equation on [page 1.5](#p15-continuity)). The force on the rocket is the {term}`thrust` $F$, in newtons, and it points opposite to the exhaust.
 
 [](#eq-p41-thrust-momentum) says there are two ways to get more thrust: throw more mass each second, or throw it faster. The speed $c$ is called the effective exhaust velocity. The word "effective" makes sense once we add the pressure at the nozzle exit, in [the thrust equation](#p41-thrust-equation).
 
 ## Inside a rocket engine
 
-To throw gas out fast, a rocket engine turns the chemical energy of its propellants into heat, and the heat into speed. In {numref}`fig-p41-engine-anatomy` we follow the parts in the order the gas meets them:
+To throw gas out fast, a rocket engine turns the chemical energy of its propellants into heat, and the heat into speed. In {numref}`fig-p41-engine-anatomy` we follow the parts in the order the gas passes through them:
 
 1. The **injector** sprays the fuel and the oxidizer into the chamber and mixes them.
 2. In the **{term}`combustion chamber`** they burn. The products are a gas at a high temperature and a high pressure, moving slowly.
@@ -58,14 +58,14 @@ The converging and diverging sections together are the **{term}`nozzle`**.
 Schematic of a liquid rocket thrust chamber in section. The engine turns chemical energy into heat in the chamber, and heat into speed in the nozzle; the numbers follow the gas. Proportions of the F-1 engine (area ratio 16; NASA 1968a), contour after Huzel and Huang (1967, Section 4.3), wall thickness exaggerated.
 :::
 
-{numref}`fig-p41-nozzle-flow` follows the gas along the nozzle. The pressure falls from the chamber to the exit, the temperature falls too, and the speed rises. The gas trades its pressure and its heat for speed. The narrowing and widening shape is what lets the gas pass the speed of sound. Before the throat the gas moves slower than the {term}`speed of sound`, which we met on [page 1.4](#p14-speed-of-sound). At the throat it reaches the speed of sound. After the throat it moves faster than sound and speeds up further as the nozzle widens (Huzel and Huang 1967, p. 6). Why a faster-than-sound flow speeds up in a widening duct is a question for a later course in compressible flow. Here we take the result and use it.
+{numref}`fig-p41-nozzle-flow` follows the gas along the nozzle. As the gas expands, it converts thermal energy into kinetic energy, so its pressure and temperature fall while its speed rises. The narrowing and widening shape is what lets the gas pass the speed of sound. Before the throat the gas moves slower than the {term}`speed of sound`, introduced on [page 1.4](#p14-speed-of-sound). At the throat it reaches the speed of sound. After the throat it moves faster than sound and speeds up further as the nozzle widens (Huzel and Huang 1967, p. 6). Why a faster-than-sound flow speeds up in a widening duct is a question for a later course in compressible flow. Here we take the result and use it.
 
 :::{figure} figures/p41-nozzle-flow.svg
 :label: fig-p41-nozzle-flow
-:alt: Two panels at the same horizontal scale. The upper panel is a plot of three ratios along the nozzle. Pressure, a solid line, starts at 1 in the chamber, falls steeply through the throat, and ends near zero at the exit. Temperature, a dashed line, starts at 1 and falls to about 0.44. Speed, a dotted line, starts low in the chamber, rises steeply through the throat and reaches 1 at the exit. A vertical dashed line at the throat is labeled throat, speed of sound, with slower than sound to its left and faster than sound to its right. The lower panel is the upper half of the thrust chamber, narrowest at the same vertical line, with the chamber, the throat, the exit, and the nozzle wall named.
+:alt: Two panels at the same horizontal scale. The upper panel is a plot of three ratios along the nozzle. Pressure, a solid line, starts at 1 in the chamber, falls steeply through the throat, and ends near zero at the exit. Temperature, a dashed line, starts at 1 and falls to about 0.44. Speed, a dotted line, starts low in the chamber, rises steeply through the throat, and reaches 1 at the exit. A vertical dashed line at the throat is labeled throat, speed of sound, with slower than sound to its left and faster than sound to its right. The lower panel is the upper half of the thrust chamber, narrowest at the same vertical line, with the chamber, the throat, the exit, and the nozzle wall named.
 :width: 80%
 
-Computed: the gas trades pressure and temperature for speed, and it passes the speed of sound at the throat. Ideal-nozzle relations of Huzel and Huang (1967, Section 1.2) for the F-1 contour of {numref}`fig-p41-engine-anatomy`, with a ratio of specific heats of 1.2, the value of their Sample Calculation 1-2. Pressure and temperature are ratios to their values at the start of the chamber, speed is a ratio to the exit speed.
+Computed: as the gas accelerates through the nozzle, its pressure and temperature fall, and it reaches the speed of sound at the throat. Ideal-nozzle relations of Huzel and Huang (1967, Section 1.2) for the F-1 contour of {numref}`fig-p41-engine-anatomy`, with a ratio of specific heats of 1.2, the value of their Sample Calculation 1-2. Pressure and temperature are ratios to their values at the start of the chamber, speed is a ratio to the exit speed.
 :::
 
 (p41-thrust-equation)=
@@ -105,7 +105,7 @@ F = \dot m V_e + (p_e - p_a)A_e
 
 The first term is the **{term}`momentum thrust`** and the second is the **{term}`pressure thrust`** (NASA Glenn Research Center n.d.a). Both have units of newtons: (kg/s)(m/s) = kg·m/s² = N, and (Pa)(m²) = (N/m²)(m²) = N.
 
-The pressure thrust has a plain meaning. Suppose the gas leaves at a pressure above that of the air around it. Then the gas inside the nozzle has pushed on the walls harder than the outside air pushes back, and the engine gets extra thrust. If the gas leaves below the outside pressure, the outside air wins and the term is negative.
+The sign of the pressure thrust has a direct physical meaning. When the exhaust leaves at a pressure above ambient ($p_e > p_a$), the pressure on the exit plane exceeds the outside air pressure, adding forward thrust. When the exhaust leaves below ambient pressure ($p_e < p_a$), the outside air pushes harder against the nozzle than the exit pressure balances, so the pressure term is negative.
 
 :::{warning} Pascals, not kilopascals
 The pressure term needs pressures in pascals, so that pressure times area gives newtons. If you put 85 and 101.325 (kPa) into $(p_e - p_a)A_e$ with $A_e$ = 0.95 m², you get −15.51 N instead of −15,509 N. That is a thousand times too small, and the pressure term seems to vanish.
@@ -126,7 +126,7 @@ c = \frac{F}{\dot m} = V_e + \frac{(p_e - p_a)A_e}{\dot m}
 $$
 :::
 
-It is not a speed anyone could measure in the jet. It is the exit velocity corrected for the pressure term, so that $F = \dot m c$ holds exactly. When $p_e = p_a$, the two are equal.
+In general, $c$ is not the actual speed of the exhaust gas in the jet; it is an equivalent velocity that absorbs the pressure term so that $F = \dot m c$ remains exact. Only when $p_e = p_a$ does $c$ equal the true exit velocity $V_e$.
 
 Engineers usually quote the same information as a time. Over a time $\Delta t$ the engine delivers the impulse $F\,\Delta t$, the change of momentum it gives the vehicle, and burns the mass $\Delta m = \dot m\,\Delta t$. On Earth that propellant would weigh $\Delta m\,g_0$.
 
@@ -140,13 +140,13 @@ I_\text{sp} = \frac{F\,\Delta t}{\Delta m\,g_0} = \frac{F}{\dot m\,g_0} = \frac{
 $$
 :::
 
-Thrust divided by a weight flow, N divided by N/s, leaves seconds. Pounds of thrust divided by pounds per second of weight flow also leave seconds. The number is the same in SI and in English units, and engine makers quote it that way (NASA Glenn Research Center n.d.b). The seconds are not a time of anything (Huzel and Huang 1967, p. 11). To go back to a speed, multiply: $c = I_\text{sp}\,g_0$. The RS-25, the main engine of the Space Shuttle, has $I_\text{sp}$ = 455.2 s in vacuum (NASA 1981, p. 2-4), so its effective exhaust velocity there is $455.2 \times 9.81 = 4{,}466$ m/s.
+Thrust divided by a weight flow, N divided by N/s, leaves seconds. Pounds of thrust divided by pounds per second of weight flow also leave seconds. The number is the same in SI and in English units, and engine makers quote it that way (NASA Glenn Research Center n.d.b). These seconds are not the burn time of the engine; they are just the unit left when thrust is divided by weight flow rate (Huzel and Huang 1967, p. 11). To recover the effective exhaust velocity, we multiply by standard gravity, $c = I_\text{sp}\,g_0$. The RS-25, the main engine of the Space Shuttle, has $I_\text{sp}$ = 455.2 s in vacuum (NASA 1981, p. 2-4), so its effective exhaust velocity there is $455.2 \times 9.81 = 4{,}466$ m/s.
 
 :::{warning} $g_0$ is not the local gravity
-$g_0$ is a fixed conversion number, 9.81 m/s², on the launch pad, in orbit, or on the Moon. If you divide $c$ by the gravity of the place where the engine fires, you get a different specific impulse for the same engine, and the numbers no longer compare. Specific impulse is also not a velocity: if you put 455.2 s into a formula that wants m/s, you are off by a factor of 9.81.
+$g_0$ is a fixed conversion number, 9.81 m/s², on the launch pad, in orbit, or on the Moon. If you divide $c$ by the gravity of the place where the engine fires, you get a different specific impulse for the same engine, and the numbers no longer compare. Specific impulse is also not a velocity. If you substitute 455.2 s into an equation that requires m/s, your answer will be off by a factor of 9.81.
 :::
 
-Specific impulse and thrust answer different questions. Thrust says how hard the engine pushes. Specific impulse says how much thrust each kilogram per second of propellant buys, so it measures how well the engine uses its propellant. One engine can have a lot of one and little of the other. At sea level the F-1, the first-stage engine of the Saturn V, gave 6,770 kN (1,522,000 lbf) at 265 s (NASA 1968a; Biggs 2009, p. 19). The RS-25 gave 1,668 kN at 363.2 s (NASA 1981, p. 2-4). The F-1 pushed 4.1 times as hard, while the RS-25 got 37% more thrust out of each kilogram per second of propellant. [Page 4.4](#p44-kinds) compares the kinds of rocket propulsion in a table and shows that high specific impulse and high thrust rarely come together. Its [table of propellants](#tbl-p44-propellants) gives the specific impulse of the common propellant pairs.
+Thrust and specific impulse measure two different things. Thrust tells us how hard the engine pushes, while specific impulse measures how much thrust the engine produces per unit of propellant weight flow rate, so it describes propellant efficiency. One engine can have a lot of one and little of the other. At sea level the F-1, the first-stage engine of the Saturn V, gave 6,770 kN (1,522,000 lbf) at 265 s (NASA 1968a; Biggs 2009, p. 19). The RS-25 gave 1,668 kN at 363.2 s (NASA 1981, p. 2-4). The F-1 pushed 4.1 times as hard, while the RS-25 got 37% more thrust out of each kilogram per second of propellant. [Page 4.4](#p44-kinds) compares the kinds of rocket propulsion in a table and shows that high specific impulse and high thrust rarely come together. Its [table of propellants](#tbl-p44-propellants) gives the specific impulse of the common propellant pairs.
 
 ### Worked example 1: a first-stage engine at sea level
 
@@ -230,7 +230,7 @@ Photograph. Near sea level the plumes of the main engines stay narrow: the outsi
 Photograph. High in the climb the outside pressure is low, and the plume spreads far wider than the rocket. This photograph and {numref}`fig-p41-plume-sea-level` show different vehicles, a Saturn V high up and a Space Shuttle near sea level; only the outside pressure matters here. The Saturn V of Apollo 11 photographed from an aircraft during its climb, 1969. NASA/U.S. Air Force image 69PC-413, public domain; cropped from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ALOTS_image_of_Apollo_11_launch_%2869PC-413%29.jpg).
 :::
 
-Now suppose we can choose the nozzle for a given engine and flow, and we want the most thrust at one ambient pressure. If we make the nozzle a little longer and wider, the gas expands further: $V_e$ rises and $p_e$ falls. As long as $p_e > p_a$, the extra expansion gains more momentum thrust than it loses pressure thrust. Once $p_e < p_a$, the gas is expanded below the outside pressure and the trade turns against us. The best nozzle at one ambient pressure is therefore the one that makes $p_e = p_a$ (Huzel and Huang 1967, p. 15). For a nozzle that already exists, this does not mean that thrust is highest where $p_e = p_a$. We come back to this point in the section on altitude.
+Now suppose we can choose the nozzle for a given engine and flow, and we want the most thrust at one ambient pressure. If we make the nozzle a little longer and wider, the gas expands further: $V_e$ rises and $p_e$ falls. As long as $p_e > p_a$, the extra expansion gains more momentum thrust than it loses pressure thrust. Once $p_e < p_a$, expanding the gas further loses more pressure thrust than it gains in momentum thrust. For a fixed ambient pressure, the maximum thrust occurs when the nozzle matches the exit pressure to the outside air, $p_e = p_a$ (Huzel and Huang 1967, p. 15). For a nozzle that already exists, this does not mean that thrust is highest where $p_e = p_a$. We come back to this point in the section on altitude.
 
 :::{warning} Overexpanded is $p_e < p_a$
 If you mix up the two names, think of what the nozzle did to the gas. "Over" means it expanded the gas too much, so the exit pressure fell below $p_a$. "Under" means it did not expand the gas enough, so $p_e$ is still above $p_a$. Then the sign of $(p_e - p_a)$ follows: negative when overexpanded, positive when underexpanded.
@@ -252,9 +252,9 @@ Computed: at sea level there is a best area ratio, where $p_e = p_a$; in vacuum 
 Two lessons come out of the figure.
 
 - **At sea level there is a best area ratio.** For these propellants and this {term}`chamber pressure` (the pressure of the gas in the combustion chamber), the best area ratio is 10. There $p_e = p_a$ and the specific impulse peaks at 300 s. A larger nozzle overexpands the gas and loses thrust. Far past the best ratio the flow can stop following the wall and separate from it, which causes large sideways loads on the nozzle. An early rule of thumb put the danger at about $p_e = 0.4\,p_a$, and the exact point cannot be predicted well (NASA 1976, p. 17).
-- **In vacuum a larger nozzle always helps.** With $p_a = 0$ there is nothing to overexpand against, and the curve keeps rising: 327 s at the sea-level best ratio of 10, 359 s at 40. What stops the designer is the size and the mass of the nozzle, not the gas.
+- **In vacuum a larger nozzle always helps.** With $p_a = 0$ there is nothing to overexpand against, and the curve keeps rising: 327 s at the sea-level best ratio of 10, 359 s at 40. In vacuum, the practical limit is the added size and mass of the nozzle, because the gas itself can always expand further.
 
-This is why an engine that fires near sea level carries a short nozzle with a small area ratio. An engine that fires only in vacuum carries a long one with a large area ratio. {numref}`fig-p41-nozzle-sizes` draws two engines of the Saturn V to the same throat size. The F-1 of the first stage has an area ratio of 16 (NASA 1968a); the J-2 of the upper stages, 27.5 (NASA 1968b). The F-1's 16 is past the sea-level best because the engine keeps firing high into the thin air, where a larger nozzle pays off. The RS-25 lights on the launch pad but works mostly at altitude, and its area ratio is 77.5 (NASA 1981, p. 2-4). It can afford that because its chamber pressure is high. It runs at 2,970 psia (pounds per square inch, absolute; 20.5 MPa), three to four times the F-1's 965 psia and the J-2's 763 psia. The higher the chamber pressure, the larger the area ratio a nozzle can have before its exit pressure falls to a given value (Huzel and Huang 1967, Eq. 1-20).
+This is why an engine that fires near sea level carries a short nozzle with a small area ratio. An engine that fires only in vacuum carries a long one with a large area ratio. {numref}`fig-p41-nozzle-sizes` draws two engines of the Saturn V to the same throat size. The F-1 on the first stage has an area ratio of 16 (NASA 1968a), while the J-2 on the upper stages has an area ratio of 27.5 (NASA 1968b). The F-1 uses an area ratio above the sea-level optimum because it keeps firing into thin upper air, where a wider nozzle gives more thrust. The RS-25 lights on the launch pad but works mostly at altitude, and its area ratio is 77.5 (NASA 1981, p. 2-4). The RS-25 can operate at such a large area ratio without flow separation at sea level because its chamber pressure is high. It runs at 2,970 psia (pounds per square inch, absolute; 20.5 MPa), three to four times the F-1's 965 psia and the J-2's 763 psia. The higher the chamber pressure, the larger the area ratio a nozzle can have before its exit pressure falls to a given value (Huzel and Huang 1967, Eq. 1-20).
 
 :::{figure} figures/p41-nozzle-sizes.svg
 :label: fig-p41-nozzle-sizes
@@ -335,7 +335,7 @@ Computed for the RS-25 at rated power: a fixed nozzle gains thrust all the way u
 (p41-air-breathing)=
 ## The same equation for an engine that breathes air
 
-A jet engine or a ramjet also makes thrust by throwing gas backward. The difference is where the gas comes from. A rocket carries everything it throws out, so its propellant enters with no momentum along the axis. An engine that breathes air takes its gas from the air it flies through. Seen from the engine, that air arrives already moving at the flight speed $V_\infty$. So the engine gets credit only for the speed it adds to the air. We apply the same control volume, with the air entering at $V_\infty$ and the ambient pressure now written $p_\infty$, and get:
+A jet engine or a ramjet also makes thrust by throwing gas backward. The difference is where the gas comes from. A rocket carries everything it throws out, so its propellant enters with no momentum along the axis. An engine that breathes air takes its gas from the air it flies through. Seen from the engine, that air arrives already moving at the flight speed $V_\infty$. So the net momentum thrust depends only on the speed the engine adds to the incoming air. We apply the same control volume, with the air entering at $V_\infty$ and the ambient pressure now written $p_\infty$, and get:
 
 :::{math}
 :label: eq-p41-air
@@ -400,7 +400,7 @@ A ramjet flies at 750 m/s at 14 km, where the standard atmosphere of page 1.4 gi
 Specific impulse keeps its definition, $F/(\dot m g_0)$. On the air flow, the ramjet of worked example 3 gives $23{,}265/(45 \times 9.81) = 52.70$ s. Engine makers quote it on the fuel flow alone, which gives a much larger number. [Chapter 5](#p51-available-and-vmax) works with the fuel flow.
 
 :::{warning} Do not leave out $V_\infty$
-If you use the rocket form, $\dot m V_e$, for an engine that breathes air, you give the engine credit for the momentum the air already had when it arrived. In worked example 3 that gives $45 \times 1{,}250 + 764.8 = 57{,}015$ N, more than twice the right answer. The air brings in $45 \times 750 = 33{,}750$ N of momentum each second, and the engine must pay it back before it gains anything.
+If you use the rocket form, $\dot m V_e$, for an air-breathing engine, you count the momentum the incoming air already carried before entering the inlet. In worked example 3 that gives $45 \times 1{,}250 + 764.8 = 57{,}015$ N, more than twice the right answer. The incoming air enters with a momentum flow rate of $45 \times 750 = 33{,}750$ N (ram drag), which must be subtracted from the exit momentum flow rate to get the net thrust.
 :::
 
 ## Summary
@@ -432,7 +432,7 @@ If you use the rocket form, $\dot m V_e$, for an engine that breathes air, you g
 
 1. A rocket and a ramjet both fly at 750 m/s and throw gas back at 1,250 m/s relative to themselves. Why does the rocket get more thrust per kilogram per second of gas?
 2. Why do vacuum engines not use an even larger area ratio than they do, if a larger nozzle always helps in vacuum?
-3. A first-stage engine fires from sea level to about 60 km. Would you choose its area ratio for ideal expansion at sea level, at 60 km, or somewhere between? What does each choice cost?
+3. A first-stage engine fires from sea level to about 60 km. Would you choose its area ratio for ideal expansion at sea level, at 60 km, or somewhere between? What is the drawback of each choice?
 4. The plume of a launch vehicle grows wider and wider as it climbs. What does that tell you about the pressure term of its engines?
 5. Two engines have the same thrust; one has twice the specific impulse of the other. What is different about how much propellant each burns in one minute?
 :::

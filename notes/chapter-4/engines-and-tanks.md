@@ -3,13 +3,13 @@ title: "Engines and tanks"
 short_title: Engines and tanks
 ---
 
-Pages 4.2 to 4.4 gave us a propellant mass for each stage ([sizing a stage](#p42-stage-sizing)). A mass does not yet tell us what to build. Here we size the engine that burns the propellant and the tanks that hold it, and we find how much of a cold propellant boils away while the stage waits. No course standard is assessed on this page.
+Pages 4.2 to 4.4 gave us a propellant mass for each stage ([sizing a stage](#p42-stage-sizing)). Knowing the propellant mass alone does not give us the hardware dimensions. On this page, we size the engine that burns the propellant and the tanks that hold it, and we estimate how much cryogenic propellant boils away while the stage is on the pad or coasting in space. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - The thrust and the specific impulse set the mass flow, $\dot m = F/(I_\text{sp}\,g_0)$, and the propellant load then sets the burn time, $t_b = m_\text{prop}/\dot m$.
 - The same flow passes through the throat, $\dot m = p_c A_t/c^*$. A higher chamber pressure gives a smaller engine but needs a stronger chamber and feed system.
 - Each tank holds its share of the propellant, split with the mixture ratio, plus a gas space called ullage. The mass of its wall grows with its pressure times its volume.
-- Heat that leaks into a cryogenic tank boils propellant away at the rate $\dot Q/h_\text{vap}$: a small loss over a few days, a large one over months.
+- Heat that leaks into a cryogenic tank boils propellant away at the rate $\dot Q/h_\text{vap}$. That loss is small over a few days, but it becomes a large share of the propellant over several months.
 :::
 
 (p45-engine)=
@@ -17,21 +17,21 @@ Pages 4.2 to 4.4 gave us a propellant mass for each stage ([sizing a stage](#p42
 
 ### Mass flow and burn time
 
-We start with what the engine must do: give a thrust $F$. Thrust is the mass flow times $I_\text{sp}\,g_0$ ([specific impulse, page 4.1](#p41-specific-impulse)). So the engine must burn the propellant flow
+We start with the thrust $F$ that the engine must produce. From [specific impulse, page 4.1](#p41-specific-impulse), thrust equals the mass flow rate times $I_\text{sp}\,g_0$, so the required propellant mass flow rate is
 
 :::{math}
 :label: eq-p45-mass-flow
 \dot m = \frac{F}{I_\text{sp}\,g_0}
 :::
 
-with $g_0 = 9.81\ \text{m/s}^2$. At a steady flow, the {term}`burn time` is the propellant mass divided by the flow:
+with $g_0 = 9.81\ \text{m/s}^2$. If the mass flow rate is steady, the {term}`burn time` is the propellant mass divided by that mass flow rate:
 
 :::{math}
 :label: eq-p45-burn-time
 t_b = \frac{m_\text{prop}}{\dot m}
 :::
 
-Multiply the two equations and the flow cancels: $F\,t_b = m_\text{prop}\,I_\text{sp}\,g_0$. The propellant and its specific impulse fix this total impulse; a larger engine only delivers it faster.
+If we substitute [](#eq-p45-mass-flow) into [](#eq-p45-burn-time) and rearrange, the mass flow rate cancels and we obtain $F\,t_b = m_\text{prop}\,I_\text{sp}\,g_0$. The propellant mass and specific impulse set this total impulse, while a higher-thrust engine delivers the same impulse in less time.
 
 ### Worked example 1: the main engines of the Space Shuttle
 
@@ -76,10 +76,10 @@ where $A_t$ is the throat area and $c^*$ is the characteristic velocity of the p
 :::{prf:definition} Characteristic velocity
 :label: def-p45-characteristic-velocity
 
-The {term}`characteristic velocity` $c^* = p_c A_t/\dot m$, in m/s, is the chamber pressure times the throat area per unit mass flow. A higher $c^*$ holds the same chamber pressure behind the same throat with less propellant flow. It depends on the propellants, their mixture ratio, and how well they burn, and not on the nozzle downstream of the throat. A more energetic combustion gives a higher $c^*$ (Huzel and Huang 1967, Section 1.3).
+The {term}`characteristic velocity` $c^* = p_c A_t/\dot m$, in m/s, is the chamber pressure times the throat area per unit mass flow. With a higher $c^*$, the engine maintains the same chamber pressure through the same throat area using a smaller propellant mass flow rate. It depends on the propellants, their mixture ratio, and how well they burn, and not on the nozzle downstream of the throat. A more energetic combustion gives a higher $c^*$ (Huzel and Huang 1967, Section 1.3).
 :::
 
-In units, Pa times m² over m/s is N·s/m, or kg/s. Huzel and Huang (1967, Tables 1-9 and 1-10) list theoretical values. Liquid oxygen and liquid hydrogen at a mixture ratio of 4.02 give 2,432 m/s (7,980 ft/s), and liquid oxygen and kerosene give 1,804 m/s (5,920 ft/s).
+Checking the units of [](#eq-p45-throat), Pa times m² divided by m/s equals N·s/m, or kg/s. Huzel and Huang (1967, Tables 1-9 and 1-10) list theoretical values. Liquid oxygen and liquid hydrogen at a mixture ratio of 4.02 give 2,432 m/s (7,980 ft/s), and liquid oxygen and kerosene give 1,804 m/s (5,920 ft/s).
 
 We can find the RS-25's $c^*$ from its own data. Its throat is 10.3 in (0.2616 m) across (NASA 2015, p. 274), so $A_t = \pi \times {0.2616}^{2}/4 = 0.05375$ m². Its chamber pressure is 2,970 psia, or 20.48 MPa (NASA 1981, p. 2-4). Then
 
@@ -92,7 +92,7 @@ $$
 
 That is close to the theoretical value but not equal, because the RS-25 burns 6 parts of oxygen to 1 of hydrogen, and $c^*$ changes with the mixture ratio.
 
-Now turn [](#eq-p45-throat) around: $A_t = \dot m\,c^*/p_c$. For a given flow and propellant, the throat area is inversely proportional to the chamber pressure ({numref}`fig-p45-throat-and-pressure`). At half the RS-25's pressure, 10.24 MPa, the same flow needs 0.1075 m², twice the area. So a lower chamber pressure means a bigger, heavier engine. A higher one needs a stronger chamber and a feed system that pushes the propellants in at a pressure higher still (Huzel and Huang 1967, Section 1.3).
+Now we solve [](#eq-p45-throat) for the throat area, $A_t = \dot m\,c^*/p_c$. For a given flow and propellant, the throat area is inversely proportional to the chamber pressure ({numref}`fig-p45-throat-and-pressure`). At half the RS-25's pressure, 10.24 MPa, the same flow needs 0.1075 m², twice the area. So a lower chamber pressure means a bigger, heavier engine. A higher chamber pressure requires a stronger chamber and a feed system that delivers the propellants at an even higher pressure (Huzel and Huang 1967, Section 1.3).
 
 :::{figure} figures/p45-throat-and-pressure.svg
 :label: fig-p45-throat-and-pressure
@@ -104,7 +104,7 @@ Computed: halving the chamber pressure doubles the throat area the same flow nee
 
 ### How heavy the engine is
 
-So far the engines hid in the inert mass. We estimate an engine's mass from its {term}`thrust-to-weight ratio`, thrust over weight on Earth, $W = m\,g_0$. {numref}`tbl-p45-engine-mass` gives it for three engines.
+Up to now, we have grouped the engine mass inside the stage's inert mass. To estimate the engine mass separately, we use the engine's own {term}`thrust-to-weight ratio`, defined as engine thrust divided by engine weight on Earth, $W = m\,g_0$. (Unlike the vehicle ratio near 1.2 to 1.5 on page 4.4, an individual engine's ratio is much larger.) {numref}`tbl-p45-engine-mass` gives it for three engines.
 
 :::{table} The thrust-to-weight ratio of three large engines, from published thrust and mass: the F-1 at its uprated sea-level thrust (NASA 1968a), the RS-25 and the J-2 in vacuum (NASA 1981, p. 2-4; NASA 1968b).
 :label: tbl-p45-engine-mass
@@ -123,7 +123,7 @@ So far the engines hid in the inert mass. We estimate an engine's mass from its 
 
 :::
 
-Each engine lifts 65 to 82 times its own weight, and Huzel and Huang (1967, Section 2.1) put large engines of their time at 75 to 125. If the engines lift a vehicle, then $(F/W)_\text{engine}\,m_\text{engine}\,g_0 = (F/W)_\text{vehicle}\,m_\text{vehicle}\,g_0$, so
+Each engine lifts 65 to 82 times its own weight, and Huzel and Huang (1967, Section 2.1) put large engines of their time at 75 to 125. Because the total thrust $F$ produced by the engines equals both $(F/W)_\text{engine}\,m_\text{engine}\,g_0$ and $(F/W)_\text{vehicle}\,m_\text{vehicle}\,g_0$, where $m_\text{engine}$ is the combined mass of all engines on the vehicle, setting them equal gives
 
 $$
 \frac{m_\text{engine}}{m_\text{vehicle}} = \frac{(F/W)_\text{vehicle}}{(F/W)_\text{engine}}
@@ -135,10 +135,10 @@ A launch vehicle needs a thrust-to-weight ratio a little above 1 to leave the pa
 
 The propellants must enter the chamber above $p_c$. We have two ways to get them there ({numref}`fig-p45-feed-systems`; Huzel and Huang 1967, Section 1.5, Figures 1-12 and 1-13):
 
-- A {term}`pressure-fed` engine pushes the propellants out of the tanks with a gas, usually helium, stored in a bottle at high pressure. A regulator holds the tank pressure. There is nothing to spin, so it is simple, but the tanks themselves must hold more than the chamber pressure.
+- A {term}`pressure-fed` engine pushes the propellants out of the tanks with a gas, usually helium, stored in a bottle at high pressure. A regulator keeps the tank pressure steady. Because there is no rotating turbomachinery, the system is simple, but the tanks must withstand a pressure higher than the chamber pressure.
 - A pump-fed engine raises the pressure with a {term}`turbopump`: a pump for each propellant, driven by a turbine on the same shaft. On the F-1 and the J-2 a small gas generator burns a little of both propellants to drive the turbine (NASA 1968a, 1968b). The tanks need only enough pressure to feed the pumps.
 
-Pump-fed booster stages run their tanks at 30 to 100 psia (0.2 to 0.7 MPa). Pressure-fed upper stages run theirs at 100 to 400 psia, up to 2.8 MPa (Huzel and Huang 1967, Section 8.1). The heavier tanks show in the propellant fraction, the share of the stage's own loaded mass that is propellant, or one minus the {term}`inert mass fraction`. It is 0.94 for pump-fed systems and 0.89 for pressure-fed ones (Huzel and Huang 1967, Section 2.1).
+Pump-fed booster stages run their tanks at 30 to 100 psia (0.2 to 0.7 MPa). Pressure-fed upper stages run theirs at 100 to 400 psia, up to 2.8 MPa (Huzel and Huang 1967, Section 8.1). The heavier tanks show in the propellant fraction, the share of the stage's own loaded mass that is propellant, or one minus the {term}`inert mass fraction`. Typical values are 0.94 for pump-fed stages and 0.89 for pressure-fed stages (Huzel and Huang 1967, Section 2.1).
 
 :::{figure} figures/p45-feed-systems.svg
 :label: fig-p45-feed-systems
@@ -248,16 +248,16 @@ An upper stage carries 12,000 kg of liquid oxygen and kerosene at a mixture rati
 :alt: Left: a stage 3.0 meters wide, drawn as two vertical walls, holding two spherical tanks one above the other, touching, to scale. The upper tank, liquid oxygen, has a diameter of 2.475 meters; the lower tank, kerosene, 2.037 meters, each marked by a dimension line across it. A dimension beside the stage gives the length of the two tanks together, 4.51 meters. Each tank is filled with its liquid to a level below the top, and the empty cap above the liquid in each is labeled ullage, 5 percent. Right: two horizontal bars of equal length, split into oxygen and kerosene. Mass: oxygen 71.9 percent, kerosene 28.1 percent. Volume: oxygen 64.2 percent, kerosene 35.8 percent.
 :width: 85%
 
-Computed for worked example 2, tanks to scale in the 3.0 m stage. Oxygen is almost three quarters of the mass, yet its tank is less than twice the kerosene tank, because liquid oxygen is the denser liquid. The bars compare each liquid's share of the mass with its share of the tank volume. Densities from NIST (2023) and Huzel and Huang (1967, Table 1-4).
+Computed for worked example 2, tanks to scale in the 3.0 m stage. Oxygen is almost three quarters of the mass, but its tank has less than twice the volume of the kerosene tank because liquid oxygen is denser. The bars compare each liquid's share of the mass with its share of the tank volume. Densities from NIST (2023) and Huzel and Huang (1967, Table 1-4).
 :::
 
-:::{warning} Size the tank, not only the liquid
-If you size a tank to $m/\rho$ alone, it has no gas space. Add the ullage, and use each liquid's own density at its storage temperature. For a light propellant such as liquid hydrogen the volume, not the mass, sets the size of the stage ([page 1.3](#p13-launch-vehicle)).
+:::{warning} Include ullage when sizing a tank
+If you size a tank to $m/\rho$ alone, it has no gas space. Add the ullage, and use each liquid's own density at its storage temperature. For a low-density propellant such as liquid hydrogen, the tank volume drives the overall dimensions of the stage ([page 1.3](#p13-launch-vehicle)).
 :::
 
 ### The tank wall
 
-Next we find how thick a tank wall must be to hold its pressure, and what mass that adds. The tank pressure $p$ pushes outward on the wall, and the wall carries that push as a tension, the {term}`hoop stress` $\sigma$, a force per unit area of wall. A force balance gives it ({numref}`fig-p45-tank-wall`). Cut a thin-walled cylinder of radius $r$, length $L$ and wall thickness $t_\text{w}$ in half along its length. The pressure pushes the two halves apart with the force $p \times 2rL$, and the two cut walls hold them together with $\sigma \times 2t_\text{w}L$. Setting the two equal gives $\sigma = p\,r/t_\text{w}$. Cut a sphere through its center instead: the pressure acts on $\pi r^2$ and the wall on $2\pi r\,t_\text{w}$, so the stress is half as large:
+Next we find how thick a tank wall must be to hold its pressure, and what mass that adds. The internal pressure $p$ pushes outward on the wall, placing the wall in tension. We call this tensile force per unit wall area the {term}`hoop stress`, $\sigma$, and we find it from a force balance ({numref}`fig-p45-tank-wall`). Cut a thin-walled cylinder of radius $r$, length $L$, and wall thickness $t_\text{w}$ in half along its length. The pressure pushes the two halves apart with the force $p \times 2rL$, and the two cut walls hold them together with $\sigma \times 2t_\text{w}L$. Setting the two equal gives $\sigma = p\,r/t_\text{w}$. If we cut a sphere through its center instead, the pressure acts over the circular area $\pi r^2$ while the wall stress acts over the ring area $2\pi r\,t_\text{w}$, so the stress is half as large:
 
 :::{math}
 :label: eq-p45-hoop
@@ -323,12 +323,12 @@ Take the oxygen sphere of worked example 2, of radius $2.475/2 = 1.238$ m, made 
    \end{aligned}
    $$
 
-**Check.** The pump-fed wall, 0.847 mm, is above the thinnest aluminum stock Huzel and Huang recommend for tanks, 0.020 in (0.508 mm). A real tank is heavier, because its walls also carry thrust, bending and handling loads, and its welds need extra thickness (Huzel and Huang 1967, Section 8.2). The comparison holds all the same: the pressure-fed tank is almost seven times heavier.
+**Check.** The pump-fed wall, 0.847 mm, is above the thinnest aluminum stock Huzel and Huang recommend for tanks, 0.020 in (0.508 mm). A real tank is heavier, because its walls also carry thrust, bending, and handling loads, and its welds need extra thickness (Huzel and Huang 1967, Section 8.2). The comparison holds all the same: the pressure-fed tank is almost seven times heavier.
 
 (p45-boil-off)=
 ## Boil-off
 
-Liquid oxygen and liquid hydrogen are {term}`cryogenic propellants <cryogenic propellant>`: they stay liquid only when deeply cold. At atmospheric pressure liquid hydrogen boils at 20.27 K (NIST 2023). A tank holds its propellant at the boiling point, so heat that leaks in does not warm the liquid. It boils some of the liquid instead, and the vapor is vented to hold the tank pressure. This loss is {term}`boil-off`.
+Liquid oxygen and liquid hydrogen are {term}`cryogenic propellants <cryogenic propellant>` that remain liquid only at temperatures far below room temperature. At atmospheric pressure, liquid hydrogen boils at 20.27 K (NIST 2023). Because the propellant is stored at its boiling point, heat that leaks into the tank does not raise the liquid temperature. Instead, it vaporizes some of the liquid, and the vapor must be vented to keep the tank pressure steady. This loss is {term}`boil-off`.
 
 The energy that boils one kilogram of a liquid at its boiling point is its {term}`heat of vaporization`, $h_\text{vap}$. At atmospheric pressure it is 446.1 kJ/kg for hydrogen and 213.1 kJ/kg for oxygen (NIST 2023). The hydrogen values are NIST's for parahydrogen, the form that stored liquid hydrogen settles into (Leachman et al. 2009, Section 3). The values for normal hydrogen, the room-temperature mixture, differ by less than 1%. If heat leaks in at the steady rate $\dot Q$, in watts, and all of it boils liquid, we get the boil-off rate
 
@@ -377,7 +377,7 @@ A hydrogen stage carries 3,500 kg of liquid hydrogen and coasts for four days be
 
 :::{figure} figures/p45-boil-off.svg
 :label: fig-p45-boil-off
-:alt: Two panels of hydrogen boiled off in kilograms against coast time in days, for heat leaks of 10, 40 and 160 watts, each a straight line from zero. Left panel, the first 10 days, up to 100 kilograms: a dot on the 40 watt line at 4 days marks 30.99 kilograms. Right panel, six months, up to 4,000 kilograms, with a dashed line at the whole load of 3,500 kilograms: the 160 watt line reaches it at an open dot, empty after 113 days; the 40 watt line reaches about 1,400 kilograms at 180 days and the 10 watt line about 350.
+:alt: Two panels of hydrogen boiled off in kilograms against coast time in days, for heat leaks of 10, 40, and 160 watts, each a straight line from zero. Left panel, the first 10 days, up to 100 kilograms: a dot on the 40 watt line at 4 days marks 30.99 kilograms. Right panel, six months, up to 4,000 kilograms, with a dashed line at the whole load of 3,500 kilograms: the 160 watt line reaches it at an open dot, empty after 113 days; the 40 watt line reaches about 1,400 kilograms at 180 days and the 10 watt line about 350.
 :width: 80%
 
 Computed: the loss grows in proportion to time and to the heat leak, tens of kilograms over a few days and a large part of the load over months. From [](#eq-p45-boil-off) for the 3,500 kg of hydrogen of worked example 4, with a steady heat leak, all of it boiling liquid. The two panels show the same lines at two time scales.
@@ -387,8 +387,8 @@ There are four ways to keep the loss small (Plachta, Johnson, and Feller 2014; H
 
 - **Insulation.** Multilayer insulation, many thin reflective sheets around the tank, cuts the heat leak.
 - **A shorter wait.** The loss is proportional to the coast time, so a mission that burns sooner loses less.
-- **Active cooling.** A cryocooler, a small refrigerator, removes the heat that leaks in, at a cost in electric power. In a NASA test it stopped the boil-off of liquid oxygen and cut that of liquid hydrogen by 60% (Plachta, Johnson, and Feller 2014).
-- **Storable propellants.** A propellant that is liquid at room temperature does not boil away; kerosene boils only above 172 °C (Huzel and Huang 1967, Table 1-4). The price is a lower specific impulse.
+- **Active cooling.** A cryocooler, a small refrigerator, removes incoming heat, though it requires electric power and adds hardware mass. In a NASA test it stopped the boil-off of liquid oxygen and cut that of liquid hydrogen by 60% (Plachta, Johnson, and Feller 2014).
+- **Storable propellants.** A propellant that is liquid at room temperature does not boil away; kerosene, for example, boils only above 172 °C (Huzel and Huang 1967, Table 1-4), and hypergolic pairs are storable in both tanks. The trade-off is a lower specific impulse.
 
 :::{warning} Watch the units of the heat of vaporization
 Tables give $h_\text{vap}$ in kJ/kg. If you divide watts by kJ/kg, your boil-off rate comes out 1,000 times too large. Convert to J/kg first. The rate is then in kg/s: multiply by 86,400 for a loss per day.
@@ -398,9 +398,9 @@ Tables give $h_\text{vap}$ in kJ/kg. If you divide watts by kJ/kg, your boil-off
 
 :::{important} Summary
 - An engine burns $\dot m = F/(I_\text{sp}\,g_0)$ each second and empties its tanks in $t_b = m_\text{prop}/\dot m$.
-- The flow through the throat is $\dot m = p_c A_t/c^*$, where $c^*$ belongs to the propellants. Halving the chamber pressure doubles the throat. Large engines weigh about one seventieth of their thrust.
+- The flow through the throat is $\dot m = p_c A_t/c^*$, where $c^*$ depends on the propellants and their mixture ratio. Halving the chamber pressure doubles the throat. Large engines weigh about one seventieth of their thrust.
 - A pump-fed engine keeps its tanks at low pressure; a pressure-fed engine is simpler but needs heavier tanks. Each tank holds its share of the propellant, split with the mixture ratio, plus ullage, and its wall mass grows with pressure times volume.
-- A cryogenic propellant boils away at $\dot Q/h_\text{vap}$: little over days, much over months.
+- A cryogenic propellant boils away at the rate $\dot Q/h_\text{vap}$. That loss is small over a few days, but it becomes a large share of the propellant over several months.
 :::
 
 :::{table} The equations of this page.
@@ -426,13 +426,13 @@ Tables give $h_\text{vap}$ in kJ/kg. If you divide watts by kJ/kg, your boil-off
 
 1. Two engines give the same thrust with the same propellants. One has twice the chamber pressure of the other. Which one has the smaller throat, and what does its feed system need that the other's does not?
 2. Why might a small spacecraft engine be pressure-fed while a first-stage engine is pump-fed?
-3. Boil-off grows with the heat leak and with the time a stage waits. Which of the four ways to reduce it acts on the heat leak, which on the time, and what does each cost?
+3. Boil-off grows with the heat leak and with the coast time. Which of the four ways to reduce it acts on the heat leak, which on the time, and what trade-off does each involve?
 :::
 
 ## References
 
-- Huzel, D. K., and Huang, D. H., *Design of Liquid Propellant Rocket Engines*, NASA SP-125, 1967. Section 1.3 (Eq. 1-32), Section 1.5 (Figures 1-12 and 1-13), Section 2.1, Tables 1-4, 1-9 and 1-10, and Chapter VIII (Sections 8.1 to 8.3, Eqs. 8-1, 8-11 and 8-30, Sample Calculations 8-1 and 8-2).
-- NASA, *[Space Shuttle News Reference](https://ntrs.nasa.gov/citations/19810022734)*, 1981. NASA Technical Reports Server 19810022734. Pages 2-4, 2-5 and 2-34.
+- Huzel, D. K., and Huang, D. H., *Design of Liquid Propellant Rocket Engines*, NASA SP-125, 1967. Section 1.3 (Eq. 1-32), Section 1.5 (Figures 1-12 and 1-13), Section 2.1, Tables 1-4, 1-9, and 1-10, and Chapter VIII (Sections 8.1 to 8.3, Eqs. 8-1, 8-11, and 8-30, Sample Calculations 8-1 and 8-2).
+- NASA, *[Space Shuttle News Reference](https://ntrs.nasa.gov/citations/19810022734)*, 1981. NASA Technical Reports Server 19810022734. Pages 2-4, 2-5, and 2-34.
 - NASA, *[Space Transportation System](https://www.nasa.gov/wp-content/uploads/2015/12/3.pdf)*, Historic American Engineering Record HAER No. TX-116, Part III, Space Shuttle Main Engine, 2015. Page 274.
 - NASA, "F-1 Engine Fact Sheet," *Saturn V News Reference*, sheet R-1, 1968a.
 - NASA, "J-2 Engine Fact Sheet," *Saturn V News Reference*, sheet R-16, 1968b.
