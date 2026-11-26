@@ -6,411 +6,788 @@ short_title: 5.2 Range and Endurance
 :::{include} ../_parts/standards/5.2.md
 :::
 
-Every kilogram of fuel burned makes the aircraft lighter, which lowers the lift and thrust needed for level flight. On page 1.6, we used a cruise weight-fraction shortcut for preliminary sizing; here we derive the full **Breguet range and endurance equations** from scratch for both jet and propeller aircraft. A jet burns fuel in proportion to thrust, while a propeller engine burns fuel in proportion to shaft power. Because of that difference, the two propulsion types have different formulas, different optimal lift coefficients, and different responses to cruise altitude.
+Two questions come up for every aircraft that carries a load of fuel. The first is how far it can fly on that fuel: its {term}`range`. The second is how long it can stay in the air on that fuel: its {term}`endurance`. An airliner on a long route cares about range. An aircraft that must circle over one place cares about endurance. Both depend on three things: the amount of fuel the aircraft carries, how fast its engines burn that fuel, and its aerodynamics, which here means its drag polar.
+
+On [page 1.6](../chapter-1/aircraft-sizing.md) we used the jet range and endurance equations to size an aircraft, with typical values of the fuel consumption and of $L/D$. On this page we derive them from the fuel flow of the engine and the balance of forces of [steady level flight](#p51-level-flight), for a jet and for a propeller aircraft. Then we find the flight condition that gives the most range and the most endurance for each. Last, we see why a jet cruises high and a propeller aircraft does not need to.
 
 :::{note} What to take from this page
-- {term}`Range` $R$ is total ground distance flown in still air on a load of fuel; {term}`endurance` $E$ is total time stayed aloft on that fuel.
-- Fuel burn rate is proportional to thrust for a jet ($d(mg)/dt = -c_t T_A$, using {term}`thrust specific fuel consumption` $c_t$) and to shaft power for a propeller aircraft ($d(mg)/dt = -c P_A/\eta$, using {term}`power specific fuel consumption` $c$).
-- Three aerodynamic ratios set the optimal cruise points: $C_L^{1/2}/C_D$ for jet range ($C_L = \sqrt{C_{D,0}/(3K)}$), $C_L/C_D$ for jet endurance and propeller range ($C_L = \sqrt{C_{D,0}/K}$), and $C_L^{3/2}/C_D$ for propeller endurance ($C_L = \sqrt{3 C_{D,0}/K}$).
-- The three optimal speeds form a fixed geometric sequence spaced by ${3}^{1/4} \approx 1.316$: $V_{\text{prop,end}} = 0.760\,V_{T_R,\min}$, $V_{\text{prop,rng}} = V_{\text{jet,end}} = V_{T_R,\min}$, and $V_{\text{jet,rng}} = 1.316\,V_{T_R,\min}$.
-- Jet range grows as $\rho^{-1/2}$ with altitude, which is why airliners climb to the top of the troposphere. Propeller range does not depend on air density, while propeller endurance is largest at sea level.
+- A jet burns fuel in proportion to its thrust, a propeller aircraft in proportion to its shaft power. So the two have different range and endurance equations, the Breguet equations.
+- Jet range peaks at the largest $C_L^{1/2}/C_D$, jet endurance and propeller range at the largest $C_L/C_D$, and propeller endurance at the largest $C_L^{3/2}/C_D$. Each lift coefficient is $\sqrt{3}$ times the one before it.
+- The three best speeds are $0.760$, $1$, and $1.316$ times the minimum-thrust speed: propeller endurance, then jet endurance and propeller range, then jet range.
+- Jet range grows with altitude, until the jet reaches its Mach limit or its engines can no longer give the best-range thrust. Propeller range does not change with altitude, and propeller endurance is best low.
 :::
 
 (p52-fuel-consumption)=
-## Fuel consumption: jets versus propellers
+## Fuel consumption: jets and propellers
 
-Range is the integral of airspeed over flight time, $R = \int V\,dt$, and endurance is the integral of time, $E = \int dt$. To evaluate either integral, we connect elapsed time $dt$ to the loss of aircraft weight $d(mg)$ as fuel burns. That link depends on how the engine uses fuel (Anderson 2016, Section 6.13):
+To find how far or how long the aircraft flies, the first thing to know is how fast it loses weight. Every second, the engines burn some fuel, and the aircraft gets lighter by the weight of that fuel. How much they burn depends on the kind of engine.
 
-- **Jet engines** burn fuel weight per second in proportion to thrust:
-  :::{math}
-  :label: eq-p52-fuel-jet
-  \frac{d(mg)}{dt} = -c_t\,T_A
-  :::
-  The proportionality constant $c_t$ is the **{term}`thrust specific fuel consumption`** (TSFC), weight of fuel burned per unit thrust per unit time. Its units are $\text{N}/(\text{N}\cdot\text{s}) = 1/\text{s}$ (often quoted in $1/\text{h}$, which we divide by $3{,}600$ to get $1/\text{s}$).
-- **Propeller engines** burn fuel weight per second in proportion to shaft power $P_{\text{shaft}} = P_A/\eta$:
-  :::{math}
-  :label: eq-p52-fuel-prop
-  \frac{d(mg)}{dt} = -c\,\frac{P_A}{\eta}
-  :::
-  The proportionality constant $c$ is the **{term}`power specific fuel consumption`** (PSFC), weight of fuel burned per unit shaft power per unit time. In SI units its base unit is $\text{N}/(\text{W}\cdot\text{s}) = \text{N}/(\text{N}\cdot\text{m}) = 1/\text{m}$. Manufacturers often quote mass of fuel per second per kilowatt, such as $\text{g}/(\text{s}\cdot\text{kW})$; multiplying by ${10}^{-6}\,g$ converts that to $1/\text{m}$.
+A **jet engine** burns fuel in proportion to the thrust it makes. This is the same idea as for a rocket on [page 4.1](../chapter-4/thrust-and-specific-impulse.md), where the thrust and the propellant flow go together. The weight of fuel burned per second is
 
-:::{warning} Check the units of $c_t$ and $c$ before substituting
-The two specific fuel consumptions do not have the same dimensions. Jet $c_t$ has units of $1/\text{s}$ (weight per force per time), while propeller $c$ has units of $1/\text{m}$ (weight per power per time). Before you plug values into the Breguet equations, convert $c_t$ to $1/\text{s}$ (divide $1/\text{h}$ by $3{,}600$) and $c$ to $1/\text{m}$ (multiply $\text{kg}/(\text{s}\cdot\text{W})$ by $g = 9.81$ m/s²).
+:::{math}
+:label: eq-p52-fuel-jet
+\frac{d(mg)}{dt} = -c_t\,T
 :::
+
+with $T$ the thrust the engines make. The constant $c_t$ is the **{term}`thrust specific fuel consumption`**: the weight of fuel burned per unit of thrust per unit of time. Its unit is N of fuel per N of thrust per second, so $\text{N}/(\text{N}\cdot\text{s}) = 1/\text{s}$. The minus sign says the weight goes down. Page 1.6 wrote the same quantity as $C$, in 1/h ([its definition](#def-p16-sfc)). Engine data are usually quoted in 1/h, so we divide by $3{,}600$ s/h to get $c_t$ in 1/s.
+
+A **propeller aircraft** has a piston engine or a turbine that turns a shaft, and the propeller turns the shaft power into thrust power. The engine burns fuel in proportion to the shaft power. The propeller delivers the power $P$ to the air with an efficiency $\eta$, so the shaft power is $P/\eta$, and
+
+:::{math}
+:label: eq-p52-fuel-prop
+\frac{d(mg)}{dt} = -c\,\frac{P}{\eta}
+:::
+
+The constant $c$ is the **{term}`power specific fuel consumption`**: the weight of fuel burned per unit of shaft power per unit of time. Its unit is $\text{N}/(\text{W}\cdot\text{s})$. A watt is a newton meter per second, so this is $\text{N}/(\text{N}\cdot\text{m}) = 1/\text{m}$.
+
+Engine data give this constant as a mass of fuel per unit of energy, for example in grams per kilowatt-hour. Divided by $3{,}600$ s/h, it is in grams per second for each kilowatt, and we call it $c_\text{m}$. Multiplying by $g$ and converting the units turns $c_\text{m}$ into the weight-based $c$:
+
+$$
+\begin{aligned}
+c &= c_\text{m}\,\frac{\text{g}}{\text{s}\cdot\text{kW}}\times\frac{1\ \text{kg}}{1{,}000\ \text{g}}\\
+&\;\;\;\times 9.81\ \frac{\text{N}}{\text{kg}}\times\frac{1\ \text{kW}}{1{,}000\ \text{W}}\\
+&= c_\text{m}\times 9.81\times{10}^{-6}\ \text{1/m}
+\end{aligned}
+$$
+
+For an engine that burns $0.076$ g/(s·kW), $c = 7.4556 \times {10}^{-7}$ 1/m.
+
+:::{warning} $c_t$ and $c$ are weight rates, not mass rates
+Both constants count the weight of fuel burned, not its mass. If you are given a mass flow of fuel, in kg/s per newton or g/s per kilowatt, multiply by $g$ before you use it in the equations of this page. Also keep the two units apart: $c_t$ is in 1/s and $c$ in 1/m. If you put a jet's $c_t$ in 1/h into a range equation, your answer is off by a factor of $3{,}600$.
+:::
+
+(p52-assumptions)=
+## The assumptions behind the equations
+
+The results hold only as far as their assumptions do, so before integrating we say what stays fixed. There are five.
+
+1. **The specific fuel consumption is constant**, whatever the speed, altitude, and throttle setting. A real engine's value changes with all three.
+2. **The angle of attack is small**, so the thrust acts nearly along the flight path.
+3. **The thrust is much smaller than the lift**, so the part of the thrust that holds the aircraft up, $T\sin\alpha$, is negligible against $L$.
+4. **The weight falls slowly**, so at every moment the aircraft is in [steady level flight](#p51-level-flight): $L = mg$ and $T = D$.
+5. **The air is still and the atmosphere does not change**, so the distance through the air is the distance over the ground.
+
+With assumptions 2 to 4, the aircraft is in steady level flight at each moment. The thrust $T$ equals the thrust required $T_R$, and the lift balance gives the speed:
+
+$$
+\begin{aligned}
+T_R &= \frac{mg}{C_L/C_D}\\
+V &= \sqrt{\frac{2mg}{\rho S C_L}}
+\end{aligned}
+$$
+
+The first line is the thrust required of [page 5.1](#eq-p51-TR-LD).
 
 (p52-jet-breguet)=
 ## Jet range and endurance
 
-We start with a jet, where fuel burn is proportional to thrust, so steady level flight links fuel use directly to $L/D$. In steady level flight, $T_A = T_R = D = mg/(C_L/C_D)$. Solving [](#eq-p52-fuel-jet) for $dt$ gives
+Now we combine the fuel law of the jet with these two results, holding the altitude and the lift coefficient constant. A constant altitude fixes the density $\rho$. A constant $C_L$ fixes $C_D$ through the polar, so the pilot holds one angle of attack.
+
+### Jet endurance
+
+We solve [](#eq-p52-fuel-jet) for the time $dt$ in which a small weight of fuel $d(mg)$ is burned, and put in the thrust required:
 
 $$
-dt = -\frac{d(mg)}{c_t\,T_R} = -\frac{1}{c_t}\frac{C_L}{C_D}\frac{dm}{m}
+\begin{aligned}
+dt &= -\frac{d(mg)}{c_t\,T_R}\\
+&= -\frac{1}{c_t}\,\frac{C_L}{C_D}\,\frac{g\,dm}{mg}\\
+&= -\frac{1}{c_t}\,\frac{C_L}{C_D}\,\frac{dm}{m}
+\end{aligned}
 $$
 
-Holding altitude, $c_t$, and $C_L$ (and so $C_D$) constant from initial mass $m_1$ to final mass $m_2 = m_1 - m_{\text{fuel}}$ lets us pull the constants outside the integral. Integrating $E = \int dt$ gives **jet endurance**:
+Here $g$ is constant, so $d(mg) = g\,dm$, and $g$ cancels. The endurance $E$ is the time it takes for the mass to fall from $m_1$ at the start to $m_2$ at the end, where $m_1 - m_2$ is the fuel burned. With $c_t$, $C_L$, and $C_D$ constant they come out of the integral, and the integral of $1/m$ is $\ln m$:
+
+$$
+\begin{aligned}
+E &= -\frac{1}{c_t}\,\frac{C_L}{C_D}\int_{m_1}^{m_2}\frac{dm}{m}\\
+&= \frac{1}{c_t}\,\frac{C_L}{C_D}\,(\ln m_1 - \ln m_2)
+\end{aligned}
+$$
 
 ::::{prf:definition} Breguet endurance equation for a jet
 :label: def-p52-jet-endurance
 :::{math}
 :label: eq-p52-jet-E
-E = \frac{1}{c_t}\frac{C_L}{C_D}\ln\frac{m_1}{m_2}
+E = \frac{1}{c_t}\,\frac{C_L}{C_D}\,\ln\frac{m_1}{m_2}
 :::
+with $c_t$ in 1/s, $E$ in seconds, and $m_1$ and $m_2$ the masses at the start and at the end.
 ::::
 
-To find **jet range**, we multiply $dt$ by the level-flight airspeed $V = \sqrt{2mg/(\rho S C_L)}$ before integrating, simplifying $\sqrt{m}/m = 1/\sqrt{m}$ and $C_L/\sqrt{C_L} = \sqrt{C_L}$:
+There is no density in this equation. The time a jet can stay up depends on its $L/D$, its engines, and its fuel, not on its altitude. Keep the start mass on top of the logarithm: if you write $\ln(m_2/m_1)$, you get a negative time.
+
+### Jet range
+
+For the range we follow the distance $x$ instead of the time. In a time $dt$ the aircraft covers $dx = V\,dt$. Putting in $dt$ from above and the speed from the lift balance gives:
 
 $$
-dR = V\,dt = -\frac{1}{c_t}\sqrt{\frac{2g}{\rho S}}\frac{\sqrt{C_L}}{C_D}\,\frac{dm}{\sqrt{m}}
+\begin{aligned}
+dx &= V\,dt\\
+&= -\sqrt{\frac{2mg}{\rho S C_L}}\;\frac{1}{c_t}\,\frac{C_L}{C_D}\,\frac{dm}{m}
+\end{aligned}
 $$
 
-Integrating $\int_{m_1}^{m_2} (-dm/\sqrt{m}) = 2(\sqrt{m_1} - \sqrt{m_2})$ gives **jet range**:
+Next we collect what depends on the mass and what depends on the lift coefficient. The mass appears as $\sqrt{m}/m = 1/\sqrt{m}$, and the lift coefficient as $C_L/\sqrt{C_L} = \sqrt{C_L}$:
+
+$$
+dx = -\frac{1}{c_t}\sqrt{\frac{2g}{\rho S}}\;\frac{\sqrt{C_L}}{C_D}\;\frac{dm}{\sqrt{m}}
+$$
+
+The range is $R = x_2 - x_1$, the distance from where the mass is $m_1$ to where it is $m_2$. The limits of the integral change from distances to masses. The integral of $m^{-1/2}$ is $2\sqrt{m}$:
+
+$$
+\begin{aligned}
+R &= -\frac{1}{c_t}\sqrt{\frac{2g}{\rho S}}\,\frac{\sqrt{C_L}}{C_D}\\
+&\;\;\;\times\int_{m_1}^{m_2}\frac{dm}{\sqrt{m}}\\
+&= \frac{2}{c_t}\sqrt{\frac{2g}{\rho S}}\,\frac{\sqrt{C_L}}{C_D}\\
+&\;\;\;\times\left(\sqrt{m_1} - \sqrt{m_2}\right)
+\end{aligned}
+$$
 
 ::::{prf:definition} Breguet range equation for a jet
 :label: def-p52-jet-range
 :::{math}
 :label: eq-p52-jet-R
-R = \frac{2}{c_t}\sqrt{\frac{2g}{\rho S}}\frac{\sqrt{C_L}}{C_D}\left(\sqrt{m_1} - \sqrt{m_2}\right)
+\begin{aligned}
+R &= \frac{2}{c_t}\sqrt{\frac{2g}{\rho S}}\,\frac{\sqrt{C_L}}{C_D}\\
+&\;\;\;\times\left(\sqrt{m_1} - \sqrt{m_2}\right)
+\end{aligned}
 :::
+with $c_t$ in 1/s, for flight at constant altitude and constant lift coefficient.
 ::::
 
-Look at the assumptions built into [](#eq-p52-jet-E) and [](#eq-p52-jet-R): constant altitude ($\rho$ constant), constant $c_t$, and constant angle of attack ($C_L$ and $C_D$ constant). Because $V = \sqrt{2mg/(\rho S C_L)}$, holding $C_L$ and $\rho$ fixed means the jet gradually slows down and throttles back as fuel burns away ({numref}`fig-p52-weight-burn`). In airline operations, air traffic control instead assigns a constant Mach number, so the jet climbs in steps as it lightens to keep $C_L$ close to the optimum.
+Some books write $\sqrt{C_L}/C_D$ as $\sqrt{C_L/C_D^2}$ under the root. It is the same quantity. This time the density stays in the equation: thinner air means a longer range. The [side-by-side comparison](#p52-altitude) comes back to this.
+
+Page 1.6 wrote the jet range with the speed held constant ([its range equation](#eq-p16-range)). Since $mg = \tfrac12\rho V^2 S C_L$, a constant speed and a constant $C_L$ need the density to fall with the mass, so that aircraft drifts up as it gets lighter. Here we hold the altitude instead.
+
+### What the pilot does as the fuel burns
+
+At constant altitude and constant $C_L$, the speed $V = \sqrt{2mg/(\rho S C_L)}$ falls as the square root of the mass. The thrust required, $mg/(C_L/C_D)$, falls in proportion to the mass. So the pilot slows down and throttles back as the fuel burns ({numref}`fig-p52-weight-burn`). The Federal Aviation Administration describes the same cruise control: as the weight decreases, the best speed and power setting decrease, or the best altitude increases (FAA 2023, Chapter 11, p. 11-10).
 
 :::{figure} figures/p52-weight-burn.svg
 :label: fig-p52-weight-burn
-:alt: Two panels side by side for the executive jet flying 4,000 kilometers at 9,500 meters at constant best-range lift coefficient. Panel 1, titled airspeed slows as mass drops, shows a solid black line falling from 230.4 meters per second at 0 kilometers to 210.0 meters per second at 4,000 kilometers. Panel 2, titled thrust required drops with weight, shows a dashed blue line falling from 20.54 kilonewtons at 0 kilometers to 17.07 kilonewtons at 4,000 kilometers.
+:alt: Two panels against distance flown from 0 to 3,500 kilometers, for the executive jet flying 3,300 kilometers at 8,500 meters at the best-range lift coefficient. Left panel: a solid black line for the true airspeed falls from 216.9 meters per second at the start to 200.1 meters per second at the end. Right panel: a dashed black horizontal line for full throttle, T sub A, at 32.29 kilonewtons; below it a solid black line for the thrust required falls from 20.54 kilonewtons, throttle setting 0.6361, to 17.48 kilonewtons, throttle setting 0.5413.
 :width: 85%
 
-Cruise at constant altitude ($9{,}500$ m) and constant $C_L$ for the executive jet of worked example 2. As $5{,}597$ kg of fuel burns over $4{,}000$ km, both the required true airspeed and the thrust required fall steadily.
+Computed for worked example 2: the executive jet at 8,500 m and the best-range lift coefficient. As the fuel burns, the speed falls with the square root of the mass and the thrust required in proportion to the mass, so the pilot eases the throttle back from 0.6361 to 0.5413. Axes start at zero: the changes are real but modest on one leg.
 :::
 
-### Optimal flight conditions for a jet
+(p52-jet-best)=
+## Best conditions for a jet
 
-- **Maximum jet endurance** maximizes $C_L/C_D$ in [](#eq-p52-jet-E). That is the minimum-thrust point from [page 5.1](#eq-p51-min-thrust):
-  $$
-  C_L = \sqrt{\frac{C_{D,0}}{K}}, \qquad C_D = 2 C_{D,0}, \qquad V = V_{T_R,\min}
-  $$
-- **Maximum jet range** maximizes $C_L^{1/2}/C_D$ in [](#eq-p52-jet-R). Differentiating $C_L^{1/2}/(C_{D,0} + K C_L^2)$ with respect to $C_L$ and setting the numerator to zero gives
-  $$
-  \tfrac12 C_L^{-1/2}(C_{D,0} + K C_L^2) - C_L^{1/2}(2 K C_L) = 0
-  $$
-  which simplifies to $K C_L^2 = \tfrac{1}{3} C_{D,0}$:
-  :::{math}
-  :label: eq-p52-jet-opt-R
-  C_L = \sqrt{\frac{C_{D,0}}{3K}}, \qquad C_D = \frac{4}{3}\,C_{D,0}, \qquad V = {3}^{1/4}\,V_{T_R,\min} \approx 1.316\,V_{T_R,\min}
-  :::
+What the pilot should fly follows from the two equations. In each, the only thing the pilot chooses in flight is the lift coefficient, set by the angle of attack. The task is to find the $C_L$ that makes the aerodynamic part largest.
 
-At maximum jet range, induced drag is only one third of parasite drag, so the jet cruises $31.6\%$ faster than its minimum-drag speed.
+### Best endurance
+
+[](#eq-p52-jet-E) is largest where $C_L/C_D$ is largest. That is the maximum lift-to-drag ratio found [on page 3.3](#p33-minimum-drag):
+
+$$
+\begin{aligned}
+C_L &= \sqrt{\frac{C_{D,0}}{K}}\\
+C_D &= 2C_{D,0}\\
+\left(\frac{L}{D}\right)_{\max} &= \frac{1}{2\sqrt{K C_{D,0}}}
+\end{aligned}
+$$
+
+This is the point of minimum thrust required on [page 5.1](#eq-p51-min-thrust), flown at the speed $V_{T_R,\min}$. It makes sense: a jet burns fuel in proportion to thrust, so the minimum thrust means the least fuel per second.
+
+### Best range
+
+[](#eq-p52-jet-R) is largest where $C_L^{1/2}/C_D$ is largest. We write it with the polar and set its derivative to zero.
+
+1. **The ratio with the polar:**
+   $$
+   \frac{C_L^{1/2}}{C_D} = \frac{C_L^{1/2}}{C_{D,0} + K C_L^2}
+   $$
+2. **The quotient rule.** The derivative is the derivative of the top times the bottom, minus the top times the derivative of the bottom, all over the bottom squared, $C_D^2$. Its top is
+   $$
+   \begin{aligned}
+   N &= \tfrac12 C_L^{-1/2}\left(C_{D,0} + K C_L^2\right)\\
+   &\;\;\; - C_L^{1/2}\,(2KC_L)
+   \end{aligned}
+   $$
+3. **Set the top to zero**, $N = 0$, and multiply it by $2C_L^{1/2}$:
+   $$
+   \begin{aligned}
+   &C_{D,0} + K C_L^2 - 4KC_L^2 = 0\\
+   &C_{D,0} = 3KC_L^2
+   \end{aligned}
+   $$
+4. **Solve for the lift coefficient and find the drag coefficient:**
+   :::{math}
+   :label: eq-p52-jet-opt-R
+   \begin{aligned}
+   C_L &= \sqrt{\frac{C_{D,0}}{3K}}\\
+   C_D &= C_{D,0} + \tfrac13 C_{D,0}\\
+   &= \tfrac43\,C_{D,0}
+   \end{aligned}
+   :::
+
+The ratio is zero at $C_L = 0$ and falls toward zero at large $C_L$, so this single point is the maximum. Some books maximize $C_L/C_D^2$ instead. That is the square of the ratio above, and a positive quantity and its square peak at the same $C_L$, so the answer is the same.
+
+Notice what step 3 says: at best range the induced drag $KC_L^2$ is one third of the parasite drag $C_{D,0}$. The jet flies faster than at minimum thrust. Since $V$ is proportional to $1/\sqrt{C_L}$ at a given weight and altitude, and this $C_L$ is the one of minimum thrust divided by $\sqrt{3}$,
+
+$$
+\begin{aligned}
+\frac{V_\text{best range}}{V_{T_R,\min}} &= \left(\sqrt{3}\right)^{1/2}\\
+&= {3}^{1/4}\\
+&= 1.316
+\end{aligned}
+$$
+
+A jet cruises for range $31.6$% faster than it flies for endurance. Flying faster pays because the engines burn fuel per second in proportion to the thrust, while the distance gained per second grows with the speed. Just above the minimum-thrust speed the thrust curve is nearly flat, so the thrust rises much more slowly than the speed. The best trade is where $T_R/V$ is smallest, and the [comparison](#p52-comparison) shows that point on a graph.
+
+### Thrust and throttle at best range
+
+Next we need to know whether the engines can hold this condition. The thrust required at best range is the weight divided by $L/D$ at that point:
+
+$$
+\begin{aligned}
+T_R &= mg\,\frac{C_D}{C_L}\\
+&= mg\,\frac{\tfrac43 C_{D,0}}{\sqrt{C_{D,0}/(3K)}}\\
+&= 4mg\sqrt{\frac{K C_{D,0}}{3}}
+\end{aligned}
+$$
+
+This is $2/\sqrt{3} = 1.155$ times the minimum thrust required, $2mg\sqrt{KC_{D,0}}$. Like the minimum, it depends on the weight and the polar, not on the altitude.
+
+The pilot sets this thrust with the {term}`throttle setting` $\delta_t$, a number from 0, no thrust, to 1, full thrust. With the thrust available of [page 5.1](#eq-p51-TA), $T_A = n\,\delta_t\,T_0(\rho/\rho_0)^{m_\text{ad}}$ for $n$ engines of sea-level thrust $T_0$, the two thrusts match when
+
+:::{math}
+:label: eq-p52-throttle
+\delta_t = \frac{4mg}{n\,T_0}\left(\frac{\rho_0}{\rho}\right)^{m_\text{ad}}\sqrt{\frac{KC_{D,0}}{3}}
+:::
+
+At a constant altitude the throttle setting falls as the mass falls. A value above 1 means the engines cannot give the best-range thrust at that altitude.
+
+### Fuel for a given range or endurance of a jet
+
+Often we know the trip and want the fuel. It comes from solving the two jet equations for $m_2$ and subtracting $m_2$ from $m_1$. From [](#eq-p52-jet-R):
+
+:::{math}
+:label: eq-p52-jet-fuel-R
+\begin{aligned}
+\sqrt{m_2} &= \sqrt{m_1}\\
+&\;\;\; - \frac{c_t R}{2}\sqrt{\frac{\rho S}{2g}}\,\frac{C_D}{\sqrt{C_L}}\\
+m_\text{fuel} &= m_1 - m_2
+\end{aligned}
+:::
+
+From [](#eq-p52-jet-E), dividing by the factor in front of the logarithm and taking the exponential of both sides gives:
+
+:::{math}
+:label: eq-p52-jet-fuel-E
+\begin{aligned}
+m_2 &= m_1\exp\left(-c_t E\,\frac{C_D}{C_L}\right)\\
+m_\text{fuel} &= m_1\Bigl[1\\
+&\;\;\; - \exp\left(-c_t E\,\frac{C_D}{C_L}\right)\Bigr]
+\end{aligned}
+:::
 
 (p52-prop-breguet)=
 ## Propeller range and endurance
 
-Now we repeat the same steps for a propeller aircraft, where fuel burn is proportional to shaft power instead of thrust. In steady level flight, $P_A = P_R = D V$. Solving [](#eq-p52-fuel-prop) for $dt$ and substituting $D = mg/(C_L/C_D)$ gives
+Now we repeat the steps for a propeller aircraft, which burns fuel in proportion to its power. In steady level flight the power delivered to the air is the power required, $P = P_R = T_R V$. Solving [](#eq-p52-fuel-prop) for $dt$ gives:
 
 $$
-dt = -\frac{\eta}{c}\frac{d(mg)}{D V} = -\frac{\eta}{c}\frac{C_L}{C_D}\frac{dm}{m V}
+\begin{aligned}
+dt &= -\frac{\eta}{c}\,\frac{d(mg)}{T_R V}\\
+&= -\frac{\eta}{c}\,\frac{C_L}{C_D}\,\frac{dm}{m\,V}
+\end{aligned}
 $$
 
-Notice what happens when we compute **propeller range** $dR = V\,dt$: the airspeed $V$ cancels out. Integrating from $m_1$ to $m_2$ at constant $\eta$, $c$, and $C_L$ gives
+### Propeller range
+
+The distance in the time $dt$ is $dx = V\,dt$, and the speed cancels:
+
+$$
+dx = -\frac{\eta}{c}\,\frac{C_L}{C_D}\,\frac{dm}{m}
+$$
+
+We integrate from $m_1$ to $m_2$ at constant $\eta$, $c$, and $C_L$, as for the jet endurance:
 
 ::::{prf:definition} Breguet range equation for a propeller aircraft
 :label: def-p52-prop-range
 :::{math}
 :label: eq-p52-prop-R
-R = \frac{\eta}{c}\frac{C_L}{C_D}\ln\frac{m_1}{m_2}
+R = \frac{\eta}{c}\,\frac{C_L}{C_D}\,\ln\frac{m_1}{m_2}
 :::
+with $c$ in 1/m and $R$ in meters.
 ::::
 
-For **propeller endurance**, $V$ does not cancel. Substituting $V = \sqrt{2mg/(\rho S C_L)}$ into $dt$ and combining $C_L\sqrt{C_L} = C_L^{3/2}$ and $m\sqrt{m} = m^{3/2}$ gives
+The propeller range has the same form as the jet endurance. It is largest at the maximum $C_L/C_D$, the minimum-thrust point, and it has no density in it. The reason is the same in both: fuel per meter is $(c/\eta)P_R/V = (c/\eta)T_R$, so the least fuel per meter comes at the minimum thrust. The FAA gives the same rule: a propeller aircraft gets its maximum range at the maximum $L/D$. That comes at one angle of attack and one lift coefficient, whatever the weight or altitude (FAA 2023, Chapter 11, p. 11-10).
+
+### Propeller endurance
+
+For the time, the speed does not cancel. Putting in $1/V = \sqrt{\rho S C_L/(2mg)}$:
 
 $$
-dt = -\frac{\eta}{c}\sqrt{\frac{\rho S}{2g}}\frac{C_L^{3/2}}{C_D}\,\frac{dm}{m^{3/2}}
+\begin{aligned}
+dt &= -\frac{\eta}{c}\,\frac{C_L}{C_D}\,\sqrt{\frac{\rho S C_L}{2mg}}\,\frac{dm}{m}\\
+&= -\frac{\eta}{c}\sqrt{\frac{\rho S}{2g}}\;\frac{C_L^{3/2}}{C_D}\;\frac{dm}{m^{3/2}}
+\end{aligned}
 $$
 
-Integrating $\int_{m_1}^{m_2} (-dm/m^{3/2}) = 2(1/\sqrt{m_2} - 1/\sqrt{m_1})$ gives **propeller endurance**:
+The integral of $m^{-3/2}$ is $-2m^{-1/2}$. From $m_1$ to $m_2$:
+
+$$
+\begin{aligned}
+E &= \frac{\eta}{c}\sqrt{\frac{\rho S}{2g}}\,\frac{C_L^{3/2}}{C_D}\left[\frac{2}{\sqrt{m}}\right]_{m_1}^{m_2}\\
+&= \frac{\eta}{c}\,2\sqrt{\frac{\rho S}{2g}}\,\frac{C_L^{3/2}}{C_D}\\
+&\;\;\;\times\left(\frac{1}{\sqrt{m_2}} - \frac{1}{\sqrt{m_1}}\right)
+\end{aligned}
+$$
+
+and $2\sqrt{\rho S/(2g)} = \sqrt{2\rho S/g}$:
 
 ::::{prf:definition} Breguet endurance equation for a propeller aircraft
 :label: def-p52-prop-endurance
 :::{math}
 :label: eq-p52-prop-E
-E = \frac{\eta}{c}\sqrt{\frac{2\rho S}{g}}\frac{C_L^{3/2}}{C_D}\left(\frac{1}{\sqrt{m_2}} - \frac{1}{\sqrt{m_1}}\right)
+\begin{aligned}
+E &= \frac{\eta}{c}\sqrt{\frac{2\rho S}{g}}\,\frac{C_L^{3/2}}{C_D}\\
+&\;\;\;\times\left(\frac{1}{\sqrt{m_2}} - \frac{1}{\sqrt{m_1}}\right)
+\end{aligned}
 :::
+with $c$ in 1/m and $E$ in seconds.
 ::::
 
-### Optimal flight conditions for a propeller aircraft
+### Best conditions for a propeller aircraft
 
-- **Maximum propeller range** maximizes $C_L/C_D$ in [](#eq-p52-prop-R):
-  $$
-  C_L = \sqrt{\frac{C_{D,0}}{K}}, \qquad C_D = 2 C_{D,0}, \qquad V = V_{T_R,\min}
-  $$
-- **Maximum propeller endurance** maximizes $C_L^{3/2}/C_D$ in [](#eq-p52-prop-E). That is the minimum-power point from [page 5.1](#eq-p51-min-power):
-  $$
-  C_L = \sqrt{\frac{3 C_{D,0}}{K}}, \qquad C_D = 4 C_{D,0}, \qquad V = V_{P_R,\min} = {3}^{-1/4}\,V_{T_R,\min} \approx 0.760\,V_{T_R,\min}
-  $$
+Best range comes at the largest $C_L/C_D$: $C_L = \sqrt{C_{D,0}/K}$ and $C_D = 2C_{D,0}$, at the speed $V_{T_R,\min}$.
+
+Best endurance comes at the largest $C_L^{3/2}/C_D$. The quotient rule again gives, after setting the top to zero and dividing it by $C_L^{1/2}$,
+
+$$
+\begin{aligned}
+&\tfrac32\left(C_{D,0} + KC_L^2\right) - 2KC_L^2 = 0\\
+&C_L = \sqrt{\frac{3C_{D,0}}{K}}
+\end{aligned}
+$$
+
+There $C_D = C_{D,0} + 3C_{D,0} = 4C_{D,0}$: the induced drag is three times the parasite drag. This is the point of [minimum power required](#eq-p51-min-power), as it should be, since a propeller engine burns fuel in proportion to power. Its speed is $V_{P_R,\min} = {3}^{-1/4}\,V_{T_R,\min} = 0.760\,V_{T_R,\min}$.
+
+The density stands in front of [](#eq-p52-prop-E) as $\sqrt{\rho}$. A propeller aircraft therefore stays up longest flying slowly in dense air, close to the ground.
+
+### Fuel for a given range or endurance of a propeller aircraft
+
+Solving [](#eq-p52-prop-R) and [](#eq-p52-prop-E) for $m_2$ in the same way gives:
+
+:::{math}
+:label: eq-p52-prop-fuel
+\begin{aligned}
+m_\text{fuel} &= m_1\Bigl[1\\
+&\;\;\; - \exp\left(-\frac{c}{\eta}\,\frac{C_D}{C_L}\,R\right)\Bigr]\\
+\frac{1}{\sqrt{m_2}} &= \frac{1}{\sqrt{m_1}}\\
+&\;\;\; + E\,\frac{c}{\eta}\,\frac{C_D}{C_L^{3/2}}\sqrt{\frac{g}{2\rho S}}
+\end{aligned}
+:::
+
+and then $m_\text{fuel} = m_1 - m_2$ for the endurance.
 
 (p52-comparison)=
-## Comparing jet and propeller flight conditions
+## Jets and propeller aircraft side by side
 
-When we put all four optimal conditions side by side, a clean pattern appears ({numref}`fig-p52-aero-ratios`). Each peak lies a factor of $\sqrt{3}$ in $C_L$ from its neighbor. Because $V \propto C_L^{-1/2}$, the three optimal speeds are spaced by a factor of ${3}^{1/4} \approx 1.316$ ({numref}`fig-p52-speed-order`).
+That makes four best conditions. Side by side they show a pattern that holds for every aircraft with a parabolic polar, and they show why jets and propeller aircraft cruise so differently.
+
+### Three ratios, three lift coefficients
+
+{numref}`fig-p52-aero-ratios` plots the three aerodynamic ratios for one polar. Each peaks at its own lift coefficient, and each of these lift coefficients is $\sqrt{3} = 1.732$ times the one before it.
 
 :::{figure} figures/p52-aero-ratios.svg
 :label: fig-p52-aero-ratios
-:alt: Plot of three normalized aerodynamic ratios against lift coefficient C sub L from 0 to 1.45 for the executive jet polar (C sub D 0 equals 0.015, K equals 0.050). The dashed blue curve for C sub L to the one-half over C sub D (jet range) peaks at a blue square at C sub L equals 0.316. The solid black curve for C sub L over C sub D (jet endurance and propeller range) peaks at a black circle at C sub L equals 0.548. The dotted orange curve for C sub L to the three-halves over C sub D (propeller endurance) peaks at an orange diamond at C sub L equals 0.949. Vertical dashed lines drop from each peak to its C sub L value.
-:width: 80%
+:alt: Graph of three ratios, each divided by its own maximum, against lift coefficient from 0 to 1.5, for the polar C sub D equals 0.015 plus 0.050 C sub L squared. A dashed blue curve, C sub L to the one-half over C sub D, for jet range, peaks with a blue square at C sub L equals 0.316. A solid black curve, C sub L over C sub D, for jet endurance and propeller range, peaks with a black circle at 0.548. A dotted vermilion curve, C sub L to the three-halves over C sub D, for propeller endurance, peaks with a vermilion triangle at 0.949. Thin dashed lines drop from each peak to the axis.
+:width: 85%
 
-Normalized aerodynamic ratios against $C_L$ for $C_{D,0} = 0.015$, $K = 0.050$. Moving from jet range to propeller endurance raises the optimal $C_L$ by $\sqrt{3}$ at each step ($0.316 \to 0.548 \to 0.949$).
+Computed for the polar of the executive jet, $C_D = 0.015 + 0.050\,C_L^2$. Each goal has its own best lift coefficient, and each is $\sqrt{3}$ times the one to its left: 0.316, 0.548, and 0.949.
 :::
+
+### Three speeds in a fixed order
+
+At a given weight and altitude the speed goes as $1/\sqrt{C_L}$. A factor of $\sqrt{3}$ in $C_L$ is then a factor of ${3}^{1/4} = 1.316$ in speed. For any aircraft with a parabolic polar the three best speeds come in the order of {numref}`fig-p52-speed-order`.
 
 :::{figure} figures/p52-speed-order.svg
 :label: fig-p52-speed-order
-:alt: Horizontal axis labeled V divided by V sub T R min with three marked points. On the left, an orange square at 0.760 is labeled propeller max endurance (minimum power required). In the center, a black circle at 1.000 is labeled propeller max range and jet max endurance (minimum thrust required and maximum lift-to-drag ratio). On the right, a blue diamond at 1.316 is labeled jet max range (maximum C sub L to the one-half over C sub D). Two dimension arrows below the axis show that each step multiplies the speed by 3 to the one-fourth power.
+:alt: A horizontal speed axis, true airspeed divided by V sub T R min, on a logarithmic scale. A vermilion triangle at 0.760 is labeled propeller best endurance, maximum C sub L to the three-halves over C sub D. A black circle at 1.000 is labeled jet best endurance and propeller best range, maximum C sub L over C sub D. A blue square at 1.316 is labeled jet best range, maximum C sub L to the one-half over C sub D. Below, two dimension arrows of equal length between neighboring points, each labeled times 1.316.
 :width: 80%
 
-Exact ordering of optimal speeds for any aircraft with a parabolic polar. Both range speeds are $31.6\%$ faster than their corresponding endurance speeds, and each jet optimum lies one factor of ${3}^{1/4}$ faster than the matching propeller optimum.
+Schematic, valid for any aircraft with a parabolic drag polar. The best speeds are always in this order, each 1.316 times the one before; on a logarithmic scale the two steps are equal lengths.
 :::
 
-You can also read all four points straight off the thrust-required and power-required curves ({numref}`fig-p52-jet-vs-prop-curves`):
+### Reading the best points off the curves
 
-- For a **jet**, look at $T_R(V)$. The bottom of the bucket minimizes $T_R$ (fuel flow per second), giving maximum endurance. Because fuel burned per meter is $(c_t T_R)/V$, the tangent line from the origin minimizes the slope $T_R/V$ and gives maximum range.
-- For a **propeller aircraft**, look at $P_R(V)$. The bottom of the bucket minimizes $P_R$ (fuel flow per second), giving maximum endurance. Because fuel burned per meter is $(c P_R/\eta)/V = (c/\eta)T_R$, the tangent line from the origin minimizes the slope $P_R/V$ and gives maximum range.
+You can also find all four points on the curves of [page 5.1](#p51-power-required), with no algebra ({numref}`fig-p52-jet-vs-prop-curves`).
+
+- For a **jet**, look at the thrust required, $T_R(V)$. The fuel flow is $c_t T_R$, so the lowest point of the curve gives the best endurance. The fuel per meter is $c_t T_R/V$. That is smallest where the line from the origin to the curve has the least slope, which is the line tangent to the curve. Its point of contact is the best range.
+- For a **propeller aircraft**, look at the power required, $P_R(V)$. The fuel flow is $(c/\eta)P_R$, so the lowest point gives the best endurance. The fuel per meter is $(c/\eta)P_R/V$, smallest at the tangent from the origin, which gives the best range.
 
 :::{figure} figures/p52-jet-vs-prop-curves.svg
 :label: fig-p52-jet-vs-prop-curves
-:alt: Two panels side by side. Panel 1, titled jet: thrust required, shows a solid black U-shaped T sub R curve against airspeed V from 0 to 320 meters per second. Its lowest point is marked with a black dot labeled max endurance (minimum T sub R); a dashed blue straight line from the origin touches the curve tangentially farther right at an open blue square labeled max range (tangent). Panel 2, titled propeller: power required, shows the same geometric pattern on a solid black P sub R curve against V from 0 to 85 meters per second: lowest point marked max endurance (minimum P sub R) and tangent from the origin marked max range (tangent).
+:alt: Two panels. Left, the executive jet at 8,500 m: thrust required against true airspeed, a solid black U-shaped curve between gray bands, below stall and past Mach 0.80 with wave drag, thin in the second band. Its lowest point, a filled circle, is labeled best endurance, max C sub L over C sub D. A dashed line from an open circle at the origin touches it at an open square, best range, max C sub L to the one-half over C sub D. Right, the general-aviation airplane at 2,500 m: power required, drawn the same way, with best endurance, max C sub L to the three-halves over C sub D, at the lowest point and best range, max C sub L over C sub D, at the tangent point.
 :width: 85%
 
-Geometric reading of optimal speeds on $T_R(V)$ for a jet (Panel 1) and $P_R(V)$ for a propeller aircraft (Panel 2). In both panels, the trough gives maximum endurance and the tangent from the origin gives maximum range.
+Computed for the executive jet at 8,500 m at the start of worked example 2, and for the general-aviation airplane at 2,500 m with full tanks (worked example 3). On either curve the lowest point is the best endurance and the tangent from the origin is the best range, because fuel per second follows the curve and fuel per meter follows its slope from the origin.
 :::
 
-### Why jets cruise high and propellers do not need to
+(p52-altitude)=
+### Where the density appears
 
-Check where air density $\rho$ appears in the four Breguet equations:
+Now look again at the four equations and ask where the density $\rho$ appears ({numref}`fig-p52-altitude-range`).
 
-- **Jet range** [](#eq-p52-jet-R) has $1/\sqrt{\rho}$ in front. At higher altitude, lower density forces a higher true airspeed at the same optimal $C_L$ and $T_R$. The jet covers more kilometers for the same thrust and fuel flow per second ({numref}`fig-p52-altitude-range`).
-- **Jet endurance** [](#eq-p52-jet-E) has no $\rho$ at all (assuming constant $c_t$), because minimum thrust does not depend on altitude.
-- **Propeller range** [](#eq-p52-prop-R) has no $\rho$ at all. Flying higher speeds the aircraft up, which raises $P_R$ by the same factor and leaves kilometers per kilogram of fuel unchanged ({numref}`fig-p52-altitude-range`).
-- **Propeller endurance** [](#eq-p52-prop-E) has $\sqrt{\rho}$ in front. Because $P_{R,\min}$ is smallest at sea level, a propeller aircraft stays aloft longest in dense, low-altitude air.
+- **Jet range** carries $1/\sqrt{\rho}$. At the same $C_L$ and weight, thinner air means a higher true airspeed for the same thrust and so the same fuel per second. The jet covers more distance on the same fuel.
+- **Jet endurance** has no $\rho$. The minimum thrust does not change with altitude.
+- **Propeller range** has no $\rho$. Higher up, the speed and the power required rise by the same factor, so the fuel per meter does not change.
+- **Propeller endurance** carries $\sqrt{\rho}$. The minimum power required grows with altitude, so a propeller aircraft stays up longest in dense air.
+
+These results rest on the assumption of a constant $c_t$ or $c$. In a real propeller aircraft, the FAA notes, any change of range with altitude comes from the engine and the propeller (FAA 2023, Chapter 11, p. 11-11).
+
+### How high a jet should cruise
+
+The jet range keeps growing as the air thins, so it seems a jet should fly as high as it can. But the best-range condition stops being possible at two limits, and both come below the {term}`absolute ceiling` of [page 5.3](#p53-ceilings). We work them for the executive jet at the start mass of worked example 2.
+
+The first limit is the speed. The best-range speed rises as $1/\sqrt{\rho}$, while the speed of sound falls up to 11 km. The polar of this jet holds only up to Mach 0.80 ([page 5.1](#p51-available-and-vmax)); past it, {term}`wave drag` adds to $C_{D,0}$. On the standard atmosphere of [page 1.4](../chapter-1/standard-atmosphere.md), the best-range speed reaches Mach 0.80 at about $10.1$ km.
+
+The second limit is the thrust. It comes where [](#eq-p52-throttle) gives $\delta_t = 1$: full throttle only just gives the best-range thrust. With the numbers of worked example 2, $T_R = 20{,}537$ N against $n\,T_0 = 55{,}620$ N at sea level:
+
+$$
+\begin{aligned}
+\frac{\rho}{\rho_0} &= \left(\frac{20{,}537}{55{,}620}\right)^{1/0.6}\\
+\rho &= 1.225\times {0.36924}^{1/0.6}\\
+&= 0.2328\ \text{kg/m}^3
+\end{aligned}
+$$
+
+That is about $13.8$ km. Higher than this, the engines cannot give the best-range thrust. The absolute ceiling, where full thrust only matches the minimum thrust required, is higher still: $0.183$ kg/m³, about $15.35$ km. There the jet can fly at one speed only, the minimum-thrust speed, and not at the best-range speed.
 
 :::{figure} figures/p52-altitude-range.svg
 :label: fig-p52-altitude-range
-:alt: Plot of maximum range R in kilometers against cruise altitude h from 0 to 12 kilometers. A solid black curve for the executive jet rises from 2,390 kilometers at sea level through a black dot at 9.5 kilometers and 4,000 kilometers to 4,760 kilometers at 12 kilometers, labeled jet: grows as 1 over rho to the one-half. A dashed blue horizontal line from 0 to 7 kilometers at 1,956 kilometers, with an open square at 2.5 kilometers, is labeled Example 3 propeller: 1,956 kilometers (flat with h).
+:alt: Graph of range or endurance over its sea-level value, 0 to 2.75, against cruise altitude, 0 to 14 kilometers. A thick solid black curve for jet range, the square root of rho 0 over rho, rises from 1 at sea level to about 1.7 at a filled diamond labeled jet reaches Mach 0.80 at 10.1 km. From there a gray band, jet past Mach 0.80, wave drag, covers the rest of the graph; the curve goes on thin to a vertical dashed line at 13.8 kilometers labeled thrust limit. A black dash-dot horizontal line at 1 is labeled jet endurance, propeller range: no change. A black dotted curve falls from 1 to about 0.43 at 14 kilometers, labeled propeller endurance, the square root of rho over rho 0.
 :width: 85%
 
-Effect of cruise altitude on maximum range for the aircraft of worked examples 2 and 3. Jet range climbs steadily as $\rho^{-1/2}$ (capped in practice by engine ceiling and transonic Mach limits), while propeller range is flat with altitude.
+Computed from the standard atmosphere for range and endurance at fixed masses, with the limits of the executive jet at the start mass of worked example 2. Only the jet range gains from altitude, and it gains only up to the Mach limit at 10.1 km; the thrust limit comes at 13.8 km. The jet curve bends upward at 11 km, where the density starts to fall faster. The propeller lines show the density factor only.
 :::
 
-:::{table} Summary of Breguet optima for jet and propeller aircraft.
+In practice, long-range cruise is flown a little faster than the best-range speed. The FAA describes it at 99% of the best specific range, the distance flown per unit of fuel. That trades 1% of range for a cruise speed 3% to 5% higher (FAA 2023, Chapter 11, p. 11-10).
+
+### The two kinds of aircraft in one table
+
+{numref}`tbl-p52-optima` collects the results, with the levers that raise range and endurance.
+
+:::{table} Range and endurance of a jet and of a propeller aircraft, with a parabolic polar and a constant specific fuel consumption.
 :label: tbl-p52-optima
 :align: center
 
-| Case | Maximized ratio | Optimal $C_L$ | Optimal $C_D$ | Speed relative to $V_{T_R,\min}$ | Best altitude (constant SFC) |
-| --- | --- | --- | --- | --- | --- |
-| Jet range | $C_L^{1/2}/C_D$ | $\sqrt{C_{D,0}/(3K)}$ | $\tfrac{4}{3} C_{D,0}$ | $1.316\,V_{T_R,\min}$ | High altitude ($R \propto \rho^{-1/2}$) |
-| Jet endurance | $C_L/C_D$ | $\sqrt{C_{D,0}/K}$ | $2 C_{D,0}$ | $1.000\,V_{T_R,\min}$ | Independent of $\rho$ |
-| Propeller range | $C_L/C_D$ | $\sqrt{C_{D,0}/K}$ | $2 C_{D,0}$ | $1.000\,V_{T_R,\min}$ | Independent of $\rho$ |
-| Propeller endurance | $C_L^{3/2}/C_D$ | $\sqrt{3 C_{D,0}/K}$ | $4 C_{D,0}$ | $0.760\,V_{T_R,\min}$ | Sea level ($E \propto \rho^{1/2}$) |
-
+<table>
+<thead><tr><th>Quantity</th><th>Jet</th><th>Propeller aircraft</th></tr></thead>
+<tbody>
+<tr><th scope="row">Fuel flow follows</th><td>the thrust</td><td>the shaft power</td></tr>
+<tr><th scope="row">Best range</th><td>1.316 × the minimum-thrust speed; induced drag one third of parasite drag</td><td>the minimum-thrust speed, maximum lift-to-drag ratio</td></tr>
+<tr><th scope="row">Best endurance</th><td>the minimum-thrust speed, maximum lift-to-drag ratio</td><td>the minimum-power speed, 0.760 × the minimum-thrust speed; induced drag three times parasite drag</td></tr>
+<tr><th scope="row">Range as the aircraft climbs</th><td>grows as one over the square root of the density, up to the Mach and thrust limits</td><td>does not change</td></tr>
+<tr><th scope="row">Endurance as the aircraft climbs</th><td>does not change</td><td>falls as the square root of the density</td></tr>
+<tr><th scope="row">Other ways to get more range and endurance</th><td>a lower thrust specific fuel consumption; more fuel</td><td>a higher propeller efficiency; a lower power specific fuel consumption; more fuel on a lighter aircraft</td></tr>
+</tbody>
+</table>
 :::
 
 (p52-worked-examples)=
 ## Worked examples
 
-We now work three examples: a business jet in English units, a reverse jet-fuel calculation in SI, and a propeller aircraft in SI.
+### Worked example 1: maximum range of a jet like the CJ-1 (English units)
 
-### Worked example 1: maximum range of a business jet (English units)
+Anderson (2016, Chapter 6) works the maximum range of a light twin-turbofan business jet that he calls the CJ-1. We use the same method for an airplane like it, with the numbers below. The jet cruises at $22{,}000$ ft, where $\rho = 0.038$ lbm/ft³. Its wingspan is $b = 53.3$ ft and its wing area $S = 318$ ft². It weighs $19{,}817$ lb with full tanks and carries $1{,}119$ gal of fuel at $6.66$ lb/gal. Its polar has $C_{D,0} = 0.020$ and $e = 0.81$, and its thrust specific fuel consumption is $0.60$ 1/h. Find the maximum range.
 
-A light twin-engine business jet (based on the CJ-1 data in Anderson 2016, Example 6.19) cruises at $h = 22{,}000$ ft ($\rho = 0.038$ lbm/ft³). It has wingspan $b = 53.3$ ft, wing area $S = 318$ ft², gross weight $W_1 = 19{,}817$ lb, fuel capacity $1{,}119$ gal at $6.66$ lb/gal, $C_{D,0} = 0.020$, $e = 0.81$, and $\text{TSFC} = 0.60$ 1/h. Find its maximum range in statute miles.
+The jet range equation holds in any consistent units. Here the masses are in lbm, the density in lbm/ft³, and $g = 32.17$ ft/s². At standard gravity a mass of 1 lbm weighs 1 lb, so the weights become masses with the same numbers.
 
-1. **Fuel weight and final weight:**
+1. **Fuel and final mass:**
    $$
    \begin{aligned}
-   W_f &= 1{,}119 \times 6.66\\
-       &= 7{,}452.5\ \text{lb}\\
-   W_2 &= 19{,}817 - 7{,}452.5\\
-       &= 12{,}365\ \text{lb}
+   m_\text{fuel} &= 1{,}119\times 6.66\\
+   &= 7{,}452.5\ \text{lbm}\\
+   m_2 &= 19{,}817 - 7{,}452.5\\
+   &= 12{,}364.5\ \text{lbm}
    \end{aligned}
    $$
-2. **Drag polar and best-range aerodynamic ratio:**
+2. **Polar and best-range ratio:**
    $$
    \begin{aligned}
    \textit{AR} &= \frac{{53.3}^{2}}{318}\\
-               &= 8.934\\
-   K &= \frac{1}{\pi \times 0.81 \times 8.934}\\
-     &= 0.043986\\
-   C_L &= \sqrt{\frac{0.020}{3 \times 0.043986}}\\
-       &= 0.3893\\
-   C_D &= \frac{4}{3} \times 0.020\\
-       &= 0.026667\\
-   \frac{\sqrt{C_L}}{C_D} &= \frac{\sqrt{0.3893}}{0.026667}\\
-                          &= 23.40
+   &= 8.9336\\
+   K &= \frac{1}{\pi\times 0.81\times 8.9336}\\
+   &= 0.043988\\
+   C_L &= \sqrt{\frac{0.020}{3\times 0.043988}}\\
+   &= 0.38930\\
+   C_D &= \tfrac43\times 0.020\\
+   &= 0.026667\\
+   \frac{\sqrt{C_L}}{C_D} &= \frac{\sqrt{0.38930}}{0.026667}\\
+   &= 23.397
    \end{aligned}
    $$
-3. **Convert TSFC to $1/\text{s}$ and evaluate [](#eq-p52-jet-R).** Because $\rho$ is given in lbm/ft³ and an object's mass in lbm is numerically equal to its weight in lb at standard gravity, we use the numerical values of $W_1$ and $W_2$ in lbm with $g = 32.17$ ft/s², so the mass units cancel cleanly inside $\sqrt{2g/(\rho S)}\,(\sqrt{W_1} - \sqrt{W_2})$:
+3. **The factors of [](#eq-p52-jet-R).** The fuel consumption is $c_t = 0.60/3{,}600 = 1.6667 \times {10}^{-4}$ 1/s, so $2/c_t$ is a round number:
    $$
    \begin{aligned}
-   c_t &= \frac{0.60}{3{,}600}\\
-       &= 1.667 \times {10}^{-4}\ \text{1/s}\\
-   \frac{2}{c_t} &= \frac{2 \times 3{,}600}{0.60}\\
-                 &= 12{,}000\ \text{s}\\
-   \sqrt{\frac{2g}{\rho S}} &= \sqrt{\frac{2 \times 32.17}{0.038 \times 318}}\\
-                            &= 2.307\ \text{ft}/(\text{s}\cdot\text{lbm}^{1/2})\\
-   \sqrt{W_1} - \sqrt{W_2} &= 140.77 - 111.20\\
-                           &= 29.57\ \text{lbm}^{1/2}\\
-   R &= 12{,}000 \times 2.307 \times 23.40 \times 29.57\\
-     &= 19{,}155{,}612\ \text{ft}
+   \frac{2}{c_t} &= \frac{2\times 3{,}600}{0.60}\\
+   &= 12{,}000\ \text{s}
    \end{aligned}
    $$
-4. **Convert feet to statute miles** ($5{,}280$ ft/mi):
    $$
    \begin{aligned}
-   R &= \frac{19{,}155{,}612}{5{,}280}\\
-     &= 3{,}628\ \text{mi}
+   &\sqrt{\frac{2g}{\rho S}}\\
+   &\;\;\;= \sqrt{\frac{2\times 32.17}{0.038\times 318}}\\
+   &\;\;\;= 2.3075\ \text{ft}/(\text{s}\cdot\text{lbm}^{1/2})
    \end{aligned}
    $$
-   That is $5{,}839$ km of still-air cruise range (real operational range is shorter once takeoff, climb, descent, and reserves are subtracted).
-
-### Worked example 2: fuel for a jet mission and endurance on that fuel (SI)
-
-The executive twin-jet of [page 5.1](thrust-and-power.md) ($m_1 = 33{,}100$ kg, $S = 88.2$ m², $C_{D,0} = 0.015$, $K = 0.050$) cruises at $h = 9{,}500$ m ($\rho = 0.43863$ kg/m³) with $\text{TSFC} = 0.58$ 1/h. Find: (a) the fuel mass required to fly $R = 4{,}000$ km at maximum-range conditions, and (b) the maximum endurance on that same fuel load.
-
-**(a) Reverse calculation: fuel mass for 4,000 km.**
-
-1. **Best-range aerodynamic factor and $c_t$:**
    $$
    \begin{aligned}
-   c_t &= \frac{0.58}{3{,}600}\\
-       &= 1.611 \times {10}^{-4}\ \text{1/s}\\
-   C_L &= \sqrt{\frac{0.015}{3 \times 0.050}}\\
-       &= 0.3162\\
-   C_D &= \frac{4}{3} \times 0.015\\
-       &= 0.0200\\
-   \frac{\sqrt{C_L}}{C_D} &= \frac{\sqrt{0.3162}}{0.0200}\\
-                          &= 28.12
+   &\sqrt{m_1} - \sqrt{m_2}\\
+   &\;\;\;= 140.773 - 111.196\\
+   &\;\;\;= 29.577\ \text{lbm}^{1/2}
    \end{aligned}
    $$
-2. **Collect the prefactor $A$ in $R = A(\sqrt{m_1} - \sqrt{m_2})$:**
+4. **Range:**
    $$
    \begin{aligned}
-   \sqrt{\frac{2g}{\rho S}} &= \sqrt{\frac{2 \times 9.81}{0.43863 \times 88.2}}\\
-                            &= 0.7121\ \text{m}/(\text{s}\cdot\text{kg}^{1/2})\\
-   A &= \frac{2}{1.611 \times {10}^{-4}} \times 0.7121 \times 28.12\\
-     &= 248{,}594\ \text{m}/\text{kg}^{1/2}
+   R &= 12{,}000\times 2.3075\\
+   &\;\;\;\times 23.397\times 29.577\\
+   &= 1.9162 \times {10}^{7}\ \text{ft}
    \end{aligned}
    $$
-3. **Solve for $m_2$ and $m_f$:**
-   $$
-   \begin{aligned}
-   \sqrt{m_2} &= \sqrt{m_1} - \frac{R}{A}\\
-              &= 181.93 - \frac{4{,}000{,}000}{248{,}594}\\
-              &= 165.84\ \text{kg}^{1/2}\\
-   m_2 &= {165.84}^{2}\\
-       &= 27{,}503\ \text{kg}\\
-   m_f &= 33{,}100 - 27{,}503\\
-       &= 5{,}597\ \text{kg}
-   \end{aligned}
-   $$
-   At the start of cruise, the best-range airspeed is
-   $$
-   \begin{aligned}
-   V_1 &= \sqrt{\frac{2 \times 33{,}100 \times 9.81}{0.43863 \times 88.2 \times 0.3162}}\\
-       &= 230.4\ \text{m/s}
-   \end{aligned}
-   $$
-   which is Mach $0.764$, comfortably subsonic. By the end of the $4{,}000$ km leg, $V_2$ has dropped to $210.0$ m/s and thrust required has fallen from $20.54$ kN to $17.07$ kN ({numref}`fig-p52-weight-burn`).
+   With $5{,}280$ ft in a statute mile, that is $3{,}629$ mi, and with $0.3048$ m in a foot, $5{,}841$ km. It is a still-air cruise range: the fuel for takeoff, climb, descent, and reserves would come out of it.
 
-**(b) Maximum endurance on the same 5,597 kg of fuel.**
+### Worked example 2: fuel for a leg, throttle, and hold of the executive jet (SI)
 
-At maximum endurance, $C_L = \sqrt{0.015/0.050} = 0.5477$, $C_D = 2 \times 0.015 = 0.030$, and $(L/D)_{\max} = 0.5477/0.030 = 18.26$. Using [](#eq-p52-jet-E):
+The twin-engine executive jet of [page 5.1](#p51-example-2) has $m_1 = 33{,}100$ kg, $S = 88.2$ m², $C_{D,0} = 0.015$, $K = 0.050$, and two engines of $T_0 = 27{,}810$ N with $m_\text{ad} = 0.6$. It cruises at $8{,}500$ m, where the [standard atmosphere](../chapter-1/standard-atmosphere.md) gives $\rho = 0.49482$ kg/m³ and a speed of sound of $305.91$ m/s. We assume a thrust specific fuel consumption of $0.58$ 1/h, between the typical cruise values of a low-bypass and a high-bypass turbofan in [the table of page 1.6](#tbl-p16-sfc). Find:
+
+- (a) The fuel for a $3{,}300$ km leg flown at best range.
+- (b) The thrust and throttle setting at the start and at the end of the leg.
+- (c) The longest time it could stay up on the same fuel.
+- (d) The fuel for a hold of $1.5$ h (circling over one place before landing), flown from the start mass $m_1$.
+
+**(a) Fuel for the leg.** We convert the fuel consumption and find the best-range condition:
 
 $$
 \begin{aligned}
-\ln\frac{m_1}{m_2} &= \ln\frac{33{,}100}{27{,}503}\\
-                   &= 0.18524\\
-E &= \frac{1}{1.611 \times {10}^{-4}} \times 18.26 \times 0.18524\\
-  &= 20{,}996\ \text{s}\\
-  &= 5.83\ \text{h}
+c_t &= \frac{0.58}{3{,}600}\\
+&= 1.61111 \times {10}^{-4}\ \text{1/s}\\
+C_L &= \sqrt{\frac{0.015}{3\times 0.050}}\\
+&= 0.31623\\
+C_D &= \tfrac43\times 0.015\\
+&= 0.0200\\
+\frac{\sqrt{C_L}}{C_D} &= \frac{\sqrt{0.31623}}{0.0200}\\
+&= 28.117
 \end{aligned}
 $$
 
-**Check.** Flying 4,000 km at an average speed near 220 m/s takes about $4{,}000{,}000/220/3{,}600 = 5.05$ h. Slowing to the minimum-drag speed extends time aloft from $5.05$ h to $5.83$ h on the same fuel, because the engines burn fuel at the lowest possible rate per second even though the jet covers less distance.
-
-### Worked example 3: range, endurance, and fuel for a propeller aircraft (SI)
-
-The general-aviation propeller aircraft of [page 5.1](thrust-and-power.md) ($m_1 = 1{,}315$ kg, $S = 16.3$ m², $C_{D,0} = 0.026$, $K = 0.054$, $\eta = 0.80$) carries $m_f = 168$ kg of usable fuel and cruises at $h = 2{,}500$ m ($\rho = 0.9567$ kg/m³). Its engine has $\text{PSFC} = 0.076$ g/(s·kW). Find: (a) maximum range, (b) maximum endurance, and (c) the fuel required for a $1{,}000$ km leg.
-
-We first convert PSFC to $1/\text{m}$ and find $m_2$:
+The constant factors of [](#eq-p52-jet-R) make one number $A$, so that $R = A\,(\sqrt{m_1} - \sqrt{m_2})$:
 
 $$
 \begin{aligned}
-c &= 0.076 \times {10}^{-6} \times 9.81\\
-  &= 7.456 \times {10}^{-7}\ \text{1/m}\\
-\frac{\eta}{c} &= \frac{0.80}{7.456 \times {10}^{-7}}\\
-               &= 1{,}072{,}961\ \text{m}\\
+&\sqrt{\frac{2g}{\rho S}}\\
+&\;\;\;= \sqrt{\frac{2\times 9.81}{0.49482\times 88.2}}\\
+&\;\;\;= 0.67049\ \text{m}/(\text{s}\cdot\text{kg}^{1/2})
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+A &= \frac{2}{1.61111\times{10}^{-4}}\times\\
+&\;\;\; 0.67049\times 28.117\\
+&= 234{,}027\ \text{m}/\text{kg}^{1/2}
+\end{aligned}
+$$
+
+The final mass follows, as in [](#eq-p52-jet-fuel-R):
+
+$$
+\begin{aligned}
+\sqrt{m_2} &= \sqrt{m_1} - \frac{R}{A}\\
+&= 181.934 - \frac{3{,}300{,}000}{234{,}027}\\
+&= 167.833\ \text{kg}^{1/2}\\
+m_2 &= {167.833}^{2}\\
+&= 28{,}168\ \text{kg}\\
+m_\text{fuel} &= 33{,}100 - 28{,}168\\
+&= 4{,}932\ \text{kg}
+\end{aligned}
+$$
+
+We find the speed at the start of the leg, with the weight $m_1 g = 324{,}711$ N, and its Mach number:
+
+$$
+\begin{aligned}
+V_1 &= \sqrt{\frac{2\times 324{,}711}{0.49482\times 88.2}}\times\\
+&\;\;\;\frac{1}{\sqrt{0.31623}}\\
+&= 216.9\ \text{m/s}\\
+M &= \frac{216.9}{305.91}\\
+&= 0.709
+\end{aligned}
+$$
+
+That is below Mach 0.80, so the polar holds. At the end of the leg the speed has fallen to $200.1$ m/s ({numref}`fig-p52-weight-burn`).
+
+**(b) Thrust and throttle.** At the start, the best-range thrust is
+
+$$
+\begin{aligned}
+\sqrt{\frac{K C_{D,0}}{3}} &= \sqrt{\frac{0.050\times 0.015}{3}}\\
+&= 0.0158114\\
+T_R &= 4mg\sqrt{\frac{K C_{D,0}}{3}}\\
+&= 4\times 324{,}711\times\\
+&\;\;\; 0.0158114\\
+&= 20{,}537\ \text{N}
+\end{aligned}
+$$
+
+The thrust available at full throttle at $8{,}500$ m is
+
+$$
+\begin{aligned}
+\frac{\rho}{\rho_0} &= \frac{0.49482}{1.225}\\
+&= 0.40393\\
+T_A &= 55{,}620\times {0.40393}^{0.6}\\
+&= 55{,}620\times 0.58048\\
+&= 32{,}286\ \text{N}
+\end{aligned}
+$$
+
+So the throttle setting at the start is $\delta_t = 20{,}537/32{,}286 = 0.6361$. This best-range thrust equals the jet's thrust at its minimum-power speed on [page 5.1](#p51-example-2), because at both points $C_D/C_L = 4\sqrt{KC_{D,0}/3}$. At the end of the leg, the same formula with $m_2 = 28{,}168$ kg gives
+
+$$
+\begin{aligned}
+T_R &= 4\times 28{,}168\times 9.81\times\\
+&\;\;\; 0.0158114\\
+&= 17{,}477\ \text{N}\\
+\delta_t &= \frac{17{,}477}{32{,}286}\\
+&= 0.5413
+\end{aligned}
+$$
+
+The engines have plenty of margin at this altitude, and the pilot eases the throttle back as the jet gets lighter.
+
+**(c) Longest time on the same fuel.** Best endurance is at $(L/D)_{\max}$, and [](#eq-p52-jet-E) needs no altitude:
+
+$$
+\begin{aligned}
+\sqrt{K C_{D,0}} &= \sqrt{0.050\times 0.015}\\
+&= 0.0273861\\
+\left(\frac{L}{D}\right)_{\max} &= \frac{1}{2\times 0.0273861}\\
+&= 18.2574\\
+\ln\frac{m_1}{m_2} &= \ln\frac{33{,}100}{28{,}168}\\
+&= 0.161347\\
+E &= \frac{18.2574}{1.61111\times{10}^{-4}}\times\\
+&\;\;\; 0.161347\\
+&= 18{,}284\ \text{s}\\
+&= 5.079\ \text{h}
+\end{aligned}
+$$
+
+Compare this with the leg itself. At an average speed of about $208.5$ m/s, the $3{,}300$ km take about $4.40$ h. Slowing down to the minimum-thrust speed keeps the jet up longer on the same fuel, but it covers less distance.
+
+**(d) Fuel for a 1.5 h hold.** With [](#eq-p52-jet-fuel-E) at $(L/D)_{\max}$, from the start mass and with $E = 5{,}400$ s:
+
+$$
+\begin{aligned}
+c_t E\,\frac{C_D}{C_L} &= \frac{1.61111\times{10}^{-4}}{18.2574}\times\\
+&\;\;\; 5{,}400\\
+&= 0.047652
+\end{aligned}
+$$
+
+$$
+\exp(-0.047652) = 0.953466
+$$
+
+$$
+\begin{aligned}
+m_\text{fuel} &= 33{,}100\times\\
+&\;\;\; (1 - 0.953466)\\
+&= 1{,}540.3\ \text{kg}
+\end{aligned}
+$$
+
+That is about a third of the fuel of the $3{,}300$ km leg.
+
+### Worked example 3: range and endurance of a propeller aircraft (SI)
+
+The single-engine general-aviation airplane of [page 5.1](#p51-example-1) has $m_1 = 1{,}315$ kg with full tanks, $S = 16.3$ m², $C_{D,0} = 0.026$, $K = 0.054$, and a propeller efficiency $\eta = 0.80$. It carries $168$ kg of usable fuel, and its engine burns $0.076$ g/(s·kW). Find its maximum range and its maximum endurance at $2{,}500$ m, where $\rho = 0.956714$ kg/m³.
+
+**Fuel constant and final mass.** From the [conversion above](#p52-fuel-consumption):
+
+$$
+\begin{aligned}
+c &= 7.4556 \times {10}^{-7}\ \text{1/m}\\
+\frac{\eta}{c} &= \frac{0.80}{7.4556\times{10}^{-7}}\\
+&= 1{,}073{,}019\ \text{m}\\
 m_2 &= 1{,}315 - 168\\
-    &= 1{,}147\ \text{kg}
+&= 1{,}147\ \text{kg}
 \end{aligned}
 $$
 
-**(a) Maximum range**, [](#eq-p52-prop-R), at $C_L = \sqrt{C_{D,0}/K}$:
+**Maximum range**, with [](#eq-p52-prop-R) at the largest $C_L/C_D$:
 
 $$
 \begin{aligned}
 C_L &= \sqrt{\frac{0.026}{0.054}}\\
-    &= 0.6939\\
-C_D &= 2 \times 0.026\\
-    &= 0.052\\
-\frac{C_L}{C_D} &= \frac{0.6939}{0.052}\\
-                &= 13.34\\
+&= 0.69389\\
+C_D &= 2\times 0.026\\
+&= 0.052\\
+\frac{C_L}{C_D} &= \frac{0.69389}{0.052}\\
+&= 13.344\\
 \ln\frac{m_1}{m_2} &= \ln\frac{1{,}315}{1{,}147}\\
-                   &= 0.13669\\
-R &= 1{,}072{,}961 \times 13.34 \times 0.13669\\
-  &= 1{,}956{,}485\ \text{m}\\
-  &= 1{,}956\ \text{km}
+&= 0.136687\\
+R &= 1{,}073{,}019\times 13.344\times\\
+&\;\;\; 0.136687\\
+&= 1{,}957{,}134\ \text{m}\\
+&= 1{,}957\ \text{km}
 \end{aligned}
 $$
 
-**(b) Maximum endurance**, [](#eq-p52-prop-E), at $C_L = \sqrt{3 C_{D,0}/K}$:
+The altitude did not enter. The same fuel gives the same range at sea level.
+
+**Maximum endurance**, with [](#eq-p52-prop-E) at the largest $C_L^{3/2}/C_D$:
 
 $$
 \begin{aligned}
-C_L &= \sqrt{\frac{3 \times 0.026}{0.054}}\\
-    &= 1.202\\
-C_D &= 4 \times 0.026\\
-    &= 0.104\\
-\frac{C_L^{3/2}}{C_D} &= \frac{{1.202}^{3/2}}{0.104}\\
-                      &= 12.67\\
-\sqrt{\frac{2\rho S}{g}} &= \sqrt{\frac{2 \times 0.9567 \times 16.3}{9.81}}\\
-                         &= 1.783\ \text{s}\cdot\text{kg}^{1/2}/\text{m}\\
-\frac{1}{\sqrt{m_2}} - \frac{1}{\sqrt{m_1}} &= 0.029527 - 0.027576\\
-                                            &= 0.001951\ \text{kg}^{-1/2}\\
-E &= 1{,}072{,}961 \times 1.783 \times 12.67 \times 0.001951\\
-  &= 47{,}290\ \text{s}\\
-  &= 13.14\ \text{h}
+C_L &= \sqrt{\frac{3\times 0.026}{0.054}}\\
+&= 1.20185\\
+C_D &= 4\times 0.026\\
+&= 0.104\\
+\frac{C_L^{3/2}}{C_D} &= \frac{{1.20185}^{3/2}}{0.104}\\
+&= 12.669
 \end{aligned}
 $$
-
-**(c) Fuel required for a 1,000 km leg.** Inverting [](#eq-p52-prop-R) gives $m_2 = m_1\exp[-R c/(\eta\,L/D)]$:
 
 $$
 \begin{aligned}
-\frac{R c}{\eta (L/D)} &= \frac{1{,}000{,}000 \times 7.456 \times {10}^{-7}}{0.80 \times 13.34}\\
-                       &= 0.069865\\
-m_2 &= 1{,}315 \times e^{-0.069865}\\
-    &= 1{,}226.3\ \text{kg}\\
-m_f &= 1{,}315 - 1{,}226.3\\
-    &= 88.70\ \text{kg}
+&\sqrt{\frac{2\rho S}{g}}\\
+&\;\;\;= \sqrt{\frac{2\times 0.956714\times 16.3}{9.81}}\\
+&\;\;\;= 1.78306\ \text{s}\cdot\text{kg}^{1/2}/\text{m}
 \end{aligned}
 $$
 
-**Check.** The 1,000 km leg is just over half the full 1,956 km range ($51.1\%$), and it requires $88.70$ kg out of $168$ kg ($52.8\%$) of the fuel. Slightly more than half the fuel is needed for the first half of the trip because the aircraft is heavier during the first half.
+$$
+\begin{aligned}
+&\frac{1}{\sqrt{m_2}} - \frac{1}{\sqrt{m_1}}\\
+&\;\;\;= 0.02952693 - 0.02757637\\
+&\;\;\;= 0.00195056\ \text{kg}^{-1/2}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+E &= 1{,}073{,}019\times 1.78306\\
+&\;\;\;\times 12.669\times 0.00195056\\
+&= 47{,}280\ \text{s}\\
+&= 13.13\ \text{h}
+\end{aligned}
+$$
+
+Unlike the range, this result depends on the altitude through $\sqrt{\rho}$: flown lower, the airplane would stay up longer.
 
 ## Summary
 
 :::{important} Summary
-- Jet fuel flow is proportional to thrust ($c_t$, units $1/\text{s}$), giving $R \propto (\sqrt{C_L}/C_D)\rho^{-1/2}(\sqrt{m_1}-\sqrt{m_2})$ and $E \propto (C_L/C_D)\ln(m_1/m_2)$.
-- Propeller fuel flow is proportional to shaft power ($c$, units $1/\text{m}$), giving $R \propto (C_L/C_D)\ln(m_1/m_2)$ and $E \propto (C_L^{3/2}/C_D)\rho^{1/2}(m_2^{-1/2}-m_1^{-1/2})$.
-- On $T_R(V)$ for a jet or $P_R(V)$ for a propeller aircraft, the trough gives maximum endurance and the tangent from the origin gives maximum range.
-- The optimal speeds form a geometric ladder spaced by ${3}^{1/4} \approx 1.316$: propeller endurance ($0.760\,V_{T_R,\min}$), propeller range and jet endurance ($V_{T_R,\min}$), and jet range ($1.316\,V_{T_R,\min}$).
-- Climbing raises jet range as $\rho^{-1/2}$, leaves propeller range and jet endurance unchanged, and lowers propeller endurance as $\rho^{1/2}$.
+- A jet burns fuel in proportion to its thrust ($c_t$ in 1/s), a propeller aircraft in proportion to its shaft power ($c$ in 1/m). Integrating the fuel flow in steady level flight at constant altitude and $C_L$ gives the four Breguet equations.
+- Jet range is best at the largest $C_L^{1/2}/C_D$, jet endurance and propeller range at the largest $C_L/C_D$, and propeller endurance at the largest $C_L^{3/2}/C_D$. The best speeds are $0.760$, $1$, and $1.316$ times $V_{T_R,\min}$.
+- At best range a jet needs $4mg\sqrt{KC_{D,0}/3}$ of thrust, and the pilot throttles back as the fuel burns. Jet range grows with altitude until the Mach limit or until full throttle no longer gives that thrust, below the absolute ceiling.
 :::
 
 :::{table} The equations of this page.
@@ -419,25 +796,32 @@ $$
 
 | Quantity | Equation |
 | --- | --- |
-| Jet range | $R = (2/c_t)\sqrt{2g/(\rho S)}(\sqrt{C_L}/C_D)(\sqrt{m_1}-\sqrt{m_2})$ |
+| Fuel flow, jet | $d(mg)/dt = -c_t\,T$ |
+| Fuel flow, propeller aircraft | $d(mg)/dt = -c\,P/\eta$ |
+| Jet range | $R = (2/c_t)\sqrt{2g/(\rho S)}\,(\sqrt{C_L}/C_D)(\sqrt{m_1}-\sqrt{m_2})$ |
 | Jet endurance | $E = (1/c_t)(C_L/C_D)\ln(m_1/m_2)$ |
-| Jet best-range polar | $C_L = \sqrt{C_{D,0}/(3K)}$, $C_D = \tfrac{4}{3} C_{D,0}$ |
-| Jet best-endurance polar | $C_L = \sqrt{C_{D,0}/K}$, $C_D = 2 C_{D,0}$ |
+| Jet best range | $C_L = \sqrt{C_{D,0}/(3K)}$, $C_D = \tfrac43 C_{D,0}$ |
+| Thrust at jet best range | $T_R = 4mg\sqrt{KC_{D,0}/3}$ |
+| Throttle at jet best range | $\delta_t = (4mg/(nT_0))(\rho_0/\rho)^{m_\text{ad}}\sqrt{KC_{D,0}/3}$ |
+| Jet best endurance, propeller best range | $C_L = \sqrt{C_{D,0}/K}$, $C_D = 2C_{D,0}$ |
 | Propeller range | $R = (\eta/c)(C_L/C_D)\ln(m_1/m_2)$ |
-| Propeller endurance | $E = (\eta/c)\sqrt{2\rho S/g}(C_L^{3/2}/C_D)(1/\sqrt{m_2}-1/\sqrt{m_1})$ |
-| Propeller best-range polar | $C_L = \sqrt{C_{D,0}/K}$, $C_D = 2 C_{D,0}$ |
-| Propeller best-endurance polar | $C_L = \sqrt{3 C_{D,0}/K}$, $C_D = 4 C_{D,0}$ |
+| Propeller endurance | $E = (\eta/c)\sqrt{2\rho S/g}\,(C_L^{3/2}/C_D)(1/\sqrt{m_2}-1/\sqrt{m_1})$ |
+| Propeller best endurance | $C_L = \sqrt{3C_{D,0}/K}$, $C_D = 4C_{D,0}$ |
+| Fuel for a jet range | $\sqrt{m_2} = \sqrt{m_1} - (c_t R/2)\sqrt{\rho S/(2g)}\,C_D/\sqrt{C_L}$ |
+| Fuel for a jet endurance | $m_\text{fuel} = m_1[1 - \exp(-c_t E\,C_D/C_L)]$ |
+| Fuel for a propeller range | $m_\text{fuel} = m_1[1 - \exp(-(c/\eta)(C_D/C_L)R)]$ |
+| Fuel for a propeller endurance | $1/\sqrt{m_2} = 1/\sqrt{m_1} + E\,(c/\eta)(C_D/C_L^{3/2})\sqrt{g/(2\rho S)}$ |
 
 :::
 
 :::{exercise} For discussion
 :label: ex-p52-discussion
 
-1. Why does a jet fly $31.6\%$ faster for maximum range than for maximum endurance, and why does a propeller aircraft show the same $31.6\%$ ratio between its own best-range and best-endurance speeds?
-2. An airliner flies a $4{,}000$ km trip in steady level cruise at constant $C_L$ and constant altitude. Does the first $2{,}000$ km burn more fuel, less fuel, or the same fuel as the second $2{,}000$ km? Explain physically.
-3. Why does altitude appear inside the jet range equation but not inside the propeller range equation?
-4. Suppose you need an unmanned aircraft to orbit over a wildfire for 24 hours on a fixed fuel budget. Would you pick a jet or a propeller, and should it loiter at low altitude or high altitude?
-5. In the Breguet equations, why does increasing wing area $S$ help propeller endurance while hurting jet range (at fixed mass and polar)?
+1. Why does a jet fly faster for its best range than for its best endurance? Why is the factor between a propeller aircraft's two best speeds the same 1.316?
+2. A jet flies a long leg at constant altitude and constant $C_L$. Does the first half of the distance burn more fuel, less fuel, or the same fuel as the second half? Explain with the forces.
+3. Why does the density appear in the jet range equation but not in the propeller range equation?
+4. A jet and a propeller aircraft with the same polar and the same fuel fraction must each stay over one point as long as possible. At what altitude and at what speed, relative to its own minimum-thrust speed, should each one fly?
+5. At a fixed mass and polar, a larger wing area $S$ helps the endurance of a propeller aircraft. Why does it lower the range of a jet at a given altitude?
 :::
 
 ## Quiz
@@ -452,6 +836,5 @@ Quiz for Standard 5.2: eight questions, one at a time, with the explanation afte
 
 ## References
 
-- Anderson, J. D., Jr., *Introduction to Flight*, 8th ed., McGraw-Hill, 2016. Chapter 6, Sections 6.13 to 6.15 and Example 6.19 (CJ-1 business jet).
-- Anderson, J. D., Jr., *Aircraft Performance and Design*, McGraw-Hill, 1999. Chapter 5, Sections 5.10 and 5.11.
-- Federal Aviation Administration (FAA), *[Pilot's Handbook of Aeronautical Knowledge](https://www.faa.gov/sites/faa.gov/files/FAA-H-8083-25C.pdf)*, FAA-H-8083-25C, 2023. Chapter 11, "Aircraft Performance."
+- Anderson, J. D., Jr., *Introduction to Flight*, 8th ed., McGraw-Hill, 2016. Chapter 6.
+- Federal Aviation Administration (FAA), *[Pilot's Handbook of Aeronautical Knowledge](https://www.faa.gov/sites/faa.gov/files/FAA-H-8083-25C.pdf)*, FAA-H-8083-25C, 2023. Chapter 11, "Aircraft Performance," pp. 11-9 to 11-11 (range performance).

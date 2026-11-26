@@ -4,7 +4,11 @@
 
 Brings Chapter 1's style, constants, atmosphere, geometry, aircraft, drawing and diagrams,
 Chapter 3's aerodynamics and vector/angle/disc helpers, then rebinds Chapter 5's record,
-save_figure, write_values, perf, and drawing5.
+save_figure, write_values, perf, and drawing5, and brings the chapter's aircraft (`vehicles.py`:
+EXEC_JET, GA_AIRPLANE, TRANSPORT, LIGHT_TWIN, LIGHT_TWIN_REQ, weight, available, power_sfc_per_m)
+and its figure look (`looks.py`: required_kw, available_kw, part_kw, stall_band, mach_band,
+mark_minimum, tangent_from_origin, mark_limit, panel_title, CONSTRAINT_STYLE, level_forces,
+climb_forces, weight_split, velocity_triangle, ...). Neither module shadows a name imported above.
 """
 from chapter_1.style import *        # noqa: F401,F403
 from chapter_1.constants import *    # noqa: F401,F403
@@ -18,4 +22,6 @@ from chapter_3.drawing3 import disc, vector, angle_mark, ray, unit, rotate, step
 from chapter_5.style import *        # noqa: F401,F403
 from chapter_5.perf import *         # noqa: F401,F403
 from chapter_5.drawing5 import *     # noqa: F401,F403
+from chapter_5.vehicles import *     # noqa: F401,F403
+from chapter_5.looks import *        # noqa: F401,F403
 from chapter_5.style import record, save_figure, write_values, VALUES, WRITTEN, PAGES, CHAPTER  # noqa: F401,E402

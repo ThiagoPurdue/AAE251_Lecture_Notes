@@ -4,106 +4,106 @@
     {
       "id": "S5.2-q1",
       "page": "range-and-endurance",
-      "section": "Fuel consumption: jets versus propellers",
-      "question": "In SI base units used in the Breguet equations, what are the units of jet thrust specific fuel consumption <i>c</i><sub>t</sub> and propeller power specific fuel consumption <i>c</i>?",
+      "section": "Fuel consumption: jets and propellers",
+      "question": "In the SI units of the Breguet equations, what are the units of the thrust specific fuel consumption <i>c</i><sub>t</sub> of a jet and of the power specific fuel consumption <i>c</i> of a propeller engine?",
       "options": [
-        "<i>c</i><sub>t</sub> is in 1/s and <i>c</i> is in 1/m",
-        "Both <i>c</i><sub>t</sub> and <i>c</i> are in 1/s",
-        "<i>c</i><sub>t</sub> is in 1/m and <i>c</i> is in 1/s",
-        "<i>c</i><sub>t</sub> is in N/s and <i>c</i> is in W/s"
+        "<i>c</i><sub>t</sub> in 1/s and <i>c</i> in 1/m",
+        "both <i>c</i><sub>t</sub> and <i>c</i> in 1/s",
+        "<i>c</i><sub>t</sub> in 1/m and <i>c</i> in 1/s",
+        "<i>c</i><sub>t</sub> in kg/(N·s) and <i>c</i> in kg/(W·s)"
       ],
-      "explanation": "Jet <i>c</i><sub>t</sub> is fuel weight per unit thrust per second, N/(N·s) = 1/s. Propeller <i>c</i> is fuel weight per unit shaft power per second, N/(W·s) = N/(N·m) = 1/m. Swapping or equating their units gives wrong answers in the Breguet formulas."
+      "explanation": "Both count the weight of fuel burned. Per newton of thrust per second, N/(N·s) = 1/s; per watt of shaft power per second, N/(W·s) = N/(N·m) = 1/m. Treating them as one unit, swapping them, or keeping a mass flow without multiplying by g all give wrong answers."
     },
     {
       "id": "S5.2-q2",
       "page": "range-and-endurance",
-      "section": "Jet range and endurance",
-      "question": "A jet aircraft has the drag polar <i>C</i><sub>D</sub> = 0.018 + 0.060 <i>C</i><sub>L</sub><sup>2</sup>. What lift coefficient gives its maximum range?",
+      "section": "The assumptions behind the equations",
+      "question": "The jet range equation of this page is derived for steady level flight at constant lift coefficient. What else is held constant?",
       "options": [
-        "0.316",
-        "0.548",
-        "0.949",
-        "0.100"
+        "The altitude and the thrust specific fuel consumption",
+        "The true airspeed and the thrust of the engines",
+        "The throttle setting and the true airspeed",
+        "The aircraft mass and the altitude"
       ],
-      "explanation": "Jet maximum range maximizes <i>C</i><sub>L</sub><sup>1/2</sup>/<i>C</i><sub>D</sub>, which occurs at <i>C</i><sub>L</sub> = √(<i>C</i><sub>D,0</sub>/(3<i>K</i>)) = √(0.018/0.180) = √0.100 = 0.316. 0.548 is √(<i>C</i><sub>D,0</sub>/<i>K</i>) (jet endurance); 0.949 is √(3<i>C</i><sub>D,0</sub>/<i>K</i>) (propeller endurance); 0.100 forgets to take the square root."
+      "explanation": "The derivation holds the altitude (so the density) and c<sub>t</sub> constant, with C<sub>L</sub>. The speed and the thrust then fall as the mass falls, so the pilot throttles back. Holding the speed constant is the form of page 1.6, which needs the aircraft to climb slowly. The mass cannot be constant: it falls as fuel burns."
     },
     {
       "id": "S5.2-q3",
       "page": "range-and-endurance",
       "section": "Jet range and endurance",
-      "question": "A jet aircraft has <i>c</i><sub>t</sub> = 2.0 × 10<sup>−4</sup> 1/s, (<i>L</i>/<i>D</i>)<sub>max</sub> = 16, initial mass <i>m</i><sub>1</sub> = 20,000 kg, and final mass <i>m</i><sub>2</sub> = 16,000 kg. What is its maximum endurance?",
+      "question": "A jet has <i>c</i><sub>t</sub> = 2.0 × 10<sup>−4</sup> per second and (<i>L</i>/<i>D</i>)<sub>max</sub> = 16. It starts at 20,000 kg and ends at 16,000 kg. What is its maximum endurance?",
       "options": [
         "4.96 h",
         "9.92 h",
-        "2.48 h",
+        "2.15 h",
         "5.56 h"
       ],
-      "explanation": "Using <i>E</i> = (1/<i>c</i><sub>t</sub>)(<i>L</i>/<i>D</i>)<sub>max</sub> ln(<i>m</i><sub>1</sub>/<i>m</i><sub>2</sub>) gives (1 / 2.0 × 10<sup>−4</sup>) × 16 × ln(1.25) = 80,000 × 0.22314 = 17,851 s = 4.96 h. 9.92 h includes an extra factor of 2 from the range formula; 2.48 h divides by 2; 5.56 h uses (<i>m</i><sub>1</sub>/<i>m</i><sub>2</sub> − 1) = 0.25 instead of ln(1.25)."
+      "explanation": "E = (1/c<sub>t</sub>)(L/D)<sub>max</sub> ln(m<sub>1</sub>/m<sub>2</sub>) = (1/2.0 × 10<sup>−4</sup>) × 16 × ln(1.25) = 80,000 × 0.22314 = 17,851 s = 4.96 h. 9.92 h carries the factor 2 of the range equation; 2.15 h uses the base-10 logarithm; 5.56 h uses 0.25 in place of ln(1.25)."
     },
     {
       "id": "S5.2-q4",
       "page": "range-and-endurance",
-      "section": "Propeller range and endurance",
-      "question": "A propeller aircraft has <i>η</i> = 0.80, <i>c</i> = 8.0 × 10<sup>−7</sup> 1/m, (<i>L</i>/<i>D</i>)<sub>max</sub> = 15, and mass ratio <i>m</i><sub>1</sub>/<i>m</i><sub>2</sub> = 1.20. What is its maximum range?",
+      "section": "Best conditions for a jet",
+      "question": "A jet has the drag polar <i>C</i><sub>D</sub> = 0.016 + 0.060 <i>C</i><sub>L</sub><sup>2</sup>. At what lift coefficient does it get its maximum range?",
       "options": [
-        "2,735 km",
-        "3,000 km",
-        "3,419 km",
-        "1,367 km"
+        "0.298",
+        "0.516",
+        "0.894",
+        "0.0889"
       ],
-      "explanation": "Propeller range is <i>R</i> = (<i>η</i>/<i>c</i>)(<i>L</i>/<i>D</i>)<sub>max</sub> ln(<i>m</i><sub>1</sub>/<i>m</i><sub>2</sub>) = (0.80 / 8.0 × 10<sup>−7</sup>) × 15 × ln(1.20) = 1.0 × 10<sup>6</sup> × 15 × 0.18232 = 2,735 km. 3,000 km replaces ln(1.20) with 0.20; 3,419 km omits <i>η</i>; 1,367 km divides by 2."
+      "explanation": "Jet range peaks at the largest C<sub>L</sub><sup>1/2</sup>/C<sub>D</sub>, where C<sub>L</sub> = √(C<sub>D,0</sub>/(3K)) = √(0.016/0.180) = √0.0889 = 0.298. 0.516 is √(C<sub>D,0</sub>/K), the best endurance of a jet; 0.894 is √(3C<sub>D,0</sub>/K), the best endurance of a propeller aircraft; 0.0889 forgets the square root."
     },
     {
       "id": "S5.2-q5",
       "page": "range-and-endurance",
-      "section": "Propeller range and endurance",
-      "question": "To stay airborne as long as possible on a fixed fuel load, what condition should a propeller aircraft fly?",
+      "section": "Jets and propeller aircraft side by side",
+      "question": "Jet range grows as the density falls. Why can a jet not keep its best-range condition all the way up to its absolute ceiling?",
       "options": [
-        "Minimum power required (maximum <i>C</i><sub>L</sub><sup>3/2</sup>/<i>C</i><sub>D</sub>) at low altitude",
-        "Minimum thrust required (maximum <i>C</i><sub>L</sub>/<i>C</i><sub>D</sub>) at high altitude",
-        "Maximum <i>C</i><sub>L</sub><sup>1/2</sup>/<i>C</i><sub>D</sub> at high altitude",
-        "Minimum power required at the highest possible altitude"
+        "Full thrust there only equals the minimum thrust, below the best-range thrust",
+        "The best-range lift coefficient there is larger than the maximum lift coefficient",
+        "Above the tropopause the jet range equation makes range fall with altitude",
+        "The thrust specific fuel consumption becomes zero at the absolute ceiling"
       ],
-      "explanation": "Propeller fuel flow scales with shaft power, so minimum <i>P</i><sub>R</sub> maximizes endurance. Because <i>E</i> ∝ √<i>ρ</i> (<i>C</i><sub>L</sub><sup>3/2</sup>/<i>C</i><sub>D</sub>), flying low in dense air makes <i>P</i><sub>R,min</sub> smallest and endurance longest. High altitude reduces propeller endurance; <i>C</i><sub>L</sub>/<i>C</i><sub>D</sub> maximizes propeller range, not endurance."
+      "explanation": "At best range the jet needs 4mg√(KC<sub>D,0</sub>/3), which is 1.155 times the minimum thrust 2mg√(KC<sub>D,0</sub>). At the ceiling full thrust only matches the minimum, so the throttle setting for best range passes 1 lower down. The best-range C<sub>L</sub> is the smallest of the three optima, not a large one; range keeps growing as 1/√ρ in the equation; and c<sub>t</sub> is taken constant."
     },
     {
       "id": "S5.2-q6",
       "page": "range-and-endurance",
-      "section": "Comparing jet and propeller flight conditions",
-      "question": "For an aircraft with a parabolic drag polar, what is the correct order of the optimal cruise speeds from slowest to fastest?",
+      "section": "Propeller range and endurance",
+      "question": "A propeller aircraft has <i>η</i> = 0.85, <i>c</i> = 7.5 × 10<sup>−7</sup> per meter and (<i>L</i>/<i>D</i>)<sub>max</sub> = 14, and its mass ratio is <i>m</i><sub>1</sub>/<i>m</i><sub>2</sub> = 1.15. What is its maximum range?",
       "options": [
-        "Propeller endurance, then propeller range and jet endurance together, then jet range",
-        "Jet endurance, then propeller endurance, then propeller range, then jet range",
-        "Propeller endurance, then jet range, then propeller range and jet endurance together",
-        "Propeller range, then propeller endurance, then jet endurance, then jet range"
+        "2,218 km",
+        "2,380 km",
+        "2,609 km",
+        "963 km"
       ],
-      "explanation": "Relative to <i>V</i><sub>TR,min</sub>, the three rungs are 0.760 (propeller endurance at <i>V</i><sub>PR,min</sub>), 1.000 (both propeller range and jet endurance at <i>V</i><sub>TR,min</sub>), and 1.316 (jet range at maximum <i>C</i><sub>L</sub><sup>1/2</sup>/<i>C</i><sub>D</sub>). Every rung steps up by 3<sup>1/4</sup>."
+      "explanation": "R = (η/c)(L/D)<sub>max</sub> ln(m<sub>1</sub>/m<sub>2</sub>) = (0.85/7.5 × 10<sup>−7</sup>) × 14 × ln(1.15) = 1,133,333 × 14 × 0.13976 = 2,218 km. 2,380 km uses 0.15 in place of ln(1.15); 2,609 km leaves out η; 963 km uses the base-10 logarithm."
     },
     {
       "id": "S5.2-q7",
       "page": "range-and-endurance",
-      "section": "Comparing jet and propeller flight conditions",
-      "question": "Assuming constant specific fuel consumption and constant optimal <i>C</i><sub>L</sub>, how does cruising at higher altitude change maximum range for a jet and for a propeller aircraft?",
+      "section": "Propeller range and endurance",
+      "question": "A propeller aircraft must stay in the air as long as possible on a fixed load of fuel. How should it fly?",
       "options": [
-        "Jet range increases as <i>ρ</i><sup>−1/2</sup>, while propeller range does not depend on air density",
-        "Both jet range and propeller range increase as <i>ρ</i><sup>−1/2</sup>",
-        "Propeller range increases as <i>ρ</i><sup>−1/2</sup>, while jet range does not depend on air density",
-        "Both jet range and propeller range decrease as air density falls"
+        "At minimum power required, at low altitude",
+        "At minimum thrust required, at high altitude",
+        "At maximum C<sub>L</sub><sup>1/2</sup>/C<sub>D</sub>, at high altitude",
+        "At minimum power required, as high as it can"
       ],
-      "explanation": "In thin air a jet flies faster at the same minimum thrust and fuel flow per second, so <i>R</i> ∝ 1/√<i>ρ</i> grows with altitude. In the propeller range equation <i>R</i> = (<i>η</i>/<i>c</i>)(<i>C</i><sub>L</sub>/<i>C</i><sub>D</sub>) ln(<i>m</i><sub>1</sub>/<i>m</i><sub>2</sub>), airspeed cancels out completely and density does not appear."
+      "explanation": "A propeller engine burns fuel in proportion to power, so the minimum power required gives the least fuel per second. The endurance equation carries √ρ, and the minimum power required grows with altitude, so low is best. Minimum thrust gives the best propeller range; maximum C<sub>L</sub><sup>1/2</sup>/C<sub>D</sub> gives the best jet range."
     },
     {
       "id": "S5.2-q8",
       "page": "range-and-endurance",
-      "section": "Jet range and endurance",
-      "question": "A jet cruises at constant altitude and constant optimal lift coefficient <i>C</i><sub>L</sub> as fuel burns away. How do its required true airspeed <i>V</i> and thrust required <i>T</i><sub>R</sub> change over the flight?",
+      "section": "Jets and propeller aircraft side by side",
+      "question": "For an aircraft with a parabolic drag polar, which order of best speeds runs from slowest to fastest?",
       "options": [
-        "Both airspeed and thrust required gradually decrease as the aircraft gets lighter",
-        "Both airspeed and thrust required stay constant because <i>C</i><sub>L</sub> and altitude are fixed",
-        "Airspeed increases while thrust required decreases",
-        "Airspeed decreases while thrust required stays constant"
+        "Propeller endurance; propeller range and jet endurance; jet range",
+        "Jet endurance; propeller endurance; propeller range; jet range",
+        "Propeller endurance; jet range; propeller range and jet endurance",
+        "Propeller range; propeller endurance; jet endurance; jet range"
       ],
-      "explanation": "At constant <i>ρ</i> and <i>C</i><sub>L</sub>, <i>V</i> = √(2<i>mg</i>/(<i>ρ</i> <i>S</i> <i>C</i><sub>L</sub>)) drops as √<i>m</i> and <i>T</i><sub>R</sub> = <i>mg</i>/(<i>L</i>/<i>D</i>) drops linearly with <i>m</i>. Both decrease steadily as fuel is consumed."
+      "explanation": "Divided by the minimum-thrust speed, the best speeds are 0.760 for propeller endurance (minimum power), 1 for propeller range and jet endurance together (minimum thrust), and 1.316 for jet range. Each step is a factor of 3<sup>1/4</sup>."
     }
   ]
 }

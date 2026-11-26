@@ -6,7 +6,7 @@ Each term below has one meaning throughout the notes. In the text, a term with a
 
 :::{glossary}
 Absolute ceiling
-: The altitude at which an aircraft's maximum rate of climb drops to zero, where available thrust equals minimum thrust required (or available power equals minimum power required). An aircraft can approach it only asymptotically.
+: The altitude at which an aircraft's maximum rate of climb drops to zero. For a jet the thrust available has fallen to the minimum thrust required; for a propeller aircraft the power available has fallen to the minimum power required. A climbing aircraft never quite reaches it, because its rate of climb falls toward zero as it gets close.
 
 Aerobraking
 : Lowering the apoapsis of an orbit with atmospheric drag instead of a burn: the periapsis is placed in the upper atmosphere, and each pass removes a little speed. A small burn at the end lifts the periapsis out of the atmosphere.
@@ -15,7 +15,7 @@ Aerodynamic center
 : The point on the chord of an airfoil about which the pitching moment does not change with the angle of attack. On airfoils at low speed it lies near the quarter chord; the moment coefficient about it is written $c_{m,\text{ac}}$.
 
 Afterburner
-: A second combustion section placed behind the turbine of a jet engine that burns extra fuel in the oxygen-rich exhaust to boost thrust briefly for takeoff or supersonic combat, at a sharp increase in fuel consumption.
+: A second combustion zone behind the turbine of a jet engine. It burns extra fuel in the exhaust, which still has plenty of oxygen, for a short burst of thrust at a much higher fuel flow.
 
 Aileron
 : A moving surface on the trailing edge near each wing tip. The two ailerons move in opposite directions and roll the aircraft.
@@ -72,7 +72,7 @@ Boundary layer
 : The thin layer of fluid next to a surface in which the speed rises from zero at the wall (no slip) to the speed of the flow outside. Viscous forces matter inside it; outside it the flow behaves as if it had no viscosity.
 
 Breguet range equation
-: The weight fraction of a jet's cruise segment, flown in steady level flight at constant speed, specific fuel consumption, and lift-to-drag ratio: $W_i/W_{i-1} = \exp[-R\,C/(V\,(L/D))]$, with the range $R$ in nautical miles, the speed $V$ in knots, and $C$ in 1/h.
+: The equation for the range an aircraft flies in steady level flight as burning fuel lowers its mass. In sizing, its form for a jet at constant speed and $L/D$ gives the weight fraction of a cruise segment, $W_i/W_{i-1} = \exp[-R\,C/(V\,(L/D))]$, with $R$ in nautical miles, $V$ in knots, and $C$ in 1/h. At constant altitude and lift coefficient it has one form for a jet and another for a propeller aircraft.
 
 Bulk density
 : The density of a propellant pair as loaded: the total mass of fuel and oxidizer divided by their total volume. At mixture ratio O/F it is $\rho_\text{bulk} = (1 + \text{O/F})/(\text{O/F}/\rho_\text{ox} + 1/\rho_\text{fuel})$.
@@ -81,7 +81,7 @@ Burn time
 : $t_b$, the time an engine runs on a load of propellant: the propellant mass divided by the mass flow, $t_b = m_\text{prop}/\dot m$, in s.
 
 Bypass ratio
-: The ratio $\beta = \dot{m}_{\text{bypass}}/\dot{m}_{\text{core}}$ of air mass flow that passes through the fan duct around the core of a turbofan to the air mass flow that passes through the gas-turbine core.
+: In a turbofan, the mass flow of air that goes around the core through the bypass duct divided by the mass flow that goes through the core, $\beta = \dot{m}_{\text{bypass}}/\dot{m}_{\text{core}}$.
 
 Camber
 : The distance between the mean camber line of an airfoil and its chord line, usually given at its largest value as a percentage of the chord. A symmetric airfoil has none.
@@ -110,6 +110,9 @@ Circular speed
 Circularization burn
 : A single burn at periapsis or apoapsis that changes the speed to the circular speed at that radius, so the orbit becomes a circle through that point.
 
+Climb gradient
+: The height an aircraft gains over a horizontal distance, divided by that distance and given in percent: $100\tan\gamma$. Regulations set the least climb gradient a transport must hold with one engine out.
+
 Closed-circuit wind tunnel
 : A wind tunnel that sends the same air around a closed loop: corners with turning vanes and a return leg bring the air from the diffuser back to the settling chamber, and the fan only makes up for the losses. Also called a Göttingen or closed-return tunnel.
 
@@ -122,11 +125,17 @@ Combination table
 Combustion chamber
 : The part of a rocket engine where the fuel and the oxidizer burn, giving a hot gas at high pressure that then flows into the nozzle.
 
+Combustor
+: The part of a gas-turbine engine between the compressor and the turbine where fuel burns continuously in the compressed air, at nearly constant pressure. The gas reaches its highest temperature there. Also called the burner or the combustion chamber.
+
 Common-cause failure
 : The failure of several units from one event or one shared fault, such as the same software error or a shared power supply. It defeats redundancy, which assumes the units fail independently.
 
 Compliance table
 : A table that lists every requirement of a system with the method that verifies it (analysis, inspection, demonstration, or test), where the evidence is, and whether the design meets it yet.
+
+Compressor
+: The part of a gas-turbine engine that raises the pressure of the air with rows of rotating blades, the rotors, between rows of fixed vanes, the stators; each rotor and stator pair is one compressor stage. Squeezing the air also heats it.
 
 Concept
 : A short description of how a vehicle will do its job, specific enough to estimate its weight, cost, and performance: for example, a turboprop airplane that takes off from a runway.
@@ -141,7 +150,7 @@ Constraint
 : A limit the designers must respect but did not choose, such as a noise rule set by a regulator. Constraints come from the stakeholders, as needs do.
 
 Constraint diagram
-: A plot of sea-level thrust-to-weight ratio $T/W$ against wing loading $W/S$ that draws every performance requirement (stall, runway length, climb, cruise, ceiling) as a boundary curve. The overlap of the feasible sides shows the smallest acceptable wing and engines.
+: A plot of the thrust-to-weight ratio $T/W$ against the wing loading $W/S$ with one line for each performance requirement. The designs that meet every requirement lie above every line and to the left of every vertical one.
 
 Continuity equation
 : Conservation of mass for a steady flow: the mass flow rate $\rho A V$ is the same at every cross section of a duct or a stream tube. For incompressible flow it becomes $A_1 V_1 = A_2 V_2$.
@@ -175,6 +184,9 @@ Density altitude
 
 Departure burn
 : The burn in a parking orbit that raises a spacecraft's speed to the speed of a departure hyperbola, so it leaves the planet with the hyperbolic excess speed it needs.
+
+Design point
+: The wing loading and thrust-to-weight ratio chosen on a constraint diagram: the highest wing loading the limits allow, then the lowest thrust-to-weight ratio above every requirement at that wing loading. It gives the smallest wing, and the smallest engines for that wing, that meet every requirement.
 
 Diffuser
 : The long, slowly widening duct of a wind tunnel downstream of the test section. It slows the air and raises its static pressure again; losses keep it from recovering all of it.
@@ -228,19 +240,28 @@ Empty-weight fraction
 : $W_e/W_0$, the empty weight divided by the takeoff weight. For a first estimate it comes from a fit to earlier aircraft of the same class, $W_e/W_0 = A\,W_0^{\,C}$ (Raymer, Table 3.1).
 
 Endurance
-: The time an aircraft stays in the air on its fuel. In sizing, the duration $E$ of a loiter segment, whose weight fraction is $W_i/W_{i-1} = \exp[-E\,C/(L/D)]$ with $E$ in hours.
+: The time an aircraft can stay in the air on one load of fuel. In sizing, it is the duration $E$ of a loiter segment, whose weight fraction is $W_i/W_{i-1} = \exp[-E\,C/(L/D)]$ with $E$ in hours.
 
 Equation of state
 : The relation $p = \rho R T$ between the pressure, density, and absolute temperature of an ideal gas, with $R$ the specific gas constant of the gas.
+
+Equivalent shaft power
+: The shaft power that would give a turboprop's total thrust with the propeller alone: the shaft power $P_s$ plus the power of the small exhaust thrust $T_j$ divided by the propeller efficiency, $P_\text{es} = P_s + T_jV_\infty/\eta$.
 
 Escape speed
 : The lowest speed at radius $r$ that carries a spacecraft away from the central body for good: $v_{\text{esc}} = \sqrt{2\mu/r}$, which puts it on a parabola.
 
 Excess power
-: The difference $P_A - P_R$ between power available from the engines and power required for steady level flight at a given speed. Dividing excess power by aircraft weight $mg$ gives the steady rate of climb.
+: The difference $P_A - P_R$ between the power available from the engines and the power required for steady level flight at a given speed. Divided by the weight $mg$, it gives the steady rate of climb.
+
+Excess thrust
+: The difference $T_A - D$ between the thrust available and the drag of level flight at a given speed. Divided by the weight $mg$, it gives the sine of the steady climb angle.
 
 Exit velocity
 : The speed $V_e$ of the exhaust gas as it leaves the exit plane of a nozzle.
+
+Fastest climb
+: The climb at the speed that gives the largest rate of climb, the most height for each second. Pilots call that speed the best-rate-of-climb speed, $V_y$.
 
 Finite wing
 : A real wing, with tips. Air flows around the tips, so its lift coefficient and drag coefficient, written in capitals ($C_L$, $C_D$), differ from those of its airfoil.
@@ -289,6 +310,9 @@ Gross liftoff mass
 
 Ground loop
 : A sudden swerve of an aircraft on the ground. A tail-dragger can fall into one because its center of gravity is behind the main wheels, so its weight keeps a turn going.
+
+Ground roll
+: The distance an aircraft runs on its wheels: on takeoff from brake release to liftoff, $s_\text{LO}$, and on landing from touchdown to a stop, $s_L$. The air distance up to or down from a set height comes on top of it.
 
 Ground track
 : The path on a planet's surface directly below an orbiting spacecraft. On a planet that turns eastward, as Earth does, each pass crosses the equator farther west than the one before.
@@ -380,6 +404,9 @@ Launch vehicle
 Launch window
 : The span of time in which a launch can reach its target orbit. For a launch into a given orbit plane it falls around the moment the rotating launch site passes through that plane.
 
+Level flight
+: Flight at constant altitude: the flight path is horizontal and the flight-path angle is zero.
+
 Lift
 : The part of the total aerodynamic force on a body that is perpendicular to the free-stream direction. A wing produces it by turning the flow; both pressure and shear stress contribute to it.
 
@@ -416,6 +443,9 @@ Mass flow rate
 Mass ratio
 : The initial mass of a rocket divided by its final mass, $m_i/m_f$. By the rocket equation it equals $e^{\Delta V/c}$.
 
+Maximum level speed
+: The highest true airspeed $V_{\max}$ at which an aircraft can hold steady level flight at a given altitude, where the thrust (or power) available meets the thrust (or power) required. Called the maximum speed for short.
+
 Maximum lift coefficient
 : $C_{L,\max}$, the highest lift coefficient a wing (or $c_{l,\max}$, an airfoil) reaches before it stalls. Flaps and slats raise it for takeoff and landing.
 
@@ -429,10 +459,13 @@ Microburst
 : A small, intense downdraft that spreads out in all directions when it reaches the ground. An aircraft that crosses it close to the ground meets a headwind, then the downdraft, then a tailwind.
 
 Minimum-drag speed
-: The speed at which an aircraft in steady level flight has the least drag. It gives the lift coefficient $C_L^* = \sqrt{C_{D,0}/K}$, where the induced drag equals the parasite drag and $L/D$ is largest.
+: The speed at which an aircraft in steady level flight has the least drag, also called the minimum-thrust speed. There the lift coefficient is $C_L^* = \sqrt{C_{D,0}/K}$, the induced drag equals the parasite drag, and $L/D$ is largest.
 
 Minimum-power speed
 : The true airspeed $V_{P_R,\min}$ at which power required in steady level flight is smallest: $V_{P_R,\min} = {3}^{-1/4}\,V_{T_R,\min} \approx 0.760\,V_{T_R,\min}$, where $C_L = \sqrt{3 C_{D,0}/K}$ and induced drag is three times parasite drag.
+
+Minimum-thrust speed
+: The true airspeed $V_{T_R,\min}$ at which the thrust required in steady level flight is least. It is the minimum-drag speed under another name: $L/D$ is largest there.
 
 Mission profile
 : A sketch of a mission as altitude against distance (or time), cut into segments such as takeoff, climb, cruise, descent, loiter, and landing, with the end of each segment numbered from 0 at the start of the takeoff.
@@ -518,6 +551,9 @@ Phasing orbit
 Pitch
 : Rotation of an aircraft about its $y$ body axis, the axis out along the right wing. Positive pitch raises the nose.
 
+Pitch angle
+: The angle $\theta$ from the horizontal to the body axis of an aircraft, positive nose up. It is the flight-path angle plus the angle of attack.
+
 Pitching moment
 : The moment of the aerodynamic forces about a point on the chord, which tends to raise or lower the nose; positive nose up. Its coefficient is $C_M = M/(qSc)$, or $c_m = M'/(qc^2)$ for an airfoil.
 
@@ -540,7 +576,10 @@ Power required
 : The propulsive power $P_R = T_R V = D V$ needed to hold steady level flight at true airspeed $V$, equal to $\tfrac12 \rho V^3 S C_{D,0} + 2K(mg)^2/(\rho S V)$.
 
 Power specific fuel consumption
-: The weight of fuel burned per unit shaft power per unit time by a propeller engine, $c$, with SI base units of $\text{N}/(\text{W}\cdot\text{s}) = 1/\text{m}$. Manufacturers often quote fuel mass per second per kilowatt, which multiplies by ${10}^{-6}\,g$ to convert to $1/\text{m}$.
+: The weight of fuel burned per unit shaft power per unit time by a propeller engine, $c$, in $\text{N}/(\text{W}\cdot\text{s}) = 1/\text{m}$. Engine data usually give a fuel mass per unit of energy, in g/(kW·h): divide by 3,600 to get g/(s·kW), then multiply by $9.81 \times {10}^{-6}$ to get $c$ in 1/m.
+
+Power turbine
+: The turbine of a turboprop or turboshaft that drives the propeller or the output shaft. It usually sits on its own shaft, behind the turbine that drives the compressor.
 
 Pressure drag
 : The parasite drag from the difference between the high pressure on the front of a body and the low pressure in the wake behind it, where the flow has left the surface. Also called form drag; streamlining reduces it.
@@ -563,14 +602,17 @@ Propellant
 Propellant mass
 : The mass of fuel and oxidizer a burn uses, $m_\text{prop} = m_i - m_f$.
 
+Propeller efficiency
+: The fraction $\eta$ of the shaft power turning a propeller that becomes thrust power, thrust times flight speed. It changes with the airspeed and the propeller speed.
+
 Propulsive efficiency
-: The ratio of useful propulsive power $T V_\infty$ to the rate of kinetic energy added to the airstream. For an air-breathing jet with matched exit pressure and small fuel flow, $\eta_p = 2/(1 + V_e/V_\infty)$.
+: The ratio of useful propulsive power $T V_\infty$ to the rate of kinetic energy added to the airstream. For an engine whose nozzle expands the gas to the outside pressure, with the fuel flow neglected, $\eta_p = 2/(1 + V_e/V_\infty)$.
 
 Ramjet
-: A supersonic air-breathing engine with no rotating compressor or turbine: oncoming air is compressed only by slowing through shock waves in a contoured inlet before subsonic combustion and expansion through a nozzle. It produces zero static thrust and requires a booster to reach operating speed.
+: An engine for supersonic flight with no compressor and no turbine: its inlet slows the air below the speed of sound, and the fuel burns in that slow air. It makes no thrust standing still, so another engine must bring it up to speed.
 
 Range
-: The distance an aircraft can fly on one load of fuel, usually given in nautical miles.
+: The distance an aircraft can fly through still air on one load of fuel, often given in nautical miles. The Breguet range equations give it for a jet and for a propeller aircraft.
 
 Rate of climb
 : The vertical component of an aircraft's velocity, $R/C = V\sin\gamma = (P_A - P_R)/(mg)$, in m/s or ft/min.
@@ -606,7 +648,7 @@ Rudder
 : The moving surface hinged to the trailing edge of the vertical stabilizer. It yaws the aircraft.
 
 Scramjet
-: A supersonic-combustion ramjet designed for hypersonic flight (above about Mach 5), in which the air remains supersonic through the combustor to avoid the extreme temperatures caused by slowing hypersonic flow to subsonic speed.
+: A ramjet in which the air stays supersonic through the combustor. It is meant for flight above about Mach 5, where slowing the air to subsonic speed costs too much.
 
 Semi-major axis
 : Half the longest diameter of an ellipse, $a = (r_p + r_a)/2$. It sets the size, the period, and the energy of an orbit. It is infinite for a parabola and negative for a hyperbola.
@@ -618,7 +660,7 @@ Serial staging
 : Staging in which the stages are stacked one on top of another and fire one after the other, each lit after the stage below it is dropped.
 
 Service ceiling
-: The practical operational altitude limit of an aircraft, defined as the altitude where the maximum rate of climb drops to $0.5$ m/s (about $100$ ft/min).
+: The altitude where an aircraft's maximum rate of climb has fallen to $0.5$ m/s (about $100$ ft/min), the practical limit for climbing.
 
 Settling chamber
 : The widest part of a wind tunnel, just ahead of the contraction, where the air moves slowly; station 1 in these notes. Its honeycomb straightens the flow, and its fine screens break up large eddies.
@@ -680,11 +722,14 @@ Sphere of influence
 Spoiler
 : A panel on top of the wing that rises into the flow to reduce lift and add drag: to descend without gaining speed, to help roll the aircraft, and on the ground after touchdown.
 
+Spool
+: A shaft of a gas-turbine engine together with the compressor and the turbine it joins. A two-spool engine has a low-pressure and a high-pressure spool, one shaft inside the other, each turning at its own speed.
+
 Stability
 : The tendency of an aircraft to return to steady flight after a gust, with no action from the pilot. The horizontal stabilizer gives it in pitch and the vertical stabilizer in yaw.
 
 Stage
-: A complete rocket within a launch vehicle, with its own tanks, engines, and structure, dropped when its propellant is used up.
+: A complete rocket within a launch vehicle, with its own tanks, engines, and structure, dropped when its propellant is used up. In a jet engine, the stages are the parts the air passes through in order: inlet, compressor, combustor, turbine, and nozzle. A row of rotor blades with its row of stator vanes is a compressor stage.
 
 Staging
 : Building a launch vehicle as a set of rockets, called stages, each dropped once its propellant is used, so later burns do not push empty tanks and engines.
@@ -716,11 +761,17 @@ Static port
 Static pressure
 : The normal force per unit area, $p = dF/dA$ in Pa, that the molecules of a fluid exert on a surface moving with the fluid. In still air it is the air pressure, in a flow it is what a static port senses, and it is the $p$ of the equation of state.
 
+Steady flight
+: Flight with no acceleration: the speed and its direction stay the same, so the forces and the moments on the aircraft add up to zero.
+
 Steady flow
 : A flow in which nothing at a fixed point changes with time: the pressure, density, temperature, and velocity at each point stay the same.
 
 Steady level flight
-: Flight at constant speed and constant altitude, with no acceleration: lift equals weight and thrust equals drag.
+: Flight at constant speed and constant altitude, with no acceleration. With a small angle of attack, lift equals weight and thrust equals drag.
+
+Steepest climb
+: The climb at the speed that gives the largest climb angle, the most height for each meter flown over the ground. Pilots call that speed the best-angle-of-climb speed, $V_x$. For a jet that speed is the minimum-thrust speed.
 
 Storable propellant
 : A liquid propellant that stays liquid over a reasonable range of temperature and pressure and can be kept in closed tanks for a year or more, such as nitrogen tetroxide, hydrazine, and MMH.
@@ -761,6 +812,9 @@ Test section
 Throat
 : The narrowest section of a rocket nozzle, where the gas reaches the speed of sound.
 
+Throttle setting
+: The fraction $\delta_t$ of the full thrust or power of the engines that the pilot selects, from 0, no thrust, to 1, full throttle. In steady level flight it is set so that the thrust available equals the thrust required.
+
 Thrust
 : The force an engine exerts on its vehicle by throwing mass backward, $F$, in newtons. For a rocket it is $F = \dot m V_e + (p_e - p_a)A_e$.
 
@@ -797,6 +851,9 @@ Transfer orbit
 Transition
 : The change of a boundary layer from laminar to turbulent. On a smooth flat plate it begins near a local Reynolds number $\textit{Re}_x = 5 \times {10}^{5}$; roughness and an unsteady oncoming flow bring it earlier.
 
+Trim
+: The state of an aircraft whose pitching moment about the center of gravity is zero, so it does not pitch up or down. The pilot trims with the elevator.
+
 Trip strip
 : A thin band of roughness (grit or small bumps) fixed near the nose or leading edge of a wind-tunnel model to force the boundary layer turbulent where it would be on the full-size aircraft.
 
@@ -812,20 +869,23 @@ True airspeed
 True anomaly
 : The angle $\theta$ at the central body from periapsis to the spacecraft, measured in the direction of motion.
 
+Turbine
+: The part of a gas-turbine engine behind the combustor where the hot gas expands through rows of blades and turns the shaft that drives the compressor, and on other engines a fan or a propeller. In a turbojet it takes only the work the compressor needs.
+
 Turbofan
 : A gas-turbine engine in which the turbine drives a large ducted front fan that accelerates cool bypass air around the hot core. High-bypass turbofans power airliners; low-bypass turbofans power supersonic fighters.
 
 Turbojet
-: A gas-turbine engine whose entire airflow passes through five stages in order: inlet (diffuser), compressor, combustor, turbine, and nozzle, producing thrust only from the high-speed hot core exhaust.
+: A gas-turbine engine whose whole airflow passes through five stages in order: inlet, compressor, combustor, turbine, and nozzle. All of its thrust comes from the hot, fast exhaust of that one stream.
 
 Turboprop
-: A gas-turbine engine in which extra power-turbine stages drive a front propeller through a shaft and reduction gearbox, combining turbine power-to-weight with high propeller efficiency below about Mach $0.55$.
+: A gas-turbine engine whose turbine takes almost all the energy of the gas as shaft power and turns a propeller through a reduction gearbox; the slow exhaust adds only a little thrust. Propellers work well up to about Mach 0.5, or about 0.6 with advanced designs.
 
 Turbopump
 : A pump for each propellant driven by a turbine on the same shaft; it raises the pressure of the propellants between the tanks and the combustion chamber, so the tanks can stay at low pressure. The turbine is driven by hot gas from a small gas generator or a preburner.
 
 Turboshaft
-: A gas-turbine engine built to deliver nearly all of its energy as shaft torque, not jet exhaust, commonly used to drive helicopter rotors and auxiliary power units.
+: A gas-turbine engine that delivers almost all of its energy to an output shaft. Most helicopters, apart from small ones with piston engines, use one to turn the rotor.
 
 Turbulent flow
 : Flow in which the fluid tumbles in eddies of many sizes that mix it across the layers. A turbulent boundary layer is thicker than a laminar one, has more skin friction, and stays attached longer against a rising pressure.
@@ -867,7 +927,7 @@ Wake
 : The region of slow, often swirling fluid behind a body, downstream of where the flow has separated or the boundary layers leave the surface.
 
 Wave drag
-: The drag from shock waves that form on an aircraft as it nears the speed of sound. It rises sharply once the speed passes the critical Mach number.
+: The drag from shock waves that form on an aircraft as it nears the speed of sound. It rises sharply a little past the critical Mach number.
 
 Weight fraction
 : $W_i/W_{i-1}$, the weight at the end of mission segment $i$ divided by the weight at its start. The fractions of all the segments multiply to give the weight at the end of the mission as a fraction of the takeoff weight.

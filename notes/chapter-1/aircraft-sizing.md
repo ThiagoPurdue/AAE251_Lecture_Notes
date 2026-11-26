@@ -273,7 +273,7 @@ Integrating from $x = 0$ to the range $x = R$, with $V$ also constant, gives the
 \frac{W_i}{W_{i-1}} = \exp\left[-\frac{R\,C}{V\,(L/D)}\right]
 :::
 
-Both equations assume that $C$, $L/D$, and, for cruise, $V$ stay constant through the segment, and that the flight is steady and level. We treat the range and endurance equations in full, for propeller aircraft too, in Chapter 5. A propeller engine is rated by fuel per unit of power instead of per unit of thrust, so its range equation also carries the propeller efficiency (Scholz n.d., Equation 5.54).
+Both equations assume that $C$, $L/D$, and, for cruise, $V$ stay constant through the segment, and that the flight is steady and level. We treat the range and endurance equations in full, for propeller aircraft too, in [Chapter 5](#p52-jet-breguet). A propeller engine is rated by fuel per unit of power instead of per unit of thrust, so its range equation also carries the propeller efficiency (Scholz n.d., Equation 5.54).
 
 :::{warning} Units of the exponent
 The exponent must have no unit. With $C$ in 1/h, use $E$ in hours, $R$ in {term}`nautical miles <nautical mile>`, and $V$ in knots (nautical miles per hour). Then $R\,C/V$ is nmi times 1/h divided by nmi/h, which cancels. A loiter of 30 minutes is $E = 0.5$ h, not 30. If you prefer feet and seconds, use $R$ in ft, $V$ in ft/s, and $C$ in 1/s ($C$ in 1/h divided by 3,600), with 1 nmi = 6,076.1 ft and 1 kt = 1.6878 ft/s.

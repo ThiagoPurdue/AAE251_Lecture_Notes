@@ -3,181 +3,407 @@ title: "Constraint diagram and field length"
 short_title: Constraint diagram and field length
 ---
 
-In pages 5.1 through 5.3, we analyzed an aircraft whose wing area and engine thrust were already given. Early in conceptual design, we work in reverse. We start with the customer's performance requirements (stall speed, runway length, climb rate, cruise speed, and ceiling). Then we ask how small the wing and engines can be while still meeting all of them. Putting all of those requirements on one plot of {term}`thrust-to-weight ratio` $T/W$ against {term}`wing loading` $W/S$ builds the **{term}`constraint diagram`**, tying Chapter 3's wing sizing ([page 3.4](../chapter-3/wing-loading.md)) directly to Chapter 5's performance equations. No course standard is assessed on this page.
+On pages 5.1 to 5.3 the wing and the engines were already chosen, and the question was how the aircraft flies. A designer starts from the other end. The customer gives a list of requirements: a {term}`stall speed`, a runway length, a rate of climb, a cruise speed, and a ceiling. We then ask how small the wing and the engines can be and still meet all of them. Two ratios answer that question, the {term}`wing loading` $W/S$ and the {term}`thrust-to-weight ratio` $T/W$ of [page 3.4](#p34-three-numbers). On this page the weight is written $W = mg$, as in those two ratios. We first find how long the runway must be, and then we draw every requirement on one chart. No course standard is assessed on this page.
 
 :::{note} What to take from this page
-- Takeoff and landing ground rolls scale linearly with wing loading $W/S$ and inversely with $C_{L,\max}$, so smaller wings and lower-lift flaps require longer runways.
-- Every performance requirement turns into one boundary curve on a plot of sea-level $T/W$ against $W/S$. Stall speed and landing distance set vertical upper limits on $W/S$, while takeoff, climb, cruise, and ceiling set lower limits on $T/W$.
-- The feasible design space lies above every thrust boundary and to the left of every wing-loading limit.
-- Picking the corner with the lowest $T/W$ and largest feasible $W/S$ gives the smallest engines and smallest wing that meet every requirement at once.
+- On the runway the aircraft speeds up against drag and wheel friction, and it stops by braking. With the simplest assumptions, both ground rolls grow in proportion to the wing loading $W/S$.
+- More thrust shortens the takeoff roll. It does not change the landing roll, so a landing requirement caps the wing loading directly.
+- Each requirement becomes one line on a plot of $T/W$ against $W/S$. The designs that meet every requirement lie above every line and to the left of every vertical one.
+- The design point is the highest wing loading the limits allow, then the lowest thrust-to-weight ratio above every line there: the smallest wing, and the smallest engines for that wing.
 :::
 
 (p55-field-length)=
 ## Takeoff and landing ground roll
 
-A takeoff or landing splits into two parts ({numref}`fig-p55-takeoff-landing-phases`): an **air distance** over a standard $15$ m ($50$ ft) obstacle, and a **ground roll** along the runway. In preliminary sizing, we use closed-form ground-roll formulas that link runway length straight to wing loading $W/S$ and thrust-to-weight ratio $T/W$ (Anderson 2016, Sections 6.17 and 6.18).
+Two of the requirements are lengths on the ground, so we start with the runway. A takeoff or a landing has two parts ({numref}`fig-p55-takeoff-landing-phases`). The {term}`ground roll` is the distance the aircraft runs on its wheels. The air distance is the flight between the runway and a set height above it. For a transport airplane, the U.S. rules measure the takeoff distance up to a height of 35 ft (10.7 m). They measure the landing distance down from a height of 50 ft (15 m) (14 CFR 25.113 and 25.125). Early sizing looks only at the ground rolls. They follow from simple physics, while the air distance needs the whole flight path through the pitch-up before liftoff and the climb.
 
 :::{figure} figures/p55-takeoff-landing-phases.svg
 :label: fig-p55-takeoff-landing-phases
-:alt: Two stacked schematic diagrams. Panel 1, titled takeoff, shows an aircraft rolling horizontally from brake release to liftoff at V sub L O equals 1.2 V sub stall over a dimension labeled ground roll s sub L O, then curving upward over a dimension labeled air distance to clear a 15 meter obstacle. Panel 2, titled landing, shows an aircraft descending from a 15 meter obstacle over an air distance to touchdown at V sub T equals 1.3 V sub stall, then rolling horizontally over a dimension labeled braking ground roll s sub L to a stop.
-:width: 75%
+:alt: Two side views over a hatched runway. Panel 1, takeoff: an aircraft outline at brake release, at speed zero; a thick path with an arrowhead along the runway to a second outline at liftoff, at 1.2 times the stall speed; then the path curves up to a third outline above a post labeled obstacle, 35 feet or 10.7 meters. Dimensions mark the ground roll, s sub L O, from brake release to liftoff, and the air distance from liftoff to the obstacle. Panel 2, landing: a path with arrowheads descends past a post labeled obstacle, 50 feet or 15 meters, to touchdown at 1.3 times the stall speed, then runs along the runway, with an arrowhead, to an outline at the stop. Dimensions mark the air distance and the ground roll, s sub L.
+:width: 90%
 
-Schematic of takeoff (Panel 1) and landing (Panel 2). Each maneuver splits into a runway ground roll (accelerating to $1.2\,V_{\text{stall}}$ on takeoff, braking from $1.3\,V_{\text{stall}}$ to rest on landing) and an air distance over a $15$ m obstacle; preliminary sizing focuses on the ground rolls $s_{\text{LO}}$ and $s_L$.
+Schematic, not to scale: the heights, the path angles, and the aircraft are drawn many times larger than the distances along the runway. Each maneuver is a ground roll plus an air distance over an obstacle, and early sizing looks at the ground roll. The obstacle heights are those of the U.S. rules for a transport airplane (14 CFR 25.113 and 25.125).
 :::
 
-We start with takeoff, where the aircraft accelerates from rest to liftoff speed $V_{\text{LO}} = 1.2\,V_{\text{stall}}$, with $V_{\text{stall}} = \sqrt{2(W/S)/(\rho\,C_{L,\max,\text{TO}})}$. Neglecting aerodynamic drag and rolling resistance compared with full takeoff thrust gives an average acceleration of $a \approx T/m = g(T/W)$. Substituting $V_{\text{LO}}^2 = 1.44\,V_{\text{stall}}^2$ into $s_{\text{LO}} = V_{\text{LO}}^2/(2a)$ cancels the factor of $2$ and gives the **liftoff ground-roll distance**:
+### The forces during the roll
 
-::::{prf:definition} Liftoff ground roll and landing braking roll
+A distance follows from the acceleration, and the acceleration from the forces ({numref}`fig-p55-ground-roll-forces`). The thrust $T$ pushes the aircraft forward. The drag $D$ pulls it back. As the speed grows, the wing makes some lift $L$ and carries part of the weight. The wheels carry the rest, the **wheel load** $W - L$. The runway pushes back on the tires with a friction force $\mu_r(W - L)$, where $\mu_r$ is the friction coefficient between the tires and the runway. It is small while the wheels roll freely, and much larger when the pilot brakes. Newton's second law along the runway gives
+
+:::{math}
+:label: eq-p55-roll
+m\,\frac{dV}{dt} = T - D - \mu_r\,(W - L)
+:::
+
+:::{figure} figures/p55-ground-roll-forces.svg
+:label: fig-p55-ground-roll-forces
+:alt: Two free-body diagrams of a Boeing 737-800 side outline on its wheels, nose to the right, each with a velocity arrow pointing forward. Panel 1, takeoff roll, where the net force points forward: lift up and weight down from the center of gravity, drag pointing back behind the tail, thrust pointing forward ahead of the nose, and at the main wheels a wheel load, W minus L, pointing up and a short arrow, rolling friction, small, pointing back. Panel 2, landing roll with the engines at idle and the spoilers up, where the net force points backward: a short lift arrow, the weight, the drag, a longer wheel load, and a long braking friction arrow, mu sub r times W minus L, pointing back. There is no thrust arrow. A key shows the force and velocity arrows.
+:width: 85%
+
+Schematic, drawn on the outline of a Boeing 737-800. On takeoff the thrust speeds the aircraft up against the drag and against the friction on the weight the wing does not yet carry. On landing the brakes act through that same wheel load. The arrow lengths are not to scale, except that the lift and the wheel load add up to the weight; the loads on all the wheels are drawn together at the main wheels.
+:::
+
+### Takeoff ground roll
+
+The simplest model takes the thrust of a jet to be much larger than the drag and the rolling friction together. If we neglect those two, [](#eq-p55-roll) gives a constant acceleration:
+
+$$
+\begin{aligned}
+a &= \frac{T}{m}\\
+  &= g\,\frac{T}{W}
+\end{aligned}
+$$
+
+From rest, with a constant acceleration, the speed is $V = a\,t$ and the distance is $s = \tfrac12 a\,t^2$. Taking $t = V/a$ from the first and putting it in the second gives $s = V^2/(2a)$. The aircraft lifts off at $V_\text{LO} = 1.2\,V_\text{stall}$, a margin above the stall, as Anderson (2016, Chapter 6) takes it. The stall speed with takeoff flaps comes from [page 3.4](#p34-stall), $V_\text{stall}^2 = 2(W/S)/(\rho\,C_{L,\max,\text{TO}})$. So
+
+$$
+\begin{aligned}
+s_\text{LO} &= \frac{V_\text{LO}^2}{2a}\\
+            &= \frac{1.44\,V_\text{stall}^2}{2g\,(T/W)}\\
+            &= \frac{1.44\,(W/S)}{\rho\,g\,C_{L,\max,\text{TO}}\,(T/W)}
+\end{aligned}
+$$
+
+The factor 1.44 is ${1.2}^{2}$. Multiplied out, the same result reads $s_\text{LO} = 1.44\,W^2/(g\,\rho\,S\,C_{L,\max,\text{TO}}\,T)$.
+
+### Landing ground roll
+
+The aircraft touches down at $V_T = 1.3\,V_\text{stall}$, with the stall speed for the landing flaps, again as Anderson (2016, Chapter 6) takes it. The rules set a similar margin on the approach. A transport airplane must fly at least 1.23 times its reference stall speed down to 50 ft (14 CFR 25.125), and it touches down a little slower. After touchdown the pilot brings the engines to idle and raises the {term}`spoiler` panels on top of the wing. The spoilers dump the lift, so almost the whole weight rests on the wheels and the brakes can use it. With $T = 0$ and $L = 0$, and with the drag neglected, [](#eq-p55-roll) becomes $m\,dV/dt = -\mu_r W$, a constant deceleration $a = g\,\mu_r$. The aircraft slows from $V_T$ to rest in
+
+$$
+\begin{aligned}
+s_L &= \frac{V_T^2}{2g\,\mu_r}\\
+    &= \frac{1.69\,V_\text{stall}^2}{2g\,\mu_r}\\
+    &= \frac{1.69\,(W/S)}{\rho\,g\,C_{L,\max,L}\,\mu_r}
+\end{aligned}
+$$
+
+where $1.69 = {1.3}^{2}$ and $C_{L,\max,L}$ is the {term}`maximum lift coefficient` with landing flaps. Here $\mu_r$ is the braking friction, much larger than the rolling friction of the takeoff.
+
+::::{prf:definition} Takeoff and landing ground rolls
 :label: def-p55-field-length
+With the thrust much larger than the drag and the rolling friction on takeoff, and with no lift, no thrust, and no drag on landing:
 :::{math}
 :label: eq-p55-field-length
 \begin{aligned}
-s_{\text{LO}} &= \frac{1.44\,(W/S)}{\rho\,g\,C_{L,\max,\text{TO}}\,(T/W)}\\
+s_\text{LO} &= \frac{1.44\,(W/S)}{\rho\,g\,C_{L,\max,\text{TO}}\,(T/W)}\\
 s_L &= \frac{1.69\,(W/S)}{\rho\,g\,C_{L,\max,L}\,\mu_r}
 \end{aligned}
 :::
 ::::
 
-On landing, the aircraft touches down at $V_T = 1.3\,V_{\text{stall}}$ with landing flaps giving $C_{L,\max,L}$. The pilot then deploys {term}`spoiler` panels to dump lift onto the wheels and brakes with effective rolling-friction coefficient $\mu_r$ (typically $0.3$ to $0.5$ on dry concrete). The braking force $\mu_r W$ gives an average deceleration of $a \approx \mu_r W/m = g\mu_r$, which gives the second line of [](#eq-p55-field-length), with ${1.3}^{2} = 1.69$.
+Three things follow from [](#eq-p55-field-length):
 
-Look at what [](#eq-p55-field-length) tells us physically:
+- Both rolls grow in proportion to $W/S$. A small wing needs a fast liftoff and a fast touchdown, and the distance grows with the square of the speed. {term}`Flap` settings that raise $C_{L,\max}$ shorten both.
+- The takeoff roll falls as $1/(T/W)$. Larger engines speed the aircraft up faster.
+- The landing roll does not depend on the thrust at all. Only the wing can meet a landing requirement, so it caps $W/S$ directly.
 
-- Both $s_{\text{LO}}$ and $s_L$ grow **linearly with $W/S$** and shrink when high-lift devices ({term}`flap` and {term}`slat` systems) raise $C_{L,\max}$.
-- Takeoff roll also drops as $1/(T/W)$, because larger engines accelerate the aircraft to liftoff speed in a shorter distance.
-- Landing roll does **not** depend on engine thrust (without thrust reversers), so a maximum landing distance caps $W/S$ outright.
+Both rolls also grow as the density falls, so a hot day or a high airport asks for a longer runway.
+
+:::{warning} What the simple forms leave out
+On takeoff, [](#eq-p55-field-length) leaves out the drag and the rolling friction, so the real roll is longer than it says. On landing it leaves out the drag and any reverse thrust, which would both shorten the roll, but it assumes full braking from the moment of touchdown. The braking friction also falls on a runway covered with water or slush, and it falls further as the speed rises (Horne and Leland 1962). If you use a dry-runway $\mu_r$ for a wet runway, your landing roll comes out too short. Anderson (2016, Chapter 6) gives fuller forms that keep the drag and the friction.
+:::
 
 (p55-constraint-curves)=
 ## Building the constraint diagram
 
-The ground-roll equations give us runway limits on $W/S$ and $T/W$. Now we combine those limits with stall, climb, cruise, and ceiling on one chart. On a **constraint diagram**, we plot every performance requirement on a single chart of sea-level static thrust-to-weight ratio $T/W$ (vertical axis) against wing loading $W/S$ (horizontal axis). Rearranging the formulas of [page 3.4](../chapter-3/wing-loading.md) and pages 5.1 through 5.3 gives six boundaries:
+The two ground rolls turned two requirements into limits on $W/S$ and $T/W$. Every other requirement can be written the same way, and then all of them fit on one chart. A **{term}`constraint diagram`** plots the thrust-to-weight ratio $T/W$ against the wing loading $W/S$, with one line for each requirement (Raymer 2018, Chapter 5). Here $T$ is the sea-level static thrust of all the engines together, and $W$ is the takeoff weight.
 
-1. **Stall speed** ($V_{\text{stall}}$ at sea level with landing flaps $C_{L,\max,L}$):
+We use the takeoff weight for every requirement. It is the simplest choice, and it errs on the safe side for the landing, the cruise, and the ceiling, which come after some fuel has burned. Two facts from [page 5.1](#p51-available-and-vmax) carry the thrust to other conditions. A jet's thrust changes little with speed, so we take the static thrust at every speed. At altitude the thrust falls with the density as $T_A = T\,(\rho/\rho_0)^{m_\text{ad}}$, and the factor $(\rho/\rho_0)^{m_\text{ad}}$ is the thrust lapse.
+
+{numref}`fig-p55-constraint-build` builds the diagram one requirement at a time, numbered as in the list below.
+
+1. **Stall speed** with landing flaps at sea level. [Page 3.4](#p34-stall) gave the largest wing loading for a stall speed:
    $$
-   \frac{W}{S} \le \tfrac12 \rho_0 V_{\text{stall}}^2 C_{L,\max,L}
+   \frac{W}{S} \le \tfrac12\,\rho_0\,V_\text{stall}^2\,C_{L,\max,L}
    $$
-   This condition gives a **vertical line**, with feasible designs to the left.
-2. **Landing braking roll** ($s_L$ at sea level), from [](#eq-p55-field-length):
+   It does not involve the thrust, so it is a vertical line. Designs to its left meet it.
+2. **Landing ground roll** at sea level. We solve the second line of [](#eq-p55-field-length) for $W/S$:
    $$
    \frac{W}{S} \le \frac{\rho_0\,g\,C_{L,\max,L}\,\mu_r\,s_L}{1.69}
    $$
-   This condition also gives a **vertical line**, so the stricter of stall and landing sets the upper limit on $W/S$.
-3. **Takeoff ground roll** ($s_{\text{LO}}$ at sea level), solving [](#eq-p55-field-length) for $T/W$:
+   This is a second vertical line. The smaller of the two wing loadings is the real limit.
+3. **Takeoff ground roll** at sea level. We solve the first line of [](#eq-p55-field-length) for $T/W$:
    $$
-   \frac{T}{W} \ge \frac{1.44}{\rho_0\,g\,C_{L,\max,\text{TO}}\,s_{\text{LO}}}\left(\frac{W}{S}\right)
+   \frac{T}{W} \ge \frac{1.44\,(W/S)}{\rho_0\,g\,C_{L,\max,\text{TO}}\,s_\text{LO}}
    $$
-   This gives a **straight line rising from the origin**, because higher wing loading requires proportionally more thrust to lift off in the same runway distance.
-4. **Rate of climb** ($R/C$ at speed $V_{\text{cl}}$ and dynamic pressure $q_{\text{cl}}$ at sea level), using $D/W = q_{\text{cl}} C_{D,0}/(W/S) + (K/q_{\text{cl}})(W/S)$ and dividing $T_A = D + W(R/C)/V_{\text{cl}}$ by $W$:
+   This is a straight line through the origin. More wing loading means a faster liftoff, so it needs proportionally more thrust for the same runway.
+4. **Rate of climb** $R/C$ at a speed $V$ at sea level. [Page 5.3](#p53-excess) gives the climb angle from the excess thrust, $\sin\gamma = (T - D)/W$, and the {term}`rate of climb` as $R/C = V\sin\gamma$. So $T/W = (R/C)/V + D/W$. For the drag we take $L = W$, which holds for the shallow climbs of this chart, so $C_L = W/(qS)$ with $q = \tfrac12 \rho V^2$:
    $$
-   \frac{T}{W} \ge \frac{q_{\text{cl}}\,C_{D,0}}{W/S} + \frac{K}{q_{\text{cl}}}\left(\frac{W}{S}\right) + \frac{R/C}{V_{\text{cl}}}
+   \begin{aligned}
+   D &= q\,S\,C_{D,0} + q\,S\,K\,C_L^2\\
+     &= q\,S\,C_{D,0} + \frac{K\,W^2}{q\,S}\\
+   \frac{D}{W} &= \frac{q\,C_{D,0}}{W/S} + \frac{K\,(W/S)}{q}
+   \end{aligned}
    $$
-5. **Cruise speed** ($V_{\text{cr}}$ at altitude $h_{\text{cr}}$, dynamic pressure $q_{\text{cr}}$, and thrust lapse $\alpha_T = (\rho_{\text{cr}}/\rho_0)^{m_{\text{ad}}}$), dividing $T_A = T_R$ by $\alpha_T W$:
+   which gives the line
    $$
-   \frac{T}{W} \ge \frac{1}{\alpha_T}\left[\frac{q_{\text{cr}}\,C_{D,0}}{W/S} + \frac{K}{q_{\text{cr}}}\left(\frac{W}{S}\right)\right]
+   \begin{aligned}
+   \frac{T}{W} &\ge \frac{R/C}{V} + \frac{q\,C_{D,0}}{W/S}\\
+   &\;\;\; + \frac{K\,(W/S)}{q}
+   \end{aligned}
    $$
-6. **Service ceiling** ($R/C = 0.5$ m/s at ceiling altitude $h_{\text{ce}}$, flying at $V_{T_R,\min}$ from [](#eq-p51-min-thrust) with lapse $\alpha_{T,\text{ce}} = (\rho_{\text{ce}}/\rho_0)^{m_{\text{ad}}}$):
+   The parasite drag term falls as $W/S$ grows and the induced drag term rises, so the line sags in the middle.
+5. **Cruise** at a speed $V$ at an altitude where the density is $\rho$. The engines at full throttle must hold this speed, so the full thrust at that altitude equals the drag, $T\,(\rho/\rho_0)^{m_\text{ad}} = D$. We divide by $W$ and by the lapse:
    $$
-   \frac{T}{W} \ge \frac{1}{\alpha_{T,\text{ce}}}\left(2\sqrt{K C_{D,0}} + \frac{0.5}{V_{T_R,\min}}\right)
+   \begin{aligned}
+   \frac{T}{W} &\ge \frac{1}{(\rho/\rho_0)^{m_\text{ad}}}\times\\
+   &\;\;\; \left[\frac{q\,C_{D,0}}{W/S} + \frac{K\,(W/S)}{q}\right]
+   \end{aligned}
+   $$
+   with $q = \tfrac12 \rho V^2$ at the cruise altitude.
+6. **Service ceiling**. At the {term}`service ceiling` the rate of climb is still 0.5 m/s ([page 5.3](#p53-ceilings)). Near its ceiling a jet climbs best close to its minimum-thrust speed, and we take the climb line at that speed. There $D/W = 1/(L/D)_{\max} = 2\sqrt{K\,C_{D,0}}$, and the speed is $V = \sqrt{2(W/S)/\rho}\,(K/C_{D,0})^{1/4}$ ([page 3.3](#p33-minimum-drag)). With the lapse at the ceiling density:
+   $$
+   \begin{aligned}
+   \frac{T}{W} &\ge \frac{1}{(\rho/\rho_0)^{m_\text{ad}}}\times\\
+   &\;\;\; \left(2\sqrt{K\,C_{D,0}} + \frac{0.5}{V}\right)
+   \end{aligned}
    $$
 
-Each boundary separates feasible designs from infeasible ones. To read the **feasible region**, you stay above every thrust boundary and to the left of every vertical wing-loading limit. Because bigger wings (low $W/S$) and bigger engines (high $T/W$) both add structural weight and cost, we usually pick the **lower-right corner** of the feasible region, which gives the smallest engine thrust and smallest wing area that meet every constraint.
+:::{figure} figures/p55-constraint-build.svg
+:label: fig-p55-constraint-build
+:alt: Six small plots of thrust-to-weight ratio from 0 to 0.45 against wing loading from 1,000 to 5,000 newtons per square meter, in two rows, titled 1 stall speed, 2 landing roll, 3 takeoff roll, 4 climb, 5 cruise, and 6 ceiling. Each adds one line in its own style, earlier lines stay thin and gray, the part the new line removes is hatched gray, and what is left is shaded light gold. The stall line removes everything right of it. The landing line, farther right, removes nothing. The takeoff line removes a wedge below it, the climb and cruise lines each remove a wedge at low wing loading, and the ceiling line, marked with crosses, removes nothing. Panel 6 marks the design point at the corner of the stall line and the takeoff line.
+:width: 85%
+
+Computed for the light twin-jet of the worked example. Each requirement removes part of the plane, and what is left is the region of designs that meet them all. Here the stall speed and the takeoff roll make the corner where the design point sits, while the landing roll and the ceiling remove nothing the others leave.
+:::
+
+The shaded area that survives all six lines is the **feasible region**. Any design inside it meets every requirement. A larger wing and larger engines cost weight and money, and a larger wing also adds friction drag in cruise. That is why we pick the {term}`design point` in two steps. First comes the highest wing loading the vertical lines allow, which gives the smallest wing. Then comes the lowest $T/W$ above every line at that wing loading, which gives the smallest engines for that wing. Left of the design point the takeoff line falls, so a lower wing loading can need less thrust, but only with a larger wing. You then trade smaller engines for a larger wing.
+
+:::{tip} A constraint diagram, in steps
+1. Write each requirement as a limit on $W/S$ (a vertical line) or as $T/W$ against $W/S$ (a curve or a line).
+2. Carry every thrust to sea-level static thrust with the lapse $(\rho/\rho_0)^{m_\text{ad}}$.
+3. Plot the lines and shade the region above all of them and left of the vertical ones.
+4. Take the smallest of the wing-loading limits and read the highest line there. Then size the wing and the engines: $S = W/(W/S)$ and $T = (T/W)\,W$.
+:::
+
+A propeller aircraft is sized the same way, with its power in place of the thrust. Its engine is rated in power, and [page 5.1](#p51-available-and-vmax) gives the thrust of a propeller as $T = \eta P/V$. So each line becomes a line of the power-to-weight ratio $P/W = (T/W)\,V/\eta$, taken at the speed of that requirement. This holds only in flight. Near rest the propeller efficiency is low ([page 5.1](#p51-available-and-vmax)), so for the takeoff line you need the static thrust of the propeller itself.
 
 (p55-worked-example)=
-## Worked example: sizing a twin-jet utility transport
+## Worked example: sizing a light twin-jet
 
-Consider a twin-jet medical and utility transport with design mass $m = 6{,}200$ kg ($W = 60{,}822$ N), $C_{D,0} = 0.023$, $\textit{AR} = 8.4$, $e = 0.82$, $C_{L,\max,\text{TO}} = 1.95$, $C_{L,\max,L} = 2.25$, braking friction $\mu_r = 0.40$, and engine lapse $m_{\text{ad}} = 0.80$. It must meet six requirements:
+A light twin-jet has a takeoff mass of 4,500 kg. Its {term}`drag polar` has $C_{D,0} = 0.022$, with an {term}`aspect ratio` of 8 and an Oswald efficiency factor $e = 0.8$ ([page 3.3](#p33-drag-polar)). Its maximum lift coefficient is 1.90 with takeoff flaps and 2.15 with landing flaps. The braking friction is $\mu_r = 0.40$, and its engines lose thrust with altitude as $(\rho/\rho_0)^{0.8}$. It must meet six requirements:
 
-- Sea-level landing stall speed $V_{\text{stall}} \le 48$ m/s;
-- Sea-level takeoff ground roll $s_{\text{LO}} \le 780$ m;
-- Sea-level landing braking roll $s_L \le 680$ m;
-- Sea-level climb rate $R/C \ge 13$ m/s at $V_{\text{cl}} = 92$ m/s;
-- Cruise at $V_{\text{cr}} = 210$ m/s at $h_{\text{cr}} = 10{,}000$ m ($\rho = 0.4124$ kg/m³);
-- Service ceiling $h_{\text{ce}} = 12{,}000$ m ($\rho = 0.3106$ kg/m³).
+- A stall speed with landing flaps of at most 46 m/s at sea level.
+- A takeoff ground roll of at most 750 m at sea level.
+- A landing ground roll of at most 700 m at sea level.
+- A rate of climb of 12 m/s at 90 m/s at sea level.
+- A cruise at 200 m/s at 10,000 m.
+- A service ceiling of 12,000 m.
 
-We find the feasible design point $(W/S, T/W)$, the wing area $S$, and the required sea-level static thrust per engine.
+We find the design point, and from it the wing area and the total thrust. Densities come from [the standard atmosphere of page 1.4](../chapter-1/standard-atmosphere.md), with $\rho_0 = 1.2250\ \text{kg/m}^3$.
 
-1. **Induced drag factor:**
+1. **Weight and induced drag factor.**
    $$
    \begin{aligned}
-   K &= \frac{1}{\pi \times 0.82 \times 8.4}\\
-     &= 0.046212
+   W &= 4{,}500 \times 9.81\\
+     &= 44{,}145\ \text{N}
    \end{aligned}
    $$
-2. **Vertical wing-loading limits** (sea level, $\rho_0 = 1.2250$ kg/m³):
    $$
    \begin{aligned}
-   \left(\frac{W}{S}\right)_{\text{stall}} &= 0.5 \times 1.2250 \times {48}^{2} \times 2.25\\
-                                           &= 3{,}175\ \text{N/m}^2\\
-   \left(\frac{W}{S}\right)_{\text{land}} &= \frac{1.2250 \times 9.81 \times 2.25 \times 0.40 \times 680}{1.69}\\
-                                          &= 4{,}352\ \text{N/m}^2
+   K &= \frac{1}{\pi \times 0.8 \times 8}\\
+     &= 0.04974
    \end{aligned}
    $$
-   Stall speed ($3{,}175$ N/m²) is stricter than the landing roll ($4{,}352$ N/m²), so stall sets the right-hand boundary of the feasible region.
-3. **Evaluate the four thrust boundaries at $W/S = 3{,}175$ N/m²:**
-   - **Takeoff roll** ($s_{\text{LO}} = 780$ m):
-     $$
-     \begin{aligned}
-     \left(\frac{T}{W}\right)_{\text{TO}} &= \frac{1.44 \times 3{,}175}{1.2250 \times 9.81 \times 1.95 \times 780}\\
-                                          &= 0.250
-     \end{aligned}
-     $$
-   - **Sea-level climb** ($q_{\text{cl}} = 0.5 \times 1.2250 \times {92}^{2} = 5{,}184$ Pa):
-     $$
-     \begin{aligned}
-     \left(\frac{T}{W}\right)_{\text{cl}} &= \frac{5{,}184 \times 0.023}{3{,}175} + \frac{0.046212 \times 3{,}175}{5{,}184} + \frac{13}{92}\\
-                                          &= 0.207
-     \end{aligned}
-     $$
-   - **Cruise at 10,000 m** ($q_{\text{cr}} = 0.5 \times 0.4124 \times {210}^{2} = 9{,}093$ Pa, lapse $\alpha_T = (0.4124/1.2250)^{0.80} = 0.4185$):
-     $$
-     \begin{aligned}
-     \left(\frac{T}{W}\right)_{\text{cr}} &= \frac{1}{0.4185}\left(\frac{9{,}093 \times 0.023}{3{,}175} + \frac{0.046212 \times 3{,}175}{9{,}093}\right)\\
-                                          &= 0.196
-     \end{aligned}
-     $$
-   - **Service ceiling at 12,000 m** (lapse $\alpha_{T,\text{ce}} = (0.3106/1.2250)^{0.80} = 0.3336$, and from [](#eq-p51-min-thrust) at $W/S = 3{,}175$ N/m², $V_{T_R,\min} = 170.2$ m/s):
-     $$
-     \begin{aligned}
-     V_{T_R,\min} &= \sqrt{\frac{2 \times 3{,}175}{0.3106}}\left(\frac{0.046212}{0.023}\right)^{1/4}\\
-                  &= 170.2\ \text{m/s}\\
-     \left(\frac{T}{W}\right)_{\text{ce}} &= \frac{1}{0.3336}\left(2\sqrt{0.046212 \times 0.023} + \frac{0.5}{170.2}\right)\\
-                                          &= 0.204
-     \end{aligned}
-     $$
-4. **Pick the design point and size the aircraft.** {numref}`fig-p55-constraint-diagram` plots all six boundaries. At $W/S = 3{,}175$ N/m², takeoff ($T/W = 0.250$) is the highest requirement, above climb ($0.207$), ceiling ($0.204$), and cruise ($0.196$). Choosing $(W/S, T/W) = (3{,}175\ \text{N/m}^2, 0.250)$ gives:
+2. **The two wing-loading limits.** The stall speed gives
    $$
    \begin{aligned}
-   S &= \frac{60{,}822}{3{,}175}\\
-     &= 19.16\ \text{m}^2\\
-   T_0 &= 0.250 \times 60{,}822\\
-       &= 15{,}206\ \text{N}
+   &\left(\frac{W}{S}\right)_\text{stall}\\
+   &\;\;\;= 0.5 \times 1.2250 \times {46}^{2}\\
+   &\;\;\;\;\;\; \times 2.15\\
+   &\;\;\;= 2{,}786.5\ \text{N/m}^2
    \end{aligned}
    $$
-   With two engines, each needs $7{,}603$ N of sea-level static thrust.
+   For the landing roll, the numerator is $1.2250 \times 9.81 \times 2.15 \times 0.40 \times 700 = 7{,}234$, so
+   $$
+   \begin{aligned}
+   \left(\frac{W}{S}\right)_\text{landing} &= \frac{7{,}234}{1.69}\\
+                                           &= 4{,}280\ \text{N/m}^2
+   \end{aligned}
+   $$
+   The stall speed is the stricter of the two. The wing loading can be at most 2,786.5 N/m², and each thrust line is read there.
+3. **Takeoff ground roll.**
+   $$
+   \begin{aligned}
+   &\left(\frac{T}{W}\right)_\text{takeoff}\\
+   &\;\;\;= \frac{1.44 \times 2{,}786.5}{1.2250 \times 9.81}\times\\
+   &\;\;\;\;\;\; \frac{1}{1.90 \times 750}\\
+   &\;\;\;= 0.23432
+   \end{aligned}
+   $$
+4. **Climb at sea level.** The dynamic pressure at 90 m/s is
+   $$
+   \begin{aligned}
+   q &= 0.5 \times 1.2250 \times {90}^{2}\\
+     &= 4{,}961\ \text{N/m}^2
+   \end{aligned}
+   $$
+   The three terms of the climb line are $12/90 = 0.1333$ for the climb itself, $4{,}961 \times 0.022/2{,}786.5 = 0.03917$ for the parasite drag, and $0.04974 \times 2{,}786.5/4{,}961 = 0.02794$ for the induced drag:
+   $$
+   \begin{aligned}
+   &\left(\frac{T}{W}\right)_\text{climb}\\
+   &\;\;\;= 0.1333 + 0.03917\\
+   &\;\;\;\;\;\; + 0.02794\\
+   &\;\;\;= 0.2004
+   \end{aligned}
+   $$
+   Two thirds of it pays for the climb, and one third for the drag.
+5. **Cruise at 10,000 m**, where $\rho = 0.4124\ \text{kg/m}^3$.
+   $$
+   \begin{aligned}
+   q &= 0.5 \times 0.4124 \times {200}^{2}\\
+     &= 8{,}248\ \text{N/m}^2
+   \end{aligned}
+   $$
+   $$
+   \begin{aligned}
+   \left(\frac{\rho}{\rho_0}\right)^{0.8} &= {\left(\frac{0.4124}{1.2250}\right)}^{0.8}\\
+                                          &= 0.4185
+   \end{aligned}
+   $$
+   The parasite term is $8{,}248 \times 0.022/2{,}786.5 = 0.06512$ and the induced term $0.04974 \times 2{,}786.5/8{,}248 = 0.01680$:
+   $$
+   \begin{aligned}
+   &\left(\frac{T}{W}\right)_\text{cruise}\\
+   &\;\;\;= \frac{0.06512 + 0.01680}{0.4185}\\
+   &\;\;\;= 0.1957
+   \end{aligned}
+   $$
+6. **Service ceiling at 12,000 m**, where $\rho = 0.3106\ \text{kg/m}^3$.
+   $$
+   \begin{aligned}
+   \left(\frac{\rho}{\rho_0}\right)^{0.8} &= {\left(\frac{0.3106}{1.2250}\right)}^{0.8}\\
+                                          &= 0.3336
+   \end{aligned}
+   $$
+   $$
+   \begin{aligned}
+   V &= \sqrt{\frac{2 \times 2{,}786.5}{0.3106}}\;\times\\
+     &\;\;\; {\left(\frac{0.04974}{0.022}\right)}^{1/4}\\
+     &= 164.3\ \text{m/s}
+   \end{aligned}
+   $$
+   $$
+   \begin{aligned}
+   &2\sqrt{K\,C_{D,0}}\\
+   &\;\;\;= 2\sqrt{0.04974 \times 0.022}\\
+   &\;\;\;= 0.06616
+   \end{aligned}
+   $$
+   $$
+   \begin{aligned}
+   &\left(\frac{T}{W}\right)_\text{ceiling}\\
+   &\;\;\;= \frac{0.06616 + 0.5/164.3}{0.3336}\\
+   &\;\;\;= 0.2074
+   \end{aligned}
+   $$
+7. **Design point, wing, and engines.** At 2,786.5 N/m² the takeoff line is the highest, 0.2343. The ceiling (0.2074), the climb (0.2004), and the cruise (0.1957) lie below it. So the design point is $W/S = 2{,}786.5$ N/m² and $T/W = 0.2343$ ({numref}`fig-p55-constraint-diagram`).
+   $$
+   \begin{aligned}
+   S &= \frac{44{,}145}{2{,}786.5}\\
+     &= 15.84\ \text{m}^2
+   \end{aligned}
+   $$
+   $$
+   \begin{aligned}
+   T &= 0.23432 \times 44{,}145\\
+     &= 10{,}344\ \text{N}
+   \end{aligned}
+   $$
+   Each of the two engines must give half of it at sea level, standing still.
+
+The stall speed and the takeoff roll are the two **active** requirements: they meet at the design point. The other four have margin there. The climb and the ceiling lines lie within about 0.01 of each other over most of the chart, which is why the figure enlarges that strip.
 
 :::{figure} figures/p55-constraint-diagram.svg
 :label: fig-p55-constraint-diagram
-:alt: Constraint diagram plotting sea-level thrust-to-weight ratio T over W from 0 to 0.48 against wing loading W over S from 1,400 to 4,800 newtons per square meter. A vertical brown line at 3,175 newtons per square meter marks the stall limit, and a vertical dash-dot gray line at 4,352 marks the landing limit. A solid black straight line rising from bottom left to top right marks the takeoff constraint, a dashed blue curve marks climb, a dotted orange curve marks cruise, and a dash-dot gray line near 0.204 marks ceiling. The feasible region above all thrust curves and left of the stall limit is shaded light beige. A black dot at the lower-right corner of the feasible region marks the design point: W over S equals 3,175 newtons per square meter and T over W equals 0.250.
-:width: 80%
+:alt: Thrust-to-weight ratio, 0 to 0.45, against wing loading, 1,000 to 5,000 newtons per square meter, with an enlarged strip. Vertical lines mark the stall speed, 46 meters per second, solid, at 2,786.5, and the landing roll, 700 meters, dash-dot, at 4,280. A rising straight line is the takeoff roll, 750 meters. A dashed curve is the climb, 12 meters per second at 90 meters per second; a dotted curve is the cruise, 200 meters per second at 10,000 meters; a dash-dot curve with crosses, on the climb near 0.2, is the service ceiling, 12,000 meters. The region above all lines and left of the stall line is shaded. A filled dot marks the design point, 2,786.5 and 0.2343; an open circle in the region marks the light twin-jet, wing 18 square meters, thrust 12,000 newtons.
+:width: 85%
 
-Constraint diagram for the twin-jet utility transport. The stall limit and the takeoff line are the two active constraints that fix the design point ($W/S = 3{,}175$ N/m², $T/W = 0.250$); climb, ceiling, cruise, and landing are all satisfied with margin to spare.
+Computed for the light twin-jet of the worked example. The design point is the highest wing loading the limits allow, with the lowest thrust-to-weight ratio above every line at that wing loading: the corner where the stall line meets the takeoff line. The aircraft's own wing and engines, the open circle, sit inside the region with margin. The lower strip enlarges the climb and ceiling lines, which lie on top of each other at full scale.
 :::
 
-**Check.** {numref}`fig-p55-field-length-sensitivity` shows how both ground rolls vary with wing loading. At $W/S = 3{,}175$ N/m² and $T/W = 0.250$, liftoff speed is $V_{\text{LO}} = 61.9$ m/s and $s_{\text{LO}} = 780$ m (right on the requirement). Touchdown speed is $V_T = 62.4$ m/s and the braking roll is $s_L = 496$ m, well under the $680$ m limit. Raising $T/W$ to $0.300$ would shorten the takeoff roll to $650$ m, though it would require heavier engines.
+**Check: the aircraft as it is.** The light twin-jet itself has a wing of 18 m² and two engines of 6,000 N, 12,000 N in all. Its wing loading and thrust-to-weight ratio are
+
+$$
+\begin{aligned}
+\frac{W}{S} &= \frac{44{,}145}{18}\\
+            &= 2{,}453\ \text{N/m}^2
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\frac{T}{W} &= \frac{12{,}000}{44{,}145}\\
+            &= 0.2718
+\end{aligned}
+$$
+
+Its wing is larger than the smallest allowed, and its engines give more thrust than the design point needs. It therefore sits inside the feasible region, the open circle of {numref}`fig-p55-constraint-diagram`. Its stall speeds with takeoff and with landing flaps are
+
+$$
+\begin{aligned}
+V_\text{stall,TO} &= \sqrt{\frac{2 \times 2{,}453}{1.2250 \times 1.90}}\\
+                  &= 45.91\ \text{m/s}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+V_\text{stall,L} &= \sqrt{\frac{2 \times 2{,}453}{1.2250 \times 2.15}}\\
+                 &= 43.16\ \text{m/s}
+\end{aligned}
+$$
+
+so it lifts off and touches down at
+
+$$
+\begin{aligned}
+V_\text{LO} &= 1.2 \times 45.91\\
+            &= 55.1\ \text{m/s}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+V_T &= 1.3 \times 43.16\\
+    &= 56.1\ \text{m/s}
+\end{aligned}
+$$
+
+The ground rolls from [](#eq-p55-field-length) are
+
+$$
+\begin{aligned}
+s_\text{LO} &= \frac{1.44 \times 2{,}453}{1.2250 \times 9.81}\times\\
+            &\;\;\; \frac{1}{1.90 \times 0.2718}\\
+            &= 569\ \text{m}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+s_L &= \frac{1.69 \times 2{,}453}{1.2250 \times 9.81}\times\\
+    &\;\;\; \frac{1}{2.15 \times 0.40}\\
+    &= 401\ \text{m}
+\end{aligned}
+$$
+
+Both are well inside the limits of 750 m and 700 m. {numref}`fig-p55-field-length-sensitivity` shows why. The aircraft has a lower wing loading than the design point, which shortens both rolls, and more thrust, which shortens only the takeoff.
 
 :::{figure} figures/p55-field-length-sensitivity.svg
 :label: fig-p55-field-length-sensitivity
-:alt: Plot of ground roll distance from 0 to 1,200 meters against wing loading W over S from 1,500 to 4,500 newtons per square meter. Three straight lines rise from left to right: a solid black line for takeoff at T over W equals 0.250 passing through a black dot at 3,175 newtons per square meter and 780 meters, a lower dashed blue line for takeoff at T over W equals 0.300, and a dotted orange line for landing braking roll (mu sub r equals 0.40) passing through an open orange square at 3,175 newtons per square meter and 496 meters.
-:width: 85%
+:alt: Ground roll in meters, 0 to 1,200, against wing loading, 0 to 4,800 newtons per square meter. Three straight lines start at the origin: a solid takeoff line for a thrust-to-weight ratio of 0.2343, a dashed and lower takeoff line for 0.2718, and a dotted landing line that holds for any thrust-to-weight ratio. A thin horizontal dashed line marks the takeoff limit, 750 meters, and a thin horizontal dotted line the landing limit, 700 meters. A filled dot marks the design point, where the solid line reaches 750 meters at 2,786.5. At 2,453, marked the light twin-jet, open circles mark its takeoff roll, 569 meters, on the dashed line and its landing roll, 401 meters, on the dotted line.
+:width: 90%
 
-Ground-roll sensitivity to wing loading and thrust-to-weight ratio. Both takeoff and landing rolls grow linearly with $W/S$; increasing $T/W$ from $0.250$ to $0.300$ shortens the takeoff roll by one sixth without changing the landing roll.
+Computed from [](#eq-p55-field-length) for the light twin-jet. Both ground rolls grow in proportion to the wing loading, and more thrust shortens only the takeoff: the two takeoff lines differ in $T/W$, while one landing line serves every thrust.
 :::
 
 ## Summary
 
 :::{important} Summary
-- Liftoff ground roll scales as $s_{\text{LO}} = 1.44(W/S)/(\rho g C_{L,\max,\text{TO}}(T/W))$; landing braking roll scales as $s_L = 1.69(W/S)/(\rho g C_{L,\max,L}\mu_r)$.
-- A constraint diagram plots every performance requirement as a boundary in $(W/S, T/W)$ space. Stall and landing limit $W/S$ from the right, while takeoff, climb, cruise, and ceiling bound $T/W$ from below.
-- Only the active constraints touch the corner of the feasible region; choosing that corner gives the smallest wing area $S = W/(W/S)$ and smallest total thrust $T_0 = (T/W)W$ that meet all requirements.
+- With the simplest assumptions, both ground rolls of [](#eq-p55-field-length) grow in proportion to $W/S$. The takeoff roll also falls as $1/(T/W)$, and the landing roll does not depend on the thrust.
+- A constraint diagram turns each requirement into a line of $T/W$ against $W/S$, or a vertical limit on $W/S$. The stall speed and the landing roll limit the wing loading. The takeoff, climb, cruise, and ceiling set the thrust needed.
+- The design point takes the highest allowed wing loading and the lowest $T/W$ above every line there. That gives the smallest wing, $S = W/(W/S)$, and the smallest engines for that wing, $T = (T/W)\,W$.
 :::
 
 :::{table} The equations of this page.
@@ -186,26 +412,30 @@ Ground-roll sensitivity to wing loading and thrust-to-weight ratio. Both takeoff
 
 | Quantity | Equation |
 | --- | --- |
-| Liftoff ground roll | $s_{\text{LO}} = 1.44(W/S)/(\rho\,g\,C_{L,\max,\text{TO}}\,(T/W))$ |
-| Landing braking roll | $s_L = 1.69(W/S)/(\rho\,g\,C_{L,\max,L}\,\mu_r)$ |
-| Stall wing-loading limit | $W/S \le \tfrac12\rho_0 V_{\text{stall}}^2 C_{L,\max,L}$ |
-| Takeoff constraint | $T/W \ge 1.44(W/S)/(\rho_0\,g\,C_{L,\max,\text{TO}}\,s_{\text{LO}})$ |
-| Climb constraint | $T/W \ge q_{\text{cl}} C_{D,0}/(W/S) + (K/q_{\text{cl}})(W/S) + (R/C)/V_{\text{cl}}$ |
-| Cruise constraint | $T/W \ge (1/\alpha_T)[q_{\text{cr}} C_{D,0}/(W/S) + (K/q_{\text{cr}})(W/S)]$ |
+| Takeoff ground roll | $s_\text{LO} = 1.44\,(W/S)/(\rho\,g\,C_{L,\max,\text{TO}}\,(T/W))$ |
+| Landing ground roll | $s_L = 1.69\,(W/S)/(\rho\,g\,C_{L,\max,L}\,\mu_r)$ |
+| Stall-speed limit | $W/S \le \tfrac12\,\rho_0\,V_\text{stall}^2\,C_{L,\max,L}$ |
+| Landing-roll limit | $W/S \le \rho_0\,g\,C_{L,\max,L}\,\mu_r\,s_L/1.69$ |
+| Takeoff line | $T/W \ge 1.44\,(W/S)/(\rho_0\,g\,C_{L,\max,\text{TO}}\,s_\text{LO})$ |
+| Climb line | $T/W \ge (R/C)/V + q\,C_{D,0}/(W/S) + K\,(W/S)/q$ |
+| Cruise line | $T/W \ge [q\,C_{D,0}/(W/S) + K\,(W/S)/q]/(\rho/\rho_0)^{m_\text{ad}}$ |
+| Ceiling line | $T/W \ge [2\sqrt{K\,C_{D,0}} + 0.5/V]/(\rho/\rho_0)^{m_\text{ad}}$ |
+| Power-to-weight ratio of a propeller aircraft (in flight) | $P/W = (T/W)\,V/\eta$ |
 
 :::
 
 :::{exercise} For discussion
 :label: ex-p55-discussion
 
-1. On {numref}`fig-p55-constraint-diagram`, which two requirements would force you to pick larger engines or a larger wing if they became $10\%$ stricter, and which requirements have slack?
-2. Why does the cruise curve slope downward with $W/S$ at low wing loading in {numref}`fig-p55-constraint-diagram`, while the takeoff line always slopes upward?
-3. If the medical transport must operate from a wet runway where braking friction $\mu_r$ drops from $0.40$ to $0.25$, how does the landing boundary move on the constraint diagram, and does it become active?
-4. How would adding slotted flaps that raise $C_{L,\max,\text{TO}}$ and $C_{L,\max,L}$ by $15\%$ shift the stall, landing, and takeoff boundaries?
+1. In {numref}`fig-p55-constraint-diagram`, which requirements would force a larger wing or larger engines if they became 10% stricter, and which have room to spare?
+2. Why does the cruise line slope downward at low wing loading, while the takeoff line always slopes upward?
+3. Suppose the light twin-jet must also land on a wet runway, where the braking friction drops from 0.40 to 0.25. How does the landing limit move, and does it become active?
+4. Better flaps raise both maximum lift coefficients by 15%. How do the stall limit, the landing limit, and the takeoff line move, and what happens to the design point?
 :::
 
 ## References
 
-- Anderson, J. D., Jr., *Introduction to Flight*, 8th ed., McGraw-Hill, 2016. Chapter 6, Sections 6.17 and 6.18.
-- Gudmundsson, S., *General Aviation Aircraft Design: Applied Methods and Procedures*, 2nd ed., Butterworth-Heinemann, 2022. Chapter 3, "Constraint Analysis."
-- Raymer, D. P., *Aircraft Design: A Conceptual Approach*, 6th ed., AIAA, 2018. Chapter 5, "Thrust-to-Weight Ratio and Wing Loading."
+- Anderson, J. D., Jr., *Introduction to Flight*, 8th ed., McGraw-Hill, 2016. Chapter 6.
+- Horne, W. B., and Leland, T. J. W., *[Influence of Tire Tread Pattern and Runway Surface Condition on Braking Friction and Rolling Resistance of a Modern Aircraft Tire](https://ntrs.nasa.gov/citations/19620005764)*, NASA TN D-1376, 1962.
+- Raymer, D. P., *Aircraft Design: A Conceptual Approach*, 6th ed., AIAA, 2018. Chapter 5 (thrust-to-weight ratio and wing loading) and Chapter 17 (takeoff and landing).
+- U.S. Code of Federal Regulations, Title 14, Part 25: [Section 25.113, Takeoff distance and takeoff run](https://www.law.cornell.edu/cfr/text/14/25.113), and [Section 25.125, Landing](https://www.law.cornell.edu/cfr/text/14/25.125).

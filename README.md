@@ -10,7 +10,8 @@ six quizzes), Chapter 2, Introduction to Orbits (five pages, 37 figures, four qu
 Chapter 3, Aerodynamics (four pages, 29 figures and a photograph, three quizzes),
 Chapter 4, Rocket Design (five pages, four of them for a standard and one on engines and
 tanks, 35 figures and two photographs, four quizzes), and Chapter 5, Aircraft Performance
-and Propulsion (five pages, 25 figures, four quizzes), are written and published. The site is published at
+and Propulsion (five pages, four of them for a standard and one on the constraint diagram and
+field length, 34 figures, four quizzes), are written and published. The site is published at
 https://thiagopurdue.github.io/AAE251_Lecture_Notes/.
 
 ## Layout

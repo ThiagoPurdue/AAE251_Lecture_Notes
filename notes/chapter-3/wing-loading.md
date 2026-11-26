@@ -225,7 +225,7 @@ In steady, level cruise the lift again equals the weight. So [](#eq-p34-lift-per
 \frac{W}{S} = q\,C_L = \tfrac12 \rho V^2 C_L
 :::
 
-The cruise altitude and airspeed fix the dynamic pressure $q$, and we choose the cruise $C_L$ to match the propulsion type. For a propeller aircraft flying for maximum range, the optimal cruise lift coefficient is the minimum-drag value $C_L^* = \sqrt{C_{D,0}/K}$ from [page 3.3](#p33-minimum-drag) (Nicolai and Carichner 2010, Section 6.2). For a jet aircraft cruising at constant altitude, flying faster than minimum-drag speed covers more distance per unit fuel burned, so the best-range lift coefficient is lower, $C_L = \sqrt{C_{D,0}/(3K)}$. We will derive both range conditions in Chapter 5; for now we use them as given.
+The cruise altitude and airspeed fix the dynamic pressure $q$, and we choose the cruise $C_L$ to match the propulsion type. For a propeller aircraft flying for maximum range, the optimal cruise lift coefficient is the minimum-drag value $C_L^* = \sqrt{C_{D,0}/K}$ from [page 3.3](#p33-minimum-drag) (Nicolai and Carichner 2010, Section 6.2). For a jet aircraft cruising at constant altitude, flying faster than minimum-drag speed covers more distance per unit fuel burned, so the best-range lift coefficient is lower, $C_L = \sqrt{C_{D,0}/(3K)}$. We will derive both range conditions in [Chapter 5](#p52-comparison); for now we use them as given.
 
 ### Worked example 3: an air-launched cruise missile
 

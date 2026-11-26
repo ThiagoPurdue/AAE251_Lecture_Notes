@@ -6,11 +6,16 @@ density rho0 = 1.2250 kg/m^3 come from chapter_1.atmosphere so every chapter sha
 
 Sources:
   - Anderson, J. D., Introduction to Flight, 8th ed. (McGraw-Hill, 2016), Chapters 6 and 9.
-  - Raymer, D. P., Aircraft Design: A Conceptual Approach, 4th ed. (AIAA, 2006), Chapters 5 and 17.
+  - Raymer, D. P., Aircraft Design: A Conceptual Approach, 6th ed. (AIAA, 2018), Chapters 5 and 17.
   - NASA Glenn Research Center, Beginner's Guide to Propulsion (jet thrust equation, bypass ratio,
     propulsive efficiency).
 
-Run this file for its unit checks:  python3 -B scripts/chapter_5/perf.py
+The unit checks of this module are in scripts/chapter_5/selftest.py:  python3 -B scripts/chapter_5/selftest.py
+
+Sections and their owners while the pages are improved in parallel: steady level flight (5.1),
+range and endurance (5.2), climb and ceiling (5.3), constraint diagram and field length (no-standard
+page), jet propulsion (5.4); "shared by several pages" (at the end) belongs to the chapter's shared
+code and changes only through the coordinator.
 """
 import math
 import sys
@@ -26,7 +31,7 @@ from chapter_1.atmosphere import G0, RHO_SL, standard, altitude_from_density, sp
 from chapter_3.aero import polar_K, polar_CD, min_drag_point, level_CL, dynamic_pressure  # noqa: E402
 
 # English-unit constants (NIST SP 811 / Anderson)
-G_EN = 32.174            # ft/s^2 (exact standard gravity in ft/s^2; Anderson Example 6.19 uses 32.17)
+G_EN = 32.174            # ft/s^2 (exact standard gravity in ft/s^2; the CJ-1 example of Anderson (2016), Chapter 6, uses 32.17)
 FT_PER_MI = 5280.0       # ft per statute mile
 FT_PER_M = 1.0 / 0.3048
 HP_TO_W = 745.7          # W per mechanical horsepower
@@ -194,6 +199,34 @@ def prop_fuel_for_endurance(m1, E, S, rho, eta, c, CL, CD, g=G0):
     return m1 - m2, m2
 
 
+def jet_fuel_for_endurance(m1, E, ct, CL, CD):
+    """Fuel mass m_f = m1 - m2 needed for a jet to stay aloft for time E (s) at constant C_L, kg:
+    the jet endurance equation solved for m2, m_f = m1 [1 - exp(-c_t E C_D / C_L)]. Returns (m_f, m2)."""
+    m2 = m1 * math.exp(-ct * E * CD / CL)
+    return m1 - m2, m2
+
+
+def jet_best_range_thrust(m, CD0, K, g=G0):
+    """Thrust required at the best-range lift coefficient of a jet, N: with C_L = sqrt(C_D,0 / (3K))
+    and C_D = (4/3) C_D,0, T_R = m g C_D / C_L = 4 m g sqrt(K C_D,0 / 3). It does not depend on the
+    density; it is 2/sqrt(3) = 1.155 times the minimum thrust required."""
+    return 4.0 * m * g * math.sqrt(K * CD0 / 3.0)
+
+
+def jet_best_range_throttle(m, CD0, K, n, T0, rho, m_ad, g=G0, rho0=RHO_SL):
+    """Throttle setting delta_t that makes the thrust available equal the best-range thrust required:
+    n delta_t T_0 (rho/rho_0)^m_ad = 4 m g sqrt(K C_D,0 / 3). A value above 1 means the engines cannot
+    hold the best-range condition at that density."""
+    return jet_best_range_thrust(m, CD0, K, g=g) / (n * T0 * (rho / rho0) ** m_ad)
+
+
+def jet_best_range_density_limit(m, CD0, K, n, T0, m_ad, g=G0, rho0=RHO_SL):
+    """Lowest density (kg/m^3) at which full throttle still gives the best-range thrust:
+    rho = rho_0 [4 m g sqrt(K C_D,0 / 3) / (n T_0)]^(1/m_ad). Returns dict(rho, h)."""
+    rho = rho0 * (jet_best_range_thrust(m, CD0, K, g=g) / (n * T0)) ** (1.0 / m_ad)
+    return dict(rho=rho, h=altitude_from_density(rho))
+
+
 # ===================================================================== climb and ceiling
 def climb_jet(m, S, CD0, K, rho, TA, V, g=G0):
     """Steady shallow-climb performance of a jet at speed V and available thrust T_A:
@@ -230,7 +263,7 @@ def jet_max_climb_angle(m, S, CD0, K, rho, TA, g=G0):
 
 def jet_max_roc(m, S, CD0, K, rho, TA, g=G0):
     """Maximum rate of climb of a jet at density rho and thrust available T_A (exact analytical speed
-    from d[(T_A - D)V]/dV = 0, Anderson Eq. 6.77). Returns dict(V, RC_max, gamma_deg, D, P_A, P_R)."""
+    from d[(T_A - D)V]/dV = 0, Anderson (2016), Chapter 6). Returns dict(V, RC_max, gamma_deg, D, P_A, P_R)."""
     W = m * g
     Z = 1.0 + math.sqrt(1.0 + 3.0 / (((1.0 / (2.0 * math.sqrt(K * CD0))) ** 2) * (TA / W) ** 2))
     V = math.sqrt((TA / (3.0 * rho * S * CD0)) * Z)
@@ -282,12 +315,12 @@ def ceiling_by_bisection(rc_of_h, target=SERVICE_CEILING_RC, h_lo=0.0, h_hi=2400
 
 # ===================================================================== constraint diagram & field length
 def takeoff_ground_roll(W, S, CL_max_TO, T, rho=RHO_SL, g=G0):
-    """Approximate takeoff ground roll (Anderson Section 6.15), m: s_LO = 1.44 W^2 / (g rho S C_L,max,TO T)."""
+    """Approximate takeoff ground roll (Anderson (2016), Chapter 6), m: s_LO = 1.44 W^2 / (g rho S C_L,max,TO T)."""
     return 1.44 * W ** 2 / (g * rho * S * CL_max_TO * T)
 
 
 def landing_ground_roll(W, S, CL_max_L, mu_r, rho=RHO_SL, g=G0):
-    """Approximate landing ground roll with braking friction mu_r (Anderson Section 6.16, drag & lift neglected), m:
+    """Approximate landing ground roll with braking friction mu_r (Anderson (2016), Chapter 6; drag and lift neglected), m:
     s_L = 1.69 W / (g rho S C_L,max,L mu_r)."""
     return 1.69 * W / (g * rho * S * CL_max_L * mu_r)
 
@@ -328,66 +361,138 @@ def propulsive_efficiency(V_inf, V_e):
     return 2.0 / (1.0 + np.asarray(V_e, dtype=float) / np.asarray(V_inf, dtype=float))
 
 
-# ===================================================================== unit checks
-def _close(a, b, rtol, what):
-    assert abs(a - b) <= rtol * max(abs(b), 1e-12), f"{what}: {a!r} vs {b!r}"
+# ===================================================================== shared by several pages
+# Owner: the chapter's shared code (pages 5.1, 5.3 and the no-standard page use these). Source of
+# every relation here: Anderson (2016), Chapter 6 (steady level flight, climb), with the lift curve
+# and the pitching-moment line of the example aircraft of `vehicles.py`.
+def lift_line(alpha_deg, CL0, CLa):
+    """Lift coefficient on the straight part of the lift curve, C_L = C_L,0 + C_L,alpha alpha
+    (alpha in degrees). Valid below the stall only: compare the result with C_L,max."""
+    return CL0 + CLa * np.asarray(alpha_deg, dtype=float)
 
 
-if __name__ == "__main__":
-    # 1. Minimum thrust and power match dense numerical grid
-    m, S, CD0, K, rho = 15000.0, 48.0, 0.020, 0.045, 0.90
-    V = np.linspace(40.0, 300.0, 200001)
-    T0, Ti, TR = thrust_required_parts(m, S, CD0, K, rho, V)
-    P0_, Pi_, PR = power_required_parts(m, S, CD0, K, rho, V)
-    mt = min_thrust_condition(m, S, CD0, K, rho)
-    mp = min_power_condition(m, S, CD0, K, rho)
-    _close(float(V[np.argmin(TR)]), mt["V"], 1e-4, "V_TR,min matches grid")
-    _close(float(np.min(TR)), mt["T_min"], 1e-7, "T_R,min matches grid")
-    _close(float(V[np.argmin(PR)]), mp["V"], 1e-4, "V_PR,min matches grid")
-    _close(float(np.min(PR)), mp["P_min"], 1e-7, "P_R,min matches grid")
-    _close(mp["V"] / mt["V"], 3.0 ** (-0.25), 1e-12, "V_PR,min / V_TR,min = 3^(-1/4)")
-    # At V_PR,min: induced drag is 3x parasite drag
-    T0p, Tip, _ = thrust_required_parts(m, S, CD0, K, rho, mp["V"])
-    _close(float(Tip), 3.0 * float(T0p), 1e-10, "at V_PR,min, D_i = 3 D_0")
-    # At jet best range: parasite drag is 3x induced drag
-    jr = jet_best_range_polar(CD0, K)
-    _close(K * jr["CL"] ** 2, CD0 / 3.0, 1e-12, "at jet best range, D_0 = 3 D_i")
-    # 2. Jet and prop Vmax satisfy T_R = T_A and P_R = P_A
-    vlo, vhi = jet_speed_bounds(m, S, CD0, K, rho, 2.2 * mt["T_min"])
-    _close(float(thrust_required(m, S, CD0, K, rho, vhi)), 2.2 * mt["T_min"], 1e-10, "jet Vmax exact")
-    _close(float(thrust_required(m, S, CD0, K, rho, vlo)), 2.2 * mt["T_min"], 1e-10, "jet Vlow exact")
-    vpmax, _ = prop_vmax(m, S, CD0, K, rho, 3.0 * mp["P_min"])
-    _close(float(power_required(m, S, CD0, K, rho, vpmax)), 3.0 * mp["P_min"], 1e-9, "prop Vmax exact")
-    # 3. Range and endurance round-trips with fuel solvers
-    R_test = jet_range(m, 0.8 * m, S, rho, 1.7e-4, jr["CL"], jr["CD"])
-    mf_back, _ = jet_fuel_for_range(m, R_test, S, rho, 1.7e-4, jr["CL"], jr["CD"])
-    _close(mf_back, 0.2 * m, 1e-10, "jet range fuel round-trip")
-    Rp_test = prop_range(m, 0.85 * m, 0.82, 7.0e-7, mt["CL"], mt["CD"])
-    mfp_back, _ = prop_fuel_for_range(m, Rp_test, 0.82, 7.0e-7, mt["CL"], mt["CD"])
-    _close(mfp_back, 0.15 * m, 1e-10, "prop range fuel round-trip")
-    Ep_test = prop_endurance(m, 0.85 * m, S, rho, 0.82, 7.0e-7, mp["CL"], mp["CD"])
-    mfe_back, _ = prop_fuel_for_endurance(m, Ep_test, S, rho, 0.82, 7.0e-7, mp["CL"], mp["CD"])
-    _close(mfe_back, 0.15 * m, 1e-10, "prop endurance fuel round-trip")
-    # 4. Jet max R/C matches dense numerical search, and analytical ceiling matches bisection
-    TA_c = 2.0 * mt["T_min"]
-    rc_an = jet_max_roc(m, S, CD0, K, rho, TA_c)
-    rc_grid = float(np.max(climb_jet(m, S, CD0, K, rho, TA_c, V)["RC"]))
-    _close(rc_an["RC_max"], rc_grid, 1e-6, "jet max R/C analytical vs grid")
-    jc = jet_absolute_ceiling(m, CD0, K, 2, 1.1 * mt["T_min"], 0.7)
-    h_bis = ceiling_by_bisection(
-        lambda h: jet_max_roc(m, S, CD0, K, standard(h)[2],
-                              thrust_available(2, 1.1 * mt["T_min"], standard(h)[2], 0.7))["RC_max"],
-        target=0.0,
-    )
-    _close(jc["h_abs"], h_bis, 1e-4, "jet analytical ceiling matches bisection")
-    pc = prop_absolute_ceiling(m, S, CD0, K, 2, 1.8 * mp["P_min"], 0.80, 0.85)
-    hp_bis = ceiling_by_bisection(
-        lambda h: prop_max_roc(m, S, CD0, K, standard(h)[2],
-                               power_available(2, 1.8 * mp["P_min"], 0.80, standard(h)[2], 0.85))["RC_max"],
-        target=0.0,
-    )
-    _close(pc["h_abs"], hp_bis, 1e-4, "prop analytical ceiling matches bisection")
-    # 5. Propulsive efficiency bounds
-    _close(float(propulsive_efficiency(200.0, 200.0)), 1.0, 1e-12, "eta_p = 1 when V_e = V_inf")
-    _close(float(propulsive_efficiency(200.0, 600.0)), 0.5, 1e-12, "eta_p = 0.5 when V_e = 3 V_inf")
-    print("perf.py: all unit checks passed")
+def alpha_for_CL(CL, CL0, CLa):
+    """Angle of attack (deg) on the straight lift curve for a lift coefficient: (C_L - C_L,0) / C_L,alpha."""
+    return (np.asarray(CL, dtype=float) - CL0) / CLa
+
+
+def level_flight_at_speed(m, S, CD0, K, rho, V, CL0=None, CLa=None, g=G0):
+    """Steady level flight at a given true airspeed V (the "speed given" problem). Assumes the thrust
+    acts along the flight path or at a small angle to it, so L = m g and T_R = D. Returns
+    dict(CL, CD, LD, L, D, T_R, P_R) and, when the lift curve is given, alpha (deg). The caller checks
+    the result against C_L,max and against the thrust or power available."""
+    W = m * g
+    V = np.asarray(V, dtype=float)
+    q = 0.5 * rho * V ** 2
+    CL = W / (q * S)
+    CD = CD0 + K * CL ** 2
+    D = q * S * CD
+    out = dict(CL=CL, CD=CD, LD=CL / CD, L=W + 0.0 * V, D=D, T_R=D, P_R=D * V)
+    if CL0 is not None and CLa is not None:
+        out["alpha"] = alpha_for_CL(CL, CL0, CLa)
+    return out
+
+
+def level_flight_at_alpha(m, S, CD0, K, rho, alpha_deg, CL0, CLa, g=G0):
+    """Steady level flight at a given angle of attack (the "angle of attack given" problem): the lift
+    curve gives C_L, the polar gives C_D, then V = sqrt(2 m g / (rho S C_L)), T_R = m g / (L/D),
+    P_R = T_R V. Needs C_L > 0 (a positive angle above zero lift). Returns
+    dict(alpha, CL, CD, LD, V, L, D, T_R, P_R)."""
+    W = m * g
+    CL = lift_line(alpha_deg, CL0, CLa)
+    if np.any(CL <= 0.0):
+        raise ValueError("level flight needs a positive lift coefficient")
+    CD = CD0 + K * CL ** 2
+    V = np.sqrt(2.0 * W / (rho * S * CL))
+    TR = W * CD / CL
+    return dict(alpha=np.asarray(alpha_deg, dtype=float), CL=CL, CD=CD, LD=CL / CD, V=V,
+                L=W + 0.0 * CL, D=TR, T_R=TR, P_R=TR * V)
+
+
+def thrust_required_vs_alpha(m, CD0, K, CL0, CLa, alpha_deg, g=G0):
+    """Thrust required in steady level flight against angle of attack: T_R = m g / (L/D), with C_L from
+    the lift curve and C_D from the polar. The density and the wing area do not enter: at one angle of
+    attack the aircraft needs the same thrust at every altitude (only the speed changes). Returns
+    dict(alpha, CL, CD, LD, T_R) for the angles where C_L > 0."""
+    a = np.asarray(alpha_deg, dtype=float)
+    CL = lift_line(a, CL0, CLa)
+    keep = CL > 0.0
+    a, CL = a[keep], CL[keep]
+    CD = CD0 + K * CL ** 2
+    return dict(alpha=a, CL=CL, CD=CD, LD=CL / CD, T_R=m * g * CD / CL)
+
+
+def trim_elevator(alpha_deg, CM0, CMa, CMde):
+    """Elevator angle (deg) that makes the pitching moment zero (trim) at angle of attack alpha:
+    C_M = C_M,0 + C_M,alpha alpha + C_M,de delta_e = 0, so delta_e = -(C_M,0 + C_M,alpha alpha) / C_M,de.
+    The sign of the answer follows the convention of the coefficients (vehicles.py states it)."""
+    return -(CM0 + CMa * np.asarray(alpha_deg, dtype=float)) / CMde
+
+
+def level_speed_range(m, S, CD0, K, rho, CLmax, available_, kind, g=G0):
+    """The speeds at which steady level flight is possible at density rho, for a jet (kind="jet",
+    available_ = thrust available T_A, N, taken constant with speed) or a propeller aircraft
+    (kind="prop", available_ = power available P_A, W, taken constant with speed).
+    The low end is the higher of the stall speed and the low-speed crossing of available and
+    required; the high end is the high-speed crossing. Returns dict(V_stall, V_low, V_min, V_max,
+    low_limit) with low_limit "stall" or "thrust" or "power"; V_min and V_max are None when the
+    aircraft cannot hold level flight there (available below the minimum required)."""
+    Vs = stall_speed_mass(m, S, CLmax, rho, g=g)
+    if kind == "jet":
+        v_lo, v_hi = jet_speed_bounds(m, S, CD0, K, rho, available_, g=g)
+    elif kind == "prop":
+        v_hi, _ = prop_vmax(m, S, CD0, K, rho, available_, g=g)
+        v_lo = None
+        if v_hi is not None:                      # low crossing: bisection between a slow speed and V_PR,min
+            lo, hi = 1.0e-3, min_power_condition(m, S, CD0, K, rho, g=g)["V"]
+            for _ in range(200):
+                mid = 0.5 * (lo + hi)
+                if float(power_required(m, S, CD0, K, rho, mid, g=g)) > available_:
+                    lo = mid
+                else:
+                    hi = mid
+            v_lo = 0.5 * (lo + hi)
+    else:
+        raise ValueError("kind is 'jet' or 'prop'")
+    if v_hi is None:
+        return dict(V_stall=Vs, V_low=None, V_min=None, V_max=None, low_limit=None)
+    if v_hi <= Vs:
+        return dict(V_stall=Vs, V_low=v_lo, V_min=None, V_max=None, low_limit="stall")
+    low_limit = "stall" if Vs >= v_lo else ("thrust" if kind == "jet" else "power")
+    return dict(V_stall=Vs, V_low=v_lo, V_min=max(Vs, v_lo), V_max=v_hi, low_limit=low_limit)
+
+
+def climb_required(m, S, CD0, K, rho, V, gamma_deg, g=G0, small_angle=False):
+    """Thrust and power required in a steady climb at speed V and climb angle gamma (thrust along
+    the flight path): L = m g cos(gamma), T_R = D + m g sin(gamma), with
+    D = 1/2 rho V^2 S C_D,0 + 2 K (m g cos(gamma))^2 / (rho S V^2), and P_R = T_R V.
+    small_angle=True uses cos(gamma) = 1 and sin(gamma) = gamma (radians), the form in which the
+    level-flight curves are simply raised by m g gamma (thrust) and m g gamma V (power). Returns
+    dict(parasite, induced, weight_part, T_R, P_R), each in N except P_R in W."""
+    W = m * g
+    V = np.asarray(V, dtype=float)
+    gr = math.radians(gamma_deg)
+    c, s = (1.0, gr) if small_angle else (math.cos(gr), math.sin(gr))
+    qS = 0.5 * rho * V ** 2 * S
+    par = qS * CD0
+    ind = K * (W * c) ** 2 / qS
+    wp = W * s + 0.0 * V
+    TR = par + ind + wp
+    return dict(parasite=par, induced=ind, weight_part=wp, T_R=TR, P_R=TR * V)
+
+
+def climb_hodograph(m, S, CD0, K, rho, V, available_, kind, g=G0):
+    """The climb hodograph: vertical speed (rate of climb, R/C) against horizontal speed V cos(gamma)
+    for every airspeed V, in the shallow-climb model of climb_jet and climb_prop (drag at L = m g;
+    kind "jet" with thrust available T_A in N, "prop" with power available P_A in W). The tangent
+    from the origin to the curve touches it at the steepest climb (largest gamma); the top of the
+    curve is the fastest climb (largest R/C). Returns dict(V, Vh, Vv, gamma_deg, steepest, fastest),
+    steepest and fastest each dict(V, Vh, Vv, gamma_deg) at the best grid point of V (pass a dense V)."""
+    V = np.asarray(V, dtype=float)
+    c = (climb_jet if kind == "jet" else climb_prop)(m, S, CD0, K, rho, available_, V, g=g)
+    gam = np.asarray(c["gamma_deg"], dtype=float)
+    Vv = np.asarray(c["RC"], dtype=float)
+    Vh = V * np.cos(np.radians(gam))
+    i_s, i_f = int(np.argmax(gam)), int(np.argmax(Vv))
+    pick = lambda i: dict(V=float(V[i]), Vh=float(Vh[i]), Vv=float(Vv[i]), gamma_deg=float(gam[i]))  # noqa: E731
+    return dict(V=V, Vh=Vh, Vv=Vv, gamma_deg=gam, steepest=pick(i_s), fastest=pick(i_f))
