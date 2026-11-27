@@ -3,12 +3,12 @@ title: "Engines and tanks"
 short_title: Engines and tanks
 ---
 
-Pages 4.2 to 4.4 gave us a propellant mass for each stage ([sizing a stage](#p42-stage-sizing)). Knowing the propellant mass alone does not give us the hardware dimensions. On this page, we size the engine that burns the propellant and the tanks that hold it, and we estimate how much cryogenic propellant boils away while the stage is on the pad or coasting in space. No course standard is assessed on this page.
+Pages 4.2 to 4.4 gave us a propellant mass for each stage ([sizing a stage](#p42-stage-sizing)). Knowing the propellant mass alone does not give us the hardware dimensions. On this page, we size the engine that burns the propellant and the tanks that store it, and we estimate how much cryogenic propellant boils away while the stage is on the pad or coasting in space. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - The thrust and the specific impulse set the mass flow, $\dot m = F/(I_\text{sp}\,g_0)$, and the propellant load then sets the burn time, $t_b = m_\text{prop}/\dot m$.
 - The same flow passes through the throat, $\dot m = p_c A_t/c^*$. A higher chamber pressure gives a smaller engine but needs a stronger chamber and feed system.
-- Each tank holds its share of the propellant, split with the mixture ratio, plus a gas space called ullage. The mass of its wall grows with its pressure times its volume.
+- Each tank carries its share of the propellant, split with the mixture ratio, plus a gas space called ullage. The mass of its wall grows with its pressure times its volume.
 - Heat that leaks into a cryogenic tank boils propellant away at the rate $\dot Q/h_\text{vap}$. That loss is small over a few days, but it becomes a large share of the propellant over several months.
 :::
 
@@ -35,7 +35,7 @@ If we substitute [](#eq-p45-mass-flow) into [](#eq-p45-burn-time) and rearrange,
 
 ### Worked example 1: the main engines of the Space Shuttle
 
-The Space Shuttle had three RS-25 main engines, fed by the External Tank. At rated power, 100% of its design thrust, each engine gives 470,000 lbf (2,090,664 N) in vacuum with a specific impulse of 455.2 s. The tank holds 616,493 kg of liquid oxygen and 102,618 kg of liquid hydrogen, 719,112 kg in all (the source's total; NASA 1981, pp. 2-4 and 2-34). Find the mass flow of one engine and the time the three engines take to empty the tank.
+The Space Shuttle had three RS-25 main engines, fed by the External Tank. At rated power, 100% of its design thrust, each engine gives 470,000 lbf (2,090,664 N) in vacuum with a specific impulse of 455.2 s. The tank carries 616,493 kg of liquid oxygen and 102,618 kg of liquid hydrogen, 719,112 kg in all (the source's total; NASA 1981, pp. 2-4 and 2-34). Find the mass flow of one engine and the time the three engines take to empty the tank.
 
 1. **Mass flow of one engine**, [](#eq-p45-mass-flow):
    $$
@@ -136,7 +136,7 @@ A launch vehicle needs a thrust-to-weight ratio a little above 1 to leave the pa
 The propellants must enter the chamber above $p_c$. We have two ways to get them there ({numref}`fig-p45-feed-systems`; Huzel and Huang 1967, Section 1.5, Figures 1-12 and 1-13):
 
 - A {term}`pressure-fed` engine pushes the propellants out of the tanks with a gas, usually helium, stored in a bottle at high pressure. A regulator keeps the tank pressure steady. Because there is no rotating turbomachinery, the system is simple, but the tanks must withstand a pressure higher than the chamber pressure.
-- A pump-fed engine raises the pressure with a {term}`turbopump`: a pump for each propellant, driven by a turbine on the same shaft. On the F-1 and the J-2 a small gas generator burns a little of both propellants to drive the turbine (NASA 1968a, 1968b). The tanks need only enough pressure to feed the pumps.
+- A pump-fed engine raises the pressure with a {term}`turbopump`, which pairs a pump for each propellant with a turbine on the same shaft. On the F-1 and the J-2 a small gas generator burns a little of both propellants to drive the turbine (NASA 1968a, 1968b). The tanks need only enough pressure to feed the pumps.
 
 Pump-fed booster stages run their tanks at 30 to 100 psia (0.2 to 0.7 MPa). Pressure-fed upper stages run theirs at 100 to 400 psia, up to 2.8 MPa (Huzel and Huang 1967, Section 8.1). The heavier tanks show in the propellant fraction, the share of the stage's own loaded mass that is propellant, or one minus the {term}`inert mass fraction`. Typical values are 0.94 for pump-fed stages and 0.89 for pressure-fed stages (Huzel and Huang 1967, Section 2.1).
 
@@ -161,14 +161,14 @@ m_\text{fuel} &= \frac{m_\text{prop}}{1 + \text{O/F}}
 \end{aligned}
 :::
 
-Each liquid takes the volume $\mathcal{V} = m/\rho$. We never fill a tank to the top: we leave a gas space, the {term}`ullage`, for the pressurizing gas and for the liquid to expand as it warms. Huzel and Huang (1967, Eq. 8-1, Sample Calculation 8-1) allow 2.5%. With an ullage fraction $u$ of the liquid volume, the tank volume is
+Each liquid takes the volume $\mathcal{V} = m/\rho$, but we never fill a tank to the top. We leave a gas space, the {term}`ullage`, for the pressurizing gas and for the liquid to expand as it warms. Huzel and Huang (1967, Eq. 8-1, Sample Calculation 8-1) allow 2.5%. With an ullage fraction $u$ of the liquid volume, the tank volume is
 
 :::{math}
 :label: eq-p45-tank-volume
 \mathcal{V}_\text{tank} = (1 + u)\,\frac{m}{\rho}
 :::
 
-For a given volume, a sphere is the lightest pressure vessel: it has the least surface and the lowest wall stress (Huzel and Huang 1967, Section 8.2). A sphere of volume $\mathcal{V}_\text{tank}$ has the diameter
+For a given volume, a sphere is the lightest pressure vessel because it has the least surface area and the lowest wall stress (Huzel and Huang 1967, Section 8.2). A sphere of volume $\mathcal{V}_\text{tank}$ has the diameter
 
 :::{math}
 :label: eq-p45-sphere
@@ -241,7 +241,7 @@ An upper stage carries 12,000 kg of liquid oxygen and kerosene at a mixture rati
    \end{aligned}
    $$
 
-**Check.** Both spheres are smaller than the 3.0 m stage, so they fit, one above the other, in 4.51 m of its length ({numref}`fig-p45-tanks-in-stage`). The oxygen is 71.9% of the propellant mass but only 64.2% of the tank volume. Its tank holds 2.56 times the kerosene's mass in 1.79 times the volume, because liquid oxygen is denser.
+**Check.** Both spheres are smaller than the 3.0 m stage, so they fit, one above the other, in 4.51 m of its length ({numref}`fig-p45-tanks-in-stage`). The oxygen is 71.9% of the propellant mass but only 64.2% of the tank volume. Its tank stores 2.56 times the kerosene's mass in 1.79 times the volume, because liquid oxygen is denser.
 
 :::{figure} figures/p45-tanks-in-stage.svg
 :label: fig-p45-tanks-in-stage
@@ -257,7 +257,7 @@ If you size a tank to $m/\rho$ alone, it has no gas space. Add the ullage, and u
 
 ### The tank wall
 
-Next we find how thick a tank wall must be to hold its pressure, and what mass that adds. The internal pressure $p$ pushes outward on the wall, placing the wall in tension. We call this tensile force per unit wall area the {term}`hoop stress`, $\sigma$, and we find it from a force balance ({numref}`fig-p45-tank-wall`). Cut a thin-walled cylinder of radius $r$, length $L$, and wall thickness $t_\text{w}$ in half along its length. The pressure pushes the two halves apart with the force $p \times 2rL$, and the two cut walls hold them together with $\sigma \times 2t_\text{w}L$. Setting the two equal gives $\sigma = p\,r/t_\text{w}$. If we cut a sphere through its center instead, the pressure acts over the circular area $\pi r^2$ while the wall stress acts over the ring area $2\pi r\,t_\text{w}$, so the stress is half as large:
+Next we find how thick a tank wall must be to withstand its internal pressure, and what mass that adds. The internal pressure $p$ pushes outward on the wall, placing the wall in tension. We call this tensile force per unit wall area the {term}`hoop stress`, $\sigma$, and we find it from a force balance ({numref}`fig-p45-tank-wall`). Cut a thin-walled cylinder of radius $r$, length $L$, and wall thickness $t_\text{w}$ in half along its length. The pressure pushes the two halves apart with the force $p \times 2rL$, and the two cut walls hold them together with $\sigma \times 2t_\text{w}L$. Setting the two equal gives $\sigma = p\,r/t_\text{w}$. If we cut a sphere through its center instead, the pressure acts over the circular area $\pi r^2$ while the wall stress acts over the ring area $2\pi r\,t_\text{w}$, so the stress is half as large:
 
 :::{math}
 :label: eq-p45-hoop
@@ -272,7 +272,7 @@ Next we find how thick a tank wall must be to hold its pressure, and what mass t
 :alt: Two free bodies side by side: left, half of a cylinder cut along its length; right, half of a sphere cut through its center. Each is a hatched half ring labeled wall, t w, with pressure arrows, named in a key, pushing outward on its inside, normal to it, and a heavy arrow labeled sigma, the wall stress, pointing down from each cut end. Below each, the cut seen from below: for the cylinder a light rectangle 2r wide and L long, marked 2rL, between two hatched wall strips; for the sphere a light disk of radius r, marked pi r squared, inside a hatched ring. Under them, the force balances give sigma equals p r over t w for the cylinder and p r over 2 t w for the sphere.
 :width: 90%
 
-Schematic, not to scale; wall thickness exaggerated. A sphere holds the same pressure at half the wall stress of a cylinder of the same radius and wall: for the same area inside the cut, it has twice as much wall. The pressure on the inside of each half adds up to the pressure times the area inside the cut, and the cut wall carries that force.
+Schematic, not to scale; wall thickness exaggerated. A sphere withstands the same pressure at half the wall stress of a cylinder of the same radius and wall thickness, because it has twice as much wall for the same cut area. The pressure on the inside of each half adds up to the pressure times the area inside the cut, and the cut wall carries that force.
 :::
 
 Huzel and Huang (1967, Eqs. 8-11 and 8-30) solve these for the wall thickness at an allowable stress $\sigma_\text{allow}$, with the welds taken as strong as the plate (a weld efficiency of 1). The allowable stress is the highest stress the design lets the material carry, below its yield strength. For a sphere, $t_\text{w} = p\,r/(2\sigma_\text{allow})$. Its wall mass is area times thickness times the density $\rho_\text{w}$ of the wall material. With $\mathcal{V} = \tfrac{4}{3}\pi r^3$,
@@ -323,12 +323,12 @@ Take the oxygen sphere of worked example 2, of radius $2.475/2 = 1.238$ m, made 
    \end{aligned}
    $$
 
-**Check.** The pump-fed wall, 0.847 mm, is above the thinnest aluminum stock Huzel and Huang recommend for tanks, 0.020 in (0.508 mm). A real tank is heavier, because its walls also carry thrust, bending, and handling loads, and its welds need extra thickness (Huzel and Huang 1967, Section 8.2). The comparison holds all the same: the pressure-fed tank is almost seven times heavier.
+**Check.** The pump-fed wall, 0.847 mm, is above the thinnest aluminum stock Huzel and Huang recommend for tanks, 0.020 in (0.508 mm). A real tank is heavier, because its walls also carry thrust, bending, and handling loads, and its welds need extra thickness (Huzel and Huang 1967, Section 8.2). The main result stays the same, with the pressure-fed tank almost seven times heavier.
 
 (p45-boil-off)=
 ## Boil-off
 
-Liquid oxygen and liquid hydrogen are {term}`cryogenic propellants <cryogenic propellant>` that remain liquid only at temperatures far below room temperature. At atmospheric pressure, liquid hydrogen boils at 20.27 K (NIST 2023). Because the propellant is stored at its boiling point, heat that leaks into the tank does not raise the liquid temperature. Instead, it vaporizes some of the liquid, and the vapor must be vented to keep the tank pressure steady. This loss is {term}`boil-off`.
+Liquid oxygen and liquid hydrogen are {term}`cryogenic propellants <cryogenic propellant>` that remain liquid only at temperatures far below room temperature. At atmospheric pressure, liquid hydrogen boils at 20.27 K (NIST 2023). Because the propellant is stored at its boiling point, heat that leaks into the tank does not raise the liquid temperature. Instead, it vaporizes some of the liquid, and the vapor must be vented to keep the tank pressure steady. We call this loss {term}`boil-off`.
 
 The energy that boils one kilogram of a liquid at its boiling point is its {term}`heat of vaporization`, $h_\text{vap}$. At atmospheric pressure it is 446.1 kJ/kg for hydrogen and 213.1 kJ/kg for oxygen (NIST 2023). The hydrogen values are NIST's for parahydrogen, the form that stored liquid hydrogen settles into (Leachman et al. 2009, Section 3). The values for normal hydrogen, the room-temperature mixture, differ by less than 1%. If heat leaks in at the steady rate $\dot Q$, in watts, and all of it boils liquid, we get the boil-off rate
 
@@ -337,7 +337,7 @@ The energy that boils one kilogram of a liquid at its boiling point is its {term
 \dot m_\text{boil} = \frac{\dot Q}{h_\text{vap}}
 :::
 
-The units check: W over J/kg is (J/s)(kg/J) = kg/s.
+Checking the units, W divided by J/kg equals (J/s)(kg/J) = kg/s.
 
 ### Worked example 4: a hydrogen stage on a four-day coast
 
@@ -386,12 +386,12 @@ Computed: the loss grows in proportion to time and to the heat leak, tens of kil
 There are four ways to keep the loss small (Plachta, Johnson, and Feller 2014; Huzel and Huang 1967, Section 8.1):
 
 - **Insulation.** Multilayer insulation, many thin reflective sheets around the tank, cuts the heat leak.
-- **A shorter wait.** The loss is proportional to the coast time, so a mission that burns sooner loses less.
+- **A shorter coast.** The loss is proportional to the coast time, so a mission that burns sooner loses less.
 - **Active cooling.** A cryocooler, a small refrigerator, removes incoming heat, though it requires electric power and adds hardware mass. In a NASA test it stopped the boil-off of liquid oxygen and cut that of liquid hydrogen by 60% (Plachta, Johnson, and Feller 2014).
 - **Storable propellants.** A propellant that is liquid at room temperature does not boil away; kerosene, for example, boils only above 172 °C (Huzel and Huang 1967, Table 1-4), and hypergolic pairs are storable in both tanks. The trade-off is a lower specific impulse.
 
 :::{warning} Watch the units of the heat of vaporization
-Tables give $h_\text{vap}$ in kJ/kg. If you divide watts by kJ/kg, your boil-off rate comes out 1,000 times too large. Convert to J/kg first. The rate is then in kg/s: multiply by 86,400 for a loss per day.
+Tables usually give $h_\text{vap}$ in kJ/kg, so if you divide watts by kJ/kg, your boil-off rate comes out 1,000 times too large. Convert $h_\text{vap}$ to J/kg first, which gives the rate in kg/s, and multiply by 86,400 to find the loss per day.
 :::
 
 ## Summary
@@ -399,7 +399,7 @@ Tables give $h_\text{vap}$ in kJ/kg. If you divide watts by kJ/kg, your boil-off
 :::{important} Summary
 - An engine burns $\dot m = F/(I_\text{sp}\,g_0)$ each second and empties its tanks in $t_b = m_\text{prop}/\dot m$.
 - The flow through the throat is $\dot m = p_c A_t/c^*$, where $c^*$ depends on the propellants and their mixture ratio. Halving the chamber pressure doubles the throat. Large engines weigh about one seventieth of their thrust.
-- A pump-fed engine keeps its tanks at low pressure; a pressure-fed engine is simpler but needs heavier tanks. Each tank holds its share of the propellant, split with the mixture ratio, plus ullage, and its wall mass grows with pressure times volume.
+- A pump-fed engine keeps its tanks at low pressure; a pressure-fed engine is simpler but needs heavier tanks. Each tank stores its share of the propellant, split with the mixture ratio, plus ullage, and its wall mass grows with pressure times volume.
 - A cryogenic propellant boils away at the rate $\dot Q/h_\text{vap}$. That loss is small over a few days, but it becomes a large share of the propellant over several months.
 :::
 

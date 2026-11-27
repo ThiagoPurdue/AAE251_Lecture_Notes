@@ -11,13 +11,13 @@ Before we can analyze aerodynamics or size a vehicle, we need a shared engineeri
 :::{note} What to take from this page
 - An airplane is a few large parts with one job each. The {term}`fuselage` carries the payload, the wing makes the lift, the tail keeps the aircraft steady, the engines push, and the landing gear carries it on the ground.
 - Three rotations, {term}`roll`, {term}`pitch`, and {term}`yaw`, turn the aircraft about three body axes through its center of gravity. The ailerons, the elevator, and the rudder command them. Flaps, slats, and spoilers change the lift and the drag of the wing.
-- A wing is described by its span $b$, area $S$, root and tip chords, taper ratio $\lambda$, sweep, aspect ratio $\textit{AR} = b^2/S$, and mean aerodynamic chord. An airfoil is described by its chord, camber, and thickness, which a NACA four-digit number gives directly.
+- A wing is described by its span $b$, area $S$, root chord, tip chord, taper ratio $\lambda$, sweep, aspect ratio $\textit{AR} = b^2/S$, and mean aerodynamic chord. An airfoil is described by its chord, camber, and thickness, which a NACA four-digit number gives directly.
 - A launch vehicle is a stack of {term}`stages <Stage>`, each with its own tanks and engines, dropped one after the other. A mission profile cuts a flight into numbered segments.
 :::
 
 ## The parts of an airplane
 
-An airliner looks complicated, but it is built from a few large parts, each with one main job. {numref}`fig-p13-airframe-side` names them on the Boeing 737-800, a twin-engine airliner.
+An airliner looks complicated, but we can break it down into a few large parts, each with one main job. We start with the Boeing 737-800, a twin-engine airliner, shown in {numref}`fig-p13-airframe-side`.
 
 :::{figure} figures/p13-airframe-side.svg
 :label: fig-p13-airframe-side
@@ -44,11 +44,11 @@ Schematic of the airliner from the side: a few large parts, each with one job. T
 | Winglet | Rises nearly vertically at the wing tip; weakens the wingtip vortex and reduces drag |
 :::
 
-The two stabilizers keep the aircraft pointed into the airflow, as the tail of a weathervane keeps it pointed into the wind. If a gust pitches the nose up, the horizontal stabilizer meets the air at a new angle, and the force it then makes swings the nose back down. The vertical stabilizer does the same when a gust swings the nose to one side. We call this tendency to return to steady flight, with no action from the pilot, **{term}`stability`** (FAA 2023a, Chapter 5).
+The two stabilizers keep the aircraft pointed into the airflow, as the tail of a weathervane keeps it pointed into the wind. If a gust pitches the nose up, the horizontal stabilizer encounters the airflow at a new angle, and the resulting aerodynamic force swings the nose back down. The vertical stabilizer does the same when a gust swings the nose to one side. We call this tendency to return to steady flight, with no action from the pilot, **{term}`stability`** (FAA 2023a, Chapter 5).
 
-Each engine sits in a streamlined casing, the **nacelle**, and hangs from a short **pylon** under the wing. You do not see the pylon in the side view of {numref}`fig-p13-airframe-side`; the view from above, {numref}`fig-p13-moving-surfaces`, shows it. Near the nose, a pitot tube and small static ports feed the airspeed indicator and the altimeter. We come back to them in [pitot-static instruments](#p15-pitot-static).
+Each engine is housed in a streamlined casing, the **nacelle**, and hangs from a short **pylon** under the wing. You do not see the pylon in the side view of {numref}`fig-p13-airframe-side`; the view from above, {numref}`fig-p13-moving-surfaces`, shows it. Near the nose, a pitot tube and small static ports feed the airspeed indicator and the altimeter. We come back to them in [pitot-static instruments](#p15-pitot-static).
 
-The view from ahead, {numref}`fig-p13-front-view`, shows three more features. The wing rises from the root to the tip, and the upward angle it makes with the horizontal is the **{term}`dihedral`** angle, 6° on the 737-800 drawing. Dihedral helps the wings roll level after a gust. A gust that rolls the aircraft also makes it slip sideways toward the low wing. With dihedral, the low wing then meets the air at a steeper angle and makes more lift than the high wing, and the wings roll level again (FAA 2023a, Chapter 5).
+Next we look from ahead in {numref}`fig-p13-front-view`, which shows three more features. The wing rises from the root to the tip, and the upward angle it makes with the horizontal is the **{term}`dihedral`** angle, 6° on the 737-800 drawing. Dihedral helps the wings roll level after a gust. A gust that rolls the aircraft also makes it slip sideways toward the low wing. With dihedral, the low wing then encounters the airflow at a steeper angle and produces more lift than the high wing, rolling the wings level again (FAA 2023a, Chapter 5).
 
 The engines hang low and close to the fuselage. At each wing tip a **{term}`winglet`** rises nearly vertically. Because air flows around the wing tip from the high-pressure lower surface to the low-pressure upper surface, it rolls up into a wingtip vortex that creates extra drag that the engines must overcome; the winglet weakens that vortex.
 
@@ -61,7 +61,7 @@ Schematic of the airliner from ahead. The wing rises toward the tips at the dihe
 :::
 
 :::{warning} Stabilizer or control surface
-The horizontal and vertical stabilizers do not move: they keep the aircraft steady. The elevator and the rudder are the moving surfaces hinged to their trailing edges, and they turn the aircraft. On a drawing, check whether the part named is the fixed surface or the hinged one behind it.
+The horizontal and vertical stabilizers are fixed surfaces that keep the aircraft steady. The elevator and the rudder are the moving surfaces hinged to their trailing edges, and they turn the aircraft. On a drawing, check whether the part named is the fixed surface or the hinged one behind it.
 :::
 
 ## Axes and control surfaces
@@ -84,7 +84,7 @@ The axes form a right-handed set. Curl the fingers of your right hand from $x$ t
 Schematic of the body axes in three views. Each rotation turns the aircraft about one body axis, and one set of surfaces commands it: the elevator pitches, the rudder yaws, and the ailerons roll. Each curved arrow shows the positive sense. The center of gravity is placed near the wing root; proportions as in {numref}`fig-p13-airframe-side`.
 :::
 
-Three moving surfaces, the **primary flight controls**, command the three rotations (FAA 2023a, Chapter 6):
+We command these three rotations with three moving surfaces, the **primary flight controls** (FAA 2023a, Chapter 6):
 
 - The **{term}`ailerons <Aileron>`**, near the tip of each wing, move in opposite directions. Deflecting an aileron down increases the camber of that part of the wing, and with it the lift there. (We define camber, the curve of the airfoil, under [airfoil geometry](#p13-airfoil).) The raised aileron on the other wing reduces its lift. One wing goes up, the other down, and the aircraft rolls.
 - The **{term}`elevator`**, hinged to the horizontal stabilizer, pitches the aircraft. When the pilot pulls the control column back, the trailing edge of the elevator goes up and the tail makes a downward force. The tail moves down, and the nose pitches up about the center of gravity. {numref}`fig-p13-control-deflection` draws this chain in order.
@@ -98,7 +98,7 @@ Three moving surfaces, the **primary flight controls**, command the three rotati
 Schematic. A control surface turns the aircraft in three steps: the surface moves (1), the air pushes on it (2), and the aircraft rotates about its center of gravity (3). The downward force acts far behind the center of gravity, so it pitches the nose up. Proportions as in {numref}`fig-p13-airframe-side`.
 :::
 
-Other moving surfaces change how much lift and drag the wing makes. These secondary controls are placed on the wing in {numref}`fig-p13-moving-surfaces` and drawn in section in {numref}`fig-p13-high-lift`:
+We also use secondary moving surfaces to change how much lift and drag the wing makes. These secondary controls are placed on the wing in {numref}`fig-p13-moving-surfaces` and drawn in section in {numref}`fig-p13-high-lift`:
 
 - **{term}`Flaps <Flap>`** on the trailing edge move down and, on an airliner, also back. They add camber and wing area, so the wing makes enough lift at the low speeds of takeoff and landing. They also add drag.
 - **{term}`Slats <Slat>`** on the leading edge move forward and down and open a slot that guides air from the lower surface over the upper surface. The wing can then fly at a steeper angle to the air before the flow breaks away from its upper surface (a {term}`stall`).
@@ -140,7 +140,7 @@ In a top view seen from above with the nose to the left, the right wing is at th
 
 ## Landing gear arrangements
 
-On the ground, the landing gear holds the aircraft up, lets it steer, and keeps it from tipping over. {numref}`fig-p13-gear-layouts` draws the six arrangements named by Raymer (2006), each from the side and from below.
+On the ground, the landing gear supports the aircraft, lets it steer, and keeps it from tipping over. We compare the six arrangements named by Raymer (2006) in {numref}`fig-p13-gear-layouts`, each from the side and from below.
 
 :::{figure} figures/p13-gear-layouts.svg
 :label: fig-p13-gear-layouts
@@ -164,7 +164,7 @@ Schematic of six landing-gear arrangements, each from the side and from below. W
 | Quadricycle | Four main units at the corners of a rectangle | Carries a large weight with the fuselage level and close to the ground | B-52 |
 :::
 
-The tricycle arrangement is the most common on both small and large aircraft for the three reasons listed by the FAA (FAA 2023b, Chapter 13). The third reason refers to a **{term}`ground loop`**, an uncontrolled, tightening swerve on the runway. A tail-dragger is prone to a ground loop because its center of gravity lies behind the main wheels: once the aircraft starts to swerve, the inertia of the mass concentrated behind the pivot swings the tail even farther around. On a tricycle gear the center of gravity lies ahead of the main wheels, so inertia pulls the aircraft back toward a straight path.
+The tricycle arrangement is the most common on both small and large aircraft for the three reasons listed by the FAA (FAA 2023b, Chapter 13). The third reason refers to a **{term}`ground loop`**, an uncontrolled, tightening swerve on the runway. A tail-dragger is prone to a ground loop because its center of gravity lies behind the main wheels. Once the aircraft starts to swerve, the inertia of the mass concentrated behind the pivot swings the tail even farther around. On a tricycle gear the center of gravity lies ahead of the main wheels, so inertia pulls the aircraft back toward a straight path.
 
 (p13-wing-geometry)=
 ## Wing geometry
@@ -189,7 +189,7 @@ To compare wing shapes independently of overall size, we use two dimensionless r
 :::{prf:definition} Taper ratio, aspect ratio, and sweep
 :label: def-p13-ratios
 
-The **{term}`taper ratio`** is the tip chord over the root chord, $\lambda = c_t/c_r$: 1 for a rectangular wing, 0 for a wing that comes to a point. The **{term}`aspect ratio`** is the span squared over the area, $\textit{AR} = b^2/S$: a long, narrow wing has a high aspect ratio. The **{term}`sweep`** $\Lambda$ is the angle between a line along the wing, such as its leading edge, and a line perpendicular to the centerline. The sweep usually quoted is that of the quarter-chord line, which runs one quarter of the chord behind the leading edge.
+The **{term}`taper ratio`** is the tip chord over the root chord, $\lambda = c_t/c_r$, which is 1 for a rectangular wing and 0 for a wing that comes to a point. The **{term}`aspect ratio`** is the span squared over the area, $\textit{AR} = b^2/S$, so a long, narrow wing has a high aspect ratio. The **{term}`sweep`** $\Lambda$ is the angle between a line along the wing, such as its leading edge, and a line perpendicular to the centerline. The sweep usually quoted is that of the quarter-chord line, which runs one quarter of the chord behind the leading edge.
 :::
 
 For a rectangular wing, $S = b\,c$ and the aspect ratio is the span over the chord. For any planform, $b^2/S$ is the span over the average chord. The jet airliners in the tables of Jenkinson et al. (1999, Data A) have aspect ratios from about 7 to 9.5. The aspect ratio matters because a long, narrow wing makes the same lift with less of the drag caused by the wingtip vortices; [Chapter 3 covers that drag](#p32-induced-drag).
@@ -209,7 +209,7 @@ One more number ties the wing to the weight of the aircraft.
 :::{prf:definition} Wing loading
 :label: def-p13-wing-loading
 
-The **{term}`wing loading`** is the {term}`takeoff weight` divided by the wing area, $W_0/S$, in lb/ft² (or N/m²). It measures how big the wing is for the aircraft it must lift: the higher the wing loading, the smaller the wing and the faster the aircraft must fly to make enough lift.
+The **{term}`wing loading`** is the {term}`takeoff weight` divided by the wing area, $W_0/S$, in lb/ft² (or N/m²). It measures how big the wing is for the aircraft it must lift. The higher the wing loading, the smaller the wing and the faster the aircraft must fly to generate enough lift.
 :::
 
 ### Mean aerodynamic chord
@@ -250,7 +250,7 @@ We use the mean aerodynamic chord as the reference length when we study how a wi
 
 Jenkinson et al. (1999, Data A, Table 2) give the 737-800 a wing area of $S = 124.60\ \text{m}^2$, a span of $b = 34.30\ \text{m}$, and a taper ratio of $\lambda = 0.278$, with the quarter-chord line swept back 25°. Its maximum design takeoff weight, in its highest option, is 174,200 lb (Boeing 2025, Section 2.1.3). Find the aspect ratio, the root and tip chords, the mean aerodynamic chord, and the wing loading.
 
-1. **Units.** With 1 ft = 0.3048 m, and so 1 ft² = 0.092903 m²:
+1. **Units.** First we convert the span and area to feet using 1 ft = 0.3048 m, and so 1 ft² = 0.092903 m²:
    $$
    \begin{aligned}
    b &= \frac{34.30\ \text{m}}{0.3048\ \text{m/ft}}\\
@@ -322,7 +322,7 @@ Jenkinson et al. (1999, Data A, Table 2) give the 737-800 a wing area of $S = 12
 :alt: Two panels at one scale. Panel a: the 737-800 reference wing seen from above, leading edge on top, with a forward arrow, shaded; its area S is 1,341.2 square feet, its span b 112.53 feet, its root chord c r 18.65 feet, and its tip chord c t 5.185 feet; a dash-dot quarter-chord line on the left half is swept back 25 degrees. Panel b: the right half-wing with the four numbered steps: 1, the root chord extended rearward by the tip chord; 2, the tip chord extended forward by the root chord; 3, a line joining the two ends; 4, its crossing with the dashed mid-chord line, where a heavy chord marks the mean aerodynamic chord, 13.19 feet long, 22.84 feet from the centerline.
 :width: 90%
 
-Computed from the published span, area, and taper ratio of the Boeing 737-800. Panel (a) gives the numbers that describe the wing: the sweep and any three of the other four fix it, because the area follows from the span and the two chords. Panel (b) finds the mean aerodynamic chord in four steps: where the line joining the two extended chords crosses the mid-chord line, 22.84 ft from the centerline. Data from Jenkinson et al. (1999, Data A, Table 2).
+Computed from the published span, area, and taper ratio of the Boeing 737-800. Panel (a) gives the parameters that describe the wing; the sweep and any three of the other four fix it, because the area follows from the span and the two chords. Panel (b) finds the mean aerodynamic chord in four steps, locating it where the line joining the two extended chords crosses the mid-chord line, 22.84 ft from the centerline. Data from Jenkinson et al. (1999, Data A, Table 2).
 :::
 
 :::{warning} Common slips with wing numbers
@@ -334,7 +334,7 @@ Computed from the published span, area, and taper ratio of the Boeing 737-800. P
 (p13-airfoil)=
 ## Airfoil geometry and NACA four-digit airfoils
 
-The planform is the wing seen from above. To see its shape in section, cut the wing with a plane parallel to the centerline. The cut shows the **airfoil** (also called a wing section), the cross-section shape of the wing. {numref}`fig-p13-airfoil-parts` names its parts.
+The planform is the wing seen from above. To see its shape in section, we cut the wing with a plane parallel to the centerline. The cut shows the **airfoil** (also called a wing section), the cross-section shape of the wing. We label its parts in {numref}`fig-p13-airfoil-parts`.
 
 :::{figure} figures/p13-airfoil-parts.svg
 :label: fig-p13-airfoil-parts
@@ -380,12 +380,12 @@ Computed from the NACA four-digit equations, all at one chord. The first digit s
 2. Maximum camber: M% of the chord; multiply by $c$ for a length.
 3. Its position: P tenths of the chord from the leading edge, that is $10\,P$% of the chord; multiply by $c$.
 4. Maximum thickness: XX% of the chord, at 30% of the chord from the leading edge; multiply by $c$.
-5. If M = 0, the airfoil is symmetric: there is no camber and no position of maximum camber.
+5. If M = 0, the airfoil is symmetric, so there is no camber and no position of maximum camber.
 :::
 
 ### Worked example: decoding two airfoils
 
-Many wings change airfoil along the span: thick at the root, where the structure carries the largest loads, and thinner at the tip. The Douglas DC-3, for example, has a NACA 2215 at the root and a NACA 2206 at the tip (Lednicer 2026). Suppose a wing with the root and tip chords of the worked example above, $c_r = 18.65$ ft and $c_t = 5.185$ ft, used these two airfoils. Find the camber, its position, and the thickness of each, as a percentage and as a length.
+Many wings change airfoil along the span, using a thicker section at the root, where the structure carries the largest loads, and a thinner section at the tip. The Douglas DC-3, for example, has a NACA 2215 at the root and a NACA 2206 at the tip (Lednicer 2026). Suppose we build a wing with the root and tip chords of the worked example above, $c_r = 18.65$ ft and $c_t = 5.185$ ft, using these two airfoils. Find the camber, its position, and the thickness of each, as a percentage and as a length.
 
 1. **Root, NACA 2215** (M = 2, P = 2, XX = 15):
    - maximum camber 2% of the chord: $0.02 \times 18.65 = 0.3730$ ft;
@@ -415,43 +415,43 @@ Computed from the NACA four-digit equations for the worked example. Drawn to the
 (p13-launch-vehicle)=
 ## The launch vehicle
 
-We now turn from airplanes to launch vehicles. A launch vehicle carries a payload, such as a satellite or spacecraft, from the ground into orbit; how it builds the required speed is the subject of [launch to orbit](../chapter-2/launch-to-orbit.md). Most of a launch vehicle's liftoff mass is propellant: the core stage of the Ariane 5 ECA has a dry mass of 14.7 t (1 t is 1,000 kg) and carries 170 t of liquid oxygen and liquid hydrogen (Arianespace 2016, Section 1.5.1). Most of the vehicle's structure is also jettisoned during ascent once its job is done. {numref}`fig-p13-launcher-parts` labels the exterior of a heavy launch vehicle, the Ariane 5. On this page launch vehicles are drawn horizontally with the nose to the right, so "ahead of" means toward the nose and "behind" means toward the engines.
+We now turn from airplanes to launch vehicles. A launch vehicle carries a payload, such as a satellite or spacecraft, from the ground into orbit; how it builds the required speed is the subject of [launch to orbit](../chapter-2/launch-to-orbit.md). Most of a launch vehicle's liftoff mass is propellant. For example, the core stage of the Ariane 5 ECA has a dry mass of 14.7 t (1 t is 1,000 kg) and carries 170 t of liquid oxygen and liquid hydrogen (Arianespace 2016, Section 1.5.1). Most of the vehicle's structure is also jettisoned during ascent once its job is done. {numref}`fig-p13-launcher-parts` labels the exterior of a heavy launch vehicle, the Ariane 5. On this page we draw launch vehicles horizontally with the nose to the right, so "ahead of" means toward the nose and "behind" means toward the engines.
 
 :::{figure} figures/p13-launcher-parts.svg
 :label: fig-p13-launcher-parts
 :alt: The Ariane 5 lying on its side, nose to the right, with an arrow marking up at liftoff. A long core stage runs from the main engine at the left end to the upper stage; two solid rocket boosters, slimmer and with pointed noses, are strapped along the core stage, one above and one below, each with a large nozzle at the left. Named: main engine, solid rocket booster, booster nozzle, and the forward attachment, a short beam between the core and a booster just behind the booster's nose. Braces under the vehicle give the extent of the core stage, the upper stage, and the payload fairing, the long rounded nose.
 :width: 90%
 
-Schematic of a heavy launch vehicle, the Ariane 5 ECA. The stack is built in the order it is used: two solid boosters and the core stage lift it off the pad, the upper stage sits ahead of the core, and the payload rides at the nose under its fairing. The upper stage includes its interstage and the equipment bay, both named in the next figure. Proportions after Arianespace (2016, Section 1.5.1); booster position, attachments, and nozzle sizes estimated.
+Schematic of a heavy launch vehicle, the Ariane 5 ECA. The stack is arranged in the order it is used. Two solid boosters and the core stage lift it off the pad, the upper stage is mounted ahead of the core, and the payload rides at the nose under its fairing. The upper stage includes its interstage and the equipment bay, both named in the next figure. Proportions after Arianespace (2016, Section 1.5.1); booster position, attachments, and nozzle sizes estimated.
 :::
 
 :::{prf:definition} Stage
 :label: def-p13-stage
 
-A **{term}`stage`** is a complete rocket within a launch vehicle: its own propellant tanks, its own engines, and its own structure. When its propellant is used up, the stage is dropped and the next one lights, so the rest of the climb no longer pushes the weight of empty tanks and idle engines.
+A **{term}`stage`** is a complete rocket within a launch vehicle, with its own propellant tanks, engines, and structure. When its propellant is used up, the stage is dropped and the next one lights, so the rest of the climb no longer pushes the weight of empty tanks and idle engines.
 :::
 
-The parts of the Ariane 5 are:
+We can trace the parts of the Ariane 5 from the tail to the nose:
 
 - **Solid rocket boosters.** Each is a steel case 31.6 m long and 3.05 m across (Arianespace 2016, Section 1.5.1), filled with solid propellant in three segments. Together they give about 92% of the thrust at liftoff (ESA n.d.a).
 - **Core stage** (main stage). A 5.4 m cylinder 31 m long with one engine, the Vulcain 2, burning liquid hydrogen with liquid oxygen. It runs from liftoff until the vehicle is above the atmosphere.
 - **Upper stage.** A short stage with its own tanks and engine. It finishes the climb to orbit.
 - **Interstage.** A short cylinder between two stages. It surrounds the engine of the upper stage and carries the separation system at its top, so it falls away with the lower stage (Arianespace 2016, Section 1.5.1).
-- **Equipment bay.** The ring of avionics: the computers, the guidance sensors, and the radios that steer the vehicle.
-- **Payload adapter.** The cone that holds the {term}`payload` on the upper stage and releases it in orbit.
-- **{term}`Payload fairing`.** A light shell, here 17 m long, that shields the payload on the climb through the atmosphere: from the air pressing on it, from the heating, and from the noise (Arianespace 2016, Chapter 3).
+- **Equipment bay.** The ring of avionics containing the computers, guidance sensors, and radios that steer the vehicle.
+- **Payload adapter.** The cone that mounts the {term}`payload` on the upper stage and releases it in orbit.
+- **{term}`Payload fairing`.** A light shell, here 17 m long, that shields the payload on the climb through the atmosphere from aerodynamic pressure, heating, and acoustic noise (Arianespace 2016, Chapter 3).
 
-A rocket engine burns a fuel with an oxidizer. It has to keep working above the atmosphere, where there is no oxygen to take in, so a liquid stage carries both, each in its own tank. {numref}`fig-p13-launcher-cutaway` cuts the Ariane 5 open. In the core stage the liquid-oxygen tank sits ahead of the liquid-hydrogen tank (above it when the vehicle stands on the pad). One shared dome, the **common bulkhead**, separates the two (Arianespace 2016, Annex 4). It saves the length and the weight of a second pair of domes. ESA gives the contents of the first version of this stage: 133 t of liquid oxygen in 120 m³ and 26 t of liquid hydrogen in 390 m³ (ESA n.d.b).
+A rocket engine burns a fuel with an oxidizer. It has to keep working above the atmosphere, where there is no oxygen to take in, so a liquid stage carries both, each in its own tank. We look inside the Ariane 5 in {numref}`fig-p13-launcher-cutaway`. In the core stage the liquid-oxygen tank is mounted ahead of the liquid-hydrogen tank (above it when the vehicle stands on the pad). One shared dome, the **common bulkhead**, separates the two (Arianespace 2016, Annex 4). It saves the length and the weight of a second pair of domes. ESA gives the contents of the first version of this stage: 133 t of liquid oxygen in 120 m³ and 26 t of liquid hydrogen in 390 m³ (ESA n.d.b).
 
 :::{figure} figures/p13-launcher-cutaway.svg
 :label: fig-p13-launcher-cutaway
 :alt: The Ariane 5 cut open lengthwise, nose to the right, with an arrow marking up at liftoff; each propellant is tinted and hatched: liquid oxygen with diagonal hatching, liquid hydrogen with dots, the solid propellant with cross-hatching. Numbered key, from the tail to the nose: 1, the solid propellant, the grain, filling each booster; 2, the central channel along the booster's axis; 3, the long liquid-hydrogen tank of the core stage; 4, the common bulkhead, a dome that bulges into the hydrogen tank; 5, the liquid-oxygen tank, ahead of the hydrogen tank; 6, the payload under the fairing. A rectangle around the upper part is enlarged 2.7 times below the vehicle. In the enlargement, named: the upper-stage engine; the interstage around it; the upper-stage liquid-oxygen tank, a sphere behind the liquid-hydrogen tank, set into its rear dome; the liquid-hydrogen tank ahead of it, which fills the stage from wall to wall; the equipment bay; and the payload adapter seated on the bay.
 :width: 90%
 
-Schematic of the same vehicle cut open. Most of it is propellant: fuel and oxidizer in separate tanks in each liquid stage, and a solid grain in each booster. Proportions after Arianespace (2016, Section 1.5.1 and Annex 4) and, for the tank volumes, ESA (n.d.b); the inside of the upper stage and the boosters' channel estimated.
+Schematic of the same vehicle cut open. Most of the volume is propellant, with fuel and oxidizer in separate tanks in each liquid stage and a solid grain in each booster. Proportions after Arianespace (2016, Section 1.5.1 and Annex 4) and, for the tank volumes, ESA (n.d.b); the inside of the upper stage and the boosters' channel estimated.
 :::
 
-The solid propellant of each booster is cast as a rubbery block, the **grain**, with a channel along its axis. It burns on the surface of the channel and outward toward the case. The shape of the channel therefore sets the burning area, and with it the thrust. A solid motor cannot be turned off; it burns until its grain is gone.
+The solid propellant of each booster is cast as a rubbery block, the **grain**, with a channel along its axis. It burns on the surface of the channel and outward toward the case. As a result, the shape of the channel sets the burning area and the thrust. A solid motor cannot be turned off; it burns until its grain is gone.
 
 :::{table} The parts of the Ariane 5, what each does, and when it separates, in the order of a flight (Arianespace 2016, Figure 2.3.a and Section 3.3.3.2; times and altitudes from ESA n.d.a and n.d.b).
 :label: tbl-p13-launcher
@@ -467,7 +467,7 @@ The solid propellant of each booster is cast as a rubbery block, the **grain**, 
 
 The core-stage engine is started and checked on the pad; only then are the boosters ignited, and the vehicle lifts off. Each major section then separates or is jettisoned in the order shown in {numref}`tbl-p13-launcher`.
 
-The Falcon 9, in {numref}`fig-p13-two-stage`, is built another way. It has two stages and no boosters, and both stages burn one pair of propellants, rocket-grade kerosene (RP-1) and liquid oxygen. It is 70 m tall and 3.66 m across. Nine engines, eight in a ring around one, power the first stage, and one engine built for vacuum powers the second. In the first stage a common dome separates the oxygen tank from the kerosene tank behind it, and a transfer tube carries the oxygen through the kerosene tank to the engines. The interstage is fixed to the forward end of the first stage and stays with it (SpaceX 2025, Section 2). It carries four grid fins, which steer the stage through the atmosphere on its way back, and four landing legs fold against the rear of the stage.
+Now we look at the Falcon 9 in {numref}`fig-p13-two-stage`, which is built another way. It has two stages and no boosters, and both stages burn one pair of propellants, rocket-grade kerosene (RP-1) and liquid oxygen. It is 70 m tall and 3.66 m across. Nine engines, eight in a ring around one, power the first stage, and one engine built for vacuum powers the second. In the first stage a common dome separates the oxygen tank from the kerosene tank behind it, and a transfer tube carries the oxygen through the kerosene tank to the engines. The interstage is fixed to the forward end of the first stage and stays with it (SpaceX 2025, Section 2). It carries four grid fins, which steer the stage through the atmosphere on its way back, and four landing legs fold against the rear of the stage.
 
 :::{figure} figures/p13-two-stage.svg
 :label: fig-p13-two-stage
@@ -478,7 +478,7 @@ Schematic of a two-stage launch vehicle, the Falcon 9, cut where the stages sepa
 :::
 
 :::{warning} The biggest tank is not always the fuel tank
-On the Ariane 5 core stage the larger tank holds the fuel, liquid hydrogen, even though the first version of the stage carried 5.1 times more oxygen than hydrogen by mass. Liquid hydrogen has such a low density that 26 t of it fill 390 m³, so always identify a propellant tank from its contents and plumbing instead of assuming the larger tank is the oxidizer or the fuel.
+On the Ariane 5 core stage the larger tank contains the fuel, liquid hydrogen, even though the first version of the stage carried 5.1 times more oxygen than hydrogen by mass. Liquid hydrogen has such a low density that 26 t of it fill 390 m³, so always identify a propellant tank from its contents and plumbing instead of assuming the larger tank is the oxidizer or the fuel.
 :::
 
 (p13-mission-profile)=
@@ -492,17 +492,17 @@ A design starts from what the vehicle must do, as stated in the [mission stateme
 A **mission profile** is a sketch of a mission as altitude against distance (or time), cut into segments, such as takeoff, climb, cruise, descent, loiter, and landing, drawn in the order they are flown. The end of each segment is numbered, starting with 0 at the start of the takeoff.
 :::
 
-We write the weight of the aircraft at the end of segment $i$ as $W_i$. Point 0 is the start of the takeoff, so $W_0$ is the takeoff weight. The method of [aircraft sizing](#p16-weight-fractions) uses these numbers to estimate the weight lost in each segment. A **{term}`loiter`** is flying in circles at a speed that uses the least fuel per hour, while waiting for permission to land or while watching an area; airline pilots call it a hold. A sudden drop in weight, when cargo is unloaded or weapons are released, is also marked on the profile, because it changes the fuel the rest of the mission needs.
+We write the weight of the aircraft at the end of segment $i$ as $W_i$. Point 0 is the start of the takeoff, so $W_0$ is the takeoff weight. We use these segment numbers in [aircraft sizing](#p16-weight-fractions) to estimate the weight lost in each segment. A **{term}`loiter`** is flying in circles at a speed that uses the least fuel per hour, while orbiting before landing clearance or monitoring an area; airline pilots call it a holding pattern. A sudden drop in weight, when cargo is unloaded or weapons are released, is also marked on the profile, because it changes the fuel the rest of the mission needs.
 
 :::{tip} Method: sketching a mission profile
 1. Read the mission and list what the vehicle does, in order, from the start of the takeoff to the end of the landing.
-2. Draw a ground line and a path above it: takeoff and landing as short level segments on the ground line, climbs and descents slanted, cruise and loiter level.
+2. Draw a ground line and a flight path above it, showing takeoff and landing as short level segments on the ground line, climbs and descents as slanted segments, and cruise and loiter as level segments.
 3. Name each segment beside it and number the end of each segment: 0 at the start of the takeoff, then 1, 2, 3, and so on.
 4. Mark any point where the weight drops at once (payload unloaded, weapons released) with a short downward arrow on the path.
 5. Add reserves the rules or the customer require, such as a loiter before landing.
 :::
 
-{numref}`fig-p13-mission-profiles` sketches three missions. An airliner climbs, cruises for most of the trip, descends, and lands. A business jet that drops passengers at one airport and flies on to another without refueling repeats the pattern. Its profile adds a weight drop at the stop and, in this example, a loiter before the second landing. A skydiving aircraft has no cruise at all. It climbs to the jump altitude and flies a short level jump run while the skydivers leave, which drops its weight at once; then it descends and lands. The profile on [aircraft sizing](#p16-weight-fractions) differs in one way: that method counts each descent inside another segment, and it draws the descents thinner and without a number.
+In {numref}`fig-p13-mission-profiles` we compare three missions. An airliner climbs, cruises for most of the trip, descends, and lands. A business jet that drops passengers at one airport and flies on to another without refueling repeats the pattern. Its profile adds a weight drop at the stop and, in this example, a loiter before the second landing. A skydiving aircraft has no cruise at all. It climbs to the jump altitude and flies a short level jump run while the skydivers leave, which drops its weight at once; then it descends and lands. The profile on [aircraft sizing](#p16-weight-fractions) differs in one way. That method counts each descent inside another segment, drawing the descents thinner and without a number.
 
 :::{figure} figures/p13-mission-profiles.svg
 :label: fig-p13-mission-profiles

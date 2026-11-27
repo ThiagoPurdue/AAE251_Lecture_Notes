@@ -9,7 +9,7 @@ On pages 5.1 to 5.3 the wing and the engines were already chosen, and the questi
 - On the runway the aircraft speeds up against drag and wheel friction, and it stops by braking. With the simplest assumptions, both ground rolls grow in proportion to the wing loading $W/S$.
 - More thrust shortens the takeoff roll. It does not change the landing roll, so a landing requirement caps the wing loading directly.
 - Each requirement becomes one line on a plot of $T/W$ against $W/S$. The designs that meet every requirement lie above every line and to the left of every vertical one.
-- The design point is the highest wing loading the limits allow, then the lowest thrust-to-weight ratio above every line there: the smallest wing, and the smallest engines for that wing.
+- The design point uses the highest wing loading the limits allow and the lowest thrust-to-weight ratio above every line there, which gives the smallest wing and the smallest engines for that wing.
 :::
 
 (p55-field-length)=
@@ -22,7 +22,7 @@ Two of the requirements are lengths on the ground, so we start with the runway. 
 :alt: Two side views over a hatched runway. Panel 1, takeoff: an aircraft outline at brake release, at speed zero; a thick path with an arrowhead along the runway to a second outline at liftoff, at 1.2 times the stall speed; then the path curves up to a third outline above a post labeled obstacle, 35 feet or 10.7 meters. Dimensions mark the ground roll, s sub L O, from brake release to liftoff, and the air distance from liftoff to the obstacle. Panel 2, landing: a path with arrowheads descends past a post labeled obstacle, 50 feet or 15 meters, to touchdown at 1.3 times the stall speed, then runs along the runway, with an arrowhead, to an outline at the stop. Dimensions mark the air distance and the ground roll, s sub L.
 :width: 90%
 
-Schematic, not to scale: the heights, the path angles, and the aircraft are drawn many times larger than the distances along the runway. Each maneuver is a ground roll plus an air distance over an obstacle, and early sizing looks at the ground roll. The obstacle heights are those of the U.S. rules for a transport airplane (14 CFR 25.113 and 25.125).
+Schematic, not to scale. The heights, the path angles, and the aircraft are drawn many times larger than the distances along the runway. Each maneuver is a ground roll plus an air distance over an obstacle, and early sizing looks at the ground roll. The obstacle heights are those of the U.S. rules for a transport airplane (14 CFR 25.113 and 25.125).
 :::
 
 ### The forces during the roll
@@ -97,10 +97,10 @@ Three things follow from [](#eq-p55-field-length):
 - The takeoff roll falls as $1/(T/W)$. Larger engines speed the aircraft up faster.
 - The landing roll does not depend on the thrust at all. Only the wing can meet a landing requirement, so it caps $W/S$ directly.
 
-Both rolls also grow as the density falls, so a hot day or a high airport asks for a longer runway.
+Both rolls also grow as the density falls, so a hot day or a high airport requires a longer runway.
 
 :::{warning} What the simple forms leave out
-On takeoff, [](#eq-p55-field-length) leaves out the drag and the rolling friction, so the real roll is longer than it says. On landing it leaves out the drag and any reverse thrust, which would both shorten the roll, but it assumes full braking from the moment of touchdown. The braking friction also falls on a runway covered with water or slush, and it falls further as the speed rises (Horne and Leland 1962). If you use a dry-runway $\mu_r$ for a wet runway, your landing roll comes out too short. Anderson (2016, Chapter 6) gives fuller forms that keep the drag and the friction.
+On takeoff, [](#eq-p55-field-length) leaves out the drag and the rolling friction, so the real roll is longer than the equation gives. On landing it leaves out the drag and any reverse thrust, which would both shorten the roll, but it assumes full braking from the moment of touchdown. The braking friction also falls on a runway covered with water or slush, and it falls further as the speed rises (Horne and Leland 1962). If you use a dry-runway $\mu_r$ for a wet runway, your landing roll comes out too short. Anderson (2016, Chapter 6) gives fuller forms that keep the drag and the friction.
 :::
 
 (p55-constraint-curves)=
@@ -127,7 +127,7 @@ We use the takeoff weight for every requirement. It is the simplest choice, and 
    \frac{T}{W} \ge \frac{1.44\,(W/S)}{\rho_0\,g\,C_{L,\max,\text{TO}}\,s_\text{LO}}
    $$
    This is a straight line through the origin. More wing loading means a faster liftoff, so it needs proportionally more thrust for the same runway.
-4. **Rate of climb** $R/C$ at a speed $V$ at sea level. [Page 5.3](#p53-excess) gives the climb angle from the excess thrust, $\sin\gamma = (T - D)/W$, and the {term}`rate of climb` as $R/C = V\sin\gamma$. So $T/W = (R/C)/V + D/W$. For the drag we take $L = W$, which holds for the shallow climbs of this chart, so $C_L = W/(qS)$ with $q = \tfrac12 \rho V^2$:
+4. **Rate of climb** $R/C$ at a speed $V$ at sea level. [Page 5.3](#p53-excess) gives the climb angle from the excess thrust, $\sin\gamma = (T - D)/W$, and the {term}`rate of climb` as $R/C = V\sin\gamma$. So $T/W = (R/C)/V + D/W$. For the drag we take $L = W$, which applies to the shallow climbs of this chart, so $C_L = W/(qS)$ with $q = \tfrac12 \rho V^2$:
    $$
    \begin{aligned}
    D &= q\,S\,C_{D,0} + q\,S\,K\,C_L^2\\
@@ -143,7 +143,7 @@ We use the takeoff weight for every requirement. It is the simplest choice, and 
    \end{aligned}
    $$
    The parasite drag term falls as $W/S$ grows and the induced drag term rises, so the line sags in the middle.
-5. **Cruise** at a speed $V$ at an altitude where the density is $\rho$. The engines at full throttle must hold this speed, so the full thrust at that altitude equals the drag, $T\,(\rho/\rho_0)^{m_\text{ad}} = D$. We divide by $W$ and by the lapse:
+5. **Cruise** at a speed $V$ at an altitude where the density is $\rho$. The engines at full throttle must maintain this speed, so the full thrust at that altitude equals the drag, $T\,(\rho/\rho_0)^{m_\text{ad}} = D$. We divide by $W$ and by the lapse:
    $$
    \begin{aligned}
    \frac{T}{W} &\ge \frac{1}{(\rho/\rho_0)^{m_\text{ad}}}\times\\
@@ -164,10 +164,10 @@ We use the takeoff weight for every requirement. It is the simplest choice, and 
 :alt: Six small plots of thrust-to-weight ratio from 0 to 0.45 against wing loading from 1,000 to 5,000 newtons per square meter, in two rows, titled 1 stall speed, 2 landing roll, 3 takeoff roll, 4 climb, 5 cruise, and 6 ceiling. Each adds one line in its own style, earlier lines stay thin and gray, the part the new line removes is hatched gray, and what is left is shaded light gold. The stall line removes everything right of it. The landing line, farther right, removes nothing. The takeoff line removes a wedge below it, the climb and cruise lines each remove a wedge at low wing loading, and the ceiling line, marked with crosses, removes nothing. Panel 6 marks the design point at the corner of the stall line and the takeoff line.
 :width: 85%
 
-Computed for the light twin-jet of the worked example. Each requirement removes part of the plane, and what is left is the region of designs that meet them all. Here the stall speed and the takeoff roll make the corner where the design point sits, while the landing roll and the ceiling remove nothing the others leave.
+Computed for the light twin-jet of the worked example. Each requirement removes part of the plane, and what is left is the region of designs that meet them all. Here the stall speed and the takeoff roll form the corner where the design point lies, while the landing roll and the ceiling remove nothing the others leave.
 :::
 
-The shaded area that survives all six lines is the **feasible region**. Any design inside it meets every requirement. A larger wing and larger engines cost weight and money, and a larger wing also adds friction drag in cruise. That is why we pick the {term}`design point` in two steps. First comes the highest wing loading the vertical lines allow, which gives the smallest wing. Then comes the lowest $T/W$ above every line at that wing loading, which gives the smallest engines for that wing. Left of the design point the takeoff line falls, so a lower wing loading can need less thrust, but only with a larger wing. You then trade smaller engines for a larger wing.
+The shaded area that survives all six lines is the **feasible region**. Any design inside it satisfies every requirement. A larger wing and larger engines add weight and make the aircraft more expensive to build, and a larger wing also adds friction drag in cruise. That is why we pick the {term}`design point` in two steps. First comes the highest wing loading the vertical lines allow, which gives the smallest wing. Then comes the lowest $T/W$ above every line at that wing loading, which gives the smallest engines for that wing. Left of the design point the takeoff line falls, so a lower wing loading can need less thrust, but only with a larger wing. In that case, you get smaller engines only by accepting a larger wing.
 
 :::{tip} A constraint diagram, in steps
 1. Write each requirement as a limit on $W/S$ (a vertical line) or as $T/W$ against $W/S$ (a curve or a line).
@@ -176,7 +176,7 @@ The shaded area that survives all six lines is the **feasible region**. Any desi
 4. Take the smallest of the wing-loading limits and read the highest line there. Then size the wing and the engines: $S = W/(W/S)$ and $T = (T/W)\,W$.
 :::
 
-A propeller aircraft is sized the same way, with its power in place of the thrust. Its engine is rated in power, and [page 5.1](#p51-available-and-vmax) gives the thrust of a propeller as $T = \eta P/V$. So each line becomes a line of the power-to-weight ratio $P/W = (T/W)\,V/\eta$, taken at the speed of that requirement. This holds only in flight. Near rest the propeller efficiency is low ([page 5.1](#p51-available-and-vmax)), so for the takeoff line you need the static thrust of the propeller itself.
+A propeller aircraft is sized the same way, with its power in place of the thrust. Its engine is rated in power, and [page 5.1](#p51-available-and-vmax) gives the thrust of a propeller as $T = \eta P/V$. So each line becomes a line of the power-to-weight ratio $P/W = (T/W)\,V/\eta$, taken at the speed of that requirement. This relation applies only in flight. Near rest the propeller efficiency is low ([page 5.1](#p51-available-and-vmax)), so for the takeoff line you need the static thrust of the propeller itself.
 
 (p55-worked-example)=
 ## Worked example: sizing a light twin-jet
@@ -247,7 +247,7 @@ We find the design point, and from it the wing area and the total thrust. Densit
    &\;\;\;= 0.2004
    \end{aligned}
    $$
-   Two thirds of it pays for the climb, and one third for the drag.
+   Two thirds of the thrust goes to the climb, and one third goes to overcoming drag.
 5. **Cruise at 10,000 m**, where $\rho = 0.4124\ \text{kg/m}^3$.
    $$
    \begin{aligned}
@@ -312,17 +312,17 @@ We find the design point, and from it the wing area and the total thrust. Densit
    $$
    Each of the two engines must give half of it at sea level, standing still.
 
-The stall speed and the takeoff roll are the two **active** requirements: they meet at the design point. The other four have margin there. The climb and the ceiling lines lie within about 0.01 of each other over most of the chart, which is why the figure enlarges that strip.
+The stall speed and the takeoff roll are the two **active** requirements, and their lines intersect at the design point. The other four have margin there. The climb and the ceiling lines lie within about 0.01 of each other over most of the chart, which is why the figure enlarges that strip.
 
 :::{figure} figures/p55-constraint-diagram.svg
 :label: fig-p55-constraint-diagram
 :alt: Thrust-to-weight ratio, 0 to 0.45, against wing loading, 1,000 to 5,000 newtons per square meter, with an enlarged strip. Vertical lines mark the stall speed, 46 meters per second, solid, at 2,786.5, and the landing roll, 700 meters, dash-dot, at 4,280. A rising straight line is the takeoff roll, 750 meters. A dashed curve is the climb, 12 meters per second at 90 meters per second; a dotted curve is the cruise, 200 meters per second at 10,000 meters; a dash-dot curve with crosses, on the climb near 0.2, is the service ceiling, 12,000 meters. The region above all lines and left of the stall line is shaded. A filled dot marks the design point, 2,786.5 and 0.2343; an open circle in the region marks the light twin-jet, wing 18 square meters, thrust 12,000 newtons.
 :width: 85%
 
-Computed for the light twin-jet of the worked example. The design point is the highest wing loading the limits allow, with the lowest thrust-to-weight ratio above every line at that wing loading: the corner where the stall line meets the takeoff line. The aircraft's own wing and engines, the open circle, sit inside the region with margin. The lower strip enlarges the climb and ceiling lines, which lie on top of each other at full scale.
+Computed for the light twin-jet of the worked example. The design point is the highest wing loading the limits allow, with the lowest thrust-to-weight ratio above every line at that wing loading, at the corner where the stall line intersects the takeoff line. The aircraft's own wing and engines, shown by the open circle, lie inside the region with margin. The lower strip enlarges the climb and ceiling lines, which lie on top of each other at full scale.
 :::
 
-**Check: the aircraft as it is.** The light twin-jet itself has a wing of 18 m² and two engines of 6,000 N, 12,000 N in all. Its wing loading and thrust-to-weight ratio are
+**Check.** The light twin-jet itself has a wing of 18 m² and two engines of 6,000 N, 12,000 N in all. Its wing loading and thrust-to-weight ratio are
 
 $$
 \begin{aligned}
@@ -338,7 +338,7 @@ $$
 \end{aligned}
 $$
 
-Its wing is larger than the smallest allowed, and its engines give more thrust than the design point needs. It therefore sits inside the feasible region, the open circle of {numref}`fig-p55-constraint-diagram`. Its stall speeds with takeoff and with landing flaps are
+Its wing is larger than the smallest allowed, and its engines give more thrust than the design point needs. Because of that, it lies inside the feasible region, marked by the open circle in {numref}`fig-p55-constraint-diagram`. Its stall speeds with takeoff and with landing flaps are
 
 $$
 \begin{aligned}
@@ -388,14 +388,14 @@ s_L &= \frac{1.69 \times 2{,}453}{1.2250 \times 9.81}\times\\
 \end{aligned}
 $$
 
-Both are well inside the limits of 750 m and 700 m. {numref}`fig-p55-field-length-sensitivity` shows why. The aircraft has a lower wing loading than the design point, which shortens both rolls, and more thrust, which shortens only the takeoff.
+Both are well inside the limits of 750 m and 700 m. You can see why in {numref}`fig-p55-field-length-sensitivity`. The aircraft has a lower wing loading than the design point, which shortens both rolls, and more thrust, which shortens only the takeoff.
 
 :::{figure} figures/p55-field-length-sensitivity.svg
 :label: fig-p55-field-length-sensitivity
 :alt: Ground roll in meters, 0 to 1,200, against wing loading, 0 to 4,800 newtons per square meter. Three straight lines start at the origin: a solid takeoff line for a thrust-to-weight ratio of 0.2343, a dashed and lower takeoff line for 0.2718, and a dotted landing line that holds for any thrust-to-weight ratio. A thin horizontal dashed line marks the takeoff limit, 750 meters, and a thin horizontal dotted line the landing limit, 700 meters. A filled dot marks the design point, where the solid line reaches 750 meters at 2,786.5. At 2,453, marked the light twin-jet, open circles mark its takeoff roll, 569 meters, on the dashed line and its landing roll, 401 meters, on the dotted line.
 :width: 90%
 
-Computed from [](#eq-p55-field-length) for the light twin-jet. Both ground rolls grow in proportion to the wing loading, and more thrust shortens only the takeoff: the two takeoff lines differ in $T/W$, while one landing line serves every thrust.
+Computed from [](#eq-p55-field-length) for the light twin-jet. Both ground rolls grow in proportion to the wing loading, and more thrust shortens only the takeoff. The two takeoff lines differ in $T/W$, while a single landing line applies to every thrust.
 :::
 
 ## Summary

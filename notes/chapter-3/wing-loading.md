@@ -3,10 +3,10 @@ title: "Wing loading"
 short_title: Wing loading
 ---
 
-On pages 3.2 and 3.3 we computed the lift and drag of a wing whose area was already given. Now we reverse the problem and choose the wing size. We select the wing loading, the weight supported by each unit of wing area, and then divide takeoff weight by wing loading to find the wing area. Two main constraints govern this choice: a maximum allowed stall speed, and a cruise condition for efficient flight. No course standard is assessed on this page.
+On pages 3.2 and 3.3 we computed the lift and drag of a wing whose area was already given. Now we reverse the problem and choose the wing size. We select the wing loading, the weight supported by each unit of wing area, and then divide takeoff weight by wing loading to find the wing area. Two main constraints govern this choice, a maximum allowed stall speed and a cruise condition for efficient flight. No course standard is assessed on this page.
 
 :::{note} What to take from this page
-- Three numbers size an aircraft early in design: the wing loading $W/S$ sets the wing area, the thrust-to-weight (or power-to-weight) ratio sets the engines, and the aspect ratio sets the wing's shape.
+- Three numbers size an aircraft early in design. The wing loading $W/S$ sets the wing area, the thrust-to-weight (or power-to-weight) ratio sets the engines, and the aspect ratio sets the wing's shape.
 - Wing loading has the units of a pressure, lb/ft² or N/m². Typical values run from under 3 lb/ft² for a solar-powered aircraft to more than 200 lb/ft² for a cruise missile.
 - A stall-speed requirement caps the wing loading at $\tfrac12 \rho V_\text{stall}^2 C_{L,\max}$. Flaps raise $C_{L,\max}$ and so allow a smaller wing.
 - A cruise condition sets a target wing loading $W/S = q\,C_L$ at the chosen $C_L$. When that target exceeds the stall limit, we must take the smaller wing loading so the wing satisfies both requirements.
@@ -15,18 +15,18 @@ On pages 3.2 and 3.3 we computed the lift and drag of a wing whose area was alre
 (p34-three-numbers)=
 ## Three numbers that size an aircraft
 
-Three dimensionless or normalized ratios determine the overall proportions of a new aircraft early in design ({numref}`fig-p34-design-parameters`):
+Three dimensionless or normalized ratios set the overall proportions of a new aircraft early in design ({numref}`fig-p34-design-parameters`):
 
 - The {term}`wing loading` $W/S$, the takeoff weight divided by the wing area, sets the size of the wing. [Page 1.3](#p13-wing-geometry) defines it.
 - The {term}`thrust-to-weight ratio` $T/W$ sets the size of the engines. A propeller aircraft uses the power-to-weight ratio $P/W$ instead, because its engine is rated in power.
-- The {term}`aspect ratio` $\textit{AR} = b^2/S$ sets the shape of the wing: long and slender, or short and broad.
+- The {term}`aspect ratio` $\textit{AR} = b^2/S$ sets whether the wing is long and slender or short and broad.
 
 :::{figure} figures/p34-design-parameters.svg
 :label: fig-p34-design-parameters
 :alt: Plan view of a Boeing 737-800 drawn to scale, nose to the left. The wing is shaded and labeled wing area S equals 124.60 square meters, set by the wing loading W over S. The shading continues across the fuselage between dashed lines that carry the leading and trailing edges through it. The two engines are hatched and labeled: their thrust is set by the thrust-to-weight ratio T over W. A dimension on the right gives the span b, 34.30 meters, which with S sets the aspect ratio b squared over S, 9.44.
 :width: 85%
 
-Drawn to scale from the published dimensions of the Boeing 737-800. Each part is sized by one ratio: the wing area by the wing loading, the engines by the thrust-to-weight ratio, and the wing's shape by the aspect ratio. The reference area $S$ includes the part of the wing hidden inside the fuselage, shaded between dashed lines. Data from Jenkinson et al. (1999, Data A, Table 2).
+Drawn to scale from the published dimensions of the Boeing 737-800. Each part is sized by one ratio, with the wing area set by the wing loading, the engines by the thrust-to-weight ratio, and the wing's shape by the aspect ratio. The reference area $S$ includes the part of the wing hidden inside the fuselage, shaded between dashed lines. Data from Jenkinson et al. (1999, Data A, Table 2).
 :::
 
 On this page we focus on wing loading. As Nicolai and Carichner (2010, Section 6.1) note, wing loading "sizes the wing and locks in the dominant performance features of the aircraft." It sets how slowly the aircraft can fly, how efficiently it cruises, and how tightly it can turn.
@@ -75,7 +75,7 @@ Jenkinson et al. (1999, Data A, Table 4) give the 777-200 a maximum takeoff mass
 **Check.** The table itself lists a "max wing load" of 567.25 kg/m², a mass per area. Times $g_0$ it gives $567.25 \times 9.81 = 5{,}565\ \text{N/m}^2$, the same result. Each square foot of the 777's wing carries about 116 lb at takeoff.
 
 :::{warning} Mass per area is not wing loading
-Data tables often give the "wing loading" of an airliner in kg/m². That is a mass per area. Multiply by $g_0$ to get N/m² before you use it in a lift equation. In English units keep pounds as pounds-force: a weight in lb over an area in ft² gives lb/ft² directly.
+Data tables often give the "wing loading" of an airliner in kg/m². That is a mass per area. Multiply by $g_0$ to get N/m² before you use it in a lift equation. In English units keep pounds as pounds-force, so a weight in lb over an area in ft² gives lb/ft² directly.
 :::
 
 (p34-classes)=
@@ -96,9 +96,9 @@ For example, a competition sailplane operates at 7 to 12 lb/ft² so it can circl
 (p34-stall)=
 ## Wing loading from a stall-speed requirement
 
-The slowest speed at which an aircraft can hold steady, level flight is its {term}`stall speed`, $V_\text{stall}$. Below it the wing cannot make enough lift to carry the weight, even at the highest {term}`lift coefficient` it can reach before it {term}`stalls <stall>`, the {term}`maximum lift coefficient` $C_{L,\max}$. A low stall speed means a slow approach and a short landing, so many requirements set a largest allowed stall speed.
+The slowest speed at which an aircraft can maintain steady, level flight is its {term}`stall speed`, $V_\text{stall}$. Below it the wing cannot make enough lift to carry the weight, even at the highest {term}`lift coefficient` it can reach before it {term}`stalls <stall>`, the {term}`maximum lift coefficient` $C_{L,\max}$. A low stall speed means a slow approach and a short landing, so many requirements set a largest allowed stall speed.
 
-At the stall speed the wing flies at $C_{L,\max}$ and still holds up the weight. We set $L = W$, $V = V_\text{stall}$ and $C_L = C_{L,\max}$ in [](#eq-p34-lift-per-area):
+At the stall speed the wing flies at $C_{L,\max}$ and still supports the weight. We set $L = W$, $V = V_\text{stall}$, and $C_L = C_{L,\max}$ in [](#eq-p34-lift-per-area):
 
 $$
 W = \tfrac12 \rho V_\text{stall}^2\,S\,C_{L,\max}
@@ -111,7 +111,7 @@ and divide both sides by $S$:
 \frac{W}{S} = \tfrac12 \rho V_\text{stall}^2\, C_{L,\max}
 :::
 
-This is the largest wing loading that meets the requirement. A higher wing loading puts more weight on each square meter, so the wing needs more speed to carry it and the stall speed rises. The density is that of the airport where the aircraft takes off and lands, usually sea level on a standard day.
+This is the largest wing loading that satisfies the requirement. A higher wing loading puts more weight on each square meter, so the wing needs more speed to carry it and the stall speed rises. The density is that of the airport where the aircraft takes off and lands, usually sea level on a standard day.
 
 ### Flaps raise the maximum lift coefficient
 
@@ -136,13 +136,13 @@ $$
 Schematic, after Nicolai and Carichner (2010, Fig. 9.24), drawn on the right wing of the Boeing 737-800 to scale. The flapped area counts the whole chord over the span of each flap, not only the flaps themselves; the small gap between the flaps, which has no flap, is left out. The sweep is measured between the quarter-chord line and the spanwise direction.
 :::
 
-An unswept wing has $K_\Lambda = 0.92$. High-lift devices make a major difference on real aircraft: with leading-edge slats and multi-element flaps, the 777-200 reaches $C_{L,\max} \approx 2.8$, compared with about 1.2 for the U-2S, which uses a simple flap over part of its span (Nicolai and Carichner 2010, Table 9.1).
+An unswept wing has $K_\Lambda = 0.92$. High-lift devices make a major difference on real aircraft. With leading-edge slats and multi-element flaps, the 777-200 reaches $C_{L,\max} \approx 2.8$. By comparison, the U-2S reaches about 1.2 with a simple flap over part of its span (Nicolai and Carichner 2010, Table 9.1).
 
 :::{tip} Wing loading from a stall speed, in steps
 1. Find the air density where the requirement applies (the airport, usually sea level).
 2. Take the wing's clean $C_{L,\max}$ and add the flap increment, [](#eq-p34-flap).
 3. Find the largest allowed wing loading with [](#eq-p34-stall).
-4. Divide the weight by it to get the smallest wing area that meets the requirement.
+4. Divide the weight by it to get the smallest wing area that satisfies the requirement.
 :::
 
 ### Worked example 2: a four-engine airlifter
@@ -208,11 +208,11 @@ Consider a four-engine turboprop airlifter (a short-field utility transport) wei
 :alt: Wing loading in newtons per square meter against stall speed from 36 to 64 meters per second. Two rising curves: flaps down, C L max 2.237, solid; clean, C L max 1.40, dashed and lower. A vertical dashed line at 50 meters per second marks the requirement. Where it meets the curves, dots mark the largest allowed wing loadings: 3,425 newtons per square meter with flaps down and 2,144 clean. A dimension between the two dots, what the flaps add, is labeled q delta C L max equals 1,282 newtons per square meter.
 :width: 85%
 
-Computed from [](#eq-p34-stall) at sea level for the airlifter of worked example 2. The allowed wing loading grows with the square of the stall speed, and the flaps raise it at every speed: at the required 50 m/s the flapped wing may carry 3,425 N/m². The flaps add $q\,\Delta C_{L,\max} = 1{,}282$ N/m² to the clean wing's limit.
+Computed from [](#eq-p34-stall) at sea level for the airlifter of worked example 2. The allowed wing loading grows with the square of the stall speed, and the flaps raise it at every speed. At the required 50 m/s the flapped wing may carry 3,425 N/m², because the flaps add $q\,\Delta C_{L,\max} = 1{,}282$ N/m² to the clean wing's limit.
 :::
 
 :::{warning} Which maximum lift coefficient
-Use the $C_{L,\max}$ of the configuration the requirement names: flaps down for a landing stall speed, clean for a requirement in cruise. Use the wing's $C_{L,\max}$, not the airfoil's $c_{l,\max}$, because the wing's is lower (see [the lift curve of a finite wing, page 3.2](#p32-lift-curve)). And remember that $V_\text{stall}$ is squared: if you ask for a stall speed 10% slower, you allow 19% less wing loading.
+Use the $C_{L,\max}$ of the configuration the requirement names, meaning flaps down for a landing stall speed and clean for a requirement in cruise. Use the wing's $C_{L,\max}$, not the airfoil's $c_{l,\max}$, because the wing's is lower (see [the lift curve of a finite wing, page 3.2](#p32-lift-curve)). Remember also that $V_\text{stall}$ is squared, so if you ask for a stall speed 10% slower, you allow 19% less wing loading.
 :::
 
 (p34-cruise)=
@@ -268,22 +268,22 @@ Nicolai and Carichner (2010, Example 6.1) size the wing of a low-altitude cruise
    \end{aligned}
    $$
 
-**Check.** Nicolai and Carichner round $C_L$ to 0.44 and obtain 319 lb/ft² and 5.64 ft². This wing loading lies above the 200 to 240 lb/ft² band of {numref}`fig-p34-wing-loading-classes`, which represents typical values and not hard limits. In their follow-on discussion of this example, Nicolai and Carichner also illustrate why sizing at a single launch point can be misleading: as fuel burns at constant altitude and speed, weight and $C_L$ drop, lowering $L/D$ from 9.5 at launch to 6.9 at the end of cruise (an average of 8.2). Repeating the weight sizing with that average $L/D$ raises the launch weight from 1,800 lb to roughly 2,860 lb, close to a real Tomahawk cruise missile.
+**Check.** Nicolai and Carichner round $C_L$ to 0.44 and obtain 319 lb/ft² and 5.64 ft². This wing loading lies above the 200 to 240 lb/ft² band of {numref}`fig-p34-wing-loading-classes`, which shows typical values instead of hard limits. In their follow-on discussion of this example, Nicolai and Carichner also show why sizing at a single launch point can be misleading. As fuel burns at constant altitude and speed, weight and $C_L$ drop, lowering $L/D$ from 9.5 at launch to 6.9 at the end of cruise (an average of 8.2). Repeating the weight sizing with that average $L/D$ raises the launch weight from 1,800 lb to roughly 2,860 lb, close to a real Tomahawk cruise missile.
 
 (p34-two-requirements)=
 ## The two requirements together
 
-A wing must satisfy every requirement at once. The stall-speed requirement places an upper limit on wing loading, while the cruise condition sets a target wing loading for best efficiency. When that cruise target exceeds the stall limit, we must take the stall limit instead: a smaller wing loading, and so a larger wing.
+A wing must satisfy every requirement at once. The stall-speed requirement places an upper limit on wing loading, while the cruise condition sets a target wing loading for best efficiency. When that cruise target exceeds the stall limit, we must take the stall limit instead, which means a smaller wing loading and a larger wing.
 
 :::{prf:definition} Design wing loading
 :label: def-p34-design-wing-loading
 
-The wing loading selected for the aircraft: the target value for the primary mission phase, reduced to the lowest upper bound imposed by the remaining requirements (such as stall speed) whenever the target exceeds that bound. Dividing takeoff weight by the design wing loading gives the wing area.
+The **design wing loading** is the wing loading selected for the aircraft. It equals the target value for the primary mission phase, reduced to the lowest upper bound imposed by the remaining requirements (such as stall speed) whenever the target exceeds that bound. Dividing takeoff weight by the design wing loading gives the wing area.
 :::
 
 ### Worked example 4: the airlifter in cruise
 
-The airlifter of worked example 2 cruises at 7,000 m and 135 m/s for best range. Its drag polar has $C_{D,0} = 0.028$, $\textit{AR} = 10.0$, and $e = 0.80$. Find the target wing loading for cruise and select the design wing loading. We compare both wing loadings at takeoff weight, which is close to the weight at the start of cruise; a full design scales the cruise wing loading by the cruise-start weight fraction ([page 1.6](../chapter-1/aircraft-sizing.md)).
+The airlifter of worked example 2 cruises at 7,000 m and 135 m/s for best range. Its drag polar has $C_{D,0} = 0.028$, $\textit{AR} = 10.0$, and $e = 0.80$. Find the target wing loading for cruise and select the design wing loading. We compare both wing loadings at takeoff weight, which is close to the weight at the start of cruise. A full design scales the cruise wing loading by the cruise-start weight fraction ([page 1.6](../chapter-1/aircraft-sizing.md)).
 
 1. **Drag-polar constant and best-range $C_L$.**
    $$
@@ -372,9 +372,9 @@ Computed from the drag polar of worked example 4 with $C_L = (W/S)/q$. Cruise ef
 :::{exercise} For discussion
 :label: ex-p34-discussion
 
-1. A sailplane and a long-range airliner both want a high lift-to-drag ratio, yet their wing loadings differ by a factor of about ten. Which requirement explains the difference?
+1. A sailplane and a long-range airliner both need a high lift-to-drag ratio, yet their wing loadings differ by a factor of about ten. Which requirement explains the difference?
 2. An airport at high altitude has thinner air. How does that change the largest wing loading allowed by the same stall speed, and what can the designer do about it?
-3. The airlifter keeps 96.3% of its best $L/D$ with a wing sized by the stall speed. Name two costs of the larger wing that the $L/D$ curve does not show.
+3. The airlifter keeps 96.3% of its best $L/D$ with a wing sized by the stall speed. Name two drawbacks of the larger wing that the $L/D$ curve does not show.
 :::
 
 ## References

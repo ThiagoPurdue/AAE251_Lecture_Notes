@@ -6,13 +6,13 @@ short_title: 1.5 Bernoulli and Pitot Static
 :::{include} ../_parts/standards/1.5.md
 :::
 
-Air that moves past a vehicle pushes on it, and how hard it pushes depends on how fast the air moves. Here we build the two equations that connect speed and pressure in a moving fluid. The {term}`continuity equation` says that mass is neither created nor lost as a fluid flows. {term}`Bernoulli's equation` says that where the fluid speeds up, its pressure falls. We derive both from first-year physics and apply them to a duct, a manometer, a draining tank, and the instrument every aircraft uses to measure its airspeed, the {term}`pitot tube` and the {term}`static port`.
+Air that moves past a vehicle pushes on it, and how hard it pushes depends on how fast the air moves. Here we build the two equations that connect speed and pressure in a moving fluid. The {term}`continuity equation` states that mass is neither created nor lost as a fluid flows. {term}`Bernoulli's equation` shows that where the fluid speeds up, its pressure falls. We derive both from first-year physics and apply them to a duct, a manometer, a draining tank, and the instrument every aircraft uses to measure its airspeed, the {term}`pitot tube` and the {term}`static port`.
 
 :::{note} What to take from this page
-- In steady flow the mass flow $\dot{m} = \rho A V$ is the same at every cross section of a duct or a stream tube. For a liquid or slow air, $A_1 V_1 = A_2 V_2$: a narrower passage means faster flow.
-- Along a streamline of steady, incompressible flow without friction, $p + \tfrac12 \rho V^2$ (plus $\rho g z$ for a liquid) stays constant: where the speed rises, the pressure falls.
+- In steady flow the mass flow $\dot{m} = \rho A V$ is the same at every cross section of a duct or a stream tube. For a liquid or slow air, $A_1 V_1 = A_2 V_2$, so a narrower passage means faster flow.
+- Along a streamline of steady, incompressible flow without friction, $p + \tfrac12 \rho V^2$ (plus $\rho g z$ for a liquid) stays constant, meaning that where the speed rises, the pressure falls.
 - A pitot-static tube measures the total pressure $p_0$ at its nose and the static pressure $p$ at its side holes; the airspeed is $V = \sqrt{2(p_0 - p)/\rho}$, with the density of the air around the aircraft.
-- A blockage traps a pressure. The instrument then reads wrong in a way you can predict: find the trapped pressure, then follow how the outside pressure changes in a climb or a descent.
+- A blockage traps a pressure. You can predict the resulting error by identifying the trapped pressure and following how the outside pressure changes in a climb or a descent.
 :::
 
 ## Velocity, streamlines, and aerodynamic forces
@@ -24,11 +24,11 @@ The velocity at any point in the flow is the velocity of a tiny parcel of fluid,
 :::{prf:definition} Steady flow, streamline, stream tube
 :label: def-p15-streamline
 
-A flow is **{term}`steady <steady flow>`** when nothing at a fixed point changes with time: the pressure, density, temperature, and velocity at each point stay the same.
+A flow is **{term}`steady <steady flow>`** when nothing at a fixed point changes with time, so the pressure, density, temperature, and velocity at each point stay the same.
 
 In steady flow every fluid element that passes a given point follows the same fixed path. That path is a **{term}`streamline`**. At each point the velocity is tangent to the streamline through that point, so fluid never crosses a streamline.
 
-A **{term}`stream tube`** is the bundle of streamlines that pass through a small closed curve. Because no fluid crosses a streamline, no fluid crosses the wall of a stream tube: it behaves like a pipe with invisible walls.
+A **{term}`stream tube`** is the bundle of streamlines that pass through a small closed curve. Because no fluid crosses a streamline, no fluid crosses the wall of a stream tube, so it behaves like a pipe with invisible walls.
 :::
 
 {numref}`fig-p15-stream-tube` shows the streamlines around an airfoil, the cross-section shape of a wing (its parts are named on [vehicle anatomy](#p13-airfoil)). One stream tube is shaded. Above the airfoil the streamlines crowd together and the tube narrows. The continuity equation, below, shows why the air there must move faster.
@@ -38,7 +38,7 @@ A **{term}`stream tube`** is the bundle of streamlines that pass through a small
 :alt: Six streamlines run from left to right past an airfoil tilted slightly nose up. Two of them bound a shaded stream tube that passes just above the airfoil. At station 1, ahead of the airfoil, the tube is wide and climbing, and a short velocity arrow along the flow marks the speed V1. At station 2, above the front of the airfoil, the tube is narrower and the velocity arrow V2 is longer. The streamlines far above and below are barely disturbed.
 :width: 70%
 
-Computed for ideal flow (no friction) past a cambered airfoil tilted 4° nose up. Where the stream tube narrows, from area $A_1$ to $A_2$, the flow speeds up from $V_1$ to $V_2$. The arrows lie along the local flow and are drawn to one scale: the speed ratio $V_2/V_1$ and the width ratio of the tube are both 1.26.
+Computed for ideal flow (no friction) past a cambered airfoil tilted 4° nose up. Where the stream tube narrows, from area $A_1$ to $A_2$, the flow speeds up from $V_1$ to $V_2$. The arrows lie along the local flow and are drawn to one scale, with both the speed ratio $V_2/V_1$ and the width ratio of the tube equal to 1.26.
 :::
 
 ### Where aerodynamic forces come from
@@ -50,20 +50,20 @@ These quantities set the force on the vehicle. Air acts on a surface in only two
 :alt: Left: a small element of a body surface, with the free stream coming from the left. A pressure force arrow pushes straight into the surface and ends at the element; a shear force arrow starts at the element and points along the surface in the direction of the flow. Right: an airfoil tilted slightly nose up in the same free stream. From one point near its quarter chord, a vertical lift arrow perpendicular to the free stream, a horizontal drag arrow along it, and the resultant arrow leaning slightly back; two dashed lines close the rectangle whose diagonal is the resultant.
 :width: 90%
 
-Schematic, lengths not to scale (at cruise the drag is a small fraction of the lift). Pressure pushes normal to the surface and shear drags along it (left). Their sum over the surface is the resultant $R$ (right): the lift $L$ across the free stream and the drag $D$ along it are the sides of the rectangle whose diagonal is $R$.
+Schematic, lengths not to scale (at cruise the drag is a small fraction of the lift). Pressure pushes normal to the surface and shear drags along it (left). Their sum over the surface is the resultant $R$ (right), where the lift $L$ across the free stream and the drag $D$ along it form the sides of the rectangle whose diagonal is $R$.
 :::
 
-Lift requires a fluid in contact with the body and relative motion between the two. We can view that same force from a momentum perspective as well: integrating surface pressure and shear over the wing and applying Newton's third law to the downward turning of the airflow are two descriptions of the same physical force, because the wing pushes air downward and the air pushes the wing upward (NASA Glenn Research Center n.d.h). We compute lift in [Chapter 3 of these notes, page 3.2](../chapter-3/airfoil-and-finite-wing.md).
+Lift requires a fluid in contact with the body and relative motion between the two. We can view that same force from a momentum perspective as well. Integrating surface pressure and shear over the wing and applying Newton's third law to the downward turning of the airflow are two descriptions of the same physical force, because the wing pushes air downward and the air pushes the wing upward (NASA Glenn Research Center n.d.h). We compute lift in [Chapter 3 of these notes, page 3.2](../chapter-3/airfoil-and-finite-wing.md).
 
 (p15-continuity)=
 ## The continuity equation
 
-We start from one fact: mass is conserved. Applied to the fluid in a stream tube or a duct, it gives our first equation (NASA Glenn Research Center n.d.b).
+We start from the conservation of mass. Applied to the fluid in a stream tube or a duct, it gives our first equation (NASA Glenn Research Center n.d.b).
 
-We take the stream tube of {numref}`fig-p15-continuity`, with two cross sections: station 1 of area $A_1$ and station 2 of area $A_2$. We make two assumptions to keep the algebra simple:
+We take the stream tube of {numref}`fig-p15-continuity`, with two cross sections, station 1 of area $A_1$ and station 2 of area $A_2$. We make two assumptions to keep the algebra simple:
 
 1. The flow is steady.
-2. The velocity and the density are uniform across each cross section: $V_1$ and $\rho_1$ everywhere on $A_1$, $V_2$ and $\rho_2$ everywhere on $A_2$.
+2. The velocity and the density are uniform across each cross section, with $V_1$ and $\rho_1$ everywhere on $A_1$ and $V_2$ and $\rho_2$ everywhere on $A_2$.
 
 In a short time $dt$, the fluid that crosses station 1 moves a distance $V_1\,dt$. It fills a slab of cross-section area $A_1$ and length $V_1\,dt$, so its volume is $A_1 V_1\,dt$. Its mass is the density times the volume:
 
@@ -78,7 +78,7 @@ In the same way, the mass that crosses station 2 in the same time is $dm_2 = \rh
 :alt: A round tube cut lengthwise, narrowing from left to right, with the flow entering at the left. In the wide part a short, fat slab of fluid of length V1 dt is shaded; in the narrow part a long, thin slab of length V2 dt is shaded. A double arrow across the tube just after each slab marks the cross section, area A1 and area A2. The masses are labeled dm1 = rho1 A1 V1 dt and dm2 = rho2 A2 V2 dt.
 :width: 90%
 
-Schematic of a round tube, with the two slabs drawn at equal volumes. In the same time $dt$, the same mass crosses both stations: where the tube is narrow, the slab must be longer, so the fluid moves faster.
+Schematic of a round tube, with the two slabs drawn at equal volumes. In the same time $dt$, the same mass crosses both stations. Where the tube is narrow, the slab must be longer, so the fluid moves faster.
 :::
 
 Fluid cannot cross the wall of a stream tube, and in steady flow no mass can pile up between the stations or drain away. So whatever mass enters at station 1 must leave at station 2 in the same time:
@@ -116,10 +116,10 @@ With $\rho_1 = \rho_2$ the density cancels from {eq}`eq-p15-continuity`:
 A_1 V_1 = A_2 V_2 = Q
 :::
 
-$Q = AV$ is the {term}`volume flow rate`, in m³/s. You see this equation at work in a garden hose: put your thumb over the end, the opening shrinks, and the water leaves faster.
+$Q = AV$ is the {term}`volume flow rate`, in m³/s. You see this equation at work in a garden hose. When you put your thumb over the end, the opening shrinks and the water leaves faster.
 
 :::{warning} Diameters are not areas
-A round pipe of diameter $D$ has area $A = \pi D^2/4$. The area goes with the square of the diameter: halving the diameter quarters the area, so the speed rises four times, not two. Convert every diameter to an area, and every length to meters, before using {eq}`eq-p15-incompressible`.
+A round pipe of diameter $D$ has area $A = \pi D^2/4$. The area varies with the square of the diameter. Halving the diameter quarters the area, so the speed increases by a factor of four instead of two. Convert every diameter to an area, and every length to meters, before using {eq}`eq-p15-incompressible`.
 :::
 
 ## The momentum equation
@@ -139,7 +139,7 @@ To keep the result simple, we assume there is no friction (an {term}`inviscid fl
 :alt: A small box of fluid with sides dx, dy, and dz. A streamline runs along x through the box, dashed where the box hides it. A heavy arrow from the left, labeled pressure force p dy dz, pushes on the left face. A heavy arrow from the right, labeled pressure force p plus dp, times dy dz, pushes on the right face, shaded. Downstream of the box a thin velocity arrow V points along the streamline.
 :width: 90%
 
-Schematic of a fluid element on a streamline, with no friction and no gravity. The pressure on the right face is higher by $dp$, so the net force is $-dp\,dy\,dz$: a pressure that falls along $x$ pushes the element forward.
+Schematic of a fluid element on a streamline, with no friction and no gravity. The pressure on the right face is higher by $dp$, so the net force is $-dp\,dy\,dz$. A pressure that falls along $x$ pushes the element forward.
 :::
 
 **Force from pressure.** The pressure on the left face is $p$. On the right face, a distance $dx$ farther along, it has changed to $p + dp$, with $dp = (dp/dx)\,dx$. Each end face has area $dy\,dz$. The left face is pushed in the $+x$ direction and the right face in the $-x$ direction, so the net force along $x$ is
@@ -172,7 +172,7 @@ The volume $dx\,dy\,dz$ appears on both sides and cancels. We multiply both side
 dp = -\rho\,V\,dV
 :::
 
-Pay close attention to the minus sign: along a streamline, an increase in speed ($dV > 0$) requires a drop in pressure ($dp < 0$). Moving from higher pressure toward lower pressure creates a net forward force that accelerates the fluid element. {eq}`eq-p15-euler` holds for compressible flow too, because we did not assume constant density in the derivation.
+Pay close attention to the minus sign. Along a streamline, an increase in speed ($dV > 0$) requires a drop in pressure ($dp < 0$). Moving from higher pressure toward lower pressure creates a net forward force that accelerates the fluid element. {eq}`eq-p15-euler` applies to compressible flow too, because we did not assume constant density in the derivation.
 
 (p15-bernoulli)=
 ## Bernoulli's equation
@@ -247,18 +247,18 @@ p_1 + \tfrac12 \rho V_1^2 + \rho g z_1\\
 \end{gathered}
 :::
 
-where $z$ is the height of each point above any level you choose, in m, and $g = 9.81$ m/s². With the fluid at rest ($V_1 = V_2 = 0$), it becomes $p_2 - p_1 = -\rho g (z_2 - z_1)$: the {term}`hydrostatic equation` of the [standard atmosphere page](standard-atmosphere.md) for a fluid of constant density. In air the height term is small. One meter of height changes $\rho g z$ by 12.02 Pa at sea level, while the dynamic pressure at 50 m/s is 1,531 Pa. So for air we leave it out.
+where $z$ is the height of each point above any level you choose, in m, and $g = 9.81$ m/s². With the fluid at rest ($V_1 = V_2 = 0$), it becomes $p_2 - p_1 = -\rho g (z_2 - z_1)$, which is the {term}`hydrostatic equation` of the [standard atmosphere page](standard-atmosphere.md) for a fluid of constant density. In air the height term is small. One meter of height changes $\rho g z$ by 12.02 Pa at sea level, while the dynamic pressure at 50 m/s is 1,531 Pa. So for air we leave it out.
 
-:::{note} When Bernoulli's equation holds
+:::{note} When Bernoulli's equation applies
 1. Steady flow.
-2. Incompressible flow: liquids, or air below about 100 m/s.
+2. Incompressible flow, which covers liquids and air below about 100 m/s.
 3. No friction (inviscid flow). Close to a surface, in the thin layer where friction acts, it fails.
 4. The two points lie on the same streamline.
-5. No energy added or removed between the two points: no fan, pump, propeller, or turbine in between.
+5. No energy added or removed between the two points, meaning no fan, pump, propeller, or turbine in between.
 :::
 
 :::{warning} Two densities, two pressure scales
-Bernoulli's equation uses the density of the fluid that flows: air, about 1 kg/m³, in an airspeed problem. A manometer uses the density of its liquid, water at 1,000 kg/m³. Mixing them up is the most common error with these equations. A second trap is the pressure scale. Absolute pressure is measured from vacuum, and gauge pressure from the local atmosphere. Either works in Bernoulli's equation, as long as you use the same one on both sides. The equation of state always needs the absolute pressure.
+Bernoulli's equation uses the density of the flowing fluid, which is air at about 1 kg/m³ in an airspeed problem. A manometer uses the density of its liquid, water at 1,000 kg/m³. Mixing them up is the most common error with these equations. A second trap is the pressure scale. Absolute pressure is measured from vacuum, and gauge pressure from the local atmosphere. Either works in Bernoulli's equation, as long as you use the same one on both sides. The equation of state always needs the absolute pressure.
 :::
 
 ## Using continuity and Bernoulli together
@@ -320,7 +320,7 @@ A ground cart blows cooling air into the electronics bay of an airliner through 
        &= 35.556\ \text{m/s}
    \end{aligned}
    $$
-   The area ratio is $(12/9)^2 = 1.778$, the square of the diameter ratio. The speed stays below 100 m/s, so the incompressible model holds.
+   The area ratio is $(12/9)^2 = 1.778$, the square of the diameter ratio. The speed stays below 100 m/s, so the incompressible model applies.
 3. **Flow rates.**
    $$
    \begin{aligned}
@@ -357,7 +357,7 @@ A ground cart blows cooling air into the electronics bay of an airliner through 
 :alt: A round duct drawn to scale narrows from 12 centimeters to 9 centimeters in diameter, with air entering at the left. On the axis at station 1 a short velocity arrow shows the given 20 meters per second; at station 2 an arrow 1.778 times as long shows 35.56 meters per second. A U-tube water manometer below the duct is tapped through the lower wall at the two stations. The water stands 54.0 millimeters higher in the leg under station 2, which shows a pressure difference p1 minus p2 of 529.3 pascals.
 :width: 90%
 
-Computed for the worked example, to scale (the duct, the speeds at one arrow scale, and the water column): a duct narrowing from 12 cm to 9 cm with sea-level air at 20 m/s. The speed rises in proportion to the area ratio and the pressure falls: the water is pushed down in the leg under the higher pressure, at station 1.
+Computed for the worked example, to scale (the duct, the speeds at one arrow scale, and the water column): a duct narrowing from 12 cm to 9 cm with sea-level air at 20 m/s. The speed rises in proportion to the area ratio and the pressure falls, pushing the water down in the leg under the higher pressure at station 1.
 :::
 
 (p15-pitot-static)=
@@ -379,7 +379,7 @@ $$
 
 The stagnation point is exposed to the total pressure of the free stream. A small opening at the tip, connected to a tube, carries that pressure to a gauge; a tube used this way is a pitot tube.
 
-We measure static pressure through small ports in the side of the probe, a few diameters behind the nose. The lower panel of {numref}`fig-p15-pitot-static-tube` shows why they are placed there: just behind the nose the air accelerates around the shoulder and surface pressure dips below $p$, while farther back the flow runs parallel to the surface at the free-stream speed and surface pressure returns to $p$. Side ports located in that recovered region accurately sense the static pressure.
+We measure static pressure through small ports in the side of the probe, a few diameters behind the nose. The lower panel of {numref}`fig-p15-pitot-static-tube` shows why they are placed there. Just behind the nose, the air accelerates around the shoulder and surface pressure dips below $p$, while farther back the flow runs parallel to the surface at the free-stream speed and surface pressure returns to $p$. Side ports located in that recovered region accurately sense the static pressure.
 
 :::{figure} figures/p15-pitot-static-tube.svg
 :label: fig-p15-pitot-static-tube
@@ -473,16 +473,16 @@ Schematic of the pitot-static system. The pitot line feeds only the airspeed ind
 
 :::
 
-The altimeter applies the [standard atmosphere](#p14-layers) relations in reverse: it senses the outside static pressure and displays the standard-atmosphere altitude corresponding to that pressure. The vertical speed indicator uses a diaphragm connected directly to the static line inside a sealed case connected through a calibrated leak. During a climb, outside static pressure drops; the diaphragm senses that drop immediately while the case pressure lags behind, and the resulting pressure difference deflects the needle to indicate rate of climb. In level flight the two pressures equalize and the needle reads zero.
+The altimeter applies the [standard atmosphere](#p14-layers) relations in reverse. It senses the outside static pressure and displays the standard-atmosphere altitude corresponding to that pressure. The vertical speed indicator uses a diaphragm connected directly to the static line inside a sealed case connected through a calibrated leak. During a climb, outside static pressure drops; the diaphragm senses that drop immediately while the case pressure lags behind, and the resulting pressure difference deflects the needle to indicate rate of climb. In level flight the two pressures equalize and the needle reads zero.
 
 ## Blocked pitot and static ports
 
-Ice, water, dirt, or insects can block the openings of the system. A blockage traps a pressure, and the instruments then read wrong in ways that follow from {numref}`tbl-p15-instruments` (FAA 2023, Chapter 8). Aircraft that sit on the ground for a long time often wear a pitot tube cover against insects. Before each flight pilots check that the cover is off and the openings are clear. Many aircraft also heat the pitot tube to keep ice off.
+Ice, water, dirt, or insects can block the openings of the system. A blockage traps a pressure, and the instruments then read wrong in ways that follow from {numref}`tbl-p15-instruments` (FAA 2023, Chapter 8). Aircraft parked on the ground for a long time often have a pitot tube cover fitted against insects. Before each flight pilots check that the cover is off and the openings are clear. Many aircraft also heat the pitot tube to keep ice off.
 
 :::{tip} Method: reasoning out a blockage
 1. Name the blocked opening: the pitot inlet, the pitot inlet and its drain hole, or the static port.
-2. Decide which pressure is now trapped in the line and at what value, or whether the line vents to the outside.
-3. Follow the outside static pressure through the maneuver: it falls in a climb and rises in a descent.
+2. Identify which pressure is now trapped in the line and at what value, or whether the line vents to the outside.
+3. Follow the outside static pressure through the maneuver, noting that it falls in a climb and rises in a descent.
 4. For each instrument, compare the two pressures it now receives and read off the result.
 :::
 
@@ -490,7 +490,7 @@ Applying this procedure gives three blockage cases:
 
 1. **Pitot inlet blocked, drain hole open.** Air in the pitot line vents through the drain hole until the line equalizes with the outside static pressure. Both sides of the airspeed indicator then sense $p$, so the reading drops to zero. The altimeter and vertical speed indicator continue working normally.
 2. **Pitot inlet and drain hole both blocked.** The total pressure at the instant of blockage is trapped in the pitot line. In level flight the airspeed indicator no longer responds to speed changes. In a climb, outside static pressure falls while the trapped pitot pressure stays constant, widening $p_0 - p$ so the indicator reads progressively higher; in a descent it reads progressively lower, behaving like an altimeter. The other two instruments still work normally.
-3. **Static port blocked.** The static pressure at the instant of blockage is trapped in the static line, freezing the altimeter and holding the vertical speed indicator at zero. As long as altitude does not change, the trapped pressure still equals the outside static pressure and the airspeed indicator reads correctly. In a climb, outside static pressure $p$ drops, which lowers total pressure $p_0 = p + q$ while the trapped static pressure stays fixed; the measured difference shrinks, so the airspeed indicator reads low (and in a descent it reads high).
+3. **Static port blocked.** The static pressure at the instant of blockage is trapped in the static line, freezing the altimeter and keeping the vertical speed indicator at zero. As long as altitude does not change, the trapped pressure still equals the outside static pressure and the airspeed indicator reads correctly. In a climb, outside static pressure $p$ drops, which lowers total pressure $p_0 = p + q$ while the trapped static pressure stays fixed; the measured difference shrinks, so the airspeed indicator reads low (and in a descent it reads high).
 
 :::{warning} The dangerous combination
 In case 2 a climb makes the airspeed reading rise. A pilot who believes it may raise the nose to slow down, which steepens the climb and raises the reading further while the true airspeed falls. After a blockage, find the trapped pressure before you trust any reading.
@@ -499,10 +499,10 @@ In case 2 a climb makes the airspeed reading rise. A pilot who believes it may r
 (p15-example-blockage)=
 ### Worked example: a pitot cover left on
 
-A small cargo airplane stands at a sea-level airport with a cover over its pitot tube, and nobody removes it. We take the simplest case: the cover seals both the ram-air inlet and the drain hole, the day is standard, and the air trapped in the pitot line is still at the pressure of the runway. The pilot takes off and climbs, holding a true airspeed of 65 m/s. Find what the airspeed indicator shows on the takeoff run, at 150 m, and at 300 m.
+A small cargo airplane stands at a sea-level airport with a cover over its pitot tube, and nobody removes it. We take the simplest case, in which the cover seals both the ram-air inlet and the drain hole, the day is standard, and the air trapped in the pitot line is still at the pressure of the runway. The pilot takes off and climbs, holding a true airspeed of 65 m/s. Find what the airspeed indicator shows on the takeoff run, at 150 m, and at 300 m.
 
-1. **Trapped pressure.** The cover went on with the airplane at rest, so no dynamic pressure was trapped: from then on the pitot line holds the static pressure of the runway, $p_\text{pitot} = 101{,}325$ Pa.
-2. **On the takeoff run.** The static line also holds 101,325 Pa, so the gap $p_\text{pitot} - p$ is zero and the indicator reads 0 m/s at any speed. At 65 m/s the dynamic pressure is 2,587.8 Pa, but none of it reaches the pitot line. A pilot who checks that the airspeed rises during the takeoff run catches the blockage here (FAA 2023, Chapter 8).
+1. **Trapped pressure.** The cover went on with the airplane at rest, so no dynamic pressure was trapped. From then on, the pitot line traps the static pressure of the runway, $p_\text{pitot} = 101{,}325$ Pa.
+2. **On the takeoff run.** The static line is also at 101,325 Pa, so the gap $p_\text{pitot} - p$ is zero and the indicator reads 0 m/s at any speed. At 65 m/s the dynamic pressure is 2,587.8 Pa, but none of it reaches the pitot line. A pilot who checks that the airspeed rises during the takeoff run catches the blockage here (FAA 2023, Chapter 8).
 3. **At 150 m.** From the standard atmosphere,
    $$
    \begin{aligned}
@@ -513,7 +513,7 @@ A small cargo airplane stands at a sea-level airport with a cover over its pitot
      &= 99{,}535.1\ \text{Pa}
    \end{aligned}
    $$
-   The pitot line still holds the runway pressure, so the indicator senses
+   The pitot line still contains the trapped runway pressure, so the indicator senses
    $$
    \begin{aligned}
    p_\text{pitot} - p &= 101{,}325\\
@@ -563,9 +563,9 @@ Computed for the worked example: an airplane climbing from a sea-level runway to
 
 :::{important} Summary
 - In steady flow the mass flow $\rho A V$ is the same at every section of a stream tube or a duct; for liquids and air below about 100 m/s, $A_1 V_1 = A_2 V_2$.
-- Newton's second law on a fluid element along a streamline gives $dp = -\rho V\,dV$. For incompressible flow without friction it integrates to Bernoulli's equation: the total pressure $p + \tfrac12\rho V^2$ (plus $\rho g z$ for a liquid) is constant along a streamline.
+- Newton's second law on a fluid element along a streamline gives $dp = -\rho V\,dV$. For incompressible flow without friction it integrates to Bernoulli's equation, showing that the total pressure $p + \tfrac12\rho V^2$ (plus $\rho g z$ for a liquid) is constant along a streamline.
 - A pitot-static tube measures $p_0$ at its stagnation point and $p$ at its side holes, and $V = \sqrt{2(p_0 - p)/\rho}$ with the local air density. The dial uses the sea-level density and shows the indicated airspeed.
-- A blockage traps a pressure. A trapped pitot pressure makes the airspeed read high in a climb; a trapped static pressure freezes the altimeter, holds the vertical speed indicator at zero, and makes the airspeed read low in a climb. Both errors reverse in a descent.
+- A blockage traps a pressure. A trapped pitot pressure makes the airspeed read high in a climb; a trapped static pressure freezes the altimeter, keeps the vertical speed indicator at zero, and makes the airspeed read low in a climb. Both errors reverse in a descent.
 :::
 
 :::{table} The equations of this page.
@@ -589,7 +589,7 @@ Computed for the worked example: an airplane climbing from a sea-level runway to
 :::{exercise} For discussion
 :label: ex-p15-discussion
 
-1. A rocket climbs through the atmosphere, getting faster as the air gets thinner. What happens to the static pressure and to the dynamic pressure on the vehicle during the climb? Why would its designers care when the dynamic pressure is largest?
+1. A rocket climbs through the atmosphere, getting faster as the air gets thinner. What happens to the static pressure and to the dynamic pressure on the vehicle during the climb? Why do its designers need to know when the dynamic pressure is largest?
 2. A duct of constant area has a model mounted inside it. Upstream and downstream of the model the areas are the same, yet the total pressure downstream is lower. Which assumption of Bernoulli's equation has failed, and where?
 3. Why does a pitot-static tube work poorly at low speeds? (Estimate $p_0 - p$ at 2 m/s in air.)
 4. Explain to a friend, without equations, why "the air on top has farther to go, so it goes faster" is not the reason a wing lifts.

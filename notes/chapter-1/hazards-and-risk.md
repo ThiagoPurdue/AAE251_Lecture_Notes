@@ -6,13 +6,13 @@ short_title: 1.2 Hazards and Risk
 :::{include} ../_parts/standards/1.2.md
 :::
 
-Aerospace vehicles operate in demanding environments: an airliner flies through ice, birds, and severe weather, while a satellite faces radiation, orbital debris, and vacuum. In this lecture we define what a {term}`hazard` is and survey atmospheric hazards by flight phase and space hazards by altitude. We then turn those hazards into {term}`risks <risk>`, score each risk on a {term}`risk matrix`, and apply a {term}`mitigation` to reduce it, working through an example for a small {term}`launch vehicle`. Finally, we examine how to locate critical parts whose failure alone would end a mission.
+Aerospace vehicles operate in demanding environments. An airliner flies through ice, birds, and severe weather, while a satellite faces radiation, orbital debris, and vacuum. In this lecture we define what a {term}`hazard` is and survey atmospheric hazards by flight phase and space hazards by altitude. We then turn those hazards into {term}`risks <risk>`, score each risk on a {term}`risk matrix`, and apply a {term}`mitigation` to reduce it, working through an example for a small {term}`launch vehicle`. Finally, we examine how to locate critical parts whose failure alone would end a mission.
 
 :::{note} What to take from this page
 - A hazard is a condition of the operating environment that can harm the vehicle or the mission. Describe each one by its cause, its effect, and a mitigation that acts on one link of that chain.
-- Atmospheric hazards belong to phases of flight and bands of altitude; space hazards belong to altitude bands, from drag and atomic oxygen in low orbit to the radiation belts above.
+- Atmospheric hazards depend on flight phase and altitude band; space hazards depend on altitude band, from drag and atomic oxygen in low orbit to the radiation belts above.
 - A risk is a sentence, "If [event], then [consequence]," with a likelihood and a consequence from 1 to 5. In these notes the level is High when likelihood times consequence is 15 or more, Medium from 5 to 12, and Low at 4 or less.
-- Most mitigations lower the likelihood; some lower the consequence. A {term}`single-point failure` is identified by stepping through the mission timeline: adding {term}`redundancy` removes it, while added margin and testing lower its likelihood without eliminating the single point, or the project accepts it with a documented reason.
+- Most mitigations lower the likelihood; some lower the consequence. We identify a {term}`single-point failure` by stepping through the mission timeline. Adding {term}`redundancy` removes it, added margin and testing lower its likelihood without eliminating the single point, or the project accepts it with a documented reason.
 :::
 
 (p12-what-is-a-hazard)=
@@ -36,7 +36,7 @@ We describe a hazard as a chain of three links and an action:
 :::{prf:definition} Mitigation
 :label: def-p12-mitigation
 
-A **mitigation** is an action, taken or planned, that makes harm from a hazard less likely or less severe. It acts on one link of the chain: it keeps the vehicle away from the cause, removes the hazard, or softens the effect.
+A **mitigation** is an action, taken or planned, that makes harm from a hazard less likely or less severe. It acts on one link of the chain by keeping the vehicle away from the cause, removing the hazard, or softening the effect.
 :::
 
 {numref}`fig-p12-hazard-anatomy` draws the chain for the icy road and for an aircraft wing in an icing cloud. The wing shows why it matters where a mitigation acts. Nobody can remove the supercooled drops from a cloud. The pilot either avoids the cloud, which acts on the cause, or heats the wing so that ice cannot form, which removes the hazard.
@@ -59,7 +59,7 @@ A hazard comes from the environment the vehicle operates in. A project also face
 A **risk** is an uncertain future event that would hurt the mission or the project, together with how likely it is (its **likelihood**) and how bad it would be (its **consequence**) (NASA 2016, Section 6.4).
 :::
 
-{numref}`tbl-p12-hazard-or-risk` sets a hazard and a {term}`project risk` side by side. A hazard becomes a risk when you score it for one particular mission: how likely it is to hurt this vehicle, and how badly.
+{numref}`tbl-p12-hazard-or-risk` sets a hazard and a {term}`project risk` side by side. A hazard becomes a risk when you score it for one particular mission, assessing how likely it is to affect this vehicle and how severely.
 
 :::{table} Hazards and project risks.
 :label: tbl-p12-hazard-or-risk
@@ -74,13 +74,13 @@ A **risk** is an uncertain future event that would hurt the mission or the proje
 </table>
 :::
 
-:::{warning} A hazard must belong to the environment
+:::{warning} A hazard must match the operating environment
 List only hazards the vehicle can encounter during its mission. Icing requires liquid water in air, so it is not a hazard for a satellite in orbit. Atomic oxygen erodes surfaces only in low orbit, so it does not affect an airliner. Before scoring a hazard, state where and when the vehicle faces it.
 :::
 
 ## Hazards in the atmosphere
 
-In the atmosphere, the hazards change with the phase of flight. Most of them occur at airports and in the low airspace around them: debris on the runway, birds, wind near the ground, and weather at the arrival airport. {numref}`fig-p12-flight-hazards` places nine hazards along the flight of a jet transport. {numref}`tbl-p12-flight-hazards` gives the cause, the effect, and one mitigation of each, under the same numbers.
+In the atmosphere, the hazards change with the phase of flight. Most of them occur at airports and in the low airspace around them, including debris on the runway, birds, wind near the ground, and weather at the arrival airport. {numref}`fig-p12-flight-hazards` places nine hazards along the flight of a jet transport. {numref}`tbl-p12-flight-hazards` gives the cause, the effect, and one mitigation of each, under the same numbers.
 
 :::{figure} figures/p12-flight-hazards.svg
 :label: fig-p12-flight-hazards
@@ -108,7 +108,7 @@ Schematic, distance not to scale, altitude to scale. Most hazards occur at airpo
 
 :::
 
-Four of these hazards come with numbers worth knowing:
+Four of these hazards come with numbers we should remember:
 
 - **Icing.** Ice builds fastest a little below 0 °C. Below about −20 °C most clouds are ice crystals, which bounce off (FAA 2015). On a standard day (the reference atmosphere of [1.4 Standard Atmosphere](standard-atmosphere.md)) the air is at 0 °C at 2,309 m and at −20 °C at 5,386 m. Cloud between those heights is the icing band. On a warmer day the band moves up.
 - **Wind shear and microbursts.** {term}`Wind shear` is a sudden change of wind speed or direction over a short distance. A {term}`microburst` is a small, intense downdraft that spreads out in all directions at the ground (FAA n.d., AIM 7-1-24). Its downdraft can reach 6,000 ft/min and its outflow 45 knots (a {term}`knot` is one nautical mile per hour, 0.514 m/s). An aircraft crossing it on approach flies first into a 45-knot headwind, then through the downdraft, and then into a 45-knot tailwind ({numref}`fig-p12-microburst`). That is a change of 90 knots within a few hundred feet of the ground, where the aircraft is slow and low.
@@ -139,7 +139,7 @@ Performance worked out at sea level on a standard day makes the aircraft look be
 (p12-space-hazards)=
 ## Hazards in space
 
-Above the atmosphere, the hazards depend mostly on altitude. {numref}`fig-p12-space-altitudes` shows where each one matters. {term}`Low Earth orbits <Low Earth orbit>` still have a trace of atmosphere, which brings drag and atomic oxygen, and most of the debris is below 2,000 km. The radiation belts lie higher up. The {term}`geostationary orbit`, 35,786 km up, runs through the outer belt.
+Above the atmosphere, we group the hazards mostly by altitude. {numref}`fig-p12-space-altitudes` shows where each one matters. {term}`Low Earth orbits <Low Earth orbit>` still have a trace of atmosphere, which brings drag and atomic oxygen, and most of the debris is below 2,000 km. The radiation belts lie higher up. The {term}`geostationary orbit`, 35,786 km up, runs through the outer belt.
 
 :::{figure} figures/p12-space-altitudes.svg
 :label: fig-p12-space-altitudes
@@ -161,7 +161,7 @@ We take the space hazards one at a time. {numref}`tbl-p12-space-hazards`, after 
 
 ### Radiation and its effects
 
-Of these hazards, radiation needs a closer look. Earth's magnetic field traps charged particles in two rings around the planet, the Van Allen radiation belts ({numref}`fig-p12-radiation-belts`). Above the equator the inner belt extends from about 1,600 to 12,900 km and the outer belt from about 19,300 to 40,200 km (NASA 2013). The particles spiral along the field lines and bounce between the hemispheres. As a result, each belt follows the field lines and comes closer to Earth at higher latitudes.
+Of these hazards, we need to look more closely at radiation. Earth's magnetic field traps charged particles in two rings around the planet, the Van Allen radiation belts ({numref}`fig-p12-radiation-belts`). Above the equator the inner belt extends from about 1,600 to 12,900 km and the outer belt from about 19,300 to 40,200 km (NASA 2013). The particles spiral along the field lines and bounce between the hemispheres. As a result, each belt follows the field lines and comes closer to Earth at higher latitudes.
 
 The same magnetic field shields low orbits near the equator from most solar particles and cosmic rays (NASA 2020). Orbits that pass over the poles, high orbits, and flights away from Earth get little of this protection.
 
@@ -175,7 +175,7 @@ Schematic, to scale, in the plane of the magnetic axis. The two belts are rings 
 
 What the radiation does to a spacecraft falls into two groups:
 
-- **Total dose.** Every particle that passes through a material leaves a little damage. In electronics it adds up over the years until a part stops working: the {term}`total ionizing dose`. A longer mission, or an orbit inside a belt, collects more.
+- **Total dose.** Every particle that passes through a material leaves a little damage. In electronics it adds up over the years until a part stops working, a cumulative effect called the {term}`total ionizing dose`. A longer mission, or an orbit inside a belt, collects more.
 - **Single-event effects.** One energetic particle can disturb a chip on its own, at any moment. These {term}`single-event effects <single-event effect>` are of three kinds (O'Bryan et al. 2017):
   - an upset, a flipped memory bit (a single-event upset), which a reset or a rewrite clears;
   - a latchup, in which the part draws a large current until it is switched off and on;
@@ -237,7 +237,7 @@ A list of hazards does not tell us which one to work on first. For that, we writ
 
 **The risk statement.** Write each risk as one sentence of the form "If [event], then [consequence]." For example: "If the second-stage engine fails its qualification test, then the first launch slips by six months." (A qualification test is the test that proves a design before it flies.) The event must be something that may or may not happen, and the consequence must say what the mission or the project loses (NASA 2011, Section 4.2.1.1).
 
-**The two scores.** The {term}`likelihood` L says how likely the event is. The {term}`consequence` C says how bad the result would be. We score each from 1 to 5 with the scales of {numref}`tbl-p12-scales`, and we back each score with one sentence that says why.
+**The two scores.** The {term}`likelihood` L rates how likely the event is. The {term}`consequence` C rates how severe the result would be. We score each from 1 to 5 with the scales of {numref}`tbl-p12-scales`, and we back each score with one sentence that explains why.
 
 :::{table} The likelihood and consequence scales of these notes.
 :label: tbl-p12-scales
@@ -267,13 +267,13 @@ The score $S$ runs from 1 to 25. In these notes we sort it into three levels: **
 :alt: A five by five grid. Rows are likelihood 1 to 5 from bottom to top and columns are consequence 1 to 5 from left to right; each cell shows the product of the two. Cells with products 15 to 25 (the six cells at the top right) are dark gray with a light hatch, their numbers on white tabs, and are High; cells from 5 to 12 are light gray and Medium; cells from 1 to 4 (the eight cells at the bottom left) are white and Low. Heavy stair-step lines separate the three levels. A dashed frame marks the cell at likelihood 4 and consequence 3, whose product is 12, Medium. A key beside the grid names the levels with their ranges.
 :width: 90%
 
-Schematic of the risk matrix of these notes. A risk sits in the row of its likelihood and the column of its consequence; the product of the two sets its level. Heavy lines mark the boundaries between the levels: 6 cells are High, 11 Medium, and 8 Low.
+Schematic of the risk matrix of these notes. A risk is placed in the row of its likelihood and the column of its consequence; the product of the two sets its level. Heavy lines mark the boundaries between the levels: 6 cells are High, 11 Medium, and 8 Low.
 :::
 
 The {term}`risk matrix` of {numref}`fig-p12-risk-matrix` is the picture of this rule. Each risk goes in the cell of its two scores, and we work first on the High risks, at the top right.
 
 :::{tip} Method: ranking a hazard on the risk matrix
-1. Say where and when the vehicle encounters the hazard, and check that it belongs to that environment.
+1. State where and when the vehicle encounters the hazard, and verify that it occurs in that environment.
 2. Write the risk statement: "If [event], then [consequence]."
 3. Score the likelihood L from 1 to 5, with one sentence of reason.
 4. Score the consequence C from 1 to 5, with one sentence of reason.
@@ -292,14 +292,14 @@ Keep in mind that a risk matrix is only a starting summary. Because it displays 
 Once a risk is on the matrix, we want to move it toward Low. A mitigation does this by lowering one of the two scores, or both.
 
 - **Most mitigations lower the likelihood.** Testing a part early, holding a larger mass margin (weight held in reserve for growth), qualifying a second supplier, or avoiding a cloud make the event less likely. The likelihood score falls, for example from 4 to 2. On the matrix of these notes the risk moves **down**.
-- **Some lower the consequence.** When the event cannot be made less likely, as with weather, the mitigation limits the impact when it occurs: a spare day in the {term}`launch window`, a backup unit, or a safe mode (a minimal state the spacecraft drops into after a fault). The consequence score falls, and on the matrix of these notes the risk moves **left**.
+- **Some lower the consequence.** When the event cannot be made less likely, as with weather, the mitigation limits the impact when it occurs, such as a spare day in the {term}`launch window`, a backup unit, or a safe mode (a minimal state the spacecraft drops into after a fault). The consequence score falls, and on the matrix of these notes the risk moves **left**.
 
-The rule limits how far a risk can move. Suppose its consequence is 5, the loss of the mission. Lowering its likelihood cannot make it Low, because $1 \times 5 = 5$ is still Medium. Such a risk stays on the list and is tracked, or we reduce its consequence by design. A risk that remains after mitigation is accepted by the project, with its reason written down, and is watched in case its scores change.
+The rule limits how far a risk can move. Suppose its consequence is 5, the loss of the mission. Lowering its likelihood cannot make it Low, because $1 \times 5 = 5$ is still Medium. Such a risk stays on the list and is tracked, or we reduce its consequence by design. When a risk remains after mitigation, we accept it with its reason written down and keep watching it in case its scores change.
 
 (p12-worked-example)=
 ## Worked example: risks for a small launch vehicle
 
-An invented two-stage small launch vehicle is preparing for its first flight. Its engineers have listed five risks: three project risks and two that come from hazards of the atmosphere. Rank them, choose a mitigation for each, and rank them again. {numref}`tbl-p12-example` collects the result.
+An invented two-stage small launch vehicle is preparing for its first flight. Its engineers have listed five risks, consisting of three project risks and two that come from hazards of the atmosphere. Rank them, choose a mitigation for each, and rank them again. {numref}`tbl-p12-example` collects the result.
 
 :::{table} Risks of the small launch vehicle before and after mitigation (L likelihood, C consequence, S = L × C). R5 after NASA (2023).
 :label: tbl-p12-example
@@ -315,10 +315,10 @@ An invented two-stage small launch vehicle is preparing for its first flight. It
 
 :::
 
-1. **Statements and scores before mitigation.** The first four rows are risks typical of a first flight: three from the work of building the vehicle and one from the weather. Each score has its reason, read against {numref}`tbl-p12-scales`:
+1. **Statements and scores before mitigation.** The first four rows are risks typical of a first flight, with three from the work of building the vehicle and one from the weather. Each score has its reason, read against {numref}`tbl-p12-scales`:
    - R1: the engine is new and has never run for a full burn, so a failed test is likely (L = 4); a slip of six months is a long delay (C = 3).
    - R2: mass grows on most new vehicles, so growth beyond the margin is possible (L = 3); a payload below the requirement loses most of the mission (C = 4).
-   - R3: strong winds aloft are common at the launch site in this season, so a scrub is likely (L = 4); a scrub costs a day, a short delay (C = 2).
+   - R3: strong winds aloft are common at the launch site in this season, so a scrub is likely (L = 4); a scrub causes a one-day slip, which is a short delay (C = 2).
    - R4: the only supplier also builds for other customers, so a late delivery is possible (L = 3); a slip in integration and test is a long delay (C = 3).
    - R5 comes from a hazard of the launch environment. A launch vehicle climbing through an electrified cloud can trigger lightning. Apollo 12 triggered two strikes, at 36.5 s and 52 s after liftoff in 1969, and recovered. Atlas/Centaur-67 triggered a strike in 1987 and was destroyed (NASA 2000; NASA 2023). With launch rules in place a strike is unlikely (L = 2). The consequence is the loss of the vehicle (C = 5).
 2. **Scores.** With $S = L \times C$, R1 scores $4 \times 3 = 12$, Medium. The table gives the other four. No risk is High, so we work first on the two risks scored 12.
@@ -355,7 +355,7 @@ Examples are the only engine of a single-engine airplane, a single elevator cont
 Schematic of the launch of the invented small launch vehicle, with times after liftoff. Walking the events in order shows where one failure ends the mission.
 :::
 
-Stepping through this timeline identifies four single-point failures:
+Stepping through this timeline, we identify four single-point failures:
 
 1. **Stage separation (event 2).** If the stages do not separate, the second stage cannot fly.
 2. **Second-stage ignition (event 3).** The second stage has one engine; if it does not start and run, the vehicle cannot reach orbit.
@@ -381,13 +381,13 @@ For a flight computer that works through the mission with probability 0.97, $p =
 :alt: Two block diagrams side by side. (a) Single string: one box, flight computer, on a line from a dot marked in to a dot marked out; it fails with probability p equal to 0.030 and works with probability 0.97. (b) Redundant pair: two boxes, computer A and computer B, one above the other in parallel between the in and out dots; both fail with probability p squared, 0.030 times 0.030, which is 0.00090, so the pair works with probability 0.9991.
 :width: 90%
 
-Computed for invented values: each computer works through the mission with probability 0.97, and the two fail independently. A second unit in parallel turns a failure probability $p$ into $p^2$: the function works as long as one path from the dot marked in to the dot marked out is whole.
+Computed for invented values: each computer works through the mission with probability 0.97, and the two fail independently. A second unit in parallel turns a failure probability $p$ into $p^2$, because the function works as long as one path from the dot marked in to the dot marked out remains intact.
 :::
 
-This result holds only if the units fail independently. A {term}`common-cause failure` is the failure of several units from one event or one shared fault (NASA 2018), and it defeats redundancy. The first flight of Ariane 5, in 1996, shows how. Its two inertial reference systems, the units that tell the launch vehicle which way it points, failed within a fraction of a second of each other. The active unit and its backup ran the same software, and the software had a design error. The launch vehicle lost its guidance 37 seconds after the start of the main engine ignition sequence and broke up about 3 seconds later (ESA 1996). Two identical units can share a software error, a power supply, a cable run, or a radiation event. Designers guard against this by separating the units physically and electrically, and sometimes by using two different designs for the same job.
+This result applies only if the units fail independently. A {term}`common-cause failure` is the failure of several units from one event or one shared fault (NASA 2018), and it defeats redundancy. The first flight of Ariane 5, in 1996, shows how. Its two inertial reference systems, the units that tell the launch vehicle which way it points, failed within a fraction of a second of each other. The active unit and its backup ran the same software, and the software had a design error. The launch vehicle lost its guidance 37 seconds after the start of the main engine ignition sequence and broke up about 3 seconds later (ESA 1996). Two identical units can share a software error, a power supply, a cable run, or a radiation event. Designers guard against this by separating the units physically and electrically, and sometimes by using two different designs for the same job.
 
-:::{warning} Redundancy is not free
-A second unit adds mass, power, cost, and new ways to fail. The switch that chooses between the two units can itself become a single-point failure. Add redundancy where a single unit's failure probability is high enough to matter, and check that the pair does fail independently.
+:::{warning} Redundancy has trade-offs
+A second unit adds mass, power draw, expense, and new ways to fail. The switch that chooses between the two units can itself become a single-point failure. Add redundancy where a single unit's failure probability is high enough to matter, and check that the pair does fail independently.
 :::
 
 ## Summary
@@ -418,9 +418,9 @@ A second unit adds mass, power, cost, and new ways to fail. The switch that choo
 :::{exercise} For discussion
 :label: ex-p12-discussion
 
-1. An airliner and a satellite in low orbit both fly through air. Which hazards do they share, and which belong to only one of them?
+1. An airliner and a satellite in low orbit both fly through air. Which hazards do they share, and which affect only one of them?
 2. The icing band moves up on a warm day. What does that do to the time an aircraft spends in it during a climb?
-3. An engineer argues that a High risk with likelihood 5 and consequence 3 matters less than a Medium risk with likelihood 2 and consequence 5. What would you need to know to decide?
+3. An engineer argues that a High risk with likelihood 5 and consequence 3 matters less than a Medium risk with likelihood 2 and consequence 5. What would you need to know to evaluate that argument?
 4. Why might a designer put the two computers of a redundant pair at opposite ends of a spacecraft and power them from different batteries?
 5. A satellite will be launched near the next solar maximum. Which of its hazards change, and in which direction?
 :::

@@ -6,13 +6,13 @@ short_title: 5.1 Thrust and Power
 :::{include} ../_parts/standards/5.1.md
 :::
 
-Chapter 3 built the {term}`drag polar` and turned it into the drag at every airspeed, which is what the airframe asks for. Now we need the other half: what the engines must give, and what they can give. A designer who knows both can tell how slowly and how fast an aircraft can fly, and how that changes with altitude. This page works it out for two aircraft: a single-engine general-aviation airplane, whose piston engine turns a propeller, and a twin-engine executive jet.
+Chapter 3 built the {term}`drag polar` and turned it into the drag at every airspeed, which is the force the airframe needs to overcome. Now we turn to the other half, what the engines must supply and what they can supply. Knowing both lets us find how slowly and how fast an aircraft can fly, and how that changes with altitude. On this page we work it out for two aircraft: a single-engine general-aviation airplane, whose piston engine turns a propeller, and a twin-engine executive jet.
 
 :::{note} What to take from this page
 - In {term}`steady level flight` with a small {term}`angle of attack`, lift balances the weight, $L = mg$, and the {term}`thrust required` equals the drag, $T_R = D = mg/(L/D)$. The {term}`power required` is $P_R = T_R V$.
 - Minimum thrust comes at $(L/D)_{\max}$, where the parasite and induced drag are equal. Minimum power comes at a lower speed, $V_{P_R,\min} = {3}^{-1/4}\,V_{T_R,\min}$, where the induced drag is three times the parasite drag.
 - A jet is rated in thrust and a propeller aircraft in power. The jet's thrust and the propeller aircraft's power are each nearly flat with speed, and both fall with altitude as $(\rho/\rho_0)^{m_{\text{ad}}}$.
-- Level flight is possible from the stall speed up to the {term}`maximum speed <Maximum level speed>`, where available meets required. With altitude the required curves move right, the available curves come down, and the band of possible speeds closes.
+- Level flight is possible from the stall speed up to the {term}`maximum speed <Maximum level speed>`, where available equals required. With altitude the required curves move right, the available curves come down, and the band of possible speeds closes.
 :::
 
 (p51-level-flight)=
@@ -23,7 +23,7 @@ Most of a flight is cruise, so cruise is where we start, by saying exactly what 
 ::::{prf:definition} Level flight and steady flight
 :label: def-p51-steady-level
 
-**{term}`Level flight`** is flight at constant altitude: the flight path is horizontal. **{term}`Steady flight`** is flight with no acceleration: the speed and its direction do not change, so the forces and the moments on the aircraft add up to zero. **Steady level flight** is both at once.
+**{term}`Level flight`** is flight at constant altitude, meaning the flight path is horizontal. **{term}`Steady flight`** is flight with no acceleration, so the speed and its direction do not change, and the forces and moments on the aircraft add up to zero. **Steady level flight** is both at once.
 ::::
 
 Three angles describe how the aircraft points and where it goes ({numref}`fig-p51-flight-angles`). The {term}`flight-path angle` $\gamma$ is measured from the horizontal to the flight path, the direction of the velocity. The angle of attack $\alpha$ is measured from the flight path to the body axis. The {term}`pitch angle` $\theta$ is measured from the horizontal to the body axis, so $\theta = \gamma + \alpha$. In level flight $\gamma = 0$, and the pitch angle and the angle of attack are the same.
@@ -39,9 +39,9 @@ Schematic, angles exaggerated (drawn as 15° and 10°). The pitch angle is the f
 To write the forces, we make four assumptions:
 
 1. **The thrust acts along the body axis**, so it points at the angle of attack $\alpha$ above the flight path.
-2. **The air is still**: no wind and no gusts.
-3. **The flight is coordinated**: the aircraft does not slip sideways through the air.
-4. **The ground is an inertial frame**: we neglect the rotation of the Earth.
+2. **The air is still**, with no wind and no gusts.
+3. **The flight is coordinated**, so the aircraft does not slip sideways through the air.
+4. **The ground is an inertial frame**, so we neglect the rotation of the Earth.
 
 With these, four forces act on the aircraft ({numref}`fig-p51-level-flight-fbd`). Lift $L$ is perpendicular to the flight path and drag $D$ is along it, backward. The weight $mg$ points straight down, and the thrust $T$ points along the body axis.
 
@@ -62,7 +62,7 @@ L + T\sin\alpha - mg &= 0
 \end{aligned}
 $$
 
-Two small quantities now drop out. In cruise $\alpha$ is a few degrees, so $\cos\alpha$ is close to 1. The vertical part of the thrust, $T\sin\alpha$, is small twice over: $\sin\alpha$ is small, and the thrust is a small fraction of the weight. For the airplane of worked example 1 at 70 m/s, $\alpha = {2.03}^\circ$ and $\cos\alpha = 0.99937$. Its thrust is 1,456 N, so $T\sin\alpha$ is 51.6 N, only 0.40 percent of the weight. Dropping these terms leaves the two equations of steady level flight:
+Two small quantities now drop out. In cruise $\alpha$ is a few degrees, so $\cos\alpha$ is close to 1. The vertical part of the thrust, $T\sin\alpha$, is small for two reasons. First, $\sin\alpha$ is small, and second, the thrust is a small fraction of the weight. For the airplane of worked example 1 at 70 m/s, $\alpha = {2.03}^\circ$ and $\cos\alpha = 0.99937$. Its thrust is 1,456 N, so $T\sin\alpha$ is 51.6 N, only 0.40 percent of the weight. Dropping these terms leaves the two equations of steady level flight:
 
 :::{math}
 :label: eq-p51-sluf
@@ -72,7 +72,7 @@ T_R &= D = \tfrac12 \rho V^2 S C_D
 \end{aligned}
 :::
 
-Here $V$ is the {term}`true airspeed` ([page 1.5](../chapter-1/bernoulli-and-pitot-static.md)), $S$ the wing area, and $\rho$ the density at the flight altitude from the {term}`standard atmosphere` ([page 1.4](../chapter-1/standard-atmosphere.md)). $T_R$, the thrust required, is the thrust that holds this flight. The moments must also be zero: a pitching moment would rotate the nose up or down, so the pilot sets the elevator until it vanishes. An aircraft with zero pitching moment is **{term}`trimmed <Trim>`**.
+Here $V$ is the {term}`true airspeed` ([page 1.5](../chapter-1/bernoulli-and-pitot-static.md)), $S$ the wing area, and $\rho$ the density at the flight altitude from the {term}`standard atmosphere` ([page 1.4](../chapter-1/standard-atmosphere.md)). $T_R$, the thrust required, is the thrust needed to maintain this flight. The moments must also be zero. A pitching moment would rotate the nose up or down, so the pilot sets the elevator until that moment vanishes. An aircraft with zero pitching moment is **{term}`trimmed <Trim>`**.
 
 ## What the pilot sets and what the design sets
 
@@ -82,12 +82,12 @@ Before we solve these equations, we sort their quantities into three groups. Som
 - **Variables** are what the analysis finds: $L$, $D$, $T$, $V$, the power, $\gamma$, $\alpha$, $C_L$, and $C_D$.
 - **Pilot inputs** are the four controls ([page 1.3](../chapter-1/vehicle-anatomy.md) shows the surfaces). They are the aileron angle $\delta_a$, the elevator angle $\delta_e$, the rudder angle $\delta_r$, and the {term}`throttle setting` $\delta_t$. Two of them matter on this page. The elevator angle is positive with the trailing edge down, and the throttle setting runs from 0, no thrust, to 1, full thrust. The ailerons and the rudder matter in turns, which this chapter does not treat.
 
-The pitching moment also needs a sign, and nose up is positive. A trailing-edge-down elevator pushes the tail up and the nose down, so it makes a negative moment. The pitching-moment coefficient therefore falls as $\delta_e$ grows.
+The pitching moment also needs a sign, and nose up is positive. A trailing-edge-down elevator pushes the tail up and the nose down, so it makes a negative moment. As a result, the pitching-moment coefficient falls as $\delta_e$ grows.
 
 (p51-thrust-required)=
 ## Thrust required
 
-The second line of [](#eq-p51-sluf) says the thrust required is the drag. [Page 3.3](#p33-drag-speed) found the drag at any speed by putting the lift coefficient of level flight into the polar. In the symbols of this chapter, with the weight written $mg$:
+From the second line of [](#eq-p51-sluf), the thrust required equals the drag. [Page 3.3](#p33-drag-speed) found the drag at any speed by putting the lift coefficient of level flight into the polar. In the symbols of this chapter, with the weight written $mg$:
 
 ::::{prf:definition} Thrust required in steady level flight
 :label: def-p51-thrust-required
@@ -119,7 +119,7 @@ $$
 V = \sqrt{\frac{2mg}{\rho S C_L}}
 $$
 
-So $\alpha$, $C_L$, and $C_D$ come together: if you know one, the lift curve and the polar give the other two.
+So $\alpha$, $C_L$, and $C_D$ go together. If you know one of them, the lift curve and the polar give you the other two.
 
 ### Thrust required against angle of attack
 
@@ -144,14 +144,14 @@ Computed for the general-aviation airplane of worked example 1, from its lift cu
 
 ### Thrust required against speed
 
-Each speed in level flight has its own angle of attack: flying slowly needs a large $C_L$, so a high angle of attack, and the induced drag dominates. Flying fast needs a small $C_L$ and a low angle of attack, and the parasite drag dominates ({numref}`fig-p51-thrust-required`). For the executive jet of worked example 2, at sea level, $C_L$ is 0.94 at 80 m/s and only 0.11 at 230 m/s.
+Each speed in level flight requires its own angle of attack. Flying slowly needs a large $C_L$ and a high angle of attack, so induced drag dominates. Flying fast needs a small $C_L$ and a low angle of attack, and the parasite drag dominates ({numref}`fig-p51-thrust-required`). For the executive jet of worked example 2, at sea level, $C_L$ is 0.94 at 80 m/s and only 0.11 at 230 m/s.
 
 :::{figure} figures/p51-thrust-required.svg
 :label: fig-p51-thrust-required
 :alt: Graph of thrust required in kilonewtons against true airspeed from 0 to 300 meters per second for the executive jet at sea level, with gray bands below stall, under 61 meters per second, and past Mach 0.80, above 272 meters per second, labeled wave drag. A dashed blue parasite curve rises and a dotted vermilion induced curve falls; they meet at an open circle labeled parts equal at 104.8 meters per second. The solid black total curve has its minimum, a filled dot labeled minimum thrust 17.79 kilonewtons, directly above. Open squares mark a slow point at 80 meters per second, C sub L 0.94, high angle of attack, and a fast point at 230 meters per second, C sub L 0.11, low angle of attack.
 :width: 85%
 
-Computed for the executive jet at sea level. Slow flight pays induced drag at a high angle of attack, fast flight pays parasite drag at a low one, and the minimum thrust is where the two parts are equal. The curves turn thin where the polar no longer holds.
+Computed for the executive jet at sea level. Induced drag dominates in slow flight at a high angle of attack, parasite drag dominates in fast flight at a low angle of attack, and minimum thrust occurs where the two parts are equal. The curves turn thin where the polar no longer applies.
 :::
 
 The minimum thrust is the minimum drag of [page 3.3](#p33-minimum-drag). The speed where it occurs, the {term}`minimum-thrust speed` $V_{T_R,\min}$, is the {term}`minimum-drag speed` of that page under another name. There the induced drag equals the parasite drag, and the [minimum-drag equations of page 3.3](#eq-p33-CLstar) give:
@@ -166,12 +166,12 @@ V_{T_R,\min} &= \sqrt{\frac{2mg}{\rho S}}\left(\frac{K}{C_{D,0}}\right)^{1/4}
 \end{aligned}
 :::
 
-The third line has no $\rho$ in it. The minimum thrust needed to hold level flight is the same at every altitude, though in thin air you reach it at a higher true airspeed.
+The third line has no $\rho$ in it. The minimum thrust needed to maintain level flight is the same at every altitude, though in thin air you reach it at a higher true airspeed.
 
 (p51-power-required)=
 ## Power required and minimum power
 
-Thrust is not the whole picture, because a propeller engine is rated in power and the climb of [page 5.3](#p53-excess) depends on spare power. We need the power the airframe asks for as well.
+Thrust is not the whole picture, because a propeller engine is rated in power and the climb of [page 5.3](#p53-excess) depends on spare power. We need the power the airframe requires as well.
 
 Power is the rate of doing work. A force $\vec F$ that moves its point of action by $d\vec x$ does the work $\vec F \cdot d\vec x$, and dividing by the time $dt$ gives the power, $P = \vec F \cdot \vec V$. In steady level flight the thrust is, to our approximation, along the velocity, so the **power required** is
 
@@ -197,7 +197,7 @@ P_R &= \frac{mg\,C_D}{C_L}\sqrt{\frac{2mg}{\rho S C_L}}\\
 \end{aligned}
 :::
 
-The minimum power therefore comes where $C_L^{3/2}/C_D$ is largest, not where $C_L/C_D$ is largest.
+Because of that factor, the minimum power occurs where $C_L^{3/2}/C_D$ is largest, instead of where $C_L/C_D$ is largest.
 
 ### Minimum power required
 
@@ -275,9 +275,9 @@ T_A &= \frac{P_A}{V}
 \end{aligned}
 :::
 
-Here $n$ is the number of engines that run, $\delta_t$ the throttle setting, and $\rho_0 = 1.2250$ kg/m³ the sea-level density. The exponent $m_{\text{ad}}$, the lapse exponent, says how fast the engine loses output as the air thins. It comes with the engine data, and for our two aircraft it is $m_{\text{ad}} = 0.6$.
+Here $n$ is the number of engines that run, $\delta_t$ the throttle setting, and $\rho_0 = 1.2250$ kg/m³ the sea-level density. The exponent $m_{\text{ad}}$, called the lapse exponent, describes how fast the engine loses output as the air thins. It comes with the engine data, and for our two aircraft it is $m_{\text{ad}} = 0.6$.
 
-{numref}`fig-p51-available-against-speed` shows what these models mean. The jet's thrust is flat, so its power available grows in proportion to the speed. The propeller's power is flat, so its thrust falls as speed rises: double the speed and the thrust halves. Real engines are only nearly flat. A fixed-pitch propeller is efficient at one combination of airspeed and engine speed, and its efficiency is low at the start of the takeoff roll (FAA 2023, Chapter 5). Our constant $\eta$ is a cruise value.
+{numref}`fig-p51-available-against-speed` shows what these models mean. The jet's thrust is flat, so its power available grows in proportion to the speed. The propeller's power is flat, so its thrust falls as speed rises. If you double the speed, the thrust drops in half. Real engines are only nearly flat. A fixed-pitch propeller is efficient at one combination of airspeed and engine speed, and its efficiency is low at the start of the takeoff roll (FAA 2023, Chapter 5). Our constant $\eta$ is a cruise value.
 
 :::{figure} figures/p51-available-against-speed.svg
 :label: fig-p51-available-against-speed
@@ -352,7 +352,7 @@ $$
             &= {-0.565}^\circ
    \end{aligned}
    $$
-   The minus sign means trailing edge up: at this speed the airplane needs a little nose-up elevator.
+   The minus sign means trailing edge up, so at this speed the airplane needs a little nose-up elevator.
 
 **(b) Angle of attack given, 5.0°.**
 
@@ -387,16 +387,16 @@ $$
    $$
    That is 44.41 kW.
 
-**(c) Checking that the airplane can fly both.** Every answer must pass two checks. The lift coefficient must stay below $C_{L,\max}$: 0.2637 and 0.62 are both below 2.4. The power required must stay below the power available, $0.80 \times 216 = 172.8$ kW: 101.9 kW and 44.41 kW both pass.
+**(c) Checking that the airplane can fly both.** Every answer must pass two checks. The lift coefficient must stay below $C_{L,\max}$, and 0.2637 and 0.62 are both below 2.4. The power required must also stay below the power available, $0.80 \times 216 = 172.8$ kW, and both 101.9 kW and 44.41 kW pass.
 
-Suppose you find that some other speed needs $C_L = 2.8$. That is more than the wing can give, so the speed lies below the stall speed, $V_\text{stall} = \sqrt{2mg/(\rho S C_{L,\max})} = 23.20$ m/s ([page 3.4](#p34-stall)), and the airplane cannot hold it in level flight. Suppose instead a high speed needed more than 172.8 kW. The engine cannot supply it, so the airplane either slows down or descends.
+Suppose you find that some other speed needs $C_L = 2.8$. That is more than the wing can give, so the speed lies below the stall speed, $V_\text{stall} = \sqrt{2mg/(\rho S C_{L,\max})} = 23.20$ m/s ([page 3.4](#p34-stall)), and the airplane cannot fly at that speed in level flight. Suppose instead a high speed needed more than 172.8 kW. The engine cannot supply it, so the airplane either slows down or descends.
 
-**Check.** Slowing from 70 m/s to 45.65 m/s cut the thrust required from 1,456 N to 972.9 N. At 70 m/s the airplane is far above its minimum-thrust speed, so slowing down sheds more parasite drag than it adds induced drag. Both cases sit on the curves of {numref}`fig-p51-ld-and-thrust-vs-alpha`.
+**Check.** Slowing from 70 m/s to 45.65 m/s cut the thrust required from 1,456 N to 972.9 N. At 70 m/s the airplane is far above its minimum-thrust speed, so slowing down sheds more parasite drag than it adds induced drag. Both cases appear on the curves of {numref}`fig-p51-ld-and-thrust-vs-alpha`.
 
 (p51-vmax)=
 ## Maximum speed and the speed range
 
-The two sides now come together: level flight is possible wherever the engines can give at least what the airframe needs. The fastest such speed, where available meets required, is the **maximum speed** $V_{\max}$, also called the maximum level speed. The slowest is usually set by the stall, not by the engine (FAA 2023, Chapter 11).
+Now we bring the two sides together. Level flight is possible wherever the engines can provide at least what the airframe needs. The fastest such speed, where available equals required, is the **maximum speed** $V_{\max}$, also called the maximum level speed. The slowest is usually set by the stall, not by the engine (FAA 2023, Chapter 11).
 
 **For a jet**, we set $T_A = T_R$ in [](#eq-p51-TR) and multiply by $V^2$. This gives a quadratic equation in $V^2$:
 
@@ -429,14 +429,14 @@ Multiplied by $V$, this is a quartic equation in $V$, with no handy closed form.
 V_{k+1} = \left[\frac{2}{\rho S C_{D,0}}\left(P_A - \frac{2K(mg)^2}{\rho S V_k}\right)\right]^{1/3}
 :::
 
-The iteration starts from $V_0 = [2P_A/(\rho S C_{D,0})]^{1/3}$, the speed with no induced drag, and two to four passes give four figures.
+We start the iteration from $V_0 = [2P_A/(\rho S C_{D,0})]^{1/3}$, the speed with no induced drag, and two to four passes give four figures.
 
 :::{figure} figures/p51-available-and-vmax.svg
 :label: fig-p51-available-and-vmax
 :alt: Two graphs at sea level. Left, the executive jet: thrust in kilonewtons against true airspeed from 0 to 320 meters per second, with gray bands below stall and past Mach 0.80, labeled wave drag. A dashed horizontal line T sub A at 55.6 kilonewtons meets the solid U-shaped T sub R curve at a filled diamond, V max equal to 258.5 meters per second, with a drop line. Right, the general-aviation airplane: power in kilowatts against speed from 0 to 100 meters per second. A dashed line P sub A at 172.8 kilowatts meets the solid P sub R curve at a diamond, V max equal to 85.51 meters per second. In each graph a dimension line labeled level flight possible runs from the stall speed to V max.
 :width: 85%
 
-Computed for the two aircraft at sea level and full throttle. Level flight is possible from the stall speed to the speed where available meets required. The jet's maximum speed lies just inside the range where its polar holds.
+Computed for the two aircraft at sea level and full throttle. Level flight is possible from the stall speed to the speed where available equals required. The jet's maximum speed lies just inside the range where its polar applies.
 :::
 
 :::{tip} Method: minimum thrust, minimum power, and maximum speed
@@ -444,13 +444,13 @@ Computed for the two aircraft at sea level and full throttle. Level flight is po
 2. Compute $T_{R,\min}$ and $V_{T_R,\min}$ from [](#eq-p51-min-thrust), then $V_{P_R,\min}$ and $P_{R,\min}$ from [](#eq-p51-min-power).
 3. Compute $T_A$ or $P_A$ at that density, with all running engines.
 4. For a jet use [](#eq-p51-vmax-jet); for a propeller aircraft iterate [](#eq-p51-vmax-prop) until $V$ stops changing.
-5. Check the low end against the stall speed, and the Mach number at the maximum speed against the range where the polar holds.
+5. Check the low end against the stall speed, and the Mach number at the maximum speed against the range where the polar applies.
 :::
 
 (p51-example-2)=
 ### Worked example 2: minimum thrust, minimum power, and maximum speed at sea level
 
-**(a) The executive jet.** It has $m = 33{,}100$ kg, $S = 88.2$ m², $C_{D,0} = 0.015$, $K = 0.050$, and two engines of $T_0 = 27{,}810$ N, so $T_A = 55{,}620$ N at sea level. Its clean $C_{L,\max}$ of 1.6 is assumed, and so is the Mach number up to which its polar holds, 0.80.
+**(a) The executive jet.** It has $m = 33{,}100$ kg, $S = 88.2$ m², $C_{D,0} = 0.015$, $K = 0.050$, and two engines of $T_0 = 27{,}810$ N, so $T_A = 55{,}620$ N at sea level. Its clean $C_{L,\max}$ of 1.6 is assumed, and so is the Mach number up to which its polar applies, 0.80.
 
 1. **Weight and minimum thrust**, [](#eq-p51-min-thrust):
    $$
@@ -523,7 +523,7 @@ Computed for the two aircraft at sea level and full throttle. Level flight is po
             &= 258.5\ \text{m/s}
    \end{aligned}
    $$
-5. **Checks.** With the speed of sound at sea level, 340.3 m/s, the Mach number is $258.5/340.3 = 0.760$, just below 0.80, which is reached at 272.2 m/s. The low-speed crossing is 42.45 m/s, below the stall speed of 61.29 m/s. The jet can therefore fly level at sea level from 61.29 m/s to 258.5 m/s.
+5. **Checks.** With the speed of sound at sea level, 340.3 m/s, the Mach number is $258.5/340.3 = 0.760$, just below 0.80, which is reached at 272.2 m/s. The low-speed crossing is 42.45 m/s, below the stall speed of 61.29 m/s. So at sea level, the jet can fly level from 61.29 m/s to 258.5 m/s.
 
 **(b) The general-aviation airplane.** Its minimum power follows the same steps as the jet's, from the shared factor $\sqrt{2mg/(\rho S)}$:
 
@@ -588,9 +588,9 @@ Aircraft spend much of their flight high above sea level, so the next question i
 2. **The thrust.** By [](#eq-p51-TR-LD), $T_R = mg\,C_D/C_L$ has no density in it, so it does not change.
 3. **The power.** $P_R = T_R V$ is the same thrust times a higher speed, so it grows as $\sqrt{\rho_0/\rho}$ too.
 
-Every point of the $T_R$ curve slides to the right by the factor $\sqrt{\rho_0/\rho}$, at the same height. Every point of the $P_R$ curve moves right and up by that factor. The minimum thrust therefore stays the same while its speed grows, and the minimum power and its speed both grow. The stall speed, $\sqrt{2mg/(\rho S C_{L,\max})}$, grows by the same factor, so the low end of the speed range moves right as well. Meanwhile the engines lose output as $(\rho/\rho_0)^{m_{\text{ad}}}$.
+Every point of the $T_R$ curve slides to the right by the factor $\sqrt{\rho_0/\rho}$, at the same height. Every point of the $P_R$ curve moves right and up by that factor. As a result, the minimum thrust stays the same while its speed grows, and both the minimum power and its speed grow. The stall speed, $\sqrt{2mg/(\rho S C_{L,\max})}$, grows by the same factor, so the low end of the speed range moves right as well. Meanwhile the engines lose output as $(\rho/\rho_0)^{m_{\text{ad}}}$.
 
-{numref}`tbl-p51-thrust-altitude` follows the jet's thrust available up through the atmosphere of page 1.4, against its minimum thrust required of 17,785 N.
+In {numref}`tbl-p51-thrust-altitude`, we follow the jet's thrust available up through the atmosphere of page 1.4, against its minimum thrust required of 17,785 N.
 
 :::{table} Thrust available of the executive jet at full throttle against its minimum thrust required, 17,785 N at every altitude. Densities from the standard atmosphere of page 1.4.
 :label: tbl-p51-thrust-altitude
@@ -614,7 +614,7 @@ The margin shrinks as the jet climbs, but at 10,000 m it can still fly level. Hi
 :alt: Two graphs of thrust in kilonewtons against true airspeed for the executive jet: sea level on the left in black, 9,500 m on the right in blue with open triangles. Each has gray bands below stall and past Mach 0.80, labeled wave drag. A thin gray line at 17.79 kilonewtons, labeled minimum thrust, runs across both. At sea level the solid T sub R curve touches it at 104.8 meters per second and meets the dashed T sub A line at 55.6 kilonewtons at a diamond, V max 258.5 meters per second. At 9,500 m the T sub R curve touches the same line at 175.1 meters per second, and the dashed T sub A line at about 30 kilonewtons crosses the curve only inside the Mach band, where both are drawn thin.
 :width: 85%
 
-Computed for the executive jet at sea level and 9,500 m. Altitude slides the thrust-required curve to the right at the same minimum while the thrust available drops toward it. At 9,500 m the crossing lies past Mach 0.80, where the polar no longer holds, so no maximum speed is marked.
+Computed for the executive jet at sea level and 9,500 m. Altitude slides the thrust-required curve to the right at the same minimum while the thrust available drops toward it. At 9,500 m the crossing lies past Mach 0.80, where the polar no longer applies, so no maximum speed is marked.
 :::
 
 {numref}`fig-p51-altitude-prop` shows them for the general-aviation airplane, whose excess power shrinks from both sides.
@@ -629,7 +629,7 @@ Computed for the general-aviation airplane at sea level and 6,500 m. At altitude
 
 ### When the maximum speed rises and when it falls
 
-Whether the maximum speed rises with altitude depends on the engine, because near it the parasite drag dominates. For a jet, $T_A \approx \tfrac12\rho V_{\max}^2 S C_{D,0}$, so $V_{\max}^2 \approx 2T_A/(\rho S C_{D,0})$. The thrust available goes as $\rho^{m_{\text{ad}}}$, so $V_{\max}^2$ goes as $\rho^{m_{\text{ad}}-1}$. A propeller aircraft gives the same exponent for $V_{\max}^3$.
+To see whether the maximum speed rises with altitude, we look at the engine, because near $V_{\max}$ the parasite drag dominates. For a jet, $T_A \approx \tfrac12\rho V_{\max}^2 S C_{D,0}$, so $V_{\max}^2 \approx 2T_A/(\rho S C_{D,0})$. The thrust available goes as $\rho^{m_{\text{ad}}}$, so $V_{\max}^2$ goes as $\rho^{m_{\text{ad}}-1}$. A propeller aircraft gives the same exponent for $V_{\max}^3$.
 
 - If $m_{\text{ad}} < 1$, the engine loses output more slowly than the parasite drag falls. The maximum speed then rises with altitude, as long as the induced drag at the maximum speed stays small, as for our two aircraft.
 - If $m_{\text{ad}} \ge 1$, the maximum speed does not rise.
@@ -668,7 +668,7 @@ In both cases the induced drag grows with altitude and pulls the maximum speed d
        &= 21{,}574\ \text{N}
    \end{aligned}
    $$
-   The jet has 30,030 N, more than it needs at Mach 0.80. Its thrust-limited maximum speed lies past Mach 0.80, where [](#eq-p51-vmax-jet) no longer holds. In reality {term}`wave drag`, which our polar leaves out, sets the maximum speed there ([page 3.3](#p33-drag-speed) shows the same limit).
+   The jet has 30,030 N, more than it needs at Mach 0.80. Its thrust-limited maximum speed lies past Mach 0.80, where [](#eq-p51-vmax-jet) no longer applies. In reality {term}`wave drag`, which our polar leaves out, sets the maximum speed there ([page 3.3](#p33-drag-speed) shows the same limit).
 
 **(b) The general-aviation airplane at 6,500 m**, where $\rho = 0.6236$ kg/m³ and $\rho/\rho_0 = 0.50906$.
 
@@ -714,7 +714,7 @@ The induced power is larger up here, so the iteration needs more passes. The nex
 :::{important} Summary
 - Steady level flight with a small angle of attack gives $L = mg = \tfrac12\rho V^2 S C_L$ and $T_R = D = mg/(L/D)$; $P_R = T_R V$. Check every answer against $C_{L,\max}$ and against the thrust or power available.
 - Minimum thrust comes at $C_L = \sqrt{C_{D,0}/K}$, the same at every altitude. Minimum power comes at $C_L = \sqrt{3C_{D,0}/K}$ and $V_{P_R,\min} = 0.7598\,V_{T_R,\min}$; a line from the origin touches the power curve at $V_{T_R,\min}$.
-- A jet's thrust and a propeller's power are nearly flat with speed and fall as $(\rho/\rho_0)^{m_{\text{ad}}}$. Level flight runs from the stall speed to $V_{\max}$, where available meets required.
+- A jet's thrust and a propeller's power are nearly flat with speed and fall as $(\rho/\rho_0)^{m_{\text{ad}}}$. Level flight runs from the stall speed to $V_{\max}$, where available equals required.
 - With altitude the required curves move right by $\sqrt{\rho_0/\rho}$, the available curves fall, and the speed range closes toward the ceiling.
 :::
 

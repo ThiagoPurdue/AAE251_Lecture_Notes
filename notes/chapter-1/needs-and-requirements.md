@@ -15,7 +15,7 @@ Before an engineering team sketches a wing or sizes an engine, it has to transla
 - Every requirement traces to a need, every need traces to at least one requirement, and each requirement is verified by analysis, inspection, demonstration, or test, recorded in a {term}`compliance table`.
 :::
 
-We work in six steps, shown in {numref}`fig-p11-road-map`. Steps 1 to 4 describe the problem in the stakeholders' own terms. Steps 5 and 6 turn it into numbers we can hold a design to.
+We work in six steps, shown in {numref}`fig-p11-road-map`. Steps 1 to 4 describe the problem in the stakeholders' own terms. Steps 5 and 6 turn it into numbers a design must satisfy.
 
 :::{figure} figures/p11-road-map.svg
 :label: fig-p11-road-map
@@ -32,7 +32,7 @@ Engineers use the word system for anything built to do a job, from a fuel pump t
 :::{prf:definition} System
 :label: def-p11-system
 
-A **system** is a set of people, products, and processes that work together as one whole to provide a capability that meets a stated need or objective.
+A **system** is a set of people, products, and processes that work together as one whole to provide a capability that satisfies a stated need or objective.
 :::
 
 A system exists because someone needs what it does. We can describe it in four ways, and a full description uses all four:
@@ -49,15 +49,15 @@ A system exists because someone needs what it does. We can describe it in four w
 :alt: The outline of a Boeing 737-800 seen from above, nose to the left, inside a dashed rounded rectangle labeled boundary. Above it the function reads: carries passengers and their bags between airports. Below it the form reads: twin-engine jet, 39.47 meters long, 35.79 meters span with winglets, 160 seats. Three input arrows from the left reach the boundary: fuel, passengers and bags, and crew commands. Two output arrows leave it to the right: passengers and bags at the destination, and exhaust gas and noise. A line at the bottom says airports, air traffic control, and weather lie outside the boundary.
 :width: 90%
 
-Schematic of one aircraft described four ways: function, inputs and outputs, boundary, and form. Only the form says what the aircraft looks like; the other three would fit other designs too. Outline after the Boeing 737-800 (Boeing 2025).
+Schematic of one aircraft described in four ways: its function, its inputs and outputs, its boundary, and its form. Only the form describes what the aircraft looks like; the other three would fit other designs too. Outline after the Boeing 737-800 (Boeing 2025).
 :::
 
-The 737-800 is 39.47 m long and seats 160 passengers in a two-class cabin. It spans 35.79 m with its winglets, the upturned wing tips, and 34.32 m without them (Boeing 2025, Sections 2.1.3 and 2.2.6). All of those numbers describe the aircraft's form. Because we can define the function, inputs and outputs, and boundary before any physical form exists, those three come first in design.
+The 737-800 is 39.47 m long and seats 160 passengers in a two-class cabin. It spans 35.79 m with its winglets, the upturned wing tips, and 34.32 m without them (Boeing 2025, Sections 2.1.3 and 2.2.6). All of those numbers describe the aircraft's form. Because we can define the function, the inputs and outputs, and the boundary before any physical form exists, those three come first in design.
 
-Where you draw the boundary is a design choice. For an airline, the aircraft is one part of a larger system that also includes its crews, its maintenance base, and its schedule. For an engine maker, the engine is the system and the aircraft is its environment. State where the boundary lies before you decide what the system must do.
+Where you draw the boundary is a design choice. For an airline, the aircraft is one part of a larger system that also includes its crews, its maintenance base, and its schedule. For an engine maker, the engine is the system and the aircraft is its environment. Define where the boundary lies before specifying what the system must do.
 
 :::{warning} Describing a system by its form alone
-Describing a vehicle as "a twin-engine jet with 160 seats" specifies hardware before stating the job to be done. Starting with the form locks you into one configuration before you have explored alternatives. Always define the function, inputs and outputs, and boundary first.
+Describing a vehicle as "a twin-engine jet with 160 seats" specifies hardware before stating the job to be done. Starting with the form locks you into one configuration before you have explored alternatives. Always define the function, the inputs and outputs, and the boundary first.
 :::
 
 ## Stakeholders
@@ -67,10 +67,10 @@ Once we know where the system ends, step 1 is to find everyone it affects.
 :::{prf:definition} Stakeholder
 :label: def-p11-stakeholder
 
-A **stakeholder** is a group or individual that is affected by a system or has a stake in it (NASA 2016, Section 4.1.1.2.1). One stakeholder is always the customer, who pays for the system.
+A **stakeholder** is a group or individual that is affected by a system or has a stake in it (NASA 2016, Section 4.1.1.2.1). One stakeholder is always the customer, who funds or acquires the system.
 :::
 
-The stakeholders give us the needs and the {term}`constraints <constraint>`. A constraint is a limit the designers must respect but did not choose, such as a noise rule set by a regulator. Stakeholders differ in how close they stand to the product. Alexander (2005) draws them as the layers of an onion. The product is in the middle. Around it are the people who operate it, then the people who buy it or benefit from it. On the outside is everyone else it touches, such as regulators, developers, and neighbors. {numref}`fig-p11-stakeholders` places the stakeholders of the Boeing 787 this way.
+The stakeholders give us the needs and the {term}`constraints <constraint>`. A constraint is a limit the designers must respect but did not choose, such as a noise rule set by a regulator. Stakeholders differ in how close they stand to the product. Alexander (2005) draws them as the layers of an onion. The product is in the middle. Around it are the people who operate it, then the people who acquire or benefit from it. On the outside is everyone else it touches, such as regulators, developers, and neighbors. {numref}`fig-p11-stakeholders` places the stakeholders of the Boeing 787 this way.
 
 :::{figure} figures/p11-stakeholders.svg
 :label: fig-p11-stakeholders
@@ -88,7 +88,7 @@ Schematic of the stakeholders of one airliner, from those who operate it to thos
 
 | Role | Example for the 787 | What they care about |
 | --- | --- | --- |
-| Customer (owner) | The airline that buys it | Fuel burn, range, seats, price |
+| Customer (owner) | The airline that acquires it | Fuel burn, range, seats, price |
 | Operator (user) | Pilots and cabin crew | Workload, handling like the aircraft they know |
 | Maintainer | The airline's mechanics | Access to parts, time to repair |
 | Beneficiary | Passengers | Safety, comfort, a reliable schedule |
@@ -100,9 +100,9 @@ Schematic of the stakeholders of one airliner, from those who operate it to thos
 
 For our survey aircraft, the stakeholders are:
 
-- the owner, a survey and mapping company that buys the aircraft and sells maps made from its photographs (the owner pays, so the owner is the customer);
+- the owner, a survey and mapping company that acquires the aircraft and sells maps made from its photographs (as the funding party, the owner is the customer);
 - the pilot who flies the survey lines;
-- the data customer, such as a county planning office that buys the maps;
+- the data customer, such as a county planning office that purchases the maps;
 - the mechanics;
 - the FAA;
 - the people who live under the survey lines.
@@ -114,7 +114,7 @@ A list made only of buyers and users misses the regulator, the maintainers, and 
 (p11-mission-statement)=
 ## The mission statement
 
-With the stakeholders known, step 2 states their problem in one or two sentences. NASA (2016, Section 4.1.1.2.3) splits what stakeholders expect into needs, goals, and objectives. The need answers the question "What problem are we trying to solve?" and names no solution. Goals say what the system must do to meet the need. Objectives give the specific expectations under each goal. The mission statement holds the need, and often the main goal.
+With the stakeholders known, step 2 states their problem in one or two sentences. NASA (2016, Section 4.1.1.2.3) splits what stakeholders expect into needs, goals, and objectives. The need states the problem we are trying to solve and names no solution. Goals describe what the system must do to address the need. Objectives give the specific expectations under each goal. The mission statement states the need, and often the main goal.
 
 :::{prf:definition} Mission statement
 :label: def-p11-mission-statement
@@ -122,16 +122,16 @@ With the stakeholders known, step 2 states their problem in one or two sentences
 A **mission statement** is a brief description of the capability a system will provide and the benefit it brings to its customer. It names no specific design, and it may state the assumptions and constraints that guide the work.
 :::
 
-An example: "An affordable, reliable attack vehicle that improves Air Force operations." You can guess that the vehicle will fly. The statement does not say whether it has a pilot, whether it is a fighter or a bomber, or how many engines it has. Those are design choices, and the mission statement leaves them open.
+For example, consider the statement "An affordable, reliable attack vehicle that improves Air Force operations." You can guess that the vehicle will fly. The statement does not specify whether it has a pilot, whether it is a fighter or a bomber, or how many engines it has. Those are design choices, and the mission statement leaves them open.
 
-{numref}`fig-p11-mission-statement` shows two candidate statements for the survey aircraft. The left one describes an airplane. The right one says what the system does and why that matters to the customer.
+{numref}`fig-p11-mission-statement` shows two candidate statements for the survey aircraft. The left one describes an airplane. The right one states what the system does and why that matters to the customer.
 
 :::{figure} figures/p11-mission-statement.svg
 :label: fig-p11-mission-statement
 :alt: Two panels compared row by row. The left panel, with a dashed frame, is titled names a solution, avoid. Its first row holds the statement a twin-engine, high-wing airplane with a camera hatch in the floor, braced as a design; its second and third rows read no capability stated and no benefit stated. The right panel, with a solid frame, is titled capability and benefit, use. Its three rows hold an affordable airborne survey system, braced as what it is; that photographs a whole county in one working day, braced as the capability; and so that mapping companies deliver accurate maps at low cost, braced as the benefit.
 :width: 90%
 
-Schematic of two mission statements for the survey aircraft, compared row by row. The left one has already chosen the engines, the wing position, and the camera hatch, and says nothing about what the system does or whom it serves; the right one states the capability and the benefit and leaves every design open.
+Schematic of two mission statements for the survey aircraft, compared row by row. The left one has already chosen the engines, the wing position, and the camera hatch, and states nothing about what the system does or whom it serves; the right one states the capability and the benefit and leaves every design open.
 :::
 
 Stakeholders often describe a preferred fix instead of the underlying problem. The ARPANET, the network that grew into the Internet, was built so that researchers could share distant computers, yet within a few years its largest use was electronic mail between the researchers themselves (Leiner et al. 1997). The deeper need was to connect people. Before writing the mission statement, ask the stakeholders what problem they are trying to solve and make sure their answer describes the need instead of a preconceived design.
@@ -147,22 +147,22 @@ Step 3 breaks the mission statement into what each stakeholder needs, one need p
 The best source is the stakeholders themselves. We interview them in three parts:
 
 1. **Before:** choose one person, learn their role, and prepare five or six open questions.
-2. **During:** ask about real experience ("Tell me about the last time you..."). Ask what they need, not how to build it, and ask "why?" to dig deeper. Write down their own words. Do not argue, and do not sell your idea.
+2. **During:** ask about real experience, such as the last time they ran into trouble. Ask what they need instead of how to build it, and follow up by asking why to uncover the root problem. Write down their own words. Do not argue, and do not sell your idea.
 3. **After:** turn each statement into a need statement, and note who said it.
 
-For the survey aircraft, we might ask a pilot: "What makes a survey day go badly?", "What do you do when the weather changes?", and "What part of the aircraft slows you down most on the ground?"
+For the survey aircraft, we might ask a pilot what makes a survey day go badly, how the crew responds when the weather changes, and which part of the aircraft slows turnaround most on the ground.
 
 :::{prf:definition} Need statement
 :label: def-p11-need-statement
 
-A **need statement** is one sentence, written as an attribute of the system, that says what a stakeholder needs from it without saying how the system will provide it.
+A **need statement** is one sentence, written as an attribute of the system, that states what a stakeholder needs from it without specifying how the system will provide it.
 :::
 
 Four guidelines turn what a stakeholder said into a need statement:
 
 1. **What, not how.** State the problem, not a solution. A solution written as a need closes off every other design before the work begins.
-2. **Be specific.** Keep the detail the stakeholder gave. If a passenger wants to keep a laptop bag under the seat, the need is that the bag fits under the seat, not that the seat area is "roomy."
-3. **An attribute of the system.** Write from the point of view of the system being designed: "the aircraft fits the jet bridges at the airline's airports," not "the jet bridges can reach the aircraft."
+2. **Be specific.** Keep the detail the stakeholder gave. If a passenger needs to keep a laptop bag under the seat, the need is that the bag fits under the seat, not that the seat area is "roomy."
+3. **An attribute of the system.** Write from the point of view of the system being designed, such as "the aircraft fits the jet bridges at the airline's airports" instead of "the jet bridges can reach the aircraft."
 4. **No "must," "shall," or "should."** These words suggest a level of importance, and it is too early to assign one. Importance comes from the ranking in step 4.
 
 {numref}`tbl-p11-statements` applies the guidelines to statements an airline's people might make.
@@ -176,7 +176,7 @@ Four guidelines turn what a stakeholder said into a need statement:
 | "Put bigger windows in the cabin." | The cabin has larger windows. | The cabin gives every seat a view outside. | What, not how |
 | "My ears hurt on every descent." | The cabin is comfortable. | The cabin pressure changes slowly enough during descent to keep passengers' ears comfortable. | Be specific |
 | "The gates at our airports never fit." | The jet bridges can reach the aircraft. | The aircraft fits the jet bridges at the airline's airports. | An attribute of the system |
-| "You should let us change an engine overnight." | The engine should be easy to change. | An engine can be changed during one overnight stop. | No "should" |
+| "You should let us change an engine overnight." | The engine should be quick to change. | An engine can be changed during one overnight stop. | No "should" |
 :::
 
 The interviews for the survey aircraft give five needs:
@@ -190,7 +190,7 @@ The interviews for the survey aircraft give five needs:
 For example, the pilot's complaint about blurred pictures became N2.
 
 :::{warning} A solution written as a need
-"The aircraft has a high wing" is a design. Ask why the stakeholder wants it. If the answer is "so the wing does not block the camera's view," the need is "The camera's view of the ground is clear of the aircraft." A low wing with the camera ahead of it meets that need too.
+"The aircraft has a high wing" is a design. Ask why the stakeholder requests it. If the answer is "so the wing does not block the camera's view," the need is "The camera's view of the ground is clear of the aircraft." A low wing with the camera ahead of it satisfies that need too.
 :::
 
 ## Ranking needs
@@ -201,7 +201,7 @@ Many needs pull the design in opposite directions. Step 4 ranks them, so that we
 1. Ask each stakeholder to rate every need from 1 (nice to have) to 5 (must have).
 2. Average the ratings of each need with [](#eq-p11-average).
 3. Rank the needs from the highest average to the lowest.
-4. Break a tie by a rule stated in advance. In these notes we use the rating of the customer who pays. Asking the stakeholders again is another way.
+4. Break a tie by a rule stated in advance. In these notes we use the customer's rating. Asking the stakeholders again is another way.
 :::
 
 With $n$ stakeholders and $r_j$ the rating given by stakeholder $j$, the average rating of a need is
@@ -213,7 +213,7 @@ r_\text{avg} = \frac{1}{n} \sum_{j=1}^{n} r_j
 
 ### Worked example: ranking the survey aircraft's needs
 
-Three stakeholders (the owner, the pilot, and the data customer) rated the five needs as in {numref}`tbl-p11-ratings`. The owner pays for the aircraft. Find the average rating of each need and rank the needs.
+Three stakeholders (the owner, the pilot, and the data customer) rated the five needs as in {numref}`tbl-p11-ratings`. The owner is the customer funding the aircraft. Find the average rating of each need and rank the needs.
 
 :::{table} Ratings of the survey aircraft's needs, from 1 (nice to have) to 5 (must have), with the average and the rank.
 :label: tbl-p11-ratings
@@ -239,7 +239,7 @@ Three stakeholders (the owner, the pilot, and the data customer) rated the five 
    $$
    In the same way N2 gives $12/3 = 4.000$, N3 gives $9/3 = 3.000$, N4 gives $11/3 = 3.667$, and N5 gives $12/3 = 4.000$.
 2. **Order.** From the highest average: N1 (4.667), then N2 and N5 (4.000 each), then N4 (3.667), then N3 (3.000).
-3. **Tie.** N2 and N5 both average 4.000. The owner, who pays, rated N5 a 5 and N2 a 4, so N5 ranks 2 and N2 ranks 3.
+3. **Tie.** N2 and N5 both average 4.000. The owner, as the customer, rated N5 a 5 and N2 a 4, so N5 ranks 2 and N2 ranks 3.
 
 **Check.** Each rank from 1 to 5 is used once, and N1, which every stakeholder rated 4 or 5, comes first. {numref}`fig-p11-needs-ranking` shows the result.
 
@@ -248,15 +248,15 @@ Three stakeholders (the owner, the pilot, and the data customer) rated the five 
 :alt: Dot plot of the five needs in rank order from the top, each named in words: 1 N1 full-day endurance, average 4.667; 2 N5 low operating cost, 4.000; 3 N2 sharp images, 4.000; 4 N4 single pilot, 3.667; 5 N3 short airstrips, 3.000. On each row a gray line runs from the lowest to the highest rating, with a circle for the owner above it, a square for the pilot on it, a triangle for the data customer below it, and a short heavy tick at the average. A bracket joins N5 and N2 with the note tie, the owner's rating decides. The line of N4 is the longest, from the data customer's 2 to the pilot's 5.
 :width: 90%
 
-Computed from the ratings of {numref}`tbl-p11-ratings`: the average and the spread of the ratings of each need. The spread is what the average hides: N4 averages 3.667, but the pilot rates it 5 and the data customer 2. The averages set the order, and the owner's higher rating of N5 breaks the tie at 4.000.
+Computed from the ratings of {numref}`tbl-p11-ratings`: the average and the spread of the ratings of each need. The spread is what the average hides; N4 averages 3.667, yet the pilot rates it 5 and the data customer 2. The averages set the order, and the owner's higher rating of N5 breaks the tie at 4.000.
 :::
 
-A low rank does not remove a need from the design: N3 still gets a requirement, and we relax it first when it conflicts with a higher-ranked need.
+A low rank does not remove a need from the design. N3 still gets a requirement, and we relax it first when it conflicts with a higher-ranked need.
 
 (p11-requirements)=
 ## Requirements
 
-The ranked needs say what matters, but in the stakeholders' language: "the aircraft is easy to fly," "the aircraft can land in poor visibility." They give an engineer little to design to. Step 5 turns each need into a requirement, which states in measurable terms what the system must do, still without saying how.
+The ranked needs describe what matters in the stakeholders' language, such as "the aircraft is straightforward to fly" or "the aircraft can land in poor visibility." They give an engineer little to design to. Step 5 turns each need into a requirement, which states in measurable terms what the system must do, still without saying how.
 
 :::{prf:definition} Requirement
 :label: def-p11-requirement
@@ -264,7 +264,7 @@ The ranked needs say what matters, but in the stakeholders' language: "the aircr
 A **requirement** is a statement of what the system must do, made of a metric (the quantity that is measured) and a value (how much of it is required). Its reason is recorded beside it.
 :::
 
-"The aircraft is easy to fly" might become "the average time for a pilot to qualify on the aircraft is less than 200 hours." Even this leaves questions open: which pilots we average over, and what experience they start with. Writing the requirement brings those questions out early.
+"The aircraft is straightforward to fly" might become "the average time for a pilot to qualify on the aircraft is less than 200 hours." Even this version leaves questions open, such as which pilots we average over and what experience they start with. Writing the requirement brings those questions out early.
 
 Many organizations write requirements with the word "shall." In NASA's usage, "shall" marks a requirement, "will" a statement of fact, and "should" a goal (NASA 2016, Appendix C.1).
 
@@ -284,7 +284,7 @@ A good set of requirements has three qualities.
 
 **Complete.** Together the requirements address every need. A need with no requirement will not be designed for. The traceability matrix of the next section checks this.
 
-**Dependent.** A requirement names a result of the design, never the design itself. Think of a function $y = f(x)$. The designer chooses $x$, the independent design inputs (materials, shapes, sizes), and the system delivers $y$, the dependent outputs (load carried, thrust, range). A requirement belongs on the dependent output $y$, which gives this quality its name. Notice the wording carefully: "dependent" here means constraining the dependent output $y$, not making the requirement depend on a specific design choice. For example, the load an I-beam carries depends on its material, its depth, and its flange width. Placing a requirement on the load leaves all three choices open, while placing a requirement on the material fixes one choice without guaranteeing the load. {numref}`fig-p11-dependent-requirement` shows this distinction for a main landing gear.
+**Dependent.** A requirement names a result of the design, never the design itself. Think of a function $y = f(x)$. The designer chooses $x$, the independent design inputs (materials, shapes, sizes), and the system delivers $y$, the dependent outputs (load carried, thrust, range). A requirement is placed on the dependent output $y$, which gives this quality its name. Notice the wording carefully: "dependent" here means constraining the dependent output $y$, not making the requirement depend on a specific design choice. For example, the load an I-beam carries depends on its material, its depth, and its flange width. Placing a requirement on the load leaves all three choices open, while placing a requirement on the material fixes one choice without guaranteeing the load. {numref}`fig-p11-dependent-requirement` shows this distinction for a main landing gear.
 
 :::{figure} figures/p11-dependent-requirement.svg
 :label: fig-p11-dependent-requirement
@@ -296,10 +296,10 @@ Schematic of two ways to state one need for the main landing gear. A requirement
 
 The 10 ft/s (3.05 m/s) is the descent rate that U.S. rules for transport aircraft specify for landing loads (14 CFR 25.473). An oleo strut absorbs the touchdown energy by compressing gas and forcing oil through an orifice, turning kinetic energy into heat. A spring leg absorbs that energy elastically by bending under the landing load (FAA 2023, Chapter 13). Either design can handle a 10 ft/s touchdown, and the requirement leaves that choice open to the team. Choosing among designs that satisfy the requirements is the job of a {term}`trade study`, covered in [concept generation and trade studies](concepts-and-trade-studies.md).
 
-**Verifiable.** We must be able to show, within the budget and the schedule, that the design satisfies the requirement. Words such as easy, sufficient, safe, flexible, user-friendly, maximize, and minimize cannot be verified (NASA 2016, Appendix C.4). State the acceptable range with "at least," "at most," or "between," and avoid making that range narrower than the stakeholder need requires, because unnecessarily tight tolerances add weight, testing effort, and cost without improving the mission.
+**Verifiable.** We must be able to show, within the budget and the schedule, that the design satisfies the requirement. Words such as adequate, sufficient, safe, flexible, user-friendly, maximize, and minimize cannot be verified (NASA 2016, Appendix C.4). State the acceptable range with "at least," "at most," or "between," and avoid making that range narrower than the stakeholder need requires, because unnecessarily tight tolerances add weight, testing effort, and cost without improving the mission.
 
 :::{warning} An adjective in place of a value
-"The aircraft has a long range" cannot be checked, because nothing says how long is long. "The range with a full passenger load is at least 3,000 nmi" can be checked by analysis now and by test later.
+"The aircraft has a long range" cannot be checked, because nothing specifies how long is long. "The range with a full passenger load is at least 3,000 nmi" can be checked by analysis now and by test later.
 :::
 
 Requirements also come from the environment the vehicle must survive. Each condition the design must withstand, such as icing or radiation, becomes a requirement with a metric and a value. The next page, [1.2 Hazards and Risk](hazards-and-risk.md), shows how to find these conditions and how to choose what to do about each one.
@@ -315,7 +315,7 @@ Write a requirement for each of the five needs of {numref}`tbl-p11-ratings`. {nu
 :alt: Three boxes from left to right joined by arrows. First, the pilot's words: on bumpy days half my pictures come out blurred. Second, need statement N2: the camera images are sharp in light turbulence. Third, requirement R2: image smear at survey speed in light turbulence is at most 0.5 pixel. Under each box a note: the customer statement is written down as said; the need statement says what, not how, as an attribute of the system; the requirement is a metric and a value that a test can check.
 :width: 85%
 
-Schematic of one line of the survey example, from what a stakeholder said to what a test can check. Each step keeps the meaning and changes the form: the words become an attribute of the system, then a number.
+Schematic of one line of the survey example, from what a stakeholder said to what a test can check. Each step keeps the meaning and changes the form, turning the spoken words into an attribute of the system and then into a number.
 :::
 
 The table uses three new terms. Endurance is the time the aircraft can stay in the air on one load of fuel. Image smear is the distance the image moves across the camera's sensor while the shutter is open, measured in pixels. Half a pixel or less keeps edges sharp to one pixel. The direct operating cost is the cost of flying one hour, counting fuel, maintenance, and crew.
@@ -329,7 +329,7 @@ The table uses three new terms. Endurance is the time the aircraft can stay in t
 | R1 | N1 | Endurance with the survey camera and full fuel | At least 6 h | A survey day is about 5 h over the area plus the flights to and from it |
 | R2 | N2 | Image smear at survey speed in light turbulence | At most 0.5 pixel | The data customer's maps need edges sharp to one pixel |
 | R3 | N3 | Takeoff distance from a dry grass strip at maximum weight | At most 600 m | The rural strips the owner uses are 600 m long or longer |
-| R4 | N4 | Crew needed to fly a survey line and run the camera | At most one pilot | The owner pays for one crew seat per flight |
+| R4 | N4 | Crew needed to fly a survey line and run the camera | At most one pilot | The owner budgets for one crew seat per flight |
 | R5 | N4 | Time for one person to install and secure the camera | At most 15 min | The pilot loads the camera alone before the first flight of the day |
 | R6 | N5 | Direct operating cost per survey hour | At most 80% of the owner's present aircraft | Competitors set survey prices; a lower cost is the owner's margin |
 :::
@@ -349,8 +349,8 @@ The second half of step 5 links each requirement back to the need it serves. We 
 
 A traceability matrix shows the links at a glance. It has one row per need, one column per requirement, and a mark where a requirement answers a need. Two checks follow:
 
-1. **Every row holds a mark.** A need with no requirement will be missed by the design. The set is not complete.
-2. **Every column holds a mark.** A requirement that traces to no need has one of two causes. It may come from a need nobody wrote down, and we add that need. Or it is what NASA (2016, Section 6.2.1.2.3) calls gold plating, work nobody asked for, and we remove it.
+1. **Every row contains a mark.** A need with no requirement will be missed by the design. The set is not complete.
+2. **Every column contains a mark.** A requirement that traces to no need has one of two causes. It may come from a need nobody wrote down, and we add that need. Or it is what NASA (2016, Section 6.2.1.2.3) calls gold plating, work nobody asked for, and we remove it.
 
 {numref}`fig-p11-traceability-matrix` shows a first draft for the survey aircraft and the corrected matrix.
 
@@ -362,17 +362,17 @@ A traceability matrix shows the links at a glance. It has one row per need, one 
 Schematic of the traceability matrix of the survey aircraft, before and after correction. The draft (dashed frame) misses the short-airstrip need (row N3 empty) and carries a design choice that answers no need (column R7 empty); the corrected matrix has a mark in every row and every column.
 :::
 
-In the draft, R7 says "the wing is mounted on top of the fuselage." No need asks for that, and it names a design, so we remove it. If a stakeholder does need the wing clear of the camera's view, we write that need down, and its requirement names the view. For the empty row N3 we add R3. Row N4 holds two marks, one need with two requirements. A requirement may also trace to two needs, and the matrix shows that too.
+In the draft, R7 specifies "the wing is mounted on top of the fuselage." No need calls for that, and it names a design, so we remove it. If a stakeholder does need the wing clear of the camera's view, we write that need down, and its requirement names the view. For the empty row N3 we add R3. Row N4 contains two marks, representing one need with two requirements. A requirement may also trace to two needs, and the matrix shows that too.
 
 (p11-verification)=
 ## Verification
 
-Step 6, {term}`verification`, shows that the design meets each requirement.
+Step 6, {term}`verification`, shows that the design satisfies each requirement.
 
 :::{prf:definition} Verification
 :label: def-p11-verification
 
-**Verification** is showing that a system meets its requirements: that it was built right. **Validation** is showing that it meets the stakeholders' needs: that the right system was built (NASA 2016, Section 5.0).
+**Verification** is showing that a system satisfies its requirements, meaning it was built right. **Validation** is showing that it satisfies the stakeholders' needs, meaning the right system was built (NASA 2016, Section 5.0).
 :::
 
 A design can pass every verification and still fail {term}`validation` if a requirement was wrong. This is why we keep the reasons and the trace back to the needs. There are four ways to verify a requirement, listed in {numref}`tbl-p11-methods`.
@@ -389,12 +389,12 @@ A design can pass every verification and still fail {term}`validation` if a requ
 | Test | Operate the system under controlled conditions and measure | Measure engine thrust on a test stand |
 :::
 
-Test gives the most data and costs the most (NASA 2016, Section 5.3). Before any hardware exists, we only have analysis and the inspection of drawings. So a conceptual design verifies most of its requirements by analysis and says which test or demonstration will confirm each one later.
+Test gives the most data and costs the most (NASA 2016, Section 5.3). Before any hardware exists, we only have analysis and the inspection of drawings. So a conceptual design verifies most of its requirements by analysis and specifies which test or demonstration will confirm each one later.
 
 :::{prf:definition} Compliance table
 :label: def-p11-compliance-table
 
-A **compliance table** lists every requirement with the method that verifies it, where the evidence is, and whether the design meets it yet.
+A **compliance table** lists every requirement with the method that verifies it, where the evidence is, and whether the design satisfies it yet.
 :::
 
 {numref}`tbl-p11-compliance` is the compliance table of the survey aircraft at the end of its first design pass.
@@ -416,13 +416,13 @@ A **compliance table** lists every requirement with the method that verifies it,
 Every "Not yet shown" or "Partly shown" entry identifies remaining verification work. As the design matures from calculations to drawings and hardware tests, we update the table to track which requirements are closed and which still need evidence.
 
 :::{warning} "Meets" without evidence
-Writing "Meets" with nothing in the "Where it is shown" column gives no proof that the requirement is satisfied. Every "Meets" entry must cite specific engineering evidence: a calculation, a drawing, a demonstration, or a test result.
+Writing "Meets" with nothing in the "Where it is shown" column gives no proof that the requirement is satisfied. Every "Meets" entry must cite specific engineering evidence, such as a calculation, a drawing, a demonstration, or a test result.
 :::
 
 ## Summary
 
 :::{important} Summary
-- Describe a system by its function, inputs and outputs, and boundary before its form; find every stakeholder, including those who never touch it.
+- Describe a system by its function, its inputs and outputs, and its boundary before its form; find every stakeholder, including those who never touch it.
 - The mission statement and the need statements say what is wanted, in the stakeholders' terms, and name no design. Rank the needs by the average rating and break ties by a stated rule.
 - A requirement is a metric and a value with its reason; the set is complete, dependent, and verifiable. The standard's "traceable" is the trace from every requirement to a need.
 - Trace every requirement to a need and every need to a requirement, and verify each requirement by analysis, inspection, demonstration, or test in a compliance table.

@@ -9,15 +9,15 @@ short_title: 2.3 Launch to Orbit
 To place a payload into {term}`low Earth orbit`, a launch vehicle must deliver the required orbital speed, direction, and altitude. On this page we assemble the launch {term}`delta-V budget`, accounting for the eastward velocity supplied by Earth's rotation and the gravity, drag, and steering losses during ascent. Along the way we relate launch direction, site latitude, and orbit inclination to see which orbits a given launch site can reach directly.
 
 :::{note} What to take from this page
-- A launch must deliver a velocity: the circular speed of the target orbit, along the orbit plane. The site already moves east with Earth, and the vehicle supplies the difference.
+- A launch must deliver the circular speed of the target orbit along the orbit plane. The site already moves east with Earth, and the vehicle supplies the difference.
 - The {term}`launch azimuth` $\textit{Az}$, the site latitude $\phi$, and the orbit inclination $i$ obey $\cos i = \cos\phi\,\sin\textit{Az}$. A direct launch never reaches an inclination lower than the latitude.
-- Earth's rotation adds $\Delta V_{\text{rot}} = \omega R_E\cos\phi\,\sin\textit{Az}$: a gain for an eastward launch, a loss for a westward one.
+- Earth's rotation adds $\Delta V_{\text{rot}} = \omega R_E\cos\phi\,\sin\textit{Az}$, which is a gain for an eastward launch and a loss for a westward one.
 - The budget is $\Delta V_{\text{total}} = v_{\text{orbit}} + \Delta V_{\text{losses}} - \Delta V_{\text{rot}}$, with losses of about 1.5 to 2.0 km/s for low Earth orbit (see [ascent and losses](#p23-losses)).
 :::
 
 ## Low Earth orbit
 
-Most launches end in a low Earth orbit, either as the final working orbit or as a {term}`parking orbit` for a later transfer burn. Compared with Earth's size, low Earth orbit is a thin shell close to the surface: drawn to scale in {numref}`fig-p23-leo-to-scale`, the entire band is about 29% of Earth's radius thick.
+Most launches end in a low Earth orbit, either as the final working orbit or as a {term}`parking orbit` for a later transfer burn. Compared with Earth's size, low Earth orbit is a thin shell close to the surface. Drawn to scale in {numref}`fig-p23-leo-to-scale`, the entire band is about 29% of Earth's radius thick.
 
 :::{prf:definition} Low Earth orbit
 :label: def-p23-leo
@@ -25,7 +25,7 @@ Most launches end in a low Earth orbit, either as the final working orbit or as 
 A **low Earth orbit** is an orbit around Earth with an altitude between about 160 km and 2,000 km.
 :::
 
-The lower limit comes from the atmosphere. Below about 160 km the air is dense enough that drag takes energy from the satellite on every revolution, and the orbit shrinks quickly. We work out how fast in [orbit lifetime](#p25-orbit-lifetime): at 150 km the satellite reenters in less than a day. The upper limit of 2,000 km is a convention.
+The lower limit comes from the atmosphere. Below about 160 km the air is dense enough that drag takes energy from the satellite on every revolution, and the orbit shrinks quickly. We work out how fast in [orbit lifetime](#p25-orbit-lifetime), where a satellite at 150 km reenters in less than a day. The upper limit of 2,000 km is a convention.
 
 On this page we use Earth's mean radius, $R_E = 6{,}371$ km. The other pages of the chapter use the equatorial radius, 6,378 km. The two differ by about 0.1%, which changes results only in the fourth significant figure.
 
@@ -61,7 +61,7 @@ The {term}`inclination` $i$ is the angle between the orbit plane and the equator
 
 ## What a launch has to deliver
 
-Reaching orbit requires far more energy for horizontal speed than for altitude. At 550 km the circular speed is 7.589 km/s, so each kilogram in orbit carries $v^2/2 = 28.8\ \text{km}^2/\text{s}^2$ of kinetic energy, while lifting the same kilogram from the surface to 550 km takes only $\mu/R_E - \mu/r = 4.97\ \text{km}^2/\text{s}^2$. The orbital speed demands 5.8 times as much energy as the altitude.
+Reaching orbit requires far more energy for horizontal speed than for altitude. At 550 km the circular speed is 7.589 km/s, so each kilogram in orbit carries $v^2/2 = 28.8\ \text{km}^2/\text{s}^2$ of kinetic energy, while lifting the same kilogram from the surface to 550 km takes only $\mu/R_E - \mu/r = 4.97\ \text{km}^2/\text{s}^2$. The orbital speed requires 5.8 times as much energy as the altitude.
 
 Velocity is a vector, so the vehicle must deliver both the speed and the direction. The direction is horizontal, along the plane of the target orbit. The vehicle also does not start from rest. The launch pad turns with Earth, so before liftoff the vehicle already moves east with the velocity of the site, $\mathbf{v}_{\text{site}}$. The vehicle supplies the rest:
 
@@ -72,7 +72,7 @@ Velocity is a vector, so the vehicle must deliver both the speed and the directi
 \Delta\mathbf{V} = \mathbf{v}_{\text{orbit}} - \mathbf{v}_{\text{site}}
 :::
 
-The bold symbols are vectors, and $v_{\text{orbit}}$, $v_{\text{site}}$, and $\Delta V$ (delta-V) are their magnitudes. We start with the simplest case: a launch from the equator, due east, into an equatorial orbit. The two velocities then point the same way, and the magnitudes subtract. For a 550 km orbit ({numref}`fig-p23-velocity-vectors`):
+The bold symbols are vectors, and $v_{\text{orbit}}$, $v_{\text{site}}$, and $\Delta V$ (delta-V) are their magnitudes. We start with the simplest case, a launch from the equator due east into an equatorial orbit. The two velocities then point the same way, and the magnitudes subtract. For a 550 km orbit ({numref}`fig-p23-velocity-vectors`):
 
 $$
 \begin{aligned}
@@ -111,11 +111,11 @@ Only the part of the site velocity along the launch direction helps. The site ve
 \Delta V_{\text{rot}} = \omega R_E \cos\phi \, \sin\textit{Az}
 :::
 
-$\Delta V_{\text{rot}}$ is positive for any launch with an eastward part ($0^\circ < \textit{Az} < {180}^\circ$) and zero due north or due south. For a westward launch it is negative: the vehicle must first cancel the eastward speed it started with. {numref}`fig-p23-rotation-gain` plots it against azimuth. Due east, the gain is 0.4575 km/s at latitude 10°, 0.3559 km/s at 40°, and 0.1963 km/s at 65°.
+$\Delta V_{\text{rot}}$ is positive for any launch with an eastward part ($0^\circ < \textit{Az} < {180}^\circ$) and zero due north or due south. For a westward launch it is negative, because the vehicle must first cancel the eastward speed it started with. {numref}`fig-p23-rotation-gain` plots it against azimuth. Due east, the gain is 0.4575 km/s at latitude 10°, 0.3559 km/s at 40°, and 0.1963 km/s at 65°.
 
 :::{figure} figures/p23-rotation-gain.svg
 :label: fig-p23-rotation-gain
-:alt: Plot of the delta-V from Earth's rotation, in kilometers per second, against launch azimuth from 0 to 360 degrees, for latitudes 10, 40, and 65 degrees. Each curve is a sine wave that starts at zero due north, peaks due east at 90 degrees (0.4575, 0.3559, and 0.1963 kilometers per second, marked), crosses zero due south at 180 degrees and is most negative due west at 270 degrees. The lower the latitude, the larger the swing.
+:alt: Plot of the delta-V from Earth's rotation, in kilometers per second, against launch azimuth from 0 to 360 degrees, for latitudes 10, 40, and 65 degrees. Each curve is a sine wave that starts at zero due north, peaks due east at 90 degrees (0.4575, 0.3559, and 0.1963 kilometers per second, marked), crosses zero due south at 180 degrees, and is most negative due west at 270 degrees. The lower the latitude, the larger the swing.
 :width: 80%
 
 Computed from $\Delta V_{\text{rot}} = \omega R_E\cos\phi\,\sin\textit{Az}$ for three latitudes: the velocity gained from Earth's rotation against launch azimuth. Markers: due east, the largest gain. A westward launch incurs an equal penalty, adding the same amount to the required $\Delta V$.
@@ -135,7 +135,7 @@ The launch direction also determines which orbit we reach, because the launch si
 :::{prf:definition} Launch azimuth
 :label: def-p23-azimuth
 
-The **launch azimuth** $\textit{Az}$ is the direction in which the vehicle flies, measured at the launch site in the local horizontal plane, clockwise from north: $0^\circ$ is due north, ${90}^\circ$ due east, ${180}^\circ$ due south, and ${270}^\circ$ due west.
+The **launch azimuth** $\textit{Az}$ is the direction in which the vehicle flies, measured at the launch site in the local horizontal plane, clockwise from north. Here $0^\circ$ is due north, ${90}^\circ$ due east, ${180}^\circ$ due south, and ${270}^\circ$ due west.
 :::
 
 The other two are the latitude $\phi$ of the site, measured from the equator, and the inclination $i$ of the orbit. We relate the three under two assumptions:
@@ -143,11 +143,11 @@ The other two are the latitude $\phi$ of the site, measured from the equator, an
 - The vehicle climbs in one plane through Earth's center, with no turns out of that plane. The orbit plane then contains the launch site.
 - $\textit{Az}$ is the direction of the vehicle's velocity in a frame that does not turn with Earth. It differs a little from the azimuth measured on the ground, and we leave that difference out.
 
-{numref}`fig-p23-launch-geometry` shows where the orbit plane cuts the sphere. The orbit crosses the equator northbound at the ascending node and passes over the launch site. The meridian through the site meets the equator at a right angle. The three arcs form a right spherical triangle:
+{numref}`fig-p23-launch-geometry` shows where the orbit plane cuts the sphere. The orbit crosses the equator northbound at the ascending node and passes over the launch site. The meridian through the site crosses the equator at a right angle. The three arcs form a right spherical triangle:
 
-- side from the foot of the meridian to the site: the latitude $\phi$;
-- angle at the ascending node, between the equator and the orbit: the inclination $i$;
-- angle at the site, between the meridian (looking south, toward the foot) and the orbit (looking back toward the node): the launch azimuth $\textit{Az}$, for a northeast launch.
+- the side from the foot of the meridian to the site is the latitude $\phi$;
+- the angle at the ascending node, between the equator and the orbit, is the inclination $i$;
+- the angle at the site, between the meridian (looking south, toward the foot) and the orbit (looking back toward the node), is the launch azimuth $\textit{Az}$ for a northeast launch.
 
 :::{figure} figures/p23-launch-geometry.svg
 :label: fig-p23-launch-geometry
@@ -157,14 +157,14 @@ The other two are the latitude $\phi$ of the site, measured from the equator, an
 Schematic of the launch geometry, drawn for the worked example: latitude 30.4°, inclination 40°, azimuth 62.6°. The orbit plane, the equator, and the meridian through the site form a right spherical triangle with the right angle at the equator. The dashed part of the orbit is behind the globe.
 :::
 
-In any right spherical triangle, a standard identity (one of Napier's rules) relates the two acute angles to the opposite side: the cosine of either acute angle equals the cosine of its opposite side times the sine of the other acute angle. Applying this identity to the angle $i$ at the node, whose opposite side is $\phi$ and whose companion acute angle is $\textit{Az}$, gives:
+In any right spherical triangle, one of Napier's rules relates the two acute angles to the opposite side. The cosine of either acute angle equals the cosine of its opposite side times the sine of the other acute angle. Applying this identity to the angle $i$ at the node, whose opposite side is $\phi$ and whose companion acute angle is $\textit{Az}$, gives
 
 :::{math}
 :label: eq-p23-azimuth
 \cos i = \cos\phi \, \sin\textit{Az}
 :::
 
-The same relation holds for a southeast launch, which meets the equator at the descending node instead. It also holds for a site in the southern hemisphere, because $\cos\phi$ does not change when the latitude is south instead of north.
+The same relation applies to a southeast launch, which crosses the equator at the descending node instead. It also applies to a site in the southern hemisphere, because $\cos\phi$ does not change when the latitude is south instead of north.
 
 ### What the equation says
 
@@ -175,8 +175,8 @@ $$
 $$
 
 1. **The inclination is never less than the latitude.** For a prograde orbit the azimuth lies between $0^\circ$ and ${180}^\circ$, so $0 \le \sin\textit{Az} \le 1$. Then $0 \le \cos i/\cos\phi \le 1$, which gives $\cos i \le \cos\phi$. The cosine falls as the angle grows from $0^\circ$ to ${90}^\circ$, so $i \ge \phi$.
-2. **Due east gives the lowest inclination, equal to the latitude.** With $\textit{Az} = {90}^\circ$, $\sin\textit{Az} = 1$ and $\cos i = \cos\phi$, so $i = \phi$.
-3. **Two azimuths reach the same inclination.** Because $\sin\textit{Az} = \sin({180}^\circ - \textit{Az})$, a northeast launch at $\textit{Az}$ and a southeast launch at ${180}^\circ - \textit{Az}$ put the vehicle in orbits of the same inclination. The two orbits lie in different planes: over the site, one moves northbound and the other southbound.
+2. **Due east gives the lowest inclination, equal to the latitude.** When $\textit{Az} = {90}^\circ$, we have $\sin\textit{Az} = 1$ and $\cos i = \cos\phi$, so $i = \phi$.
+3. **Two azimuths reach the same inclination.** Because $\sin\textit{Az} = \sin({180}^\circ - \textit{Az})$, a northeast launch at $\textit{Az}$ and a southeast launch at ${180}^\circ - \textit{Az}$ put the vehicle in orbits of the same inclination. The two orbits lie in different planes, because over the site one moves northbound and the other southbound.
 4. **A retrograde orbit needs a westward launch.** For $i > {90}^\circ$, $\cos i < 0$, so $\sin\textit{Az} < 0$ and ${180}^\circ < \textit{Az} < {360}^\circ$. The highest inclination, ${180}^\circ - \phi$, comes from a launch due west.
 5. **A polar orbit needs a launch due north or due south**, where $\sin\textit{Az} = 0$.
 
@@ -184,7 +184,7 @@ $$
 
 :::{figure} figures/p23-inclination-vs-azimuth.svg
 :label: fig-p23-inclination-vs-azimuth
-:alt: Plot of orbit inclination against launch azimuth from 0 to 360 degrees for latitudes 10, 40, and 65 degrees. Every curve starts at 90 degrees (polar) due north, falls to its minimum due east at 90 degrees azimuth, where the inclination equals the latitude (10, 40, and 65 degrees, marked), returns to 90 degrees due south, rises to its maximum of 180 degrees minus the latitude due west (170, 140, and 115 degrees) and ends at 90 degrees. Below the 90 degree line the orbits are prograde, above it retrograde.
+:alt: Plot of orbit inclination against launch azimuth from 0 to 360 degrees for latitudes 10, 40, and 65 degrees. Every curve starts at 90 degrees (polar) due north, falls to its minimum due east at 90 degrees azimuth, where the inclination equals the latitude (10, 40, and 65 degrees, marked), returns to 90 degrees due south, rises to its maximum of 180 degrees minus the latitude due west (170, 140, and 115 degrees), and ends at 90 degrees. Below the 90 degree line the orbits are prograde, above it retrograde.
 :width: 80%
 
 Computed from $\cos i = \cos\phi\,\sin\textit{Az}$ for three latitudes: orbit inclination against launch azimuth. Markers: due east, where the inclination is lowest and equal to the latitude. Each inclination between $\phi$ and ${90}^\circ$ is reached by two azimuths, one each side of due east.
@@ -197,7 +197,7 @@ Now combine {eq}`eq-p23-azimuth` with {eq}`eq-p23-rot`. The product $\cos\phi\,\
 \Delta V_{\text{rot}} = \omega R_E \cos i
 :::
 
-for any launch site that can reach that inclination directly. Because a lower-latitude site must launch farther from due east to reach the same inclination, $\sin\textit{Az}$ decreases by the same factor that $\cos\phi$ increases, leaving their product unchanged. A site near the equator therefore gets no extra rotation boost into a 40° orbit compared with a site at 30°; its advantage is that it can reach low inclinations directly without a plane change.
+for any launch site that can reach that inclination directly. Because a lower-latitude site must launch farther from due east to reach the same inclination, $\sin\textit{Az}$ decreases by the same factor that $\cos\phi$ increases, leaving their product unchanged. So a site near the equator gets no extra rotation boost into a 40° orbit compared with a site at 30°; its advantage is that it can reach low inclinations directly without a plane change.
 
 :::{warning} Degrees and radians
 The angles on this page are in degrees and $\omega$ is in radians per second. Set your calculator to degrees for $\sin\textit{Az}$ and $\cos\phi$. The product $\omega R_E$ needs no angle unit and gives km/s when $R_E$ is in km.
@@ -220,7 +220,7 @@ The latitude of a site fixes the lowest inclination it reaches by a direct launc
 
 :::
 
-An orbit below a site's latitude is still possible, but not directly. The vehicle launches due east into an orbit inclined at the latitude. Then a separate burn turns the orbit plane, and that burn is expensive (see [the plane change](#p22-plane-change)). This is why geostationary satellites, which must end at $i = 0^\circ$, are best launched from sites near the equator.
+An orbit below a site's latitude is still possible, but not directly. The vehicle launches due east into an orbit inclined at the latitude. Then a separate burn turns the orbit plane, and that burn requires a large $\Delta V$ (see [the plane change](#p22-plane-change)). This is why geostationary satellites, which must end at $i = 0^\circ$, are best launched from sites near the equator.
 
 Range safety places a second constraint on launch azimuth. Every launch range must keep spent stages, debris, and a failed vehicle away from populated areas, so each site launches only over open water or unpopulated land within a sector of permitted azimuths. The edges of that sector set the inclinations the site can reach. {numref}`fig-p23-azimuth-fan` illustrates this for a coastal site at 35° N with ocean to the east and an allowed sector from 50° to 140°. Due east gives 35.0°, the northern edge gives 51.1°, and the southern edge gives 58.2°. Inclinations from 35.0° to 51.1° can be reached with either a northeast or a southeast launch, while those from 51.1° to 58.2° can be reached only toward the southeast; polar and retrograde orbits are out of reach from this site.
 
@@ -263,7 +263,7 @@ Some of the velocity change the engines produce never shows up as orbit speed. W
 \Delta V_{\text{losses}} = \int g\sin\gamma\,dt + \int \frac{D}{m}\,dt + \int \frac{T}{m}\,(1 - \cos\alpha)\,dt
 :::
 
-Gravity loss and drag loss trade against each other. A steeper climb leaves the dense lower atmosphere sooner and reduces drag loss, but it increases the vertical component of flight and adds gravity loss. Pitching over early does the reverse, so most launch vehicles fly a gravity turn as a balance between the two. Because evaluating these integrals requires a full trajectory simulation, we use a single planning value for preliminary estimates. Gravity losses are typically 1.0 to 1.5 km/s and drag losses 0.10 to 0.15 km/s (Dresia et al. 2021); adding steering losses and margin gives a typical total of 1.5 to 2.0 km/s for low Earth orbit.
+Gravity loss and drag loss work in opposite directions. A steeper climb leaves the dense lower atmosphere sooner and reduces drag loss, but it increases the vertical component of flight and adds gravity loss. Pitching over early does the reverse, so most launch vehicles fly a gravity turn as a balance between the two. Because evaluating these integrals requires a full trajectory simulation, we use a single planning value for preliminary estimates. Gravity losses are typically 1.0 to 1.5 km/s and drag losses 0.10 to 0.15 km/s (Dresia et al. 2021); adding steering losses and margin gives a typical total of 1.5 to 2.0 km/s for low Earth orbit.
 
 (p23-budget)=
 ## The delta-V budget
@@ -290,13 +290,13 @@ v_{\text{orbit}} = \sqrt{\frac{\mu}{r}} = \sqrt{\frac{\mu}{R_E + h}}
 The total is what the stages of the vehicle must provide. Through [the rocket equation](#p42-rocket-equation), it sets how much propellant they carry.
 
 :::{tip} Method: delta-V from a launch site to a low circular orbit
-1. Convert the altitude to a radius: $r = R_E + h$.
-2. Check that the inclination can be reached directly: $\phi \le i \le {180}^\circ - \phi$, with $\phi$ taken as positive in either hemisphere. If not, launch due east and add a plane change.
+1. Convert the altitude to a radius using $r = R_E + h$.
+2. Check that the inclination can be reached directly, meaning $\phi \le i \le {180}^\circ - \phi$, with $\phi$ taken as positive in either hemisphere. If not, launch due east and add a plane change.
 3. Find the launch azimuth from $\sin\textit{Az} = \cos i/\cos\phi$. Your calculator gives one angle between $-{90}^\circ$ and ${90}^\circ$. The second is ${180}^\circ$ minus it (add ${360}^\circ$ to a negative angle). Keep the one the range allows.
 4. Compute $\Delta V_{\text{rot}} = \omega R_E\cos\phi\,\sin\textit{Az}$, with its sign. Check it against $\omega R_E\cos i$.
 5. Compute $v_{\text{orbit}} = \sqrt{\mu/r}$.
-6. Add: $\Delta V_{\text{total}} = v_{\text{orbit}} + \Delta V_{\text{losses}} - \Delta V_{\text{rot}}$.
-7. Check: $|\Delta V_{\text{rot}}|$ is at most 0.4646 km/s, and $v_{\text{orbit}}$ lies between 6.900 and 7.812 km/s for any low Earth orbit.
+6. Combine the terms in $\Delta V_{\text{total}} = v_{\text{orbit}} + \Delta V_{\text{losses}} - \Delta V_{\text{rot}}$.
+7. Check that $|\Delta V_{\text{rot}}|$ is at most 0.4646 km/s, and that $v_{\text{orbit}}$ lies between 6.900 and 7.812 km/s for any low Earth orbit.
 :::
 
 :::{warning} Kilometers and meters
@@ -309,7 +309,7 @@ Use $\mu = 3.986 \times {10}^5\ \text{km}^3/\text{s}^2$ with $r$ in km, and $R_E
 A launch vehicle flies from a coastal launch site at latitude $\phi = {30.4}^\circ$ N to a circular orbit at $h = 550$ km with inclination $i = {40}^\circ$. Gravity, drag, and steering losses are $\Delta V_{\text{losses}} = 1.6$ km/s. Find the launch azimuth, the rotation gain, and the total delta-V. Use $\mu = 3.986 \times {10}^5\ \text{km}^3/\text{s}^2$, $R_E = 6{,}371$ km, and $\omega = 7.292 \times {10}^{-5}$ rad/s.
 
 1. **Radius.** $r = R_E + h = 6{,}371 + 550 = 6{,}921$ km.
-2. **Reach.** The orbit can be reached directly: $i = {40}^\circ$ lies between $\phi = {30.4}^\circ$ and ${180}^\circ - {30.4}^\circ$.
+2. **Reach.** The orbit can be reached directly, because $i = {40}^\circ$ lies between $\phi = {30.4}^\circ$ and ${180}^\circ - {30.4}^\circ$.
 3. **Launch azimuth**, {eq}`eq-p23-azimuth`:
    $$
    \begin{aligned}
@@ -319,7 +319,7 @@ A launch vehicle flies from a coastal launch site at latitude $\phi = {30.4}^\ci
    \end{aligned}
    $$
    so $\textit{Az} = {62.6}^\circ$ or ${180}^\circ - {62.6}^\circ = {117.4}^\circ$.
-   Both reach the 40° inclination: ${62.6}^\circ$ is northeast and ${117.4}^\circ$ is southeast. Range safety restrictions determine which azimuth we fly.
+   Both reach the 40° inclination, with ${62.6}^\circ$ to the northeast and ${117.4}^\circ$ to the southeast. Range safety restrictions determine which azimuth we fly.
 4. **Rotation gain**, {eq}`eq-p23-rot`. The site moves east at $\omega R_E\cos\phi = (7.292 \times {10}^{-5})(6{,}371)\cos {30.4}^\circ = 0.4007$ km/s, and
    $$
    \begin{aligned}
@@ -328,7 +328,7 @@ A launch vehicle flies from a coastal launch site at latitude $\phi = {30.4}^\ci
                          &= 0.3559\ \text{km/s}
    \end{aligned}
    $$
-   The southeast azimuth gives the same value, since $\sin {117.4}^\circ = \sin {62.6}^\circ$. Check with {eq}`eq-p23-rot-cosi`: $\omega R_E\cos {40}^\circ = 0.4646 \times 0.7660 = 0.3559$ km/s.
+   The southeast azimuth gives the same value, since $\sin {117.4}^\circ = \sin {62.6}^\circ$. Checking with {eq}`eq-p23-rot-cosi` gives $\omega R_E\cos {40}^\circ = 0.4646 \times 0.7660 = 0.3559$ km/s.
 5. **Orbit speed**, {eq}`eq-p23-vc`:
    $$
    \begin{aligned}
@@ -373,14 +373,14 @@ Computed for the worked example: the delta-V budget of a launch from latitude 30
 
 :::
 
-Launching due east requires the least $\Delta V$, but it reaches only an inclination of 30.4°. The 40° orbit requires slightly more because a smaller component of the site velocity lies along the launch direction, and a polar orbit gains nothing from Earth's rotation. A launch due west works directly against the rotation, adding the same amount to the required $\Delta V$: it needs $9.590 - 8.788 = 0.802$ km/s more than a due-east launch, about twice the rotation gain.
+Launching due east requires the least $\Delta V$, but it reaches only an inclination of 30.4°. The 40° orbit requires slightly more because a smaller component of the site velocity lies along the launch direction, and a polar orbit gains nothing from Earth's rotation. A launch due west works directly against the rotation, adding the same amount to the required $\Delta V$. It needs $9.590 - 8.788 = 0.802$ km/s more than a due-east launch, about twice the rotation gain.
 
 ## Summary
 
 :::{important} Summary
 - Low Earth orbit lies between about 160 km and 2,000 km altitude, where the circular speed is 6.900 to 7.812 km/s. Reaching orbital speed requires far more energy than climbing to orbital altitude.
-- The site's eastward speed, $\omega R_E\cos\phi$, helps by its part along the launch direction: $\Delta V_{\text{rot}} = \omega R_E\cos\phi\,\sin\textit{Az}$, positive eastward and negative westward.
-- $\cos i = \cos\phi\,\sin\textit{Az}$: the lowest inclination a site reaches directly equals its latitude (due east); two azimuths reach each higher prograde inclination; retrograde orbits need a westward launch. Range safety narrows the azimuths further.
+- The site's eastward speed, $\omega R_E\cos\phi$, helps by its part along the launch direction, giving $\Delta V_{\text{rot}} = \omega R_E\cos\phi\,\sin\textit{Az}$, which is positive eastward and negative westward.
+- From $\cos i = \cos\phi\,\sin\textit{Az}$, the lowest inclination a site reaches directly equals its latitude (due east). Two azimuths reach each higher prograde inclination, and retrograde orbits need a westward launch. Range safety narrows the azimuths further.
 - The budget is $\Delta V_{\text{total}} = v_{\text{orbit}} + \Delta V_{\text{losses}} - \Delta V_{\text{rot}}$, with losses of about 1.5 to 2.0 km/s (see [ascent and losses](#p23-losses)).
 :::
 
@@ -404,10 +404,10 @@ Launching due east requires the least $\Delta V$, but it reaches only an inclina
 :label: ex-p23-discussion
 
 1. A geostationary satellite must end at $i = 0^\circ$. What extra burn does a launch from Kennedy need that a launch from Kourou barely needs, and where should it be made?
-2. Why do most launch sites sit on a coast with the sea to the east?
+2. Why are most launch sites located on a coast with the sea to the east?
 3. Why do launch vehicles not fly straight up to the orbit altitude and then turn horizontal? Which loss would grow, and which would shrink?
 4. In the worked example two azimuths reach the 40° orbit. What could make a launch team choose one over the other?
-5. A launch to meet a space station has a window of a few minutes, while a launch into any 40° orbit can wait for good weather. Why the difference?
+5. A launch to rendezvous with a space station has a window of a few minutes, while a launch into any 40° orbit can be delayed for good weather. Why the difference?
 :::
 
 ## Quiz

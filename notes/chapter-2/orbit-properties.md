@@ -6,11 +6,11 @@ short_title: 2.1 Orbit Properties
 :::{include} ../_parts/standards/2.1.md
 :::
 
-Every orbit in this chapter starts from Newton's law of gravitation, which leads to the two-body model, the orbit equation, Kepler's laws, and the vis-viva equation. Together, these relations let us find a spacecraft's speed at any point and classify any trajectory from a single position and speed, as we will apply to an Earth satellite, a Venus orbiter, and a small body crossing Earth's orbit.
+Every orbit in this chapter starts from Newton's law of gravitation, which leads to the two-body model, the orbit equation, Kepler's laws, and the vis-viva equation. Together, these relations let us find a spacecraft's speed at any point and classify any trajectory from a single position and speed. We will apply them to an Earth satellite, a Venus orbiter, and a small body crossing Earth's orbit.
 
 :::{note} What to take from this page
 - In the two-body problem every path is a conic section with the central body at a focus. Two numbers fix its size and shape: the semi-major axis $a$ and the eccentricity $e$.
-- The period depends only on $a$: $T = 2\pi\sqrt{a^3/\mu}$.
+- The period depends only on $a$, with $T = 2\pi\sqrt{a^3/\mu}$.
 - The specific orbital energy $\varepsilon = v^2/2 - \mu/r = -\mu/(2a)$ is the same at every point of an orbit. The vis-viva equation follows from it and gives the speed anywhere.
 - The sign of $\varepsilon$, or the speed against the escape speed $\sqrt{2\mu/r}$, tells whether a spacecraft stays bound or leaves.
 :::
@@ -67,14 +67,14 @@ Tables in SI units give $\mu$ in m³/s² (Earth: $3.986 \times {10}^{14}$ m³/s�
 
 ## The two-body problem
 
-To find the path that gravity produces, we start with a simplified case. When three or more bodies attract one another, the equations of motion have no general closed-form solution, a result proved by Heinrich Bruns in 1887 and extended by Henri Poincaré a few years later (O'Connor and Robertson 2006). Two isolated bodies do have an exact solution, and it gives a reliable baseline for most spacecraft orbits. This {term}`two-body problem` rests on four assumptions:
+To find the path that gravity produces, we start with a simplified case. When three or more bodies attract one another, the equations of motion have no general closed-form solution. Heinrich Bruns proved this in 1887, and Henri Poincaré extended the result a few years later (O'Connor and Robertson 2006). Two isolated bodies do have an exact solution, and it gives a reliable baseline for most spacecraft orbits. This {term}`two-body problem` rests on four assumptions:
 
 1. Each body is a point mass, or a sphere whose mass is spread evenly in layers, so that it attracts as if all its mass were concentrated at its center.
 2. Only two bodies are present.
 3. Gravity is the only force. There is no drag, no thrust, and no pressure from sunlight.
 4. The spacecraft is so light that the central body does not move in response to it.
 
-Under these assumptions the spacecraft moves in a fixed plane through the center of the central body, along a curve we can write in closed form. Real orbits slowly depart from this ideal path because atmospheric drag lowers low orbits on every revolution, the Moon and the Sun pull on high Earth orbits, and Earth's equatorial bulge slowly rotates the plane of an inclined orbit (Mesarch 2018). We begin with the two-body orbit and include these perturbations when they matter.
+Under these assumptions the spacecraft moves in a fixed plane through the center of the central body, along a curve we can write in closed form. Real orbits slowly depart from this ideal path. Atmospheric drag lowers low orbits on every revolution, the Moon and the Sun pull on high Earth orbits, and Earth's equatorial bulge slowly rotates the plane of an inclined orbit (Mesarch 2018). We begin with the two-body orbit and include these perturbations when they matter.
 
 ## The orbit equation
 
@@ -85,7 +85,7 @@ Solving the two-body equations of motion in polar coordinates $(r, \theta)$ cent
 r = \frac{a\,(1 - e^2)}{1 + e\cos\theta}
 :::
 
-This relation gives the radial distance $r$ from the center of the central body as a function of one angle, the {term}`true anomaly` $\theta$, measured at the central body from the point of closest approach in the direction of motion. Two constants fix the curve: the {term}`semi-major axis` $a$ sets its size, and the {term}`eccentricity` $e$ sets its shape. The numerator $p = a(1 - e^2)$ is the semi-latus rectum; because $\cos 90° = 0$, the denominator becomes 1 at $\theta = 90°$, leaving $r = p$.
+This relation gives the radial distance $r$ from the center of the central body as a function of the {term}`true anomaly` $\theta$. We measure $\theta$ at the central body from the point of closest approach in the direction of motion. Two constants fix the curve. The {term}`semi-major axis` $a$ sets its size, and the {term}`eccentricity` $e$ sets its shape. The numerator $p = a(1 - e^2)$ is the semi-latus rectum; because $\cos 90° = 0$, the denominator becomes 1 at $\theta = 90°$, leaving $r = p$.
 
 For a closed orbit the curve is an ellipse ({numref}`fig-p21-ellipse-geometry`). The central body lies at one focus, and the other focus is empty. The longest diameter of the ellipse is $2a$ and the shortest is $2b$, where $b$ is the semi-minor axis. The center lies a distance $c$ from each focus, and
 
@@ -131,7 +131,7 @@ Each central body has its own names for the apsides ({numref}`tbl-p21-apsides`).
 :::
 
 :::{warning} Altitude is not radius
-Mission data gives altitudes $h$ above the surface. Every equation on this page needs radii from the center: $r = R + h$. A 400 km orbit around Earth has $r = 6{,}778$ km, not 400 km. Add the radius of the body before you compute anything, and subtract it again when the answer asks for an altitude.
+Mission data gives altitudes $h$ above the surface. Every equation on this page needs radii from the center, $r = R + h$. A 400 km orbit around Earth has $r = 6{,}778$ km, not 400 km. Add the radius of the body before you compute anything, and subtract it again when you need an altitude at the end.
 :::
 
 ## Conic sections
@@ -185,7 +185,7 @@ In the rest of this chapter we use only the {term}`inclination`. An orbit with $
 
 ## Kepler's laws
 
-While the orbit equation describes the geometry of the path, Kepler's laws connect that geometry to motion in time, including how the satellite's speed varies around the orbit and how long each revolution takes. Johannes Kepler discovered three laws of planetary motion from the observations of Tycho Brahe, publishing the first two in 1609 and the third in 1619 (Field 1999). Newton later derived all three from his law of gravitation, showing that they hold for any satellite around any central body.
+The orbit equation describes the geometry of the path, and Kepler's laws connect that geometry to motion in time, telling us how the satellite's speed varies around the orbit and how long each revolution takes. Johannes Kepler discovered three laws of planetary motion from the observations of Tycho Brahe, publishing the first two in 1609 and the third in 1619 (Field 1999). Newton later derived all three from his law of gravitation, showing that they apply to any satellite around any central body.
 
 **First law.** A satellite moves on an ellipse with the central body at one focus. This is the closed case of the orbit equation.
 
@@ -229,7 +229,7 @@ With $\mu$ in km³/s², [](#eq-p21-period) gives $T$ in seconds. Convert a perio
 (p21-vis-viva)=
 ## Energy and speed
 
-The speed changes around the orbit. To find it at every point, we use energy. Gravity is a conservative force and the only force acting, so the sum of kinetic and potential energy stays constant. The kinetic energy of a mass $m$ moving at speed $v$ is $\tfrac{1}{2}mv^2$. The potential energy at distance $r$ from the central body is $-GMm/r$, taken as zero infinitely far away and negative everywhere closer. The total is
+Because the speed changes around the orbit, we use energy to find it at any point. Gravity is a conservative force and the only force acting, so the sum of kinetic and potential energy stays constant. The kinetic energy of a mass $m$ moving at speed $v$ is $\tfrac{1}{2}mv^2$. The potential energy at distance $r$ from the central body is $-GMm/r$, taken as zero infinitely far away and negative everywhere closer. The total is
 
 :::{math}
 :label: eq-p21-energy-total
@@ -293,7 +293,7 @@ Two speeds at a given radius mark the boundaries between the types of path. On a
 v_c = \sqrt{\frac{\mu}{r}}
 :::
 
-At Earth's surface, $\mu/R = 62.496$ km²/s² and $v_c = 7.905$ km/s. That is the speed a satellite would need to circle Earth at zero altitude, if there were no air. At 400 km altitude it is 7.669 km/s. The circular speed falls as the radius grows. {numref}`fig-p21-planet-speeds` shows it for the planets: Mercury moves at 47.87 km/s and Neptune at 5.431 km/s.
+At Earth's surface, $\mu/R = 62.496$ km²/s² and $v_c = 7.905$ km/s. That is the speed a satellite would need to circle Earth at zero altitude, if there were no air. At 400 km altitude it is 7.669 km/s. The circular speed falls as the radius grows. {numref}`fig-p21-planet-speeds` shows it for the planets, from Mercury at 47.87 km/s to Neptune at 5.431 km/s.
 
 :::{figure} figures/p21-planet-speeds.svg
 :label: fig-p21-planet-speeds
@@ -310,12 +310,12 @@ To escape the central body permanently, a spacecraft must enter an open path, si
 v_{\text{esc}} = \sqrt{\frac{2\mu}{r}} = \sqrt{2}\; v_c
 :::
 
-At Earth's surface $v_{\text{esc}} = 11.18$ km/s. At any radius the escape speed is $\sqrt{2} = 1.414$ times the circular speed. A spacecraft at the escape speed has zero energy. It would reach infinite distance with no speed left. The direction does not matter, as long as the path does not cross the surface of the body.
+At Earth's surface $v_{\text{esc}} = 11.18$ km/s. At any radius the escape speed is $\sqrt{2} = 1.414$ times the circular speed. A spacecraft moving at the escape speed has zero energy and reaches infinite distance with no speed left. The direction does not matter, as long as the path does not cross the surface of the body.
 
 (p21-classify)=
 ## Classifying a trajectory
 
-One radius and one speed are enough to decide whether a spacecraft stays bound to the central body. The energy [](#eq-p21-energy) has no angle in it, and its sign sets the type of conic ({numref}`tbl-p21-classify`).
+One radius and one speed are enough to tell whether a spacecraft stays bound to the central body. The energy [](#eq-p21-energy) has no angle in it, and its sign sets the type of conic ({numref}`tbl-p21-classify`).
 
 :::{table} The four types of trajectory in the two-body problem.
 :label: tbl-p21-classify
@@ -340,9 +340,9 @@ Computed for Earth, to scale, from a start at radius 13,000 km with the velocity
 :::
 
 :::{tip} Method: classifying a trajectory
-1. Find the radius from the center of the body: $r = R + h$.
+1. Find the radius from the center of the body, $r = R + h$.
 2. Compute the energy $\varepsilon = v^2/2 - \mu/r$, or compare $v$ with $v_{\text{esc}} = \sqrt{2\mu/r}$.
-3. Read the type from the sign. A negative energy means a bound ellipse (or a circle); then $a = -\mu/(2\varepsilon)$, and the period follows from [](#eq-p21-period). Zero means a parabola, and a positive energy means a hyperbola: the spacecraft leaves.
+3. Read the type from the sign. A negative energy means a bound ellipse (or a circle); then $a = -\mu/(2\varepsilon)$, and the period follows from [](#eq-p21-period). Zero means a parabola, and a positive energy means a hyperbola, so the spacecraft leaves.
 :::
 
 The speed determines the specific energy $\varepsilon$ and the semi-major axis $a$, but not the eccentricity $e$, which also depends on the direction of the velocity. Suppose two spacecraft pass the same point at the same speed below escape speed, one moving horizontally and one climbing. Both follow ellipses with the same semi-major axis $a$ and orbital period $T$, but with different eccentricities $e$ and different apsis radii.
@@ -353,7 +353,7 @@ The speed determines the specific energy $\varepsilon$ and the semi-major axis $
 
 A satellite orbits Earth with a perigee altitude of 700 km and an apogee altitude of 5,800 km. Find the semi-major axis, the eccentricity, the period, the speeds at perigee and apogee, and the specific orbital energy. Use $\mu = 3.986 \times {10}^{5}$ km³/s² and $R = 6{,}378$ km.
 
-1. **Radii.** From the center: $r_p = 6{,}378 + 700 = 7{,}078$ km and $r_a = 6{,}378 + 5{,}800 = 12{,}178$ km.
+1. **Radii.** Measured from the center, $r_p = 6{,}378 + 700 = 7{,}078$ km and $r_a = 6{,}378 + 5{,}800 = 12{,}178$ km.
 2. **Semi-major axis**, [](#eq-p21-a-e): $a = (7{,}078 + 12{,}178)/2 = 9{,}628$ km.
 3. **Eccentricity**, [](#eq-p21-a-e): $e = (12{,}178 - 7{,}078)/(12{,}178 + 7{,}078) = 5{,}100/19{,}256 = 0.2649$.
 4. **Period**, [](#eq-p21-period): $T = 2\pi\sqrt{{9{,}628}^3/(3.986 \times {10}^{5})} = 9{,}402$ s, which is 156.7 minutes or 2.612 hours.
@@ -361,7 +361,7 @@ A satellite orbits Earth with a perigee altitude of 700 km and an apogee altitud
 6. **Apogee speed.** $v_a^2 = 3.986 \times {10}^{5}\,(2/12{,}178 - 1/9{,}628) = 24.06$ km²/s², so $v_a = 4.905$ km/s.
 7. **Specific orbital energy**, [](#eq-p21-energy-a): $\varepsilon = -3.986 \times {10}^{5}/(2 \times 9{,}628) = -20.70$ km²/s².
 
-**Check.** The energy at perigee from [](#eq-p21-energy) is $35.62 - 56.32 = -20.70$ km²/s², the same. The second law holds: $r_p v_p = 7{,}078 \times 8.440 = 59{,}738$ km²/s and $r_a v_a = 12{,}178 \times 4.905 = 59{,}733$ km²/s, the same to the four figures of the speeds. The satellite moves faster at perigee than at apogee, as {numref}`fig-p21-speed-around-orbit` shows. At $\theta = 90°$ and $\theta = 270°$ the radius is $p = r_p(1 + e) = 7{,}078 \times 1.2649 = 8{,}953$ km and the speed is 6.903 km/s.
+**Check.** The energy at perigee from [](#eq-p21-energy) is $35.62 - 56.32 = -20.70$ km²/s², matching our value above. The second law checks out as well, since $r_p v_p = 7{,}078 \times 8.440 = 59{,}738$ km²/s and $r_a v_a = 12{,}178 \times 4.905 = 59{,}733$ km²/s, the same to the four figures of the speeds. The satellite moves faster at perigee than at apogee, as {numref}`fig-p21-speed-around-orbit` shows. At $\theta = 90°$ and $\theta = 270°$ the radius is $p = r_p(1 + e) = 7{,}078 \times 1.2649 = 8{,}953$ km and the speed is 6.903 km/s.
 
 :::{figure} figures/p21-speed-around-orbit.svg
 :label: fig-p21-speed-around-orbit
@@ -376,19 +376,19 @@ Computed for the orbit of Example 1 (perigee altitude 700 km, apogee altitude 5,
 A spacecraft orbits Venus with a period of 8.0 hours and a periapsis altitude of 400 km. Find the semi-major axis, the apoapsis radius and altitude, and the eccentricity. Use $\mu = 3.249 \times {10}^{5}$ km³/s² and $R = 6{,}052$ km.
 
 1. **Period in seconds.** $T = 8.0 \times 3{,}600 = 28{,}800$ s.
-2. **Semi-major axis.** We solve [](#eq-p21-period) for $a$: $a = \left[\mu\,(T/2\pi)^2\right]^{1/3}$. With $T/2\pi = 4{,}583.66$ s, $a = \left[3.249 \times {10}^{5} \times {4{,}583.66}^2\right]^{1/3} = 18{,}969.6$ km.
+2. **Semi-major axis.** Solving [](#eq-p21-period) for $a$ gives $a = \left[\mu\,(T/2\pi)^2\right]^{1/3}$. With $T/2\pi = 4{,}583.66$ s, $a = \left[3.249 \times {10}^{5} \times {4{,}583.66}^2\right]^{1/3} = 18{,}969.6$ km.
 3. **Periapsis radius.** $r_p = 6{,}052 + 400 = 6{,}452$ km.
 4. **Apoapsis radius and altitude.** From $a = (r_p + r_a)/2$, $r_a = 2a - r_p = 31{,}487$ km. The apoapsis altitude is $31{,}487 - 6{,}052 = 25{,}435$ km.
 5. **Eccentricity.** $e = (31{,}487 - 6{,}452)/(31{,}487 + 6{,}452) = 25{,}035/37{,}939 = 0.6599$.
 
-**Check.** $r_p = a(1 - e) = 18{,}969.6 \times 0.3401 = 6{,}452$ km. Keep the semi-major axis to one decimal here: $r_a$ is the difference of two large numbers, and rounding $a$ to 18,970 km changes its last digit.
+**Check.** $r_p = a(1 - e) = 18{,}969.6 \times 0.3401 = 6{,}452$ km. Keep the semi-major axis to one decimal here, because $r_a$ is the difference of two large numbers and rounding $a$ to 18,970 km changes its last digit.
 
 ### Example 3: a small body crossing Earth's orbit
 
-A small body crosses the distance of Earth's orbit from the Sun, $r = 1.496 \times {10}^{8}$ km, moving at 40.0 km/s relative to the Sun. Decide whether it is bound to the Sun. Use $\mu_{\text{Sun}} = 1.327 \times {10}^{11}$ km³/s².
+A small body crosses the distance of Earth's orbit from the Sun, $r = 1.496 \times {10}^{8}$ km, moving at 40.0 km/s relative to the Sun. Determine whether it is bound to the Sun. Use $\mu_{\text{Sun}} = 1.327 \times {10}^{11}$ km³/s².
 
 1. **Energy terms.** $v^2/2 = {40.0}^2/2 = 800.0$ km²/s² and $\mu/r = 1.327 \times {10}^{11}/(1.496 \times {10}^{8}) = 887.03$ km²/s².
-2. **Energy.** $\varepsilon = 800.0 - 887.03 = -87.03$ km²/s². It is negative.
+2. **Energy.** $\varepsilon = 800.0 - 887.03 = -87.03$ km²/s², which is negative.
 3. **Type and size.** The body is on an ellipse around the Sun and will return. Its semi-major axis is $a = -\mu/(2\varepsilon) = 7.624 \times {10}^{8}$ km, or 5.096 AU. By [](#eq-p21-period-ratio), with Earth's orbit of 1 AU and one year as the reference, its period is ${5.096}^{3/2} = 11.50$ years.
 
 **Check.** The escape speed at 1 AU is $\sqrt{2\mu/r} = 42.12$ km/s, and 40.0 km/s is below it. Earth's own circular speed there is 29.78 km/s.
@@ -401,7 +401,7 @@ Suppose instead the body crossed the same point at 45.0 km/s. Then $v^2/2$ would
 - Under the two-body assumptions, an orbit is a conic section with the central body at a focus. The semi-major axis sets its size and the eccentricity its shape. Always work with radii from the center.
 - The period and the energy depend only on $a$. The second law makes the spacecraft fastest at periapsis.
 - The vis-viva equation gives the speed anywhere. The circular speed is $\sqrt{\mu/r}$ and the escape speed is $\sqrt{2}$ times larger.
-- The sign of the energy classifies a trajectory: negative bound, zero parabolic, positive hyperbolic.
+- The sign of the energy classifies a trajectory as bound when negative, parabolic when zero, and hyperbolic when positive.
 :::
 
 :::{table} The equations of this page.

@@ -6,7 +6,7 @@ short_title: 5.3 Climb and Ceiling
 :::{include} ../_parts/standards/5.3.md
 :::
 
-On [page 5.1](#p51-level-flight) the aircraft flew level, and the engines gave just enough thrust to cancel the drag. An aircraft also has to climb: off the runway, over the terrain around the airport, and up to its cruise altitude. To climb, the engines must give more than level flight needs, and the surplus lifts the weight. A climb raises two questions: how fast the aircraft gains height, and how steeply it rises over the ground. The two answers come at different speeds, and the difference matters most when an engine fails near terrain. Higher up the surplus shrinks, and where it is gone the aircraft has reached its ceiling.
+On [page 5.1](#p51-level-flight) the aircraft flew level, and the engines gave just enough thrust to cancel the drag. An aircraft also has to climb off the runway, over the terrain around the airport, and up to its cruise altitude. To climb, the engines must give more than level flight needs, and the surplus lifts the weight. A climb raises two questions: how fast the aircraft gains height, and how steeply it rises over the ground. The two answers come at different speeds, and the difference matters most when an engine fails near terrain. Higher up the surplus shrinks, and where it is gone the aircraft has reached its ceiling.
 
 :::{note} What to take from this page
 - In a steady climb at the climb angle $\gamma$, $T = D + mg\sin\gamma$ and $L = mg\cos\gamma$. The thrust must carry the drag and the part of the weight along the path.
@@ -25,12 +25,12 @@ We start, as on page 5.1, with the forces. In a **steady climb** the aircraft mo
 :alt: A Boeing 737-800 outline climbing to the right, with its flight path at the climb angle gamma above the horizontal and its body axis at the angle of attack alpha above the path, both angles named in a key. A blue velocity arrow points along the flight path. Four black force arrows act through the center of gravity: lift perpendicular to the path, drag backward along it, thrust along the body axis, and weight straight down. The thrust arrow is much longer than the drag arrow. An inset titled the weight, split, shows the weight and its two parts, m g sine gamma backward along the path and m g cosine gamma across it, at a right angle, with the angle gamma between the weight and its across part.
 :width: 100%
 
-Schematic of the forces in a steady climb, each drawn on its line of action through the center of gravity: the thrust carries the drag and also the part of the weight along the path, so it is longer than the drag. The climb angle, the angle of attack, and the drag are exaggerated (the drag is drawn as one third of the weight), the forces are drawn to one scale, and the inset is drawn 1.4 times larger.
+Schematic of the forces in a steady climb, each drawn on its line of action through the center of gravity. The thrust carries the drag and also the part of the weight along the path, so it is longer than the drag. The climb angle, the angle of attack, and the drag are exaggerated (the drag is drawn as one third of the weight), the forces are drawn to one scale, and the inset is drawn 1.4 times larger.
 :::
 
 Lift is perpendicular to the path and drag points back along it. The thrust points along the body axis, at the angle of attack $\alpha$ above the path, as on page 5.1. The weight points straight down, so it is the one force that is neither along the path nor across it. It splits into two parts, as for the rocket on [page 4.2](#p42-losses): $mg\sin\gamma$ backward along the path and $mg\cos\gamma$ across it.
 
-Now we add the forces in each direction. Along the path, the thrust part $T\cos\alpha$ pushes forward, and the drag and $mg\sin\gamma$ push back. Across the path, the lift and $T\sin\alpha$ hold up against $mg\cos\gamma$:
+Now we add the forces in each direction. Along the path, the thrust part $T\cos\alpha$ pushes forward, and the drag and $mg\sin\gamma$ push back. Across the path, the lift and $T\sin\alpha$ balance $mg\cos\gamma$:
 
 :::{math}
 :label: eq-p53-full
@@ -55,14 +55,14 @@ L &= mg\cos\gamma
 
 The first line is the one to remember. In level flight the thrust only had to match the drag. In a climb it must also lift the part of the weight that lies along the path.
 
-The second line says the wing carries a little less than the weight. For a climb of a few degrees, $\cos\gamma$ is close to 1, so $L \approx mg$. This is the shallow-climb model, and every number on this page uses it. The drag at a given speed is then the drag of level flight, which you already know how to find from [page 5.1](#p51-level-flight). For small angles we can go one step further: $\sin\gamma \approx \gamma$, with $\gamma$ in radians.
+The second line shows that the wing carries a little less than the weight. For a climb of a few degrees, $\cos\gamma$ is close to 1, so $L \approx mg$. This is the shallow-climb model, and every number on this page uses it. The drag at a given speed is then the drag of level flight, which you already know how to find from [page 5.1](#p51-level-flight). For small angles we can go one step further and use $\sin\gamma \approx \gamma$, with $\gamma$ in radians.
 
 :::{figure} figures/p53-velocity-triangle.svg
 :label: fig-p53-velocity-triangle
 :alt: A blue velocity arrow V along a flight path inclined at the climb angle gamma above a horizontal line. A horizontal blue arrow labeled V cosine gamma runs along the horizontal from the same start, and a vertical blue arrow labeled rate of climb, R over C equals V sine gamma, rises from its end to the tip of V, closing a right triangle.
 :width: 63%
 
-Schematic of the flight velocity split into its horizontal and vertical parts: the vertical part is the rate of climb, $R/C = V\sin\gamma$. The climb angle is exaggerated.
+Schematic of the flight velocity split into its horizontal and vertical parts. The vertical part is the rate of climb, $R/C = V\sin\gamma$. The climb angle is exaggerated.
 :::
 
 The speed along the path is $V$. Its vertical part is the speed at which the aircraft gains height, the **rate of climb**, $R/C$ ({numref}`fig-p53-velocity-triangle`):
@@ -98,22 +98,22 @@ P_R &\approx \tfrac12\rho V^3 S C_{D,0}\\
 \end{aligned}
 :::
 
-The third term does not depend on the speed in [](#eq-p53-TR-climb). Climbing at a given angle therefore raises the whole thrust-required curve by the same amount, $mg\sin\gamma \approx mg\gamma$, as {numref}`fig-p53-climb-thrust` shows for the twin-engine executive jet of [page 5.1](#p51-example-2). It has $m = 33{,}100$ kg, $mg = 324{,}711$ N, $S = 88.2$ m², $C_{D,0} = 0.015$, $K = 0.050$, and two engines of $T_0 = 27{,}810$ N, so $T_A = 55{,}620$ N together at sea level. The gray band on the left of the plot ends at its stall speed, 61.29 m/s, from a clean $C_{L,\max}$ taken as 1.6. The band on the right starts at 272.2 m/s, Mach 0.80 at sea level, past which its drag polar no longer holds.
+The third term does not depend on the speed in [](#eq-p53-TR-climb), so climbing at a given angle raises the whole thrust-required curve by the same amount, $mg\sin\gamma \approx mg\gamma$, as {numref}`fig-p53-climb-thrust` shows for the twin-engine executive jet of [page 5.1](#p51-example-2). It has $m = 33{,}100$ kg, $mg = 324{,}711$ N, $S = 88.2$ m², $C_{D,0} = 0.015$, $K = 0.050$, and two engines of $T_0 = 27{,}810$ N, so $T_A = 55{,}620$ N together at sea level. The gray band on the left of the plot ends at its stall speed, 61.29 m/s, from a clean $C_{L,\max}$ taken as 1.6. The band on the right starts at 272.2 m/s, Mach 0.80 at sea level, past which its drag polar no longer applies.
 
 :::{figure} figures/p53-climb-thrust.svg
 :label: fig-p53-climb-thrust
 :alt: Plot of thrust in kilonewtons against true airspeed from 40 to 300 meters per second for the executive jet with two engines at sea level. Three thick solid U-shaped thrust-required curves are stacked: level flight with its minimum near 18 kilonewtons, a 3 degree climb about 17 kilonewtons higher, marked with a vertical arrow labeled m g sine gamma, and the steepest climb at 6.69 degrees. A thick dashed horizontal line is the thrust available at 55.6 kilonewtons. The steepest-climb curve just touches it at a dot, labeled 104.8 meters per second. The 3 degree curve crosses it on the right at a diamond at 212.1 meters per second. Gray bands mark speeds below stall on the left and past Mach 0.80, where wave drag sets in, on the right.
 :width: 85%
 
-Computed for the executive jet at sea level: climbing at $\gamma$ raises the thrust-required curve by $mg\sin\gamma$ at every speed, and the steepest climb is the curve that just touches the thrust available, at the minimum-thrust speed of 104.8 m/s. A 3° climb can be held from the stall up to 212.1 m/s.
+Computed for the executive jet at sea level. Climbing at $\gamma$ raises the thrust-required curve by $mg\sin\gamma$ at every speed, and the steepest climb is the curve that just touches the thrust available, at the minimum-thrust speed of 104.8 m/s. A 3° climb is possible from the stall up to 212.1 m/s.
 :::
 
-At $\gamma = 3$°, the curve moves up by $mg\sin\gamma = 16{,}994$ N. Where the raised curve crosses the thrust available, the engines can just hold that climb. The crossing on the right, at 212.1 m/s here, is the fastest speed at which the jet can hold a 3° climb. This is the climbing version of the maximum speed of page 5.1. A steeper climb raises the curve further, until it only touches the thrust available. That climb angle is the steepest the aircraft can fly, and the next sections put a number on it.
+At $\gamma = 3$°, the curve moves up by $mg\sin\gamma = 16{,}994$ N. Where the raised curve crosses the thrust available, the engines can just maintain that climb. The crossing on the right, at 212.1 m/s here, is the fastest speed at which the jet can sustain a 3° climb. This is the climbing version of the maximum speed of page 5.1. A steeper climb raises the curve further, until it only touches the thrust available. That climb angle is the steepest the aircraft can fly, and the next sections put a number on it.
 
 (p53-excess)=
 ## Excess thrust and excess power
 
-The figure shows how much climb the engines can afford, but we want a formula for the climb angle and the rate of climb at a given speed. We start from the first climb equation and put the thrust available in it:
+The figure shows how steep a climb the engines can support, and now we want a formula for the climb angle and the rate of climb at a given speed. We start from the first climb equation and put the thrust available in it:
 
 1. **Climb angle.** The engines give $T_A$. The drag takes $D$, the drag of level flight at that speed. What is left over is the **{term}`excess thrust`**, $T_A - D$, and it carries the weight along the path:
    $$
@@ -149,13 +149,13 @@ Both equations are useful because they use curves you already have. The excess p
 :alt: Plot of power in megawatts against true airspeed from 0 to 300 meters per second for the executive jet at sea level. A thick dashed straight line, power available P sub A equals T sub A times V, rises above a thick solid U-shaped power-required curve. The region between them, labeled excess power, is shaded light gold from the stall speed to the maximum speed. A double-headed vertical arrow at 156.6 meters per second marks the widest gap, labeled maximum rate of climb 15.32 meters per second. The two curves meet at a diamond at V max equals 258.5 meters per second. Gray bands mark speeds below stall and past Mach 0.80.
 :width: 85%
 
-Computed for the executive jet at sea level with both engines: the rate of climb is largest where the gap between power available and power required is widest, at 156.6 m/s, well above the speed of the steepest climb.
+Computed for the executive jet at sea level with both engines. The rate of climb is largest where the gap between power available and power required is widest, at 156.6 m/s, well above the speed of the steepest climb.
 :::
 
-These equations hold while the climb is steady and shallow. They take the drag of level flight, so they assume $L \approx mg$. They also assume the speed does not change: an aircraft that is speeding up spends part of its excess thrust on the speed and climbs less steeply.
+These equations apply while the climb is steady and shallow. They use the drag of level flight, so they assume $L \approx mg$. They also assume the speed does not change, because an aircraft that is speeding up uses part of its excess thrust to accelerate and climbs less steeply.
 
 :::{warning} Use watts and newtons
-In $R/C = (P_A - P_R)/(mg)$, the powers must be in watts and the weight in newtons to get m/s. If you leave the powers in kW, the rate of climb comes out 1,000 times too small. In $\sin\gamma = (T_A - D)/(mg)$, divide by the weight $mg$ in newtons, not by the mass $m$: only then are both sides without units.
+In $R/C = (P_A - P_R)/(mg)$, the powers must be in watts and the weight in newtons to get m/s. If you leave the powers in kW, the rate of climb comes out 1,000 times too small. In $\sin\gamma = (T_A - D)/(mg)$, divide by the weight $mg$ in newtons, not by the mass $m$, so that both sides are without units.
 :::
 
 (p53-best-climb)=
@@ -205,14 +205,14 @@ The result makes sense. With a flat thrust available, the excess thrust is large
 
 **The other two cases.** For a jet the power available $T_A V$ grows with speed, so the widest gap in {numref}`fig-p53-excess-power` lies to the right of the minimum of $P_R$. Setting the derivative of $R/C$ to zero gives a longer formula (Anderson 2016, Chapter 6). For one aircraft it is quicker to compute $R/C$ at a few speeds and pick the largest. For a propeller aircraft the thrust available $P_A/V$ grows as the speed falls. In this model the steepest climb then comes at a low speed, for most aircraft at the stall itself. In practice the aircraft keeps a margin above the stall speed. The model is also least reliable there, because the propeller efficiency held constant here changes with speed ([thrust and power available, page 5.1](#p51-available-and-vmax)).
 
-A picture shows why the two best speeds differ. {numref}`fig-p53-hodograph` plots the rate of climb against the horizontal speed $V\cos\gamma$, one point for each airspeed. A line from the origin to a point has a slope of $V\sin\gamma/(V\cos\gamma) = \tan\gamma$. The steepest climb is therefore the point where a line from the origin just touches the curve, and the fastest climb is the top of the curve.
+A picture shows why the two best speeds differ. {numref}`fig-p53-hodograph` plots the rate of climb against the horizontal speed $V\cos\gamma$, one point for each airspeed. A line from the origin to a point has a slope of $V\sin\gamma/(V\cos\gamma) = \tan\gamma$. So the steepest climb is the point where a line from the origin just touches the curve, and the fastest climb is the top of the curve.
 
 :::{figure} figures/p53-hodograph.svg
 :label: fig-p53-hodograph
 :alt: Rate of climb in meters per second against horizontal speed V cosine gamma from 0 to 280 meters per second for the executive jet with two engines. A thick solid curve rises from the stall speed, peaks, and falls to zero near 258 meters per second. A thin dashed line from the origin, labeled slope equals tangent gamma, ends where it touches the curve at an open square: steepest climb, gamma max 6.69 degrees at airspeed V of 104.8 meters per second. The top of the curve is a filled circle: fastest climb, 15.32 meters per second at V of 156.6 meters per second. An open circle between them is worked example 1, V of 135 meters per second, 14.76 meters per second and 6.28 degrees. A gray band marks speeds below stall.
 :width: 85%
 
-Computed for the executive jet at sea level with both engines: the line from the origin that touches the curve gives the steepest climb, and the top of the curve gives the fastest, so the two best climbs come at different speeds. Each point is labeled with its airspeed $V$. The vertical scale is stretched, so angles on the plot are not the true climb angles.
+Computed for the executive jet at sea level with both engines. The line from the origin that touches the curve gives the steepest climb, and the top of the curve gives the fastest, so the two best climbs come at different speeds. Each point is labeled with its airspeed $V$. The vertical scale is stretched, so angles on the plot are not the true climb angles.
 :::
 
 ### Worked example 1: the executive jet climbs with both engines
@@ -275,26 +275,26 @@ The executive jet climbs at sea level at $V = 135$ m/s with both engines at full
    Here $77.53$ m/s is $\sqrt{2mg/(\rho S)}$ and $1.3512$ is $(K/C_{D,0})^{1/4}$.
 5. **Fastest climb.** Computing $R/C$ at many speeds ({numref}`fig-p53-excess-power`) gives $(R/C)_{\max} = 15.32$ m/s at 156.6 m/s, at a climb angle of 5.62°.
 
-At 135 m/s the jet sits between its two best speeds. It climbs a little less steeply than at 104.8 m/s and a little more slowly than at 156.6 m/s ({numref}`fig-p53-hodograph`). The shallow-climb model holds well here: $\cos(6.28°) = 0.9940$, so the lift is within 1 percent of the weight.
+At 135 m/s the jet flies between its two best speeds. It climbs a little less steeply than at 104.8 m/s and a little more slowly than at 156.6 m/s ({numref}`fig-p53-hodograph`). The shallow-climb model works well here, since $\cos(6.28°) = 0.9940$, which puts the lift within 1 percent of the weight.
 
 (p53-ceilings)=
 ## Ceilings
 
 The examples so far were at sea level. As the aircraft climbs, the air gets thinner and the engines lose output as $(\rho/\rho_0)^{m_{\text{ad}}}$, where $m_{\text{ad}}$ is the lapse exponent ([page 5.1](#p51-available-and-vmax)). The excess power shrinks, and with it the maximum rate of climb. Somewhere the aircraft can no longer climb at all, and that altitude is its ceiling. Three things set it: the density falls with altitude, the thrust or power available falls with the density, and the minimum thrust or power required does not fall.
 
-**Why a jet has a ceiling.** The minimum thrust required, $T_{R,\min} = 2mg\sqrt{KC_{D,0}}$, has no density in it. At altitude the aircraft flies the same lift coefficient at a higher speed, with the same drag. Only one curve moves: the thrust available falls until it meets the constant minimum ({numref}`fig-p53-why-a-ceiling`, left). [Page 5.1](#tbl-p51-thrust-altitude) lists the thrust available of the executive jet at four altitudes against its 17,785 N minimum.
+**Why a jet has a ceiling.** The minimum thrust required, $T_{R,\min} = 2mg\sqrt{KC_{D,0}}$, has no density in it. At altitude the aircraft flies the same lift coefficient at a higher speed, with the same drag. Only one curve moves, as the thrust available falls until it reaches the constant minimum ({numref}`fig-p53-why-a-ceiling`, left). [Page 5.1](#tbl-p51-thrust-altitude) lists the thrust available of the executive jet at four altitudes against its 17,785 N minimum.
 
-**Why a propeller aircraft has a ceiling.** Two effects close the gap from both sides. The power available falls with altitude, and the minimum power required rises. From the [minimum power of page 5.1](#eq-p51-min-power), $P_{R,\min}$ is proportional to $1/\sqrt{\rho}$: the aircraft flies faster in thin air at the same drag, and power is drag times speed. The right panel of {numref}`fig-p53-why-a-ceiling` shows it for a four-engine turboprop transport, the aircraft of worked example 3.
+**Why a propeller aircraft has a ceiling.** Two effects close the gap from both sides. The power available falls with altitude, and the minimum power required rises. From the [minimum power of page 5.1](#eq-p51-min-power), $P_{R,\min}$ is proportional to $1/\sqrt{\rho}$, because the aircraft flies faster in thin air at the same drag, and power is drag times speed. The right panel of {numref}`fig-p53-why-a-ceiling` shows it for a four-engine turboprop transport, the aircraft of worked example 3.
 
 :::{figure} figures/p53-why-a-ceiling.svg
 :label: fig-p53-why-a-ceiling
 :alt: Two panels with altitude in kilometers from 0 to 18 on the vertical axis. Left panel, executive jet with two engines: a thick dashed curve, T sub A, falls from 55.6 kilonewtons at sea level toward lower thrust as altitude rises, and a thick solid vertical line, T sub R min, constant, stands at 17.8 kilonewtons. They meet at a diamond, ceiling 15.35 kilometers. Right panel, turboprop transport with four engines, power in kilowatts: a thick dashed curve, P sub A, falls from 9,744 kilowatts at sea level, and a thick solid curve, P sub R min, rising, starts at 2,825 kilowatts and grows with altitude. They meet at a diamond, ceiling 9.20 kilometers. A dotted horizontal line at 11 kilometers, labeled tropopause, marks where the curves bend.
 :width: 85%
 
-Computed for the executive jet (left) and the four-engine turboprop transport (right): a jet stops climbing when its thrust available has fallen to a minimum thrust required that does not change with altitude, while a propeller aircraft is caught between a falling power available and a rising minimum power required. The corner at 11 km is the tropopause, where the temperature stops falling. The jet's ceiling of 15.35 km is that of the model: there it would fly at Mach 0.92, past the speed to which its polar holds.
+Computed for the executive jet (left) and the four-engine turboprop transport (right). A jet stops climbing when its thrust available falls to a minimum thrust required that does not change with altitude, while a propeller aircraft is limited by both a falling power available and a rising minimum power required. The corner at 11 km is the tropopause, where the temperature stops falling. The jet's ceiling of 15.35 km comes from the model, because at that altitude it would fly at Mach 0.92, past the speed to which its polar applies.
 :::
 
-**The absolute ceiling in closed form.** At the absolute ceiling the best the aircraft can do is hold level flight, at one speed only. For a jet we set the thrust available equal to the minimum thrust required and solve for the ceiling density $\rho_c$:
+**The absolute ceiling in closed form.** At the absolute ceiling the best the aircraft can do is maintain level flight, at one speed only. For a jet we set the thrust available equal to the minimum thrust required and solve for the ceiling density $\rho_c$:
 
 1. **The condition:**
    $$
@@ -328,9 +328,9 @@ For a propeller aircraft we set the power available equal to the minimum power r
 
 The exponent counts the two effects. For the jet only the engine loses output, so the exponent is $m_{\text{ad}}$. For the propeller aircraft the minimum power required also grows, which adds $1/2$. With the formula for $P_{R,\min,0}$ written out, [](#eq-p53-ceil-prop) becomes a closed form in the aircraft's data, as for the jet. Each ceiling density then gives an altitude through the standard atmosphere of [page 1.4](#p14-layers).
 
-Near the ceiling the speed range of level flight also closes. On page 5.1 the maximum speed could rise or fall with altitude, depending on how fast the engine loses output ([effect of altitude](#p51-altitude)). Near the ceiling the minimum and maximum speeds always come together, and at the absolute ceiling they meet at the one speed left: $V_{T_R,\min}$ for a jet and $V_{P_R,\min}$ for a propeller aircraft.
+Near the ceiling the speed range of level flight also closes. On page 5.1 the maximum speed could rise or fall with altitude, depending on how fast the engine loses output ([effect of altitude](#p51-altitude)). Near the ceiling the minimum and maximum speeds always come together, and at the absolute ceiling they merge into the one speed left, $V_{T_R,\min}$ for a jet and $V_{P_R,\min}$ for a propeller aircraft.
 
-**The service ceiling.** A climb that slows to zero never quite reaches the absolute ceiling: the last few meters take longer and longer. The **service ceiling** is the practical limit: the altitude where the maximum rate of climb has fallen to 0.5 m/s, about 100 ft/min (FAA 2023, Chapter 11, p. 11-8). It has no closed form. You compute $(R/C)_{\max}$ at a few altitudes and find where it crosses 0.5 m/s. Near the top the curve of $(R/C)_{\max}$ against altitude bends only a little over the last kilometer or two, so it is nearly a straight line. A straight line through the two highest rows of a table therefore finds both ceilings with little error ({numref}`fig-p53-jet-ceiling`).
+**The service ceiling.** A climb that slows to zero never quite reaches the absolute ceiling, because the last few meters take longer and longer. The **service ceiling** is the practical limit, defined as the altitude where the maximum rate of climb has fallen to 0.5 m/s, about 100 ft/min (FAA 2023, Chapter 11, p. 11-8). It has no closed form, so you compute $(R/C)_{\max}$ at a few altitudes and find where it crosses 0.5 m/s. Near the top, the curve of $(R/C)_{\max}$ against altitude bends only a little over the last kilometer or two, making it nearly a straight line. We can draw a straight line through the two highest rows of a table to find both ceilings with little error ({numref}`fig-p53-jet-ceiling`).
 
 ### Worked example 2: the ceilings of the executive jet
 
@@ -391,7 +391,7 @@ We find the absolute ceiling of the executive jet from the closed form, then bot
 :alt: Two panels of altitude against maximum rate of climb for the executive jet. Left panel, altitude 0 to 18 kilometers: a solid curve falls from 15.32 meters per second at sea level to zero near 15.3 kilometers, through six open circles, the table rows, and bends at a dotted line, the tropopause at 11 kilometers. A gray band above about 12.7 kilometers is labeled fastest climb past Mach 0.80, wave drag; inside it the curve is thin. Right panel, the top enlarged, 12.5 to 16 kilometers, almost all in the band: the curve lies along a wide light blue straight line through the circles at 13,000 and 14,500 meters. An open square at 0.5 meters per second marks the service ceiling, 14.99 kilometers, and a diamond at zero the absolute ceiling, 15.35 kilometers.
 :width: 90%
 
-Computed for the executive jet with both engines: the service ceiling is where the maximum rate of climb has fallen to 0.5 m/s and the absolute ceiling where it reaches zero. Near the top the curve is so nearly straight that the line through the last two table rows lies on it. The corner at 11 km is the tropopause, and the gray band marks where the fastest climb passes Mach 0.80, past the speed to which the polar holds.
+Computed for the executive jet with both engines. The service ceiling is where the maximum rate of climb has fallen to 0.5 m/s and the absolute ceiling where it reaches zero. Near the top the curve is so nearly straight that the line through the last two table rows lies on it. The corner at 11 km is the tropopause, and the gray band marks where the fastest climb passes Mach 0.80, past the speed to which the polar applies.
 :::
 
 The last column of the table is a warning. Above about 12,700 m the fastest climb of this jet is faster than Mach 0.80, past the speed to which its drag polar is trusted (the gray band). At the absolute ceiling the jet would fly its minimum-thrust speed, 270.9 m/s, which is Mach 0.92 there. At those speeds wave drag adds to the drag ([page 3.3](#p33-drag-speed)), so the real ceiling is lower. The 15.35 km is the ceiling of the model.
@@ -443,7 +443,7 @@ The propeller aircraft of this example is a four-engine turboprop transport. It 
    \end{aligned}
    $$
 
-The ceiling is about 9.20 km, where both curves of {numref}`fig-p53-why-a-ceiling` meet at 4,634 kW. There the transport flies at its minimum-power speed of 121.9 m/s, well below Mach 0.80, so its polar still holds. With one engine out the same formula gives 7,253 m.
+The ceiling is about 9.20 km, where both curves of {numref}`fig-p53-why-a-ceiling` cross at 4,634 kW. There the transport flies at its minimum-power speed of 121.9 m/s, well below Mach 0.80, so its polar still applies. With one engine out the same formula gives 7,253 m.
 
 (p53-one-engine-out)=
 ## One engine out and an obstacle
@@ -457,10 +457,10 @@ The most demanding climb comes right after an engine fails near the ground. The 
 :alt: Two panels against true airspeed from 40 to 280 meters per second for the executive jet at sea level. Left panel, climb angle in degrees: a black curve for two engines peaks at 6.69 degrees and a blue curve with open triangles for one engine peaks at 1.77 degrees, both at 104.8 meters per second, on one dashed drop line. Right panel, rate of climb in meters per second: the two-engine curve peaks at 15.32 meters per second at 156.6 meters per second, and the one-engine curve peaks at 3.46 meters per second at 119.4 meters per second, each with its own drop line. Thin gray lines mark zero, and gray bands mark speeds below stall and past Mach 0.80.
 :width: 85%
 
-Computed for the executive jet at sea level with two engines and with one: with one engine out the steepest climb keeps its speed and loses most of its angle, while the fastest climb loses 77 percent of its rate and moves to a lower speed. Gray bands mark speeds below stall (left) and past Mach 0.80 (right).
+Computed for the executive jet at sea level with two engines and with one. With one engine out, the steepest climb keeps its speed and loses most of its angle, while the fastest climb loses 77 percent of its rate and moves to a lower speed. Gray bands mark speeds below stall (left) and past Mach 0.80 (right).
 :::
 
-**What the model leaves out.** The failed engine adds drag, whether it is stopped or the airflow keeps its fan or propeller turning (windmilling). The pilot also holds the aircraft straight against the uneven thrust with the rudder, which adds more drag. Early in the climb the flaps may still be out. The aircraft may also still be speeding up to its climb speed, which uses some of the excess thrust. Each of these makes the real climb angle smaller than the model's. Treat the model's answer as an upper limit: if you plan on the bare clearance, nothing is left for what the model leaves out.
+**What the model leaves out.** The failed engine adds drag, whether it is stopped or the airflow keeps its fan or propeller turning (windmilling). The pilot also keeps the aircraft straight against the uneven thrust with the rudder, which adds more drag. Early in the climb the flaps may still be out. The aircraft may also still be speeding up to its climb speed, which uses some of the excess thrust. Each of these makes the real climb angle smaller than the model's. Treat the model's answer as an upper limit. If you plan on the bare clearance, nothing is left for what the model leaves out.
 
 **The obstacle.** An obstacle of height $h_{\text{obs}}$ stands at a horizontal distance $d_{\text{obs}}$ from the point where the climb starts. Over that distance, a steady climb at $\gamma$ gains $d_{\text{obs}}\tan\gamma$. The aircraft clears the obstacle when this is more than $h_{\text{obs}}$, which is the same as a climb angle above the angle to the top of the obstacle:
 
@@ -469,7 +469,7 @@ Computed for the executive jet at sea level with two engines and with one: with 
 \gamma > \gamma_{\text{req}} = \arctan\frac{h_{\text{obs}}}{d_{\text{obs}}}
 :::
 
-What matters is height gained for each meter of ground, which is the climb angle. With an obstacle ahead the aircraft therefore flies its steepest climb, not its fastest. Flying faster than the steepest-climb speed may raise the rate of climb, but the aircraft covers the ground even faster and arrives lower. Regulations set a limit of the same kind. The {term}`climb gradient` is the height gained over the horizontal distance, in percent. A transport certified under 14 CFR 25.121(b) must hold a steady climb gradient of at least 2.4 percent with one of two engines out. With one of four out it must hold 3.0 percent.
+What matters is height gained for each meter of ground, which is the climb angle. With an obstacle ahead, the aircraft flies its steepest climb instead of its fastest. Flying faster than the steepest-climb speed may raise the rate of climb, but the aircraft covers the ground even faster and arrives lower. Regulations set a limit of the same kind. The {term}`climb gradient` is the height gained over the horizontal distance, in percent. A transport certified under 14 CFR 25.121(b) must maintain a steady climb gradient of at least 2.4 percent with one of two engines out, and at least 3.0 percent with one of four out.
 
 ### Worked example 4: the transport with three of its four engines
 
@@ -531,12 +531,12 @@ The four-engine transport loses one engine. Its climb starts at sea level with t
 :alt: Plot of height in meters, 0 to 600, against horizontal distance from the start of the climb, 0 to 6,000 meters. A gray ridge, 360 meters high, has its top at 4,400 meters. A thick solid black line from the origin, labeled 82 meters per second, gamma 6.09 degrees, passes over the ridge top at a dot labeled 470 meters high at the ridge top, 110 meters to spare. A thick solid vermilion line with open inverted triangles, labeled 105 meters per second, gamma 4.08 degrees, rises less steeply and stops at a cross labeled meets the ridge face. A thin dotted vermilion line carries it on through the ridge to an open circle at 4,400 meters, labeled 314 meters, 46 meters too low.
 :width: 85%
 
-Computed for the turboprop transport with three of its four engines at sea level: flown faster, at 105 m/s, the aircraft climbs at a smaller angle and meets the ridge face, while at 82 m/s it passes over the top. The dotted line shows where the faster path would be at the distance of the ridge top. The vertical scale is stretched about five times.
+Computed for the turboprop transport with three of its four engines at sea level. Flown faster, at 105 m/s, the aircraft climbs at a smaller angle and strikes the ridge face, while at 82 m/s it passes over the top. The dotted line shows where the faster path would be at the distance of the ridge top. The vertical scale is stretched about five times.
 :::
 
 ### The jet's steepest climb with one engine
 
-{numref}`fig-p53-climb-angle-and-roc` already showed the jet's steepest climb with one engine, 1.77°. The closed form [](#eq-p53-jet-gammax) gives it directly, with $T_A = 27{,}810$ N:
+{numref}`fig-p53-climb-angle-and-roc` already showed the jet's steepest climb with one engine, 1.77°. We get it directly from the closed form [](#eq-p53-jet-gammax), with $T_A = 27{,}810$ N:
 
 $$
 \begin{aligned}
@@ -555,7 +555,7 @@ The climb gradient is $\tan({1.77}^\circ) = 0.0309$, or about 3.1 percent. That 
 :::{important} Summary
 - In a steady climb $T = D + mg\sin\gamma$ and $L = mg\cos\gamma$. For a shallow climb $L \approx mg$, so the drag is the drag of level flight, and the climb raises the thrust-required curve by $mg\gamma$.
 - The climb angle comes from the excess thrust and the rate of climb from the excess power. A jet climbs steepest at $V_{T_R,\min}$ and fastest at a higher speed; a propeller aircraft climbs fastest at $V_{P_R,\min}$ and steepest at a lower speed.
-- The absolute ceiling is where $(R/C)_{\max} = 0$: for a jet, the thrust available meets a constant $T_{R,\min}$; for a propeller aircraft, the power available meets a rising $P_{R,\min}$. The service ceiling is where $(R/C)_{\max} = 0.5$ m/s.
+- The absolute ceiling is where $(R/C)_{\max} = 0$. For a jet, the thrust available falls to a constant $T_{R,\min}$, while for a propeller aircraft, the power available drops to a rising $P_{R,\min}$. The service ceiling is where $(R/C)_{\max} = 0.5$ m/s.
 - With one engine out the excess thrust falls by much more than the thrust. To clear an obstacle, $\gamma$ must exceed $\arctan(h_{\text{obs}}/d_{\text{obs}})$, so the aircraft flies its steepest climb.
 :::
 

@@ -3,7 +3,7 @@ title: "Ground tracks, aerobraking, and orbit lifetime"
 short_title: Ground tracks and orbit lifetime
 ---
 
-Because a planet rotates beneath an orbit fixed in inertial space, the path traced across the surface shifts on every revolution. We use that ground track to determine a satellite's orbital period and how many days an instrument needs to image the planet, and we then examine how atmospheric drag can intentionally shrink an orbit through aerobraking or gradually decay a low orbit until reentry. No course standard is assessed on this page.
+Because a planet rotates beneath an orbit fixed in inertial space, the path traced across the surface shifts on every revolution. We use that ground track to find a satellite's orbital period and how many days an instrument needs to image the planet. We then examine how atmospheric drag can intentionally shrink an orbit through aerobraking or gradually decay a low orbit until reentry. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - A ground track is a great circle on a planet that does not turn. With the planet turning, each pass crosses the equator $\Delta L = {360}^\circ\,T/T_{\text{day}}$ farther west, and the highest latitude reached equals the inclination.
@@ -16,7 +16,7 @@ Because a planet rotates beneath an orbit fixed in inertial space, the path trac
 
 A {term}`ground track` is the path traced on the surface by the point directly below the spacecraft. Because every orbit lies in a plane through the center of the planet, the track on a non-rotating planet is a great circle centered on the planet and tilted to the equator by the inclination. The ground track determines which regions a satellite can observe and when it passes within view of a ground station to transmit its data.
 
-A flat map changes how that circle looks. Picture the planet as a soda can with a tilted ring around it. Cut the label along one side and unroll it: the ring becomes a single wave, one crest and one trough per turn. On the can the wave is an exact sine curve. On a sphere drawn as a latitude-longitude map it is close to one, as {numref}`fig-p25-great-circle-to-map` shows for an orbit of 50° inclination.
+A flat map changes how that circle looks. Picture the planet as a soda can with a tilted ring around it. When you cut the label along one side and unroll it, the ring becomes a single wave, with one crest and one trough per turn. On the can the wave is an exact sine curve. On a sphere drawn as a latitude-longitude map it is close to one, as {numref}`fig-p25-great-circle-to-map` shows for an orbit of 50° inclination.
 
 :::{figure} figures/p25-great-circle-to-map.svg
 :label: fig-p25-great-circle-to-map
@@ -65,7 +65,7 @@ We can also use [](#eq-p25-shift) backward. If you measure the westward shift be
 T = \frac{\Delta L}{{360}^\circ}\,T_{\text{day}}
 :::
 
-With the period known, we get the semi-major axis from $T = 2\pi\sqrt{a^3/\mu}$ ([the period equation](#eq-p21-period) of orbit properties). For the track of {numref}`fig-p25-ground-track`, $\Delta L = {24.76}^\circ$ gives $T = (24.76/360)(86{,}164) = 5{,}926$ s. Then $a = 7{,}078$ km, and the altitude is $7{,}078 - 6{,}378 = 700$ km. The same map gives the inclination: it is the highest latitude for a prograde orbit, or 180° minus it for a retrograde one ([inclination and launch azimuth](#p23-azimuth)).
+With the period known, we get the semi-major axis from $T = 2\pi\sqrt{a^3/\mu}$ ([the period equation](#eq-p21-period) of orbit properties). For the track of {numref}`fig-p25-ground-track`, $\Delta L = {24.76}^\circ$ gives $T = (24.76/360)(86{,}164) = 5{,}926$ s. Then $a = 7{,}078$ km, and the altitude is $7{,}078 - 6{,}378 = 700$ km. The same map also gives the inclination, which is the highest latitude for a prograde orbit or 180° minus it for a retrograde one ([inclination and launch azimuth](#p23-azimuth)).
 
 :::{warning} Use the sidereal day
 If you divide by the 86,400 s solar day, or use 15° per hour, $\Delta L$ comes out 0.27% too small. The error adds up over a day of passes. Keep $T$ and $T_{\text{day}}$ in the same unit.
@@ -126,7 +126,7 @@ where $n$ is the number of orbits per (solar) day. Each orbit crosses the equato
 
 ### Worked example: an Earth-observation satellite at 700 km
 
-A satellite in a circular orbit at $h = 700$ km and $i = {98.2}^\circ$ carries a camera with a 15° field of view. Find the shift and spacing of its tracks, its swath, and the days it needs to see the whole equator. Earth: $\mu = 3.986 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}378$ km, $T_{\text{day}} = 86{,}164$ s.
+A satellite in a circular orbit at $h = 700$ km and $i = {98.2}^\circ$ carries a camera with a 15° field of view. Find the shift and spacing of its tracks, its swath, and the days it needs to see the whole equator. For Earth, use $\mu = 3.986 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}378$ km, and $T_{\text{day}} = 86{,}164$ s.
 
 1. **Radius and period.** $a = R + h = 6{,}378 + 700 = 7{,}078$ km, and $T = 2\pi\sqrt{a^3/\mu} = 2\pi\sqrt{{7{,}078}^3/(3.986 \times {10}^{5})} = 5{,}926$ s, or 98.77 min.
 2. **Westward shift.** $\Delta L = {360}^\circ \times 5{,}926/86{,}164 = {24.76}^\circ$.
@@ -159,9 +159,9 @@ The swath uses the altitude $h$, the distance to the ground below. The period us
 
 ## Ground tracks at other planets
 
-Nothing in [](#eq-p25-shift) to [](#eq-p25-days) is specific to Earth. The 86,400 s in $n$ only sets the unit of the answer, Earth days. At another planet, use that planet's gravitational parameter $\mu$ and radius $R$ for the period and the swath, and its own sidereal rotation period for $T_{\text{day}}$. The highest latitude of the track still equals the inclination. This is why mapping orbits are usually near-polar: a near-polar orbit sweeps every latitude, and the turning planet brings every longitude under it in turn. A planet that turns backward, as Venus does, shifts the track east. The Magellan radar mapper, in a near-polar orbit around Venus, imaged most of the planet in the time Venus took to turn once beneath it (NASA Science n.d.a).
+Nothing in [](#eq-p25-shift) to [](#eq-p25-days) is specific to Earth. The 86,400 s in $n$ only sets the unit of the answer, Earth days. At another planet, use that planet's gravitational parameter $\mu$ and radius $R$ for the period and the swath, and its own sidereal rotation period for $T_{\text{day}}$. The highest latitude of the track still equals the inclination. This is why we usually choose near-polar orbits for mapping. A near-polar orbit sweeps every latitude, and the turning planet brings every longitude under it in turn. A planet that turns backward, as Venus does, shifts the track east. The Magellan radar mapper, in a near-polar orbit around Venus, imaged most of the planet in the time Venus took to turn once beneath it (NASA Science n.d.a).
 
-At Earth one more effect matters. Earth's equatorial bulge (the $J_2$ term of its gravity field) slowly turns the orbit plane. A sun-synchronous orbit, near-polar and slightly retrograde, uses this effect: its plane turns once a year, so the satellite passes over each place at the same local solar time. The 98.2° inclination of the example is that choice at 700 km (Mesarch 2018).
+At Earth one more effect matters. Earth's equatorial bulge (the $J_2$ term of its gravity field) slowly turns the orbit plane. A near-polar, slightly retrograde sun-synchronous orbit uses this effect so that its plane turns once a year, bringing the satellite over each place at the same local solar time. The 98.2° inclination of the example is that choice at 700 km (Mesarch 2018).
 
 ## Aerobraking
 
@@ -179,7 +179,7 @@ Aerobraking saves propellant while increasing mission duration and thermal risk.
 
 ### Worked example: a Venus orbiter
 
-A 1,200 kg orbiter with an engine of $I_{\text{sp}} = 320$ s is captured into a 250 km by 25,000 km orbit around Venus and must end in a 250 km circular orbit. Compare two plans: burns only, and aerobraking with the periapsis at 140 km. Venus: $\mu = 3.249 \times {10}^{5}\ \text{km}^3/\text{s}^2$, $R = 6{,}052$ km. We find the propellant for each plan from [the rocket equation](#p42-rocket-equation), which Chapter 4 covers with propulsion:
+A 1,200 kg orbiter with an engine of $I_{\text{sp}} = 320$ s is captured into a 250 km by 25,000 km orbit around Venus and must end in a 250 km circular orbit. Compare two plans, burns only and aerobraking with the periapsis at 140 km. For Venus, use $\mu = 3.249 \times {10}^{5}\ \text{km}^3/\text{s}^2$ and $R = 6{,}052$ km. We find the propellant for each plan from [the rocket equation](#p42-rocket-equation), which Chapter 4 covers with propulsion:
 
 :::{math}
 :label: eq-p25-propellant
@@ -190,14 +190,14 @@ m_\text{prop} = m_i\left[1 - \exp\left(-\frac{\Delta V}{I_{\text{sp}}\,g_0}\righ
 
 1. **Capture orbit.** $r_p = 6{,}052 + 250 = 6{,}302$ km, $r_a = 6{,}052 + 25{,}000 = 31{,}052$ km, $a = (r_p + r_a)/2 = 18{,}677$ km. One revolution takes 7.82 hours.
 2. **Speeds at periapsis.** On the capture orbit $v_p = \sqrt{\mu(2/r_p - 1/a)} = 9.25821$ km/s. On the 250 km circle $v_c = \sqrt{\mu/r_p} = 7.18019$ km/s. We keep five decimals because Plan B's burns are differences of close speeds.
-3. **Burn.** One burn against the motion at periapsis brings the apoapsis down to 250 km: $\Delta V = 9.25821 - 7.18019 = 2.078$ km/s.
+3. **Burn.** One burn against the motion at periapsis brings the apoapsis down to 250 km, requiring $\Delta V = 9.25821 - 7.18019 = 2.078$ km/s.
 4. **Propellant.** $m_\text{prop} = 1{,}200\,[1 - \exp(-2{,}078/(320 \times 9.81))] = 581$ kg.
 
 **Plan B, aerobraking.**
 
-1. **Lower the periapsis.** At apoapsis, lower the periapsis to 140 km ($r = 6{,}192$ km). The speed at apoapsis drops from 1.87895 to 1.86523 km/s: $\Delta V_1 = 1.86523 - 1.87895 = -0.01372$ km/s, a burn of 0.01372 km/s against the motion.
+1. **Lower the periapsis.** At apoapsis, lower the periapsis to 140 km ($r = 6{,}192$ km). The speed at apoapsis drops from 1.87895 to 1.86523 km/s, giving $\Delta V_1 = 1.86523 - 1.87895 = -0.01372$ km/s, a burn of 0.01372 km/s against the motion.
 2. **Drag passes.** The atmosphere lowers the apoapsis from 25,000 km to 250 km while the periapsis stays near 140 km. This step uses no propellant, apart from small trim burns that we leave out.
-3. **Raise the periapsis.** At the apoapsis of the final 140 km by 250 km orbit the speed is 7.14851 km/s; the 250 km circle needs 7.18019 km/s: $\Delta V_2 = 7.18019 - 7.14851 = 0.03168$ km/s, along the motion.
+3. **Raise the periapsis.** At the apoapsis of the final 140 km by 250 km orbit the speed is 7.14851 km/s, and the 250 km circle needs 7.18019 km/s, so $\Delta V_2 = 7.18019 - 7.14851 = 0.03168$ km/s along the motion.
 4. **Total.** $\Delta V = 0.01372 + 0.03168 = 0.04540$ km/s, and $m_\text{prop} = 17.2$ kg.
 
 :::{table} Burns only against aerobraking for the 1,200 kg Venus orbiter ($I_{\text{sp}} = 320$ s), from a 250 km by 25,000 km capture orbit to a 250 km circular orbit.
@@ -235,7 +235,7 @@ Drag removes orbital energy at a rate equal to the drag power per unit mass, $-(
 \frac{da}{dt} = -\frac{\rho\sqrt{\mu a}}{B}, \qquad \Delta a_{\text{rev}} = -\frac{2\pi\rho a^2}{B}
 :::
 
-The second form gives the altitude loss in one revolution, found by multiplying $da/dt$ by the orbital period $2\pi\sqrt{a^3/\mu}$. Use consistent SI units here: $\rho$ in kg/m³, $a$ in m, $B$ in kg/m², and $\mu$ in m³/s². At 400 km altitude, with the U.S. Standard Atmosphere 1976 density ($2.803 \times {10}^{-12}$ kg/m³), $a = 6.778 \times {10}^{6}$ m, and $B = 100$ kg/m², the orbit drops 8.091 m in one revolution. Because the satellite completes 15.6 revolutions per day, this loss accumulates steadily and accelerates as the air grows denser.
+The second form gives the altitude loss in one revolution, found by multiplying $da/dt$ by the orbital period $2\pi\sqrt{a^3/\mu}$. We use consistent SI units here, with $\rho$ in kg/m³, $a$ in m, $B$ in kg/m², and $\mu$ in m³/s². At 400 km altitude, with the U.S. Standard Atmosphere 1976 density ($2.803 \times {10}^{-12}$ kg/m³), $a = 6.778 \times {10}^{6}$ m, and $B = 100$ kg/m², the orbit drops 8.091 m in one revolution. Because the satellite completes 15.6 revolutions per day, this loss accumulates steadily and accelerates as the air grows denser.
 
 ### Lifetimes at 300, 400, and 500 km
 
@@ -274,15 +274,15 @@ We plan the end of a satellite's life before launch. There are three options:
 - **Passive decay.** A low orbit decays naturally under atmospheric drag. Moving to a lower end-of-life altitude or deploying a drag device to reduce $B$ shortens the time to reentry.
 - **Disposal (graveyard) orbit.** Because atmospheric drag is negligible at geostationary altitude, a retiring geostationary satellite is boosted into a disposal orbit above the geostationary protected zone, whose upper edge lies at 35,986 km altitude. Its perigee is set high enough to remain clear of active satellites for at least 100 years (U.S. Government 2019, practice 4-1d).
 
-Debris-mitigation regulations limit how long a retired satellite may remain in orbit. The long-standing U.S. Government standard allows up to 25 years after end of mission (U.S. Government 2019), while in 2022 the Federal Communications Commission adopted a five-year post-mission disposal rule for low-Earth-orbit satellites under its license (Federal Communications Commission 2022). With $B = 100$ kg/m², the 400 km orbit in {numref}`tbl-p25-lifetime` meets the five-year limit easily, while the 500 km orbit (6.8 years) exceeds it and requires a deorbit burn or a lower disposal altitude. Around other planets, the requirement can be reversed: planetary protection rules may require an orbiter to stay aloft for decades so that it does not impact a surface that must remain free of terrestrial microbes.
+Debris-mitigation regulations limit how long a retired satellite may remain in orbit. The long-standing U.S. Government standard allows up to 25 years after end of mission (U.S. Government 2019), while in 2022 the Federal Communications Commission adopted a five-year post-mission disposal rule for low-Earth-orbit satellites under its license (Federal Communications Commission 2022). With $B = 100$ kg/m², the 400 km orbit in {numref}`tbl-p25-lifetime` stays well within the five-year limit, while the 500 km orbit (6.8 years) exceeds it and requires a deorbit burn or a lower disposal altitude. Around other planets, the requirement can be reversed. Planetary protection rules may require an orbiter to stay aloft for decades so that it does not impact a surface that must remain free of terrestrial microbes.
 
 ## Summary
 
 :::{important} Summary
 - The ground track is where the orbit plane cuts the surface. It reaches the latitude $i$ (or ${180}^\circ - i$), and the turning planet moves each pass $\Delta L = {360}^\circ\,T/T_{\text{day}}$ west, with $T_{\text{day}}$ the sidereal day.
-- A geosynchronous orbit traces the same track every day; a geostationary orbit, equatorial and circular, stays above one point.
+- A geosynchronous orbit traces the same track every day, while an equatorial, circular geostationary orbit stays above one point.
 - Swath $w = 2h\tan(\text{FOV}/2)$, spacing $2\pi R\,T/T_{\text{day}}$, and orbits per day give the ideal days to cover the equator. Use the planet's own $\mu$, $R$, and sidereal day.
-- Aerobraking trades months of drag passes for most of the propellant of a capture-to-circle burn. Drag lowers low orbits by $2\pi\rho a^2/B$ per revolution, so the lifetime grows steeply with altitude and with $B$.
+- Aerobraking uses months of drag passes to save most of the propellant of a capture-to-circle burn. Drag lowers low orbits by $2\pi\rho a^2/B$ per revolution, so the lifetime grows steeply with altitude and with $B$.
 :::
 
 :::{table} The equations of this page.
@@ -305,7 +305,7 @@ Debris-mitigation regulations limit how long a retired satellite may remain in o
 :::{exercise} For discussion
 :label: ex-p25-discussion
 
-1. A communications company wants a satellite that stays above a city at 40° N. Why can no orbit do this, and what does a geosynchronous orbit at 40° inclination do instead?
+1. A communications company needs a satellite that stays above a city at 40° N. Why can no orbit do this, and what does a geosynchronous orbit at 40° inclination do instead?
 2. The example satellite and a radar satellite fly the same orbit; the radar works day and night. How does that change the days needed to cover the equator?
 3. Why do the tracks of a near-polar orbit crowd together near the poles, and what does that mean for how often a place at high latitude is seen?
 4. Aerobraking saved 564 kg in the Venus example. What does the mission give up in exchange, and when would you choose burns instead?

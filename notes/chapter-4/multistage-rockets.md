@@ -58,7 +58,7 @@ Each stage is a rocket of its own, with its own effective exhaust velocity $c_k$
 \Delta V = \sum_k \Delta V_k
 :::
 
-The Falcon 9 and the Saturn V use serial staging (NASA Glenn Research Center 2024). The Ariane 5 of [page 1.3](#p13-launch-vehicle) also uses parallel staging: two solid boosters burn beside the core stage from liftoff and drop away when they are empty. This page sizes serial stages. A booster is sized the same way, but its burn overlaps the core's, so its delta-V does not just add to the core's.
+The Falcon 9 and the Saturn V use serial staging (NASA Glenn Research Center 2024). The Ariane 5 of [page 1.3](#p13-launch-vehicle) also uses parallel staging, in which two solid boosters burn beside the core stage from liftoff and drop away when they are empty. On this page we size serial stages. A booster is sized the same way, but its burn overlaps the core's, so its delta-V does not just add to the core's.
 
 (p43-top-down)=
 ## Sizing from the top down
@@ -98,16 +98,16 @@ Each stage multiplies the mass above it by its own factor, so for $n$ stages
 where $m_\text{pay}$ is the real payload on top. The factor of a stage is always larger than 1. It grows without bound as $f_{\text{inert},k}\,e^{\Delta V_k/c_k}$ approaches 1, which is the single-stage limit again, now for each stage.
 
 :::{tip} Method: sizing a multistage rocket from the top down
-1. Number the stages from the bottom: stage 1 burns first. Write down the delta-V, $I_\text{sp}$, and $f_\text{inert}$ of each stage, with $\sum_k \Delta V_k$ equal to the requirement.
+1. Number the stages from the bottom so that stage 1 burns first, and write down the delta-V, $I_\text{sp}$, and $f_\text{inert}$ of each stage with $\sum_k \Delta V_k$ equal to the requirement.
 2. Convert each specific impulse to an effective exhaust velocity, $c_k = I_{\text{sp},k}\,g_0$, with $g_0 = 9.81$ m/s².
-3. Start with the top stage. Its payload is the real payload. Compute $e^{\Delta V_k/c_k}$ and check that $f_{\text{inert},k}\,e^{\Delta V_k/c_k} < 1$.
+3. Start with the top stage, whose payload is the real payload, then compute $e^{\Delta V_k/c_k}$ and check that $f_{\text{inert},k}\,e^{\Delta V_k/c_k} < 1$.
 4. Size the stage with [the propellant formula of page 4.2](#eq-p42-mprop), then $m_\text{inert}$, $m_f = m_\text{pay} + m_\text{inert}$, and $m_i = m_f + m_\text{prop}$.
 5. The $m_i$ of this stage is the payload of the stage below. Repeat steps 3 and 4 down to stage 1.
 6. The $m_i$ of stage 1 is the gross liftoff mass. Check it with [](#eq-p43-product), and check each stage's mass ratio $m_i/m_f$ against $e^{\Delta V_k/c_k}$.
 :::
 
 :::{warning} Size from the top, and count from the bottom
-If you start with stage 1, you have no payload to put in the propellant formula: its payload is the stage above, which you have not sized yet. And if you call the top stage "stage 1", you will give each stage the other stage's delta-V or engine. Stage 1 is the bottom stage; the sizing starts at the other end.
+If you start with stage 1, you have no payload to put in the propellant formula, because its payload is the stage above, which you have not sized yet. And if you call the top stage "stage 1", you will give each stage the other stage's delta-V or engine. Stage 1 is the bottom stage; the sizing starts at the other end.
 :::
 
 ### Worked example 1: two stages for a Hohmann transfer
@@ -205,7 +205,7 @@ Sometimes the mission itself splits the delta-V. On [page 2.2](#p22-hohmann) a s
 Computed for worked example 1, bars to one scale: the sizing starts from the only mass known, the real payload, and works down, each stage multiplying the mass above it by its own factor. The steps are numbered as in the method of sizing from the top down.
 :::
 
-**Check.** Each stage must give back its own delta-V. For stage 2, $m_{i,2}/m_{f,2} = 3{,}077/1{,}976 = 1.557$, which is $e^{0.44310} = 1.5575$ to the four figures the masses carry. For stage 1, $7{,}095/3{,}760 = 1.887$ against $e^{0.63498} = 1.8870$. {numref}`fig-p43-top-down` shows the order of the sizing. Each stage multiplied the mass above it by its factor of [](#eq-p43-product): $3{,}077/1{,}750 = 1.758$ for stage 2 and $7{,}095/3{,}077 = 2.306$ for stage 1. The two stages together need $8{,}531 - 7{,}095 = 1{,}436$ kg less than the single stage, 17% less ({numref}`fig-p43-one-against-two`). They burn 4,436 kg of propellant against 5,629 kg, and carry 908.6 kg of inert mass against 1,153 kg. The mass reduction comes from not pushing the empty stage 1 through the second burn. In practice, smaller stages tend to have higher inert mass fractions, and each stage requires its own engine and separation hardware. Those added masses offset part of the 17% reduction.
+**Check.** Each stage must give back its own delta-V. For stage 2, $m_{i,2}/m_{f,2} = 3{,}077/1{,}976 = 1.557$, which is $e^{0.44310} = 1.5575$ to the four figures the masses carry. For stage 1, $7{,}095/3{,}760 = 1.887$ against $e^{0.63498} = 1.8870$. {numref}`fig-p43-top-down` shows the order of the sizing. Each stage multiplied the mass above it by its factor of [](#eq-p43-product), with $3{,}077/1{,}750 = 1.758$ for stage 2 and $7{,}095/3{,}077 = 2.306$ for stage 1. The two stages together need $8{,}531 - 7{,}095 = 1{,}436$ kg less than the single stage, 17% less ({numref}`fig-p43-one-against-two`). They burn 4,436 kg of propellant against 5,629 kg, and carry 908.6 kg of inert mass against 1,153 kg. The mass reduction comes from not pushing the empty stage 1 through the second burn. In practice, smaller stages tend to have higher inert mass fractions, and each stage requires its own engine and separation hardware. Those added masses offset part of the 17% reduction.
 
 :::{figure} figures/p43-one-against-two.svg
 :label: fig-p43-one-against-two
@@ -218,7 +218,7 @@ Computed for worked example 1, bars to one scale: two stages, one for each burn 
 (p43-number-of-stages)=
 ## How many stages
 
-Worked example 1 used two stages because the mission had two burns. A launch is one long push, and the number of stages is ours to choose. To see what the number does, we take the simplest case: $n$ identical stages, each with the same $c$ and $f_\text{inert}$, each giving the same share $\Delta V/n$. Then every factor of [](#eq-p43-product) is the same, and
+Worked example 1 used two stages because the mission had two burns. A launch is one long push, and the number of stages is ours to choose. To see what the number of stages does, we take the simplest case of $n$ identical stages, each with the same $c$ and $f_\text{inert}$ and each giving the same share $\Delta V/n$. Then every factor of [](#eq-p43-product) is the same, and
 
 :::{math}
 :label: eq-p43-identical
@@ -228,11 +228,11 @@ Worked example 1 used two stages because the mission had two burns. A launch is 
 \end{aligned}
 :::
 
-Each stage now reaches its limit when its share $\Delta V/n$ reaches $c\ln(1/f_\text{inert})$. Together, $n$ identical stages can give at most $n\,c\ln(1/f_\text{inert})$: each added stage moves the limit further out.
+Each stage now reaches its limit when its share $\Delta V/n$ reaches $c\ln(1/f_\text{inert})$. Together, $n$ identical stages can give at most $n\,c\ln(1/f_\text{inert})$, so each added stage moves the limit further out.
 
 ### Worked example 2: the launch with identical stages
 
-The launch of [page 2.3](#p23-example) needs 8.833 km/s, that is 8,833 m/s, with its gravity and drag losses already included. The payload is 750 kg. Each stage has a specific impulse of 330 s and an inert mass fraction of 0.08. Find the initial mass with one, two, and three identical stages.
+The launch of [page 2.3](#p23-example) needs 8.833 km/s (8,833 m/s) with its gravity and drag losses already included, and it carries a 750 kg payload. Each stage has a specific impulse of 330 s and an inert mass fraction of 0.08. Find the initial mass with one, two, and three identical stages.
 
 1. **Effective exhaust velocity.** $c = 330 \times 9.81 = 3{,}237.3$ m/s.
 2. **One stage.** $\Delta V/c = 8{,}833/3{,}237.3 = 2.7285$, so $e^{2.7285} = 15.31$. That is more than $1/f_\text{inert} = 1/0.08 = 12.50$, so $f_\text{inert}\,e^{\Delta V/c} > 1$, which means a single stage cannot reach this delta-V. Its limit is $3{,}237.3 \ln 12.50 = 8{,}177$ m/s.
@@ -270,7 +270,7 @@ The launch of [page 2.3](#p23-example) needs 8.833 km/s, that is 8,833 m/s, with
 
 **Check.** Each stage of the two-stage vehicle has $f_\text{inert}\,e^{\Delta V/(2c)} = 0.08 \times 3.91280 = 0.3130$, well below 1, so both stages are far from their limit. The third stage saves $20{,}594 - 17{,}375 = 3{,}219$ kg, 16% of the two-stage mass. A fourth identical stage would bring the vehicle to 16,385 kg, a further reduction of only 990 kg.
 
-{numref}`fig-p43-number-of-stages` shows the same calculation for every delta-V, per kilogram of payload. For a small delta-V, the three curves nearly overlap, so staging gives almost no reduction in initial mass. Each curve climbs toward its own limit: 8.177 km/s for one stage, 16.35 km/s for two. At the launch delta-V the single stage is already past its limit, two stages need 27.46 kg at liftoff for each kilogram of payload, and three need 23.17 kg.
+{numref}`fig-p43-number-of-stages` shows the same calculation for every delta-V, per kilogram of payload. For a small delta-V, the three curves nearly overlap, so staging gives almost no reduction in initial mass. Each curve climbs toward its own limit, 8.177 km/s for one stage and 16.35 km/s for two. At the launch delta-V the single stage is already past its limit, two stages need 27.46 kg at liftoff for each kilogram of payload, and three need 23.17 kg.
 
 :::{figure} figures/p43-number-of-stages.svg
 :label: fig-p43-number-of-stages
@@ -280,7 +280,7 @@ The launch of [page 2.3](#p23-example) needs 8.833 km/s, that is 8,833 m/s, with
 Computed from the identical-stage equation for a specific impulse of 330 s and an inert mass fraction of 0.08: each added stage moves the limit to the right, by $c\ln(1/f_\text{inert})$ = 8.177 km/s, and helps less than the one before. Vertical axis logarithmic. Markers: the launch of worked example 2, an open circle for two stages and a square for three.
 :::
 
-{numref}`fig-p43-stage-bars` breaks the three vehicles into their stages. The bottom stage always holds most of the propellant, because it pushes everything above it.
+{numref}`fig-p43-stage-bars` breaks the three vehicles into their stages. The bottom stage always carries most of the propellant, because it pushes everything above it.
 
 :::{figure} figures/p43-stage-bars.svg
 :label: fig-p43-stage-bars
@@ -295,7 +295,7 @@ In this model more stages are always lighter. This simple model leaves out the p
 (p43-best-split)=
 ## Splitting the delta-V between two stages
 
-In worked example 1 the mission set the split: one stage per burn. In worked example 2 the stages were identical, with equal shares. Real stages are not identical. A first stage is often a large kerosene stage and the upper stage a hydrogen stage with a higher specific impulse and a heavier structure for its size. Then we must choose how much of the delta-V each stage gives, and the choice changes the initial mass.
+In worked example 1 the mission set the split with one stage per burn, and in worked example 2 the stages were identical with equal shares. In real launch vehicles, the stages are not identical. A first stage is often a large kerosene stage and the upper stage a hydrogen stage with a higher specific impulse and a heavier structure for its size. Then we must choose how much of the delta-V each stage gives, and the choice changes the initial mass.
 
 For two stages, write the share of stage 1 as $\Delta V_1/\Delta V$, so $\Delta V_2 = \Delta V - \Delta V_1$. Picture the initial mass as the share slides from 0 to 1 ({numref}`fig-p43-split-curve`):
 
@@ -341,7 +341,7 @@ The curve is flat at the minimum because its slope there is zero. Near a flat mi
 
 ### Worked example 3: the best split for two different stages
 
-Take the launch of worked example 2 again, 8,833 m/s with a 750 kg payload, now with two different stages. Stage 1, a liquid oxygen and kerosene stage, has a specific impulse of 310 s and an inert mass fraction of 0.065. Stage 2, a liquid oxygen and liquid hydrogen stage, has 440 s and 0.13. Their effective exhaust velocities are $c_1 = 3{,}041.1$ m/s and $c_2 = 4{,}316.4$ m/s. Alone, stage 1 could give at most 8,312 m/s and stage 2 at most 8,806 m/s, so neither can do the launch by itself. We size the vehicle from the top down for the equal split and one trial split, then for the best split read from the curve. {numref}`tbl-p43-splits` collects the results.
+Take the launch of worked example 2 again, 8,833 m/s with a 750 kg payload, now with two different stages. Stage 1, a liquid oxygen and kerosene stage, has a specific impulse of 310 s and an inert mass fraction of 0.065. Stage 2, a liquid oxygen and liquid hydrogen stage, has 440 s and 0.13. Their effective exhaust velocities are $c_1 = 3{,}041.1$ m/s and $c_2 = 4{,}316.4$ m/s. Alone, stage 1 could give at most 8,312 m/s and stage 2 at most 8,806 m/s, so neither can do the launch by itself. We size the vehicle from the top down for the equal split, one trial split, and the best split read from the curve, collecting the results in {numref}`tbl-p43-splits`.
 
 :::{table} Worked example 3: the launch of page 2.3 (8,833 m/s, 750 kg payload) with stage 1 at 310 s and an inert mass fraction of 0.065 and stage 2 at 440 s and 0.13, for three splits of the delta-V: equal, a trial split in which stage 1 gives 3,200 m/s, and the best split. Masses in kilograms. The last two rows are the two sides of the best-split condition, in meters per second.
 :label: tbl-p43-splits
@@ -380,7 +380,7 @@ The hydrogen stage, with its much higher effective exhaust velocity, does 60% of
 :alt: Two panels for worked example 3. Panel a: initial mass in tonnes, 0 to 40, against the share of the delta-V given by stage 1, 0 to 1. The U-shaped curve falls steeply from the top near a share of 0.08, has a broad flat bottom, and climbs steeply past 0.8; beyond 0.941 the region is shaded and labeled stage 1 past its limit. Three markers sit close together on the flat bottom, inside a thin rectangle labeled b, and the filled dot is labeled best split. Panel b enlarges that rectangle, shares 0.30 to 0.54 and masses from about 14.9 to 16 tonnes: the filled dot is the best split, 15.10 tonnes at a share of 0.401; a square is the trial split, 15.21 tonnes at 0.362; an open circle is the equal split, 15.73 tonnes.
 :width: 80%
 
-Computed for worked example 3: the initial mass has a best split of the delta-V, at a share of 0.401 for stage 1. Near it the mass changes little, and it grows without bound as either stage nears its limit. Stage 1 alone reaches its limit at a share of 0.941; stage 2 reaches its own only at a share of 0.003. Panel (b) enlarges the rectangle outlined in panel (a): the bottom of the curve around the three splits of the table.
+Computed for worked example 3: the initial mass has a best split of the delta-V, at a share of 0.401 for stage 1. Near it the mass changes little, and it grows without bound as either stage nears its limit. Stage 1 alone reaches its limit at a share of 0.941; stage 2 reaches its own only at a share of 0.003. Panel (b) enlarges the rectangle outlined in panel (a), showing the bottom of the curve around the three splits of the table.
 :::
 
 :::{warning} Do not split the delta-V equally by habit
@@ -389,7 +389,7 @@ The equal split is the best split only when the stages are identical. When the s
 
 ## A real vehicle: the Saturn V
 
-The Saturn V that launched Apollo 11 had three serial stages. The S-IC had five F-1 engines burning liquid oxygen and kerosene. The S-II had five J-2 engines and the S-IVB one J-2, both burning liquid oxygen and liquid hydrogen. NASA published the mass of every part of the vehicle at ignition (Orloff 2000) and the measured specific impulse of each stage (NASA MSFC 1969). With those numbers we can turn the sizing around: the masses give each stage's inert mass fraction and the ideal delta-V it gave. {numref}`tbl-p43-saturn` has the results.
+The Saturn V that launched Apollo 11 had three serial stages. The S-IC had five F-1 engines burning liquid oxygen and kerosene. The S-II had five J-2 engines and the S-IVB one J-2, both burning liquid oxygen and liquid hydrogen. NASA published the mass of every part of the vehicle at ignition (Orloff 2000) and the measured specific impulse of each stage (NASA MSFC 1969). With those numbers we can work backward from the published masses to compute each stage's inert mass fraction and ideal delta-V, as listed in {numref}`tbl-p43-saturn`.
 
 A stage's mass at ignition is the stage plus everything above it. Two items drop away early in the S-II burn: the interstage between the first two stages and the launch escape tower on top of the spacecraft. We take them off at S-II ignition. The S-IVB burned twice, once to reach the parking orbit and once to leave it for the Moon, so its row covers both burns.
 
@@ -434,9 +434,9 @@ The table also explains the propellant choice for each stage. The S-IC must lift
 
 :::{important} Summary
 - Staging drops empty tanks and engines so later burns do not push them. Stage 1 is the bottom stage, and the payload of a stage is everything above it.
-- Size from the top down: the real payload is the only mass known first. Each stage multiplies the mass above it by $e^{\Delta V_k/c_k}(1 - f_{\text{inert},k})/(1 - f_{\text{inert},k}\,e^{\Delta V_k/c_k})$, and $\Delta V = \sum_k \Delta V_k$.
+- Size from the top down, because the real payload is the only mass known first. Each stage multiplies the mass above it by $e^{\Delta V_k/c_k}(1 - f_{\text{inert},k})/(1 - f_{\text{inert},k}\,e^{\Delta V_k/c_k})$, and $\Delta V = \sum_k \Delta V_k$.
 - $n$ identical stages reach at most $n\,c\ln(1/f_\text{inert})$. More stages always lower the mass in this model, by less each time; real vehicles stop at two or three because each stage adds practical penalties that the model leaves out.
-- For two stages the best split satisfies $c_1(1 - f_{\text{inert},1}\,e^{\Delta V_1/c_1}) = c_2(1 - f_{\text{inert},2}\,e^{\Delta V_2/c_2})$. Identical stages split equally; otherwise the stage with the higher effective exhaust velocity and lighter structure does more. The minimum is flat.
+- For two stages the best split satisfies $c_1(1 - f_{\text{inert},1}\,e^{\Delta V_1/c_1}) = c_2(1 - f_{\text{inert},2}\,e^{\Delta V_2/c_2})$. Identical stages split equally; otherwise the stage with the higher effective exhaust velocity and lighter structure does more, and the minimum is flat so small shifts near it add little mass.
 :::
 
 :::{table} The equations of this page.

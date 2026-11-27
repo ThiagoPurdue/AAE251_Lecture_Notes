@@ -26,7 +26,7 @@ This was not obvious to everyone. In 1920 an editorial in *The New York Times* m
 (p41-thrust-from-momentum)=
 ## Thrust from the momentum of the exhaust
 
-We now put the skateboard idea into an equation. Newton's second law, written for momentum, says that a force equals the rate of change of momentum. A rocket engine throws out gas continuously. Suppose the engine throws out a small mass $\Delta m$ in a short time $\Delta t$, and each bit of it leaves at speed $c$ relative to the rocket. That mass carries away the momentum $\Delta m\,c$. Dividing by the time gives the rate at which the exhaust carries momentum away, and this rate is the force the engine and its exhaust push on each other:
+We now put the skateboard idea into an equation. Newton's second law, written in momentum form, states that a force equals the rate of change of momentum. A rocket engine throws out gas continuously. Suppose the engine throws out a small mass $\Delta m$ in a short time $\Delta t$, and each bit of it leaves at speed $c$ relative to the rocket. That mass carries away the momentum $\Delta m\,c$. Dividing by the time gives the rate at which the exhaust carries momentum away, and this rate is the force the engine and its exhaust push on each other:
 
 :::{math}
 :label: eq-p41-thrust-momentum
@@ -35,7 +35,7 @@ F = \frac{\Delta m}{\Delta t}\,c = \dot m\,c
 
 Here $\dot m$ is the {term}`mass flow rate` of propellant through the engine, in kg/s (we introduced it with the continuity equation on [page 1.5](#p15-continuity)). The force on the rocket is the {term}`thrust` $F$, in newtons, and it points opposite to the exhaust.
 
-[](#eq-p41-thrust-momentum) says there are two ways to get more thrust: throw more mass each second, or throw it faster. The speed $c$ is called the effective exhaust velocity. The word "effective" makes sense once we add the pressure at the nozzle exit, in [the thrust equation](#p41-thrust-equation).
+[](#eq-p41-thrust-momentum) shows two ways to get more thrust: throw more mass each second, or throw it faster. The speed $c$ is called the effective exhaust velocity. The word "effective" makes sense once we add the pressure at the nozzle exit, in [the thrust equation](#p41-thrust-equation).
 
 ## Inside a rocket engine
 
@@ -71,7 +71,7 @@ Computed: as the gas accelerates through the nozzle, its pressure and temperatur
 (p41-thrust-equation)=
 ## The thrust equation
 
-[](#eq-p41-thrust-momentum) leaves out one effect: the pressure of the exhaust at the exit plane. To see it, we draw a box around the whole engine, a **control volume**, and write Newton's second law for what is inside it ({numref}`fig-p41-control-volume`). We make three assumptions:
+[](#eq-p41-thrust-momentum) leaves out the pressure of the exhaust at the exit plane. To see it, we draw a box around the whole engine, a **control volume**, and write Newton's second law for what is inside it ({numref}`fig-p41-control-volume`). We make three assumptions:
 
 1. The engine runs steadily, so nothing inside the box changes with time.
 2. The exhaust leaves straight back, with one speed $V_e$ and one pressure $p_e$ over the whole exit plane.
@@ -88,8 +88,8 @@ Schematic, not to scale. Thrust has two parts: the momentum that leaves through 
 We take the direction of the exhaust as positive and go in steps.
 
 1. **Momentum.** Each second, mass $\dot m$ leaves the box at speed $V_e$ and the propellants bring in no momentum along the axis. So the net force on what is inside the box, in the direction of the exhaust, must be $\dot m V_e$.
-2. **The force from the vehicle.** The engine pushes the vehicle forward with the thrust $F$. By Newton's third law the vehicle pushes back on the engine with the same force, toward the exhaust: $+F$. {numref}`fig-p41-control-volume` draws both: the force on the engine where the mount crosses the box, and the thrust on the vehicle outside it.
-3. **The pressure.** The outside air presses on every face of the box with the ambient pressure $p_a$, except on the exit plane, where the exhaust presses with $p_e$. A uniform pressure all around a closed box adds up to no force. So we split the pressure on the exit plane into $p_a$, which cancels with the rest, and the difference $p_e - p_a$. The difference acts on the area $A_e$, pushing into the box, against the exhaust: $-(p_e - p_a)A_e$.
+2. **The force from the vehicle.** The engine pushes the vehicle forward with the thrust $F$. By Newton's third law the vehicle pushes back on the engine with the same force $+F$, pointing toward the exhaust. {numref}`fig-p41-control-volume` draws both forces: the force on the engine where the mount crosses the box, and the thrust on the vehicle outside it.
+3. **The pressure.** The outside air presses on every face of the box with the ambient pressure $p_a$, except on the exit plane, where the exhaust presses with $p_e$. A uniform pressure all around a closed box adds up to no force. So we split the pressure on the exit plane into $p_a$, which cancels with the rest, and the difference $p_e - p_a$. That pressure difference acts on the area $A_e$, pushing into the box against the exhaust with force $-(p_e - p_a)A_e$.
 4. **Newton's second law.** The forces add up to the momentum that leaves each second:
 
 $$
@@ -103,7 +103,7 @@ Solving for $F$ gives the rocket thrust equation:
 F = \dot m V_e + (p_e - p_a)A_e
 :::
 
-The first term is the **{term}`momentum thrust`** and the second is the **{term}`pressure thrust`** (NASA Glenn Research Center n.d.a). Both have units of newtons: (kg/s)(m/s) = kg·m/s² = N, and (Pa)(m²) = (N/m²)(m²) = N.
+The first term is the **{term}`momentum thrust`** and the second is the **{term}`pressure thrust`** (NASA Glenn Research Center n.d.a). Both terms have units of newtons, since (kg/s)(m/s) = kg·m/s² = N and (Pa)(m²) = (N/m²)(m²) = N.
 
 The sign of the pressure thrust has a direct physical meaning. When the exhaust leaves at a pressure above ambient ($p_e > p_a$), the pressure on the exit plane exceeds the outside air pressure, adding forward thrust. When the exhaust leaves below ambient pressure ($p_e < p_a$), the outside air pushes harder against the nozzle than the exit pressure balances, so the pressure term is negative.
 
@@ -193,7 +193,7 @@ An engine burns 340 kg/s of propellant. The exhaust leaves the exit plane at $V_
    $$
 6. **State of the nozzle.** $p_e$ = 85.0 kPa is below $p_a$ = 101.3 kPa, so the nozzle is overexpanded at sea level and the pressure term is negative.
 
-**Check.** The second form of $c$ gives the same answer: the pressure term per unit mass flow is $-15{,}509/340 = -45.61$ m/s, and $2{,}750 - 45.61 = 2{,}704.4$ m/s. The pressure term is small, 1.7% of the thrust, as it usually is near ideal expansion. In vacuum the same engine at the same flow would get the full $p_e A_e = 85{,}000 \times 0.95 = 80{,}750$ N, so $F = 935{,}000 + 80{,}750 = 1{,}015{,}750$ N, about 10% more than at sea level.
+**Check.** The second form of $c$ gives the same answer, because the pressure term per unit mass flow is $-15{,}509/340 = -45.61$ m/s, and $2{,}750 - 45.61 = 2{,}704.4$ m/s. The pressure term is small, 1.7% of the thrust, as it usually is near ideal expansion. In vacuum the same engine at the same flow would get the full $p_e A_e = 85{,}000 \times 0.95 = 80{,}750$ N, so $F = 935{,}000 + 80{,}750 = 1{,}015{,}750$ N, about 10% more than at sea level.
 
 (p41-expansion)=
 ## Overexpanded, underexpanded, ideally expanded
@@ -209,17 +209,17 @@ The sign of the pressure term depends only on how the exit pressure compares wit
 :alt: Three identical nozzles stacked from top to bottom, each with a dashed jet boundary leaving its exit. Top, overexpanded: the boundary, labeled jet boundary, turns inward, gray arrows labeled p a press it in from outside, and two thin lines labeled shocks cross on the axis behind the exit; p e is less than p a, pressure term negative. Middle, ideally expanded: the boundary runs straight back at the exit radius; p e equals p a, pressure term zero. Bottom, underexpanded: the boundary turns outward, gray arrows labeled p e push it out from inside; p e is greater than p a, pressure term positive.
 :width: 80%
 
-Schematic, not to scale; plume angles exaggerated. One nozzle at three outside pressures: the plume shows which way the pressure term pushes. It is squeezed in when the exit pressure is below the ambient pressure, straight when they are equal, and spread out when the exit pressure is above it. After Huzel and Huang (1967, Section 1.2).
+Schematic, not to scale; plume angles exaggerated. For one nozzle at three outside pressures, the plume shows which way the pressure term pushes. It is squeezed in when the exit pressure is below the ambient pressure, straight when they are equal, and spread out when the exit pressure is above it. After Huzel and Huang (1967, Section 1.2).
 :::
 
-Real plumes show the same thing. {numref}`fig-p41-plume-sea-level` shows engines firing near sea level, and {numref}`fig-p41-plume-altitude` shows a vehicle high in its climb.
+Real plumes behave the same way, as seen in {numref}`fig-p41-plume-sea-level` for engines firing near sea level and {numref}`fig-p41-plume-altitude` for a vehicle high in its climb.
 
 :::{figure} figures/p41-plume-sea-level-photo.jpg
 :label: fig-p41-plume-sea-level
 :alt: The tail of the Space Shuttle Endeavour just after liftoff, seen from below: two main-engine bells at the top, partly hidden by the body flap, and the edge of a wing at the right. Below the engine area, three narrow, pale blue exhaust plumes; each starts to glow a short way below the vehicle with a bright, flat upper edge. The ground and the water lie far below.
 :width: 60%
 
-Photograph. Near sea level the plumes of the main engines stay narrow: the outside air, at a higher pressure than the exhaust, squeezes each jet, and the bright, flat edge where each plume starts to glow is a shock in the jet. Space Shuttle Endeavour just after liftoff, 2007. NASA/Kennedy Space Center photo KSC-07pp2287, public domain; cropped from the original in the [NASA Image and Video Library](https://images.nasa.gov/details/KSC-07pp2287).
+Photograph. Near sea level the plumes of the main engines stay narrow because the outside air, at a higher pressure than the exhaust, squeezes each jet, and the bright, flat edge where each plume starts to glow is a shock in the jet. Space Shuttle Endeavour just after liftoff, 2007. NASA/Kennedy Space Center photo KSC-07pp2287, public domain; cropped from the original in the [NASA Image and Video Library](https://images.nasa.gov/details/KSC-07pp2287).
 :::
 
 :::{figure} figures/p41-plume-altitude-photo.jpg
@@ -230,16 +230,16 @@ Photograph. Near sea level the plumes of the main engines stay narrow: the outsi
 Photograph. High in the climb the outside pressure is low, and the plume spreads far wider than the rocket. This photograph and {numref}`fig-p41-plume-sea-level` show different vehicles, a Saturn V high up and a Space Shuttle near sea level; only the outside pressure matters here. The Saturn V of Apollo 11 photographed from an aircraft during its climb, 1969. NASA/U.S. Air Force image 69PC-413, public domain; cropped from [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ALOTS_image_of_Apollo_11_launch_%2869PC-413%29.jpg).
 :::
 
-Now suppose we can choose the nozzle for a given engine and flow, and we want the most thrust at one ambient pressure. If we make the nozzle a little longer and wider, the gas expands further: $V_e$ rises and $p_e$ falls. As long as $p_e > p_a$, the extra expansion gains more momentum thrust than it loses pressure thrust. Once $p_e < p_a$, expanding the gas further loses more pressure thrust than it gains in momentum thrust. For a fixed ambient pressure, the maximum thrust occurs when the nozzle matches the exit pressure to the outside air, $p_e = p_a$ (Huzel and Huang 1967, p. 15). For a nozzle that already exists, this does not mean that thrust is highest where $p_e = p_a$. We come back to this point in the section on altitude.
+Now suppose we can choose the nozzle for a given engine and flow, and we want the most thrust at one ambient pressure. If we make the nozzle a little longer and wider, the gas expands further, so $V_e$ rises and $p_e$ falls. As long as $p_e > p_a$, the extra expansion gains more momentum thrust than it loses pressure thrust. Once $p_e < p_a$, expanding the gas further loses more pressure thrust than it gains in momentum thrust. For a fixed ambient pressure, the maximum thrust occurs when the nozzle matches the exit pressure to the outside air, $p_e = p_a$ (Huzel and Huang 1967, p. 15). For a nozzle that already exists, this does not mean that thrust is highest where $p_e = p_a$. We come back to this point in the section on altitude.
 
 :::{warning} Overexpanded is $p_e < p_a$
-If you mix up the two names, think of what the nozzle did to the gas. "Over" means it expanded the gas too much, so the exit pressure fell below $p_a$. "Under" means it did not expand the gas enough, so $p_e$ is still above $p_a$. Then the sign of $(p_e - p_a)$ follows: negative when overexpanded, positive when underexpanded.
+If you mix up the two names, think of what the nozzle did to the gas. "Over" means it expanded the gas too much, so the exit pressure fell below $p_a$. "Under" means it did not expand the gas enough, so $p_e$ is still above $p_a$. The sign of $(p_e - p_a)$ then follows directly, negative when overexpanded and positive when underexpanded.
 :::
 
 (p41-area-ratio)=
 ## Area ratio
 
-The nozzle controls the expansion through its shape. The **{term}`area ratio`** (also called the expansion ratio) is the exit area divided by the throat area, $A_e/A_t$. The larger the area ratio, the further the gas expands: the exit pressure is lower and the exit velocity is higher. The relation between the area ratio and the pressure ratio comes from the equations of compressible flow. We do not solve it by hand. {numref}`fig-p41-isp-area-ratio` shows its result for one propellant pair.
+The nozzle controls the expansion through its shape. The **{term}`area ratio`** (also called the expansion ratio) is the exit area divided by the throat area, $A_e/A_t$. The larger the area ratio, the further the gas expands, so the exit pressure is lower and the exit velocity is higher. The relation between the area ratio and the pressure ratio comes from the equations of compressible flow, which we do not solve by hand here; instead, {numref}`fig-p41-isp-area-ratio` shows the result for one propellant pair.
 
 :::{figure} figures/p41-isp-area-ratio.svg
 :label: fig-p41-isp-area-ratio
@@ -252,7 +252,7 @@ Computed: at sea level there is a best area ratio, where $p_e = p_a$; in vacuum 
 Two lessons come out of the figure.
 
 - **At sea level there is a best area ratio.** For these propellants and this {term}`chamber pressure` (the pressure of the gas in the combustion chamber), the best area ratio is 10. There $p_e = p_a$ and the specific impulse peaks at 300 s. A larger nozzle overexpands the gas and loses thrust. Far past the best ratio the flow can stop following the wall and separate from it, which causes large sideways loads on the nozzle. An early rule of thumb put the danger at about $p_e = 0.4\,p_a$, and the exact point cannot be predicted well (NASA 1976, p. 17).
-- **In vacuum a larger nozzle always helps.** With $p_a = 0$ there is nothing to overexpand against, and the curve keeps rising: 327 s at the sea-level best ratio of 10, 359 s at 40. In vacuum, the practical limit is the added size and mass of the nozzle, because the gas itself can always expand further.
+- **In vacuum a larger nozzle always helps.** With $p_a = 0$ there is nothing to overexpand against, and the curve keeps rising from 327 s at the sea-level best ratio of 10 to 359 s at 40. In vacuum, the practical limit is the added size and mass of the nozzle, because the gas itself can always expand further.
 
 This is why an engine that fires near sea level carries a short nozzle with a small area ratio. An engine that fires only in vacuum carries a long one with a large area ratio. {numref}`fig-p41-nozzle-sizes` draws two engines of the Saturn V to the same throat size. The F-1 on the first stage has an area ratio of 16 (NASA 1968a), while the J-2 on the upper stages has an area ratio of 27.5 (NASA 1968b). The F-1 uses an area ratio above the sea-level optimum because it keeps firing into thin upper air, where a wider nozzle gives more thrust. The RS-25 lights on the launch pad but works mostly at altitude, and its area ratio is 77.5 (NASA 1981, p. 2-4). The RS-25 can operate at such a large area ratio without flow separation at sea level because its chamber pressure is high. It runs at 2,970 psia (pounds per square inch, absolute; 20.5 MPa), three to four times the F-1's 965 psia and the J-2's 763 psia. The higher the chamber pressure, the larger the area ratio a nozzle can have before its exit pressure falls to a given value (Huzel and Huang 1967, Eq. 1-20).
 
@@ -261,7 +261,7 @@ This is why an engine that fires near sea level carries a short nozzle with a sm
 :alt: Two thrust chambers in section side by side, drawn with throats of the same size, each with its throat diameter marked. Left, the F-1, a sea-level engine with area ratio 16.0: its exit diameter is 4.00 times the throat diameter. Right, the J-2, a vacuum engine with area ratio 27.5: its nozzle is longer and its exit diameter is 5.24 times the throat diameter.
 :width: 85%
 
-Computed contours drawn with the same throat: a vacuum engine carries a much larger nozzle for the same throat. Published area ratios of the F-1 (16) and the J-2 (27.5) (NASA 1968a, 1968b), bell shapes after Huzel and Huang (1967, Section 4.3), wall thickness exaggerated. The real J-2 is a smaller engine than the F-1: here only the shapes are compared.
+Computed contours drawn with the same throat: a vacuum engine carries a much larger nozzle for the same throat. Published area ratios of the F-1 (16) and the J-2 (27.5) (NASA 1968a, 1968b), bell shapes after Huzel and Huang (1967, Section 4.3), wall thickness exaggerated. The real J-2 is a smaller engine than the F-1, so here only the shapes are compared.
 :::
 
 ## Thrust changes with altitude
@@ -273,7 +273,7 @@ A launch vehicle climbs from sea level to vacuum with one fixed nozzle on each e
 F = F_\text{vac} - p_a A_e
 :::
 
-As the vehicle climbs, $p_a$ falls and the thrust rises, all the way to vacuum. The nozzle is ideally expanded at one altitude only, where $p_a = p_e$. That altitude is not where the thrust is highest: above it the nozzle is underexpanded, the pressure term is positive, and the thrust keeps growing.
+As the vehicle climbs, $p_a$ falls and the thrust rises, all the way to vacuum. The nozzle is ideally expanded at one altitude only, where $p_a = p_e$. That altitude is not where the thrust is highest, because above it the nozzle is underexpanded, the pressure term is positive, and the thrust keeps growing.
 
 ### Worked example 2: the RS-25 from sea level to vacuum
 
@@ -287,7 +287,7 @@ The Space Shuttle News Reference gives the RS-25 at rated power, 100% of its des
           &= 468.2\ \text{kg/s}
    \end{aligned}
    $$
-   The vacuum values give the same flow: $2.0907 \times {10}^{6}/(455.2 \times 9.81) = 468.2$ kg/s. The source is consistent, and one engine at one power setting has one flow.
+   The vacuum values give the same flow, $2.0907 \times {10}^{6}/(455.2 \times 9.81) = 468.2$ kg/s. The source is consistent, and one engine at one power setting has one flow.
 2. **Exit area.** At sea level $p_a$ = 101,325 Pa, and [](#eq-p41-altitude) gives $F_\text{vac} - F_\text{sl} = p_a A_e$:
    $$
    \begin{aligned}
@@ -348,14 +348,14 @@ F &= \dot m (V_e - V_\infty)\\
 
 Here $\dot m$ is the mass flow of air, which continuity gives from the free-stream density, the flight speed, and the area of the {term}`stream tube` the inlet captures. The mass of the fuel is small compared with the air, and we leave it out (NASA Glenn Research Center n.d.d).
 
-A **{term}`ramjet`** is the simplest such engine ({numref}`fig-p41-air-breathing`). It has no compressor: its forward speed rams the air into the inlet, which slows the air and raises its pressure. Fuel burns in the compressed air, and the hot gas leaves through a nozzle faster than the air came in. Because the compression comes from the flight speed, a ramjet makes thrust only when it is already moving fast. Another engine must bring it up to speed first (NASA Glenn Research Center n.d.c). [Chapter 5 covers engines that breathe air](#p54-how-engines-make-thrust) and measures how much fuel they use.
+A **{term}`ramjet`** is the simplest air-breathing engine ({numref}`fig-p41-air-breathing`). Because it has no compressor, its forward speed rams the air into the inlet, slowing the air and raising its pressure. Fuel burns in the compressed air, and the hot gas leaves through a nozzle faster than the air came in. Because the compression comes from the flight speed, a ramjet makes thrust only when it is already moving fast. Another engine must bring it up to speed first (NASA Glenn Research Center n.d.c). [Chapter 5 covers engines that breathe air](#p54-how-engines-make-thrust) and measures how much fuel they use.
 
 :::{figure} figures/p41-air-breathing.svg
 :label: fig-p41-air-breathing
 :alt: A ramjet cut in half lengthwise: an open inlet at the left, labeled A = 0.2649 square meters, that widens smoothly into a long combustor, where a fuel arrow enters through the wall, then a nozzle that narrows and widens to the exit at the right, labeled A e = 0.40 square meters. A velocity arrow before the inlet is labeled air in, V infinity, 750 meters per second. A longer velocity arrow behind the exit is labeled out, V e, 1,250 meters per second. Under it, a dashed arrow repeats the incoming speed, and a dimension from its tip to the tip of the outgoing arrow is labeled change, V e minus V infinity. A key names the velocity arrows, drawn to one scale, and the flow arrow.
 :width: 80%
 
-Schematic of a ramjet. Only the change of speed of the air counts: the air arrives at $V_\infty$ and leaves at $V_e$, and the dashed arrow repeats the incoming speed under the outgoing one. The length is not to scale; the inlet and exit areas and the speeds are those of worked example 3, and the velocity arrows are drawn to one scale. A real inlet at this speed first slows the air through shocks; the sketch shows only the duct.
+Schematic of a ramjet. Only the change of speed of the air counts, because the air arrives at $V_\infty$ and leaves at $V_e$, and the dashed arrow repeats the incoming speed under the outgoing one. The length is not to scale; the inlet and exit areas and the speeds are those of worked example 3, and the velocity arrows are drawn to one scale. A real inlet at this speed first slows the air through shocks; the sketch shows only the duct.
 :::
 
 ### Worked example 3: a ramjet at 14 km
@@ -406,9 +406,9 @@ If you use the rocket form, $\dot m V_e$, for an air-breathing engine, you count
 ## Summary
 
 :::{important} Summary
-- A rocket pushes on its own exhaust, so it works in vacuum. Its thrust is $F = \dot m V_e + (p_e - p_a)A_e$: the momentum thrust plus the pressure thrust, with pressures in pascals.
+- A rocket pushes on its own exhaust, so it works in vacuum. Its thrust is $F = \dot m V_e + (p_e - p_a)A_e$, the momentum thrust plus the pressure thrust, with pressures in pascals.
 - The effective exhaust velocity $c = F/\dot m$ and the specific impulse $I_\text{sp} = c/g_0$ (seconds, $g_0$ = 9.81 m/s² everywhere) measure how well an engine uses its propellant; thrust measures how hard it pushes.
-- $p_e < p_a$: overexpanded, pressure term negative, plume squeezed in. $p_e > p_a$: underexpanded, pressure term positive, plume spread out. The best nozzle at one ambient pressure gives $p_e = p_a$.
+- When $p_e < p_a$, the nozzle is overexpanded, the pressure term is negative, and the plume is squeezed in. When $p_e > p_a$, it is underexpanded, the pressure term is positive, and the plume spreads out. The best nozzle at one ambient pressure gives $p_e = p_a$.
 - A larger area ratio $A_e/A_t$ expands the gas further. At sea level there is a best area ratio; in vacuum a larger nozzle always helps. A fixed nozzle gains thrust all the way to vacuum, $F = F_\text{vac} - p_a A_e$. An engine that breathes air counts only the speed it adds, $V_e - V_\infty$.
 :::
 

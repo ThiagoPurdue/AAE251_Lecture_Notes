@@ -20,13 +20,13 @@ On the earlier pages of this chapter we took the specific impulse of an engine a
 When we select a propulsion system, we answer two questions: how hard the engine must push, and how efficiently it must use its propellant. The first is the {term}`thrust`, $F$, compared with the weight it must lift or move. The second is the {term}`specific impulse`, $I_\text{sp} = F/(\dot m g_0)$, the thrust produced per unit sea-level weight flow rate of propellant ([page 4.1](#p41-specific-impulse)). A launch vehicle must push harder than its own weight, so it needs high thrust first. A spacecraft that has months to reach its target needs little thrust, and every second of specific impulse saves propellant.
 
 :::{warning} Thrust and specific impulse are different things
-If you choose an engine for its specific impulse alone, you may pick one that cannot lift its own vehicle. Thrust says how hard the engine pushes; specific impulse says how little propellant it burns for each newton-second of push. The engines with the highest specific impulse produce the lowest thrust, as the next section shows.
+If you choose an engine for its specific impulse alone, you may pick one that cannot lift its own vehicle. Thrust measures how hard the engine pushes, while specific impulse measures how little propellant it burns for each newton-second of push. The engines with the highest specific impulse produce the lowest thrust, as the next section shows.
 :::
 
 (p44-kinds)=
 ## Kinds of rocket propulsion
 
-Every rocket throws mass backward. The kinds of propulsion differ in where the energy to throw it comes from and in how the mass is stored. We start with the words for what a rocket carries.
+Every rocket throws mass backward, so the kinds of propulsion differ in where the energy comes from and how the mass is stored. We start with the words for what a rocket carries.
 
 :::{prf:definition} Propellant, fuel, and oxidizer
 :label: def-p44-propellant
@@ -36,8 +36,8 @@ The {term}`propellant` is all the mass a rocket carries to throw out of its nozz
 
 Here are the kinds, from the simplest to the most efficient:
 
-- A {term}`cold-gas thruster` lets a stored gas, often nitrogen, out through a nozzle. There is no combustion. It is simple and safe, and its small, precise pushes suit the pointing of a spacecraft (NASA 2026).
-- A {term}`monopropellant` engine uses one liquid that releases energy on its own when it passes over a catalyst. Hydrazine is the usual one: the catalyst decomposes it into hot gas (NASA 2026).
+- A {term}`cold-gas thruster` lets a stored gas, often nitrogen, expand out through a nozzle with no combustion. It is simple and safe, and its small, precise pushes suit the pointing of a spacecraft (NASA 2026).
+- A {term}`monopropellant` engine uses one liquid that releases energy on its own when it passes over a catalyst. Hydrazine is the usual choice, and the catalyst decomposes it into hot gas (NASA 2026).
 - A {term}`bipropellant` engine keeps a fuel and an oxidizer in separate tanks and mixes them only in the combustion chamber (Huzel and Huang 1967, p. 19). This is the engine of most launch vehicles and many spacecraft.
 - A {term}`solid rocket motor` carries fuel and oxidizer mixed together in one rubbery solid, the grain, cast inside the motor case. It is the booster of [the launch vehicle on page 1.3](#p13-launch-vehicle), and once lit it burns until the grain is gone.
 - A {term}`hybrid rocket` keeps a solid fuel in the case and a liquid or gaseous oxidizer in a tank. It burns only while the oxidizer flows, so a valve starts and stops it (NASA 2026).
@@ -73,7 +73,7 @@ Schematic, not to scale. The three fuel-and-oxidizer chemical rockets differ in 
 
 :::
 
-Read the table down the thrust column and then down the specific impulse column, and notice that the order is nearly reversed. {numref}`fig-p44-isp-thrust-map` plots this trade-off. Today only chemical propulsion can lift a vehicle off the ground, because it alone gives more thrust than the vehicle's weight (Meyer et al. 2012, p. 3). Electric propulsion is limited by power. It gives less than 75 mN for each kilowatt, so a spacecraft with 500 W for its thruster gets no more than 38 mN (NASA 2026). Ion thrusters in general, beyond the small devices of the table, reach 2,000 to over 10,000 s (Meyer et al. 2010, p. 9). They must fire for hundreds or thousands of hours to give the impulse a chemical engine gives in minutes (NASA 2026).
+Read the table down the thrust column and then down the specific impulse column, and notice that the order is nearly reversed, as plotted in {numref}`fig-p44-isp-thrust-map`. Today only chemical propulsion can lift a vehicle off the ground, because it alone gives more thrust than the vehicle's weight (Meyer et al. 2012, p. 3). Because electric propulsion is limited by power, it gives less than 75 mN for each kilowatt, so a spacecraft with 500 W for its thruster gets no more than 38 mN (NASA 2026). Ion thrusters in general, beyond the small devices of the table, reach 2,000 to over 10,000 s (Meyer et al. 2010, p. 9). They must fire for hundreds or thousands of hours to give the impulse a chemical engine gives in minutes (NASA 2026).
 
 :::{figure} figures/p44-isp-thrust-map.svg
 :label: fig-p44-isp-thrust-map
@@ -125,7 +125,7 @@ Values from {numref}`tbl-p44-launch-vehicles`: payload grows in proportion to li
 (p44-propellant-properties)=
 ## What makes a propellant good
 
-Now we compare propellants. Huzel and Huang (1967, p. 20) list fourteen features of a good liquid propellant and warn that every propellant has disadvantages, so the choice is a compromise. Four of these properties drive most design choices: specific impulse, density, storability, and what the propellant lets the engine do. {numref}`tbl-p44-propellants` gives published values for the common pairs. The specific impulses there are theoretical, for one chamber pressure and a nozzle expanded to sea-level pressure. Real engines give 5 to 12% less (Huzel and Huang 1967, p. 21), and a vacuum nozzle gives more ([area ratio](#p41-area-ratio)). Use the table to compare propellant pairs on the same basis, because real engine data sheets use different chamber pressures and nozzle expansions.
+Now we compare the propellants themselves. Huzel and Huang (1967, p. 20) list fourteen features of a good liquid propellant and warn that every propellant has disadvantages, so the choice is a compromise. Four of these properties drive most design choices: specific impulse, density, storability, and what the propellant lets the engine do. {numref}`tbl-p44-propellants` gives published values for the common pairs. The specific impulses there are theoretical, for one chamber pressure and a nozzle expanded to sea-level pressure. Real engines give 5 to 12% less (Huzel and Huang 1967, p. 21), and a vacuum nozzle gives more ([area ratio](#p41-area-ratio)). Use the table to compare propellant pairs on the same basis, because real engine data sheets use different chamber pressures and nozzle expansions.
 
 :::{table} Theoretical performance of common propellants. Liquid pairs: Huzel and Huang (1967), Tables 1-8 to 1-10, for a chamber pressure of 1,000 psia (6.895 MPa) expanded to 14.7 psia, at the mixture ratio of best performance. Hydrazine: Table 1-6, at 300 psia. Solid: NASA (1971), Table I, at 1,000 psia.
 :label: tbl-p44-propellants
@@ -158,7 +158,7 @@ A propellant must fit in tanks, and tanks are inert mass. So we need the volume 
 \mathcal{V} = \frac{m}{\rho}
 ```
 
-where $m$ is the mass, $\rho$ the density, and $\mathcal{V}$ the volume (script V, so we do not confuse it with a velocity). A pair has two tanks, one for each liquid. Their total volume per kilogram of propellant gives the {term}`bulk density` of the pair. With the mixture ratio O/F, a kilogram of propellant holds $\text{O/F}/(1 + \text{O/F})$ kg of oxidizer and $1/(1 + \text{O/F})$ kg of fuel, so (Huzel and Huang 1967, Eq. 1-46)
+where $m$ is the mass, $\rho$ the density, and $\mathcal{V}$ the volume (script V, so we do not confuse it with a velocity). A pair has two tanks, one for each liquid. Their total volume per kilogram of propellant gives the {term}`bulk density` of the pair. With the mixture ratio O/F, a kilogram of propellant contains $\text{O/F}/(1 + \text{O/F})$ kg of oxidizer and $1/(1 + \text{O/F})$ kg of fuel, so (Huzel and Huang 1967, Eq. 1-46)
 
 ```{math}
 :label: eq-p44-bulk
@@ -167,7 +167,7 @@ where $m$ is the mass, $\rho$ the density, and $\mathcal{V}$ the volume (script 
 
 Liquid hydrogen is the extreme case. At its boiling point it has a density of 70.83 kg/m³; liquid oxygen, at 1,141 kg/m³, is 16.1 times denser (NIST 2023). With these densities and the mixture ratio of 4.02, [](#eq-p44-bulk) gives a bulk density of 284.6 kg/m³ for oxygen and hydrogen; Huzel and Huang (1967, Table 1-10) list 280. The oxygen and kerosene pair, at 1,020 kg/m³, is 3.6 times denser.
 
-The higher specific impulse of hydrogen means less propellant mass for the same job. To see whether that makes the stage smaller, we compare two loads with the same total impulse, the propellant mass times its effective exhaust velocity. They are 100.0 t of oxygen and kerosene and 76.73 t of oxygen and hydrogen (100.0 t times 300/391). {numref}`fig-p44-tank-volumes` draws their tanks to scale. The hydrogen load is 23% lighter and needs 2.748 times the volume: 269.6 m³ against 98.12 m³. That is why hydrogen stages are long and wide, and why in a hydrogen stage the biggest tank holds the fuel (see [the launch vehicle on page 1.3](#p13-launch-vehicle)).
+The higher specific impulse of hydrogen means less propellant mass for the same job. To see whether that makes the stage smaller, we compare two loads with the same total impulse, the propellant mass times its effective exhaust velocity. For example, 100.0 t of oxygen and kerosene gives the same total impulse as 76.73 t of oxygen and hydrogen (100.0 t times 300/391), and {numref}`fig-p44-tank-volumes` draws their tanks to scale. The hydrogen load is 23% lighter, yet it needs 2.748 times the volume, 269.6 m³ against 98.12 m³. That is why hydrogen stages are long and wide, and why the biggest tank in a hydrogen stage carries the fuel (see [the launch vehicle on page 1.3](#p13-launch-vehicle)).
 
 :::{figure} figures/p44-tank-volumes.svg
 :label: fig-p44-tank-volumes
@@ -189,12 +189,12 @@ Values from {numref}`tbl-p44-propellants`: liquid hydrogen has the highest speci
 
 ### Storability
 
-A propellant that boils below room temperature must be kept cold, and some of it boils away while the vehicle waits ([boil-off](#p45-boil-off)). Huzel and Huang (1967, p. 19) sort liquid propellants by this property.
+A propellant that boils below room temperature must be kept cold, and some of it boils away while the vehicle is on the pad or coasting in space ([boil-off](#p45-boil-off)). Huzel and Huang (1967, p. 19) sort liquid propellants by this property.
 
 :::{prf:definition} Cryogenic, storable, and hypergolic propellants
 :label: def-p44-storability
 
-A {term}`cryogenic propellant` is a liquefied gas that boils below −146 °C at sea-level pressure: liquid oxygen, liquid hydrogen, liquid methane. A {term}`storable propellant` stays liquid over a reasonable range of temperature and pressure and can be kept in closed tanks for a year or more. Two propellants are {term}`hypergolic` when they ignite on contact, with no igniter (Huzel and Huang 1967, p. 19).
+A {term}`cryogenic propellant` is a liquefied gas that boils below −146 °C at sea-level pressure, such as liquid oxygen, liquid hydrogen, or liquid methane. A {term}`storable propellant` stays liquid over a reasonable range of temperature and pressure and can be kept in closed tanks for a year or more. Two propellants are {term}`hypergolic` when they ignite on contact, with no igniter (Huzel and Huang 1967, p. 19).
 :::
 
 {numref}`fig-p44-storage-temperatures` shows what "storable" means on a thermometer. Liquid hydrogen boils at −253 °C, liquid oxygen at −183 °C, and liquid methane at −161 °C (NIST 2023). Room temperature, 20 °C, lies inside the liquid range of nitrogen tetroxide, MMH, hydrazine, and kerosene. Nitrogen tetroxide is close to its boiling point, 21 °C, which is one reason it is kept in closed tanks. Hydrazine freezes at 1.4 °C, so a spacecraft must keep it warm. Solid propellants are cast in the motor case at the factory and stay stored there.
@@ -211,7 +211,7 @@ Ignition and handling come with storability. Hypergolic pairs such as nitrogen t
 
 ### Thrust, throttling, and restart
 
-The last property we look at is what the propellant lets the engine do. A solid motor gives high thrust from a compact, dense package, but it cannot be shut down or throttled; its thrust history is set when the grain is cast. A liquid engine can do both. The RS-25 throttles from 65 to 109% of its rated power (NASA 1981, p. 2-4). The storable AVUM upper stage of Vega restarts up to 5 times in one flight (Arianespace 2014, Section 2.3). A hybrid also stops and restarts, by closing and opening its oxidizer valve.
+The last property we look at is what the propellant lets the engine do. A solid motor gives high thrust from a compact, dense package, but it cannot be shut down or throttled; its thrust history is set when the grain is cast. A liquid engine can both throttle and shut down. The RS-25 throttles from 65 to 109% of its rated power (NASA 1981, p. 2-4). The storable AVUM upper stage of Vega restarts up to 5 times in one flight (Arianespace 2014, Section 2.3). A hybrid also stops and restarts, by closing and opening its oxidizer valve.
 
 :::{warning} Light propellant does not mean a small stage
 If you compare propellants by mass alone, oxygen and hydrogen always give the lowest propellant mass. Compare the volume too, because the same job can require almost three times the tank volume, and larger tanks add inert mass and frontal area. Always compute both the mass and the volume of every option.
@@ -227,7 +227,7 @@ Now we come back to the first question: how hard the engine must push. The {term
 \frac{F}{W} = \frac{F}{m g_0}
 ```
 
-with $m$ the mass of the vehicle at that moment and $g_0$ = 9.81 m/s². At liftoff it must be above 1, or the vehicle does not leave the pad. Just above 1 is not enough. Until the vehicle builds speed, most of its thrust holds it up against gravity, which is the [gravity loss](#p42-losses). Launch vehicles lift off at 1.19 to 1.46 ({numref}`tbl-p44-fw`).
+with $m$ the mass of the vehicle at that moment and $g_0$ = 9.81 m/s². At liftoff $F/W$ must be above 1, or the vehicle cannot leave the pad, and being just above 1 is not enough. Until the vehicle builds speed, most of its thrust supports it against gravity, which creates the [gravity loss](#p42-losses). Launch vehicles lift off at 1.19 to 1.46 ({numref}`tbl-p44-fw`).
 
 :::{table} Thrust-to-weight ratio at liftoff of four launch vehicles, from published liftoff thrusts and the liftoff masses of {numref}`tbl-p44-launch-vehicles`. Saturn V: five F-1 engines at their uprated sea-level thrust (NASA 1968). Space Shuttle: two boosters at liftoff and three main engines at rated power at sea level (NASA 1981, pp. 2-4 and 2-18). Falcon 9: SpaceX (2019a). SLS Block 1: NASA (2022).
 :label: tbl-p44-fw
@@ -248,7 +248,7 @@ This is why Ariane 5 has boosters. On [page 4.2](#p42-feasibility) we found that
 A stage that burns in orbit does not fight gravity directly, so it can push gently. The ESC-A upper stage of Ariane 5 gives 67 kN for a loaded mass of 19,440 kg, a ratio of 0.351 before it carries any payload. Electric propulsion produces even lower thrust, which is why its burns last hundreds or thousands of hours.
 
 :::{warning} A ratio below 1 at liftoff
-If you find $F/W$ below 1 at liftoff, the vehicle sits on the pad while it burns propellant. Use the mass at liftoff, propellant included, and $g_0$ = 9.81 m/s², not the local gravity of another body.
+If you find $F/W$ below 1 at liftoff, the vehicle stays on the pad while it burns propellant. Use the mass at liftoff, propellant included, and $g_0$ = 9.81 m/s², not the local gravity of another body.
 :::
 
 (p44-justify)=
@@ -267,8 +267,8 @@ Choosing a propellant and an engine is a small trade study ([decision matrix](#p
 This page covers steps 1 to 3 and 6 of that cycle. The method below breaks them into six steps of its own, and the worked example follows them.
 
 :::{tip} Method: justifying a choice of propellant and engine
-1. Write down what the mission needs most: the delta-V and the thrust, how long the vehicle waits before it fires, and how many burns it makes. Add any rule on safety or toxicity.
-2. List the options that can do it at all. A mission that must wait for years rules out cryogenic propellants; a mission with several burns rules out a single solid motor.
+1. Write down what the mission needs most: the delta-V and the thrust, how long the propellant must be stored before firing, and how many burns the mission requires. Add any rule on safety or toxicity.
+2. List the options that can meet those needs. A mission lasting years rules out cryogenic propellants, and a mission with several burns rules out a single solid motor.
 3. Classify each option: solid, monopropellant, or bipropellant; cryogenic or storable; hypergolic or not.
 4. Size each option with the rocket equation ([sizing a stage](#p42-stage-sizing)), with a cited specific impulse and inert mass fraction. Find the propellant mass, the initial mass, and the propellant volume from [](#eq-p44-volume).
 5. Compare the options on specific impulse, density, storability, and thrust, with the numbers side by side.
@@ -279,14 +279,14 @@ This page covers steps 1 to 3 and 6 of that cycle. The method below breaks them 
 
 A geostationary communications satellite rides a launch vehicle to a transfer orbit. The satellite must then make the last burn itself, at the apogee of that orbit, to circle Earth once a day over the equator. We compare a solid apogee motor with a storable bipropellant engine for this burn and choose one.
 
-**Step 1. Requirement.** The launch vehicle leaves the satellite in a transfer orbit with a perigee altitude of 250 km and an apogee altitude of 35,786 km. These are the altitudes of Ariane 5's standard transfer orbit (Arianespace 2016, Section 2.4.1). That real orbit is also tilted 6° to the equator, and the real apogee burn turns the orbit plane while it raises the speed, which requires a little more delta-V. Page 2.2 does not teach that combined burn, so we take the transfer orbit in the equator plane. The satellite without its apogee propulsion system has a mass of $m_\text{pay}$ = 2,350 kg. It must work for many years. Here we size only the apogee burn.
+**Step 1. Requirement.** The launch vehicle leaves the satellite in a transfer orbit with a perigee altitude of 250 km and an apogee altitude of 35,786 km. These are the altitudes of Ariane 5's standard transfer orbit (Arianespace 2016, Section 2.4.1). That real orbit is also tilted 6° to the equator, and the real apogee burn turns the orbit plane while it raises the speed, which requires a little more delta-V. Page 2.2 does not teach that combined burn, so we take the transfer orbit in the equator plane. Without its apogee propulsion system, the satellite has a mass of $m_\text{pay}$ = 2,350 kg and must operate for many years. Here we size only the apogee burn.
 
 **Step 2. Options.**
 
-- *A, solid motor.* We model it on Vega's third stage, Zefiro 9, with a vacuum specific impulse of 295.9 s (Arianespace 2014, p. 1-6). It holds 10,567 kg of propellant in a gross mass of 12,000 kg, so 1,433 kg of inert mass. Its inert mass fraction is 1,433/12,000 = 0.1194. Its propellant density is 1,772 kg/m³ ({numref}`tbl-p44-propellants`).
-- *B, storable bipropellant.* We model it on the engine of Vega's AVUM stage: nitrogen tetroxide and UDMH, {term}`pressure-fed <Pressure-fed>`, 314.6 s in vacuum. The stage is loaded with 381 kg of oxidizer and 196 kg of fuel (Arianespace 2014, p. 1-6). Their densities are 1,440 and 789 kg/m³ (Huzel and Huang 1967, Table 1-4). AVUM's own inert mass gives an inert mass fraction of 0.544, but it includes the launcher's guidance and electronics, so it does not fit a satellite. We assume $f_\text{inert}$ = 0.20 for the tanks, pressurizing gas, valves, and engine, which is higher than the value for large solid motors because pressure-fed tanks need thick walls ([engines and tanks](#p45-tanks)).
+- *A, solid motor.* We model this option on Vega's third stage, Zefiro 9, which has a vacuum specific impulse of 295.9 s (Arianespace 2014, p. 1-6). Out of its 12,000 kg gross mass, 10,567 kg is propellant and 1,433 kg is inert mass, giving an inert mass fraction of 1,433/12,000 = 0.1194. Its propellant density is 1,772 kg/m³ ({numref}`tbl-p44-propellants`).
+- *B, storable bipropellant.* We model this option on the engine of Vega's AVUM stage, a {term}`pressure-fed <Pressure-fed>` engine burning nitrogen tetroxide and UDMH at 314.6 s in vacuum. The stage is loaded with 381 kg of oxidizer and 196 kg of fuel (Arianespace 2014, p. 1-6). Their densities are 1,440 and 789 kg/m³ (Huzel and Huang 1967, Table 1-4). AVUM's own inert mass gives an inert mass fraction of 0.544, but it includes the launcher's guidance and electronics, so it does not fit a satellite. We assume $f_\text{inert}$ = 0.20 for the tanks, pressurizing gas, valves, and engine, which is higher than the value for large solid motors because pressure-fed tanks need thick walls ([engines and tanks](#p45-tanks)).
 
-**Step 3. Classify.** A is a solid. B is a storable bipropellant, and hypergolic: it needs no igniter and can restart.
+**Step 3. Classify.** Option A is a solid motor, while option B is a storable, hypergolic bipropellant that needs no igniter and can restart.
 
 **Step 4a. Delta-V of the apogee burn.** With Earth's radius 6,378 km and $\mu = 3.986 \times {10}^{5}\ \text{km}^3/\text{s}^2$ ([orbit transfers](../chapter-2/orbit-transfers.md)), the transfer orbit has $r_p$ = 6,628 km, $r_a$ = 42,164 km, and $a$ = 24,396 km. The [vis-viva equation](#p21-vis-viva) gives the speed at apogee, and the circular speed of the geostationary orbit follows:
 
@@ -416,7 +416,7 @@ m_\text{fuel} &= \frac{1{,}695}{1 + 1.944}\\
 \end{aligned}
 $$
 
-and the propellant fills 0.7771 + 0.7297 = 1.507 m³. We check with [](#eq-p44-bulk): the bulk density is 1,695/1.507 = 1,125 kg/m³. It lies between the densities of the two liquids, nearer the oxidizer's, as it should with almost twice as much oxidizer by mass.
+and the propellant fills 0.7771 + 0.7297 = 1.507 m³. Checking with [](#eq-p44-bulk), the bulk density is 1,695/1.507 = 1,125 kg/m³. It lies between the densities of the two liquids, nearer the oxidizer's, as it should with almost twice as much oxidizer by mass.
 
 **Step 5. Compare** ({numref}`fig-p44-example`). The two options burn almost the same propellant mass. The bipropellant's higher specific impulse is offset by its heavier tanks and pressurizing gas. Option B starts 183 kg heavier (4.3%) and needs 0.545 m³ more volume (57%).
 
@@ -428,9 +428,9 @@ and the propellant fills 0.7771 + 0.7297 = 1.507 m³. We check with [](#eq-p44-b
 Computed for the worked example: the storable bipropellant burns almost the same propellant mass as the solid motor but carries more inert mass. It starts 183 kg heavier and needs 0.545 m³ more volume in exchange for the ability to stop and restart. Mass at the start of the apogee burn and propellant volume of the two options.
 :::
 
-**Step 6. Choose.** We recommend the storable bipropellant, option B. The satellite needs the burn to be accurate, and a liquid engine can split the 1,472 m/s into several burns at successive apogees and correct the orbit between them. A solid motor fires once, to the end. The satellite must also make small burns to hold its position for years, and a liquid system can feed them from the same tanks. With a solid apogee motor it would need a second, liquid system anyway, and we have not counted that mass. The storable propellants stay stored in their tanks without boiling. The trade-off for this capability is 183 kg of extra initial mass and 0.545 m³ of extra tank volume.
+**Step 6. Choose.** We recommend the storable bipropellant, option B. The satellite needs the burn to be accurate, and a liquid engine can split the 1,472 m/s into several burns at successive apogees and correct the orbit between them. A solid motor fires once until it is empty. The satellite must also make small burns to maintain its position for years, and a liquid system can supply them from the same tanks. With a solid apogee motor it would need a second, liquid system anyway, and we have not counted that mass. The storable propellants stay stored in their tanks without boiling. The trade-off for this capability is 183 kg of extra initial mass and 0.545 m³ of extra tank volume.
 
-**Check.** The comparison rests on the assumed inert mass fraction of B: a lighter bipropellant system would close the 183 kg gap, and a heavier one would widen it. Put option A back into the rocket equation. Its mass after the burn is the payload plus the inert mass, 2,581 kg, and $2{,}903 \ln(4{,}286/2{,}581)$ gives 1,472 m/s, the requirement.
+**Check.** The comparison depends on the assumed inert mass fraction of option B, because a lighter bipropellant system would close the 183 kg gap while a heavier one would widen it. Put option A back into the rocket equation. Its mass after the burn is the payload plus the inert mass, 2,581 kg, and $2{,}903 \ln(4{,}286/2{,}581)$ gives 1,472 m/s, the requirement.
 
 ## What real vehicles burn, and why
 
@@ -457,8 +457,8 @@ In general, first stages prioritize high thrust and high density, upper stages p
 ## Summary
 
 :::{important} Summary
-- Rocket propulsion comes in cold gas, monopropellant, bipropellant, solid, hybrid, nuclear thermal, and electric kinds. Specific impulse and thrust run in opposite directions: electric thrusters reach thousands of seconds at millinewtons, and today only chemical rockets lift a vehicle off the ground.
-- Launch vehicles are classed by payload to low Earth orbit: small up to 2 t, medium to 20 t, heavy to 50 t, super heavy above. They are also described by stages and boosters, by propellants, and as expendable or reusable. Their payload is 0.55% to 4.5% of the liftoff mass.
+- Rocket propulsion comes in cold gas, monopropellant, bipropellant, solid, hybrid, nuclear thermal, and electric kinds. Specific impulse and thrust run in opposite directions, with electric thrusters reaching thousands of seconds at millinewtons while only chemical rockets can lift a vehicle off the ground today.
+- Launch vehicles are classed by payload to low Earth orbit: small up to 2 t, medium to 20 t, heavy to 50 t, and super heavy above. They are also described by stages and boosters, by propellants, and as expendable or reusable. Their payload is 0.55% to 4.5% of the liftoff mass.
 - A propellant is judged on specific impulse, density, storability, and what it lets the engine do. Hydrogen gives the highest specific impulse and the largest tanks; storable propellants can be stored for years; solid motors give high thrust and cannot stop.
 - Launch vehicles lift off at a thrust-to-weight ratio of 1.19 to 1.46; stages in orbit work at a few tenths. To justify a choice, size each option, compare mass and volume with numbers, and state the mass and volume trade-off.
 :::

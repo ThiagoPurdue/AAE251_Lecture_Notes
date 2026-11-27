@@ -3,23 +3,23 @@ title: "Concept generation and trade studies"
 short_title: Concepts and trade studies
 ---
 
-Requirements specify what a vehicle must accomplish, leaving open what configuration will do the job: a conventional airplane or a vertical-takeoff aircraft, piston engines or electric motors. A structured trade study lets an engineering team make that choice transparently so others can audit it. On this page we generate candidate concepts before judging them, compare them with a weighted decision matrix, test how sensitive the ranking is to the criterion weights, and document the outcome. Throughout the page we follow an uncrewed cargo aircraft carrying supplies between small islands. No course standard is assessed on this page.
+Requirements specify what a vehicle must accomplish, leaving open which configuration will do the job, whether a conventional airplane or a vertical-takeoff aircraft, powered by piston engines or electric motors. A structured trade study lets an engineering team make that choice transparently so others can audit it. On this page we generate candidate concepts before judging them, compare them with a weighted decision matrix, test how sensitive the ranking is to the criterion weights, and document the outcome. Throughout the page we follow an uncrewed cargo aircraft carrying supplies between small islands. No course standard is assessed on this page.
 
 :::{note} What to take from this page
-- Generate concepts before judging them: list the functions, list several ways to do each, and combine one way per function into a concept.
+- Generate concepts before judging them by listing the functions, listing several ways to do each, and combining one option per function into a concept.
 - In a weighted decision matrix the criteria come from the requirements, the weights add up to 1 and are set before any scoring, and each concept's total is the sum of weight times score.
-- A winner is trustworthy only if it survives a change of the weights. Find the weight at which the winner changes and report it.
+- A top-ranked concept is reliable only if it remains ahead when the weights change. Find the weight at which the ranking changes and report it.
 - Record each decision in a trade-study log, with the options, the data, the result, and what would change it.
 :::
 
 ## What a trade study is
 
-A design starts as a {term}`concept`: a short description of how the vehicle will do its job, specific enough to estimate its weight, cost, and performance. (We make the first weight estimate of a concept with [aircraft sizing](#p16-iteration).) A turboprop airplane that lands on a runway is one concept for the island cargo aircraft. An electric aircraft that takes off vertically is another.
+A design starts as a {term}`concept`, a short description of how the vehicle will do its job that is specific enough to estimate its weight, cost, and performance. (We make the first weight estimate of a concept with [aircraft sizing](#p16-iteration).) A turboprop airplane that lands on a runway is one concept for the island cargo aircraft. An electric aircraft that takes off vertically is another.
 
 :::{prf:definition} Trade study
 :label: def-p17-trade-study
 
-A {term}`trade study` compares alternative ways to meet the same requirements, ranks them against criteria taken from those requirements, and drops the less promising ones (NASA 2016, Appendix B). The word "trade" is short for trade-off: no concept is best on every criterion, so the study shows what each choice gives up.
+A {term}`trade study` compares alternative ways to meet the same requirements, ranks them against criteria taken from those requirements, and drops the less promising ones (NASA 2016, Appendix B). The word "trade" is short for trade-off. No concept is best on every criterion, so the study shows what each choice gives up.
 :::
 
 Following the steps of {numref}`fig-p17-trade-study-steps` in order keeps the comparison honest. Generating concepts before judging them ensures we compare genuinely distinct alternatives, setting criterion weights before scoring prevents the team from steering the outcome toward a favorite design, and running a sensitivity check before recording the result ensures the choice can be defended or revisited later.
@@ -34,23 +34,23 @@ Schematic of a trade study in seven steps. The weights are fixed in step 3, befo
 
 ## Generate concepts before judging them
 
-The first concept that comes to mind is rarely the best one, and critiquing it immediately tends to shut down exploration. Aerospace design teams therefore separate generation from evaluation, listing many candidate concepts first and judging them afterward (Ulrich and Eppinger 2016, Chapter 7; Roemer 2006). One systematic way to generate candidates is the {term}`combination table`:
+The first concept that comes to mind is rarely the best one, and critiquing it immediately tends to shut down exploration. So aerospace design teams separate generation from evaluation, listing many candidate concepts first and judging them afterward (Ulrich and Eppinger 2016, Chapter 7; Roemer 2006). One systematic way to generate candidates is the {term}`combination table`:
 
 :::{tip} Method: generating concepts with a combination table
-1. List the functions the vehicle must perform. Take them from the requirements: a requirement on the cargo load becomes the function "carry cargo."
+1. List the functions the vehicle must perform, taken from the requirements. For example, a requirement on the cargo load becomes the function "carry cargo."
 2. For each function, list several ways to do it, without judging them yet.
 3. Pick one option for each function. Each pick is a concept.
 4. Keep at least three concepts that differ in their main options, not only in a detail.
 :::
 
-{numref}`fig-p17-combination-table` is the combination table of the island cargo aircraft. It has four functions with three options each, so it holds $3 \times 3 \times 3 \times 3 = 81$ combinations. Some make no sense, such as a sling load under a fixed wing that takes off from a runway. A few are worth a closer look, and some that look odd are real: a rotor with a runway takeoff is an autogyro. The traced path is one concept: a wing plus lift rotors, electric motors, vertical takeoff, and cargo inside the fuselage. This is a "lift-plus-cruise" aircraft: separate rotors lift it for a vertical takeoff and landing (VTOL), and a propeller and the wing carry it in cruise.
+{numref}`fig-p17-combination-table` is the combination table of the island cargo aircraft. It has four functions with three options each, giving $3 \times 3 \times 3 \times 3 = 81$ combinations. Some make no sense, such as a sling load under a fixed wing that takes off from a runway. A few are worth a closer look, and some that look odd are real, such as a rotor with a runway takeoff, which is an autogyro. The traced path represents one concept combining a wing plus lift rotors, electric motors, vertical takeoff, and cargo inside the fuselage. This configuration is called a "lift-plus-cruise" aircraft, because separate rotors lift it for a vertical takeoff and landing (VTOL), while a propeller and the wing carry it in cruise.
 
 :::{figure} figures/p17-combination-table.svg
 :label: fig-p17-combination-table
 :alt: A table with four functions as rows (make lift, make thrust, take off, carry cargo) and three options per function as columns. Make lift: fixed wing, rotor, wing plus lift rotors. Make thrust: piston engine, turboprop, electric motors. Take off: runway, short strip, vertical. Carry cargo: inside fuselage, pod under wing, sling load. Arrows trace concept C through the shaded, bold cells: wing plus lift rotors, electric motors, vertical, and inside fuselage.
 :width: 90%
 
-Schematic of the combination table of the island cargo aircraft. A concept is one option for each function: concept C, an electric lift-plus-cruise VTOL, is traced through the table, and the other 80 paths are other concepts.
+Schematic of the combination table of the island cargo aircraft. A concept picks one option for each function; concept C, an electric lift-plus-cruise VTOL, is traced through the table, and the other 80 paths are other concepts.
 :::
 
 We carry three concepts forward, chosen to differ in how they make thrust and how they take off ({numref}`tbl-p17-concepts`).
@@ -74,7 +74,7 @@ Comparing three conventional airplanes that differ only in wing span tests param
 (p17-decision-matrix)=
 ## The weighted decision matrix
 
-We compare the concepts in a {term}`decision matrix`, which lists the criteria in rows and the concepts in columns (NASA 2016, Appendix B). A {term}`criterion` is a property on which we compare the concepts, taken from the [requirements](needs-and-requirements.md): payload and range, operating cost, runway length, and so on. Each criterion carries a {term}`weight <Weight of a criterion>`, a fraction that says how much it counts. Each concept gets a score from 1 (poor) to 5 (excellent) on each criterion, and its weighted total is
+We compare the concepts in a {term}`decision matrix`, which lists the criteria in rows and the concepts in columns (NASA 2016, Appendix B). A {term}`criterion` is a property on which we compare the concepts, taken from the [requirements](needs-and-requirements.md), such as payload and range, operating cost, and runway length. Each criterion carries a {term}`weight <Weight of a criterion>`, a fraction that sets how much it counts. Each concept gets a score from 1 (poor) to 5 (excellent) on each criterion, and its weighted total is
 
 :::{math}
 :label: eq-p17-weighted-total
@@ -88,7 +88,7 @@ where $n$ is the number of criteria, $w_i$ is the weight of criterion $i$, and $
 3. Give each criterion a weight. The weights add up to 1. Write down why, before scoring anything.
 4. Score each concept from 1 to 5 on each criterion, with a reason or a number for every score.
 5. Multiply each score by its weight and add the products for each concept ([](#eq-p17-weighted-total)).
-6. Change the weights a little and see whether the winner changes.
+6. Change the weights a little and see whether the top-ranked concept changes.
 :::
 
 ### Worked example: the island cargo aircraft
@@ -112,7 +112,7 @@ The five criteria and their weights come from the requirements of the cargo serv
 The reasons behind the scores, in short:
 
 - **Payload and range.** A battery stores much less energy per kilogram than fuel, so C carries the least over the same distance. A turbine is light for its power, so B carries the most.
-- **Operating cost.** Piston engines cost less to buy and to overhaul than a turbine. C saves on energy but must replace its batteries.
+- **Operating cost.** Piston engines have lower purchase and overhaul costs than a turbine. Concept C uses cheaper electrical energy, but its batteries must be replaced.
 - **Runway length.** A and B need a runway; C needs only a landing pad.
 - **Technical risk.** Piston twins and turboprops have flown for decades. Electric lift rotors are new, with few in service.
 - **Noise.** Electric motors are quieter than engines, although the lift rotors still make noise at takeoff.
@@ -130,14 +130,14 @@ $$
 \end{aligned}
 $$
 
-The same sum gives 3.25 for A and 3.05 for C, so B wins. As a check, every total lies between the lowest and highest score of its column, as a weighted average must. {numref}`fig-p17-weighted-totals` shows where each total comes from.
+The same sum gives 3.25 for A and 3.05 for C, so B ranks first. As a check, every total lies between the lowest and highest score of its column, as a weighted average must. {numref}`fig-p17-weighted-totals` shows where each total comes from.
 
 :::{figure} figures/p17-weighted-totals.svg
 :label: fig-p17-weighted-totals
 :alt: Three stacked bars, one per concept, each built from five segments in the same order from the bottom: payload and range (weight 0.30), shaded gold, then operating cost (0.25), runway length needed (0.20), technical risk (0.15), and noise near villages (0.10) in white and grays. Each segment shows the weight times the score. A, twin piston: 0.90, 1.00, 0.40, 0.75, 0.20, total 3.25. B, single turboprop: 1.50, 0.75, 0.40, 0.60, 0.20, total 3.45, the highest. C, electric VTOL: 0.60, 0.75, 1.00, 0.30, 0.40, total 3.05. B's payload and range segment, 1.50, drawn with a heavy outline, is the largest of the chart.
 :width: 85%
 
-Computed from {numref}`tbl-p17-decision-matrix`, with payload and range the bottom segment of every bar. B wins because it scores 5 on payload and range, the criterion with the largest weight, worth 1.50 (heavy outline). C's top score on runway length adds 1.00, but its low scores on payload and on technical risk cost it more.
+Computed from {numref}`tbl-p17-decision-matrix`, with payload and range as the bottom segment of every bar. Concept B ranks first because it scores 5 on payload and range, the criterion with the largest weight, contributing 1.50 (heavy outline). Concept C's top score on runway length adds 1.00, but its low scores on payload and on technical risk pull its total down further.
 :::
 
 :::{warning} Weights set after scoring steer the answer
@@ -150,7 +150,7 @@ Two criteria that measure the same thing, such as "range" and "fuel needed for t
 
 ## Checking the result: sensitivity to the weights
 
-The weights are judgments, so the winner should not depend on a small change in one of them. A {term}`sensitivity check` changes one weight, scales the others so that all of them still add up to 1, and recomputes the totals.
+The weights are engineering judgments, so the top-ranked concept should not depend on a small change in one of them. A {term}`sensitivity check` changes one weight, scales the others so that all of them still add up to 1, and recomputes the totals.
 
 Suppose criterion $k$ has the weight $w_k$, and we change it to $w_k'$. To keep the sum at 1, we multiply every other weight by the same factor:
 
@@ -222,17 +222,17 @@ We raise the runway weight from 0.20 to 0.35 (criterion $k$ is runway length).
 
 **Check.** The new weights still add up to 1: $0.35 + 0.8125 \times 0.80 = 1.000$. At $w_k^{*}$ both totals equal 3.279.
 
-At 0.35, C wins. {numref}`fig-p17-weight-sensitivity` draws all three lines. Any runway weight below 0.2941 keeps B ahead, and any weight above it puts C ahead. The margin is only $0.2941 - 0.20 = 0.094$, less than half the weight already given to runway length. Concept A never wins: it has the same runway score as B and a smaller $r$, so its line stays below B's.
+At 0.35, C ranks first. {numref}`fig-p17-weight-sensitivity` draws all three lines. Any runway weight below 0.2941 keeps B ahead, and any weight above it puts C ahead. The margin is only $0.2941 - 0.20 = 0.094$, less than half the weight already given to runway length. Concept A never takes the lead because it has the same runway score as B and a smaller $r$, so its line stays below B's.
 
 :::{figure} figures/p17-weight-sensitivity.svg
 :label: fig-p17-weight-sensitivity
 :alt: A plot of weighted total against the new weight of the runway criterion, w k prime, from 0 to 0.6, with the other weights scaled so that all add up to 1. Three straight lines. B, single turboprop, dashed, falls as the runway weight grows. A, twin piston, solid, falls too and stays below B. C, electric VTOL, dotted, rises steeply. At the weight set first, 0.20, B leads with 3.45. B and C cross at the tie weight w k star, 0.2941, where the winner changes. At the check weight 0.35, C leads with 3.416.
 :width: 75%
 
-Computed from {numref}`tbl-p17-decision-matrix` with [](#eq-p17-new-total), the other four weights scaled to keep the sum at 1. The winner changes from B to C when the runway weight passes the tie weight, 0.2941, not far above the 0.20 set first.
+Computed from {numref}`tbl-p17-decision-matrix` with [](#eq-p17-new-total), the other four weights scaled to keep the sum at 1. The leading concept changes from B to C when the runway weight passes the tie weight, 0.2941, not far above the 0.20 set first.
 :::
 
-We test sensitivity to the scores the same way. The margin between B and A is $3.45 - 3.25 = 0.20$, which is smaller than the 0.25 change caused by a one-point shift in the operating-cost score: if B scored 2 instead of 3 on operating cost, its total would drop to 3.20 and A would move ahead. NASA's handbook asks teams to state whether plausible changes could reverse the ranking and to report closely ranked alternatives together (NASA 2016, Section 6.8.1.2.5). For the island cargo aircraft, we therefore report B as the leading concept by a narrow margin over A, with C overtaking B if short-runway capability carries higher priority than the baseline weights assume. Because 1-to-5 scores reflect engineering judgment, totals this close mean we should gather better operating-cost and island-runway data before locking in the final configuration (Goldberg et al. 1994, Section 2.1.3).
+We test sensitivity to the scores the same way. The margin between B and A is $3.45 - 3.25 = 0.20$, which is smaller than the 0.25 change caused by a one-point shift in the operating-cost score. If B scored 2 instead of 3 on operating cost, its total would drop to 3.20 and A would move ahead. NASA's handbook asks teams to state whether plausible changes could reverse the ranking and to report closely ranked alternatives together (NASA 2016, Section 6.8.1.2.5). For the island cargo aircraft, we report B as the leading concept by a narrow margin over A, with C overtaking B if short-runway capability carries higher priority than the baseline weights assume. Because 1-to-5 scores reflect engineering judgment, totals this close mean we should gather better operating-cost and island-runway data before locking in the final configuration (Goldberg et al. 1994, Section 2.1.3).
 
 ## The trade-study log
 
@@ -246,19 +246,19 @@ Recording each trade-study decision keeps the team from repeating the same debat
 | Decision | Choose the vehicle concept |
 | Options considered | Twin piston, single turboprop, electric lift-plus-cruise VTOL |
 | Criteria and data | The weighted decision matrix; weights set from the requirements before scoring |
-| Result | Single turboprop (3.45); electric VTOL wins if the runway weight exceeds 0.2941 |
+| Result | Single turboprop (3.45); electric VTOL ranks first if the runway weight exceeds 0.2941 |
 | What would change it | A customer requirement for vertical takeoff and landing |
 | Who decided | The design group; the configuration engineer wrote the entry |
 :::
 
-In practice, each log entry also records the date of the decision. The "What would change it" field is especially valuable: whenever a requirement changes, scanning that column shows immediately which earlier design decisions need to be reopened.
+In practice, each log entry also records the date of the decision. The "What would change it" field is especially useful. Whenever a requirement changes, scanning that column shows immediately which earlier design decisions need to be reopened.
 
 ## Summary
 
 :::{important} Summary
 - Generate concepts with a combination table, one option per function, and keep at least three that differ in their main options.
 - Take the criteria from the requirements, set weights that add up to 1 before scoring, score from 1 to 5 with a reason, and add weight times score.
-- Change one weight, scale the others, and find the weight at which the winner changes. A small margin is reported as a close result.
+- Change one weight, scale the others, and find the weight at which the ranking changes. A small margin is reported as a close result.
 - Write each decision in the trade-study log, including what would change it.
 :::
 
@@ -281,7 +281,7 @@ Goldberg et al. (1994, Section 2.1) work a weighted trade study end to end, with
 :label: ex-p17-discussion
 
 1. The island cargo aircraft must also be able to fly in strong crosswinds. Which criterion would you add, which weights would you lower to make room for it, and how might the ranking change?
-2. Concept C wins at a runway weight of 0.35. What would you want to know about the islands before you accept a weight that high?
+2. Concept C ranks first at a runway weight of 0.35. What would you want to know about the islands before you accept a weight that high?
 3. Why is it a mistake to score concepts first and choose the weights afterward, even when the people doing it are honest?
 4. Name a combination in {numref}`fig-p17-combination-table` that makes no physical sense, and one that nobody would think of at first but might be worth a look.
 5. Two concepts finish within 0.05 of each other. What would you do next, and what would you write in the log?

@@ -10,7 +10,7 @@ The takeoff distance, climb rate, and cruise speed of an aircraft all depend on 
 
 :::{note} What to take from this page
 - Pressure, density, and temperature of a gas are linked by $p = \rho R T$, with $T$ in kelvin and $R = 287$ J/(kg K) for air.
-- A force balance on still air gives the {term}`hydrostatic equation` $dp = -\rho g_0\,dh$: pressure falls with height by the weight of the air left below.
+- A force balance on still air gives the {term}`hydrostatic equation` $dp = -\rho g_0\,dh$, showing that pressure falls with height by the weight of the air left below.
 - In an {term}`isothermal layer` pressure and density fall exponentially; in a {term}`gradient layer` they fall as a power of the temperature ratio. Each layer starts from the values at its own base.
 - The speed of sound, $a_s = \sqrt{\gamma R T}$, depends only on temperature. The same equations work for any planet once its gas constant, gravity, and lapse rate are known.
 :::
@@ -31,10 +31,10 @@ Schematic, not to scale. Pressure comes from molecules striking a surface, densi
 :label: def-p14-state
 - **Pressure** $p$ is the normal force per unit area that a gas exerts on a surface: $p = dF/dA$ as the area $dA$ shrinks toward zero. The force comes from the momentum of the molecules that strike the surface. Unit: pascal, 1 Pa = 1 N/m². The pressure of still air on any surface, whatever its direction, is the {term}`static pressure`.
 - **Density** $\rho$ is the mass per unit volume: $\rho = dm/dv$ as the volume $dv$ shrinks toward zero. Unit: kg/m³.
-- **Temperature** $T$ measures the average translational kinetic energy of the molecules (their motion through space): the mean value for one molecule is $\tfrac{3}{2} k T$, where $k = 1.380649 \times {10}^{-23}$ J/K is the Boltzmann constant (NIST n.d.). Unit: kelvin, K.
+- **Temperature** $T$ measures the average translational kinetic energy of the molecules (their motion through space). The mean value for one molecule is $\tfrac{3}{2} k T$, where $k = 1.380649 \times {10}^{-23}$ J/K is the Boltzmann constant (NIST n.d.). Unit: kelvin, K.
 :::
 
-A bicycle pump shows all three. When you push the handle, the same mass of air fills a smaller volume: density rises, more molecules strike the walls each second, and pressure rises, while the compression work warms the air. At sea level the mean translational kinetic energy of one air molecule is $\tfrac{3}{2}(1.380649 \times {10}^{-23})(288.16) = 5.968 \times {10}^{-21}$ J. That number is tiny, yet there are so many molecules striking every square meter each second that their combined impacts add up to 101,325 Pa on every surface.
+A bicycle pump shows all three. When you push the handle, the same mass of air fills a smaller volume. Density rises, more molecules strike the walls each second, and pressure rises, while the compression work warms the air. At sea level the mean translational kinetic energy of one air molecule is $\tfrac{3}{2}(1.380649 \times {10}^{-23})(288.16) = 5.968 \times {10}^{-21}$ J. That number is tiny, yet there are so many molecules striking every square meter each second that their combined impacts add up to 101,325 Pa on every surface.
 
 The temperature here is absolute. It is in kelvin, counted from the zero at which the molecules would stop, and only on this scale is the energy proportional to $T$.
 
@@ -54,7 +54,7 @@ The ratio $m/v$ is the density, and $R_u/M$ is a constant for a given gas, its {
 p = \rho R T
 :::
 
-For dry air, with a molar mass of 28.96 kg/kmol, $R = 8{,}314.5/28.96 = 287.1$ J/(kg K); in these notes we use $R = 287$ J/(kg K). The units check: kg/m³ times J/(kg K) times K gives J/m³, and a joule per cubic meter is a newton per square meter, a pascal.
+For dry air, with a molar mass of 28.96 kg/kmol, $R = 8{,}314.5/28.96 = 287.1$ J/(kg K); in these notes we use $R = 287$ J/(kg K). Checking the units, kg/m³ times J/(kg K) times K gives J/m³, and a joule per cubic meter is a newton per square meter, or one pascal.
 
 The equation of state assumes an ideal gas, whose molecules take up almost no volume and do not attract each other. Air around an aircraft fits this model well. The hot gas around a vehicle entering an atmosphere does not, and later courses treat that case.
 
@@ -79,7 +79,7 @@ In these notes we use the model of Anderson (2016, Chapter 3) and the NASA Glenn
 
 ## The hydrostatic equation
 
-The equation of state holds at one point. The second equation of the model says how the pressure changes with height. Still air has weight, and the pressure at any level must hold up the air above it. We write that idea for a thin slab.
+The equation of state applies at a single point. The second equation of the model describes how pressure changes with height. Still air has weight, and the pressure at any level must support the weight of the air above it. We write that idea for a thin slab.
 
 In {numref}`fig-p14-slab-balance` we take a column of air at rest and cut from it a thin slab of horizontal area $dA$ and thickness $dh$, with its bottom face at altitude $h$. Three vertical forces act on the slab:
 
@@ -117,9 +117,9 @@ Dividing by $dA$ and solving for $dp$ gives
 dp = -\rho\,g_0\,dh
 :::
 
-This is the hydrostatic equation. The minus sign means that pressure falls as altitude rises, by the weight of each slab we pass. Near sea level $\rho g_0 = 1.2250 \times 9.81 = 12.02$ Pa per meter of climb. The equation holds for any fluid at rest. For water, whose density does not change, it gives the $\Delta p = \rho g h$ of a column of liquid, which we use for the manometer on the next page.
+This is the hydrostatic equation. The minus sign means that pressure falls as altitude rises, by the weight of each slab we pass. Near sea level $\rho g_0 = 1.2250 \times 9.81 = 12.02$ Pa per meter of climb. This equation applies to any fluid at rest. For water, whose density does not change, it gives the $\Delta p = \rho g h$ of a column of liquid, which we use for the manometer on the next page.
 
-Integrated over the whole column, the equation says that the pressure at the ground equals the weight of all the air above one square meter. Sea-level pressure, 101,325 Pa, is the weight of $101{,}325/9.81 = 10{,}329$ kg of air resting on each square meter.
+Integrated over the whole column, the equation shows that the pressure at the ground equals the weight of all the air above one square meter. Sea-level pressure, 101,325 Pa, is the weight of $101{,}325/9.81 = 10{,}329$ kg of air resting on each square meter.
 
 In these notes we use $g_0 = 9.81$ m/s², the standard value 9.80665 m/s² to three figures, and we keep it the same at every altitude. Gravity weakens a little with height. The standard tables allow for this with a geopotential altitude, an altitude adjusted for the weaker gravity, which differs from the geometric altitude by about 0.3% at 20 km.
 
@@ -147,7 +147,7 @@ $$
 where $h_1$ is the altitude of the base of the layer, $T_1$ the temperature there, and $a = dT/dh$ the **lapse rate**, in K/m. The lapse rate is negative when temperature falls with height. In an **isothermal layer** the temperature is the same at every altitude: $a = 0$ and $T = T_1$.
 :::
 
-The lowest layer, the {term}`troposphere`, runs from sea level to 11,000 m with a {term}`lapse rate` $a = -0.0065$ K/m: the air cools by 6.5 K for every kilometer of climb. Its top, the {term}`tropopause`, sits at 216.66 K. Above it lies the {term}`stratosphere`. Its lower part, from 11,000 m to 25,000 m, is isothermal in this model. In its upper part the temperature rises again, at $a = +0.003$ K/m. The ozone at those heights absorbs ultraviolet light from the Sun, and that energy heats the air (Salawitch et al. 2023, Q2). A common shorthand calls the layers where temperature changes "spheres" and those where it stays constant "pauses," although that usage is imprecise: the isothermal layer from 11 to 25 km is the lower stratosphere, and the tropopause is its lower boundary at 11 km.
+The lowest layer, the {term}`troposphere`, runs from sea level to 11,000 m with a {term}`lapse rate` $a = -0.0065$ K/m, meaning the air cools by 6.5 K for every kilometer of climb. Its top, the {term}`tropopause`, is at 216.66 K. Above it lies the {term}`stratosphere`. Its lower part, from 11,000 m to 25,000 m, is isothermal in this model. In its upper part the temperature rises again, at $a = +0.003$ K/m. The ozone at those heights absorbs ultraviolet light from the Sun, and that energy heats the air (Salawitch et al. 2023, Q2). A common shorthand calls the layers where temperature changes "spheres" and those where it stays constant "pauses," although that usage is imprecise. The isothermal layer from 11 to 25 km is the lower stratosphere, and the tropopause is its lower boundary at 11 km.
 
 {numref}`tbl-p14-layers` lists the layers and the values at the base of each. The base values are not new data. We compute each one from the layer below with the equations of the next two sections, starting from sea level.
 
@@ -165,7 +165,7 @@ The lowest layer, the {term}`troposphere`, runs from sea level to 11,000 m with 
 
 :::
 
-Up to 20 km, this model and the U.S. Standard Atmosphere, 1976 agree to within 0.2%. Above 20 km they diverge: the 1976 standard begins warming at 20 km, while our model stays isothermal to 25 km and then warms faster, reaching 282.66 K at 47 km against 270.65 K. At 47 km our model's pressure is about 8.2% above the 1976 value. Use the model of these notes for the problems here, and consult the 1976 tables when a design requires upper-atmosphere data.
+Up to 20 km, this model and the U.S. Standard Atmosphere, 1976 agree to within 0.2%. Above 20 km they diverge. The 1976 standard begins warming at 20 km, while our model stays isothermal to 25 km and then warms faster, reaching 282.66 K at 47 km against 270.65 K. At 47 km our model's pressure is about 8.2% above the 1976 value. Use the model of these notes for the problems here, and consult the 1976 tables when a design requires upper-atmosphere data.
 
 ## Pressure and density in an isothermal layer
 
@@ -182,7 +182,7 @@ Dividing both sides by $p$ separates the variables:
 \frac{dp}{p} = -\frac{g_0}{R T}\,dh
 :::
 
-This equation holds in every layer. In an isothermal layer $T = T_1$ is a constant, so it comes out of the integral. We integrate from the base of the layer ($h_1$, $p_1$) to any altitude $h$ in the layer (with pressure $p$):
+This equation applies in every layer. In an isothermal layer $T = T_1$ is a constant, so it comes out of the integral. We integrate from the base of the layer ($h_1$, $p_1$) to any altitude $h$ in the layer (with pressure $p$):
 
 $$
 \int_{p_1}^{p} \frac{dp}{p} = -\frac{g_0}{R T_1} \int_{h_1}^{h} dh
@@ -217,7 +217,7 @@ $$
 \frac{dp}{p} = -\frac{g_0}{a R}\,\frac{dT}{T}
 $$
 
-Now $g_0$, $a$, and $R$ are constants, and the right side holds only $T$. We integrate from the base ($p_1$, $T_1$) to any point of the layer ($p$, $T$):
+Now $g_0$, $a$, and $R$ are constants, and the right side depends only on $T$. We integrate from the base ($p_1$, $T_1$) to any point of the layer ($p$, $T$):
 
 $$
 \ln\frac{p}{p_1} = -\frac{g_0}{a R}\,\ln\frac{T}{T_1}
@@ -259,7 +259,7 @@ p &= 2{,}484 \times \left(\frac{246.66}{216.66}\right)^{-11.394}\\
 $$
 
 :::{warning} The sign and the unit of the lapse rate
-The lapse rate enters the exponent with its sign: $a = -0.0065$ K/m in the troposphere. If you drop the sign in the troposphere, the exponent turns negative and the pressure rises with altitude. The unit matters too: with $a$ in K/km and $h$ in meters, the exponent is off by a factor of 1,000. Keep $h$ in meters and $a$ in K/m.
+The lapse rate enters the exponent with its sign: $a = -0.0065$ K/m in the troposphere. If you drop the sign in the troposphere, the exponent turns negative and the pressure rises with altitude. The unit matters too. With $a$ in K/km and $h$ in meters, the exponent is off by a factor of 1,000. Keep $h$ in meters and $a$ in K/m.
 :::
 
 The two kinds of layer appear side by side in {numref}`fig-p14-pressure-density`. Between sea level and 25 km the pressure falls by a factor of 40.8 and the density by a factor of 30.7. Neither curve has a break at a layer boundary, because each layer starts from the values where the layer below ends.
@@ -281,15 +281,15 @@ That gives us the equations for both kinds of layer. {numref}`fig-p14-method-flo
 :alt: Flow chart with five numbered steps. Step 1, write the altitude h in meters. Step 2, a decision: which layer holds h, with three branches: 0 to 11,000 meters, gradient layer, a equal to minus 0.0065 K per meter, base at sea level; 11,000 to 25,000 meters, isothermal layer at 216.66 K, base at 11,000 meters; 25,000 to 47,000 meters, gradient layer, a equal to plus 0.003 K per meter, base at 25,000 meters. All three lead to step 3, take the base values of that layer. Step 4, compute T, then p and rho. Step 5, check p equals rho R T and that p lies between the values at the base and the top of the layer.
 :width: 85%
 
-Schematic of the method that gives the properties at a given altitude. Step 2 matters most: the layer fixes both the equations and the base to start from.
+Schematic of the method that gives the properties at a given altitude. Step 2 matters most, because the layer determines both the equations and the base values to start from.
 :::
 
 :::{tip} Method: temperature, pressure, and density at a given altitude
 1. Write the altitude $h$ in meters and every temperature in kelvin.
 2. Find the layer that contains altitude $h$ ({numref}`tbl-p14-layers`).
-3. Take the base values $h_1$, $T_1$, $p_1$, $\rho_1$ of that layer. Above 11,000 m they are not the sea-level values: compute them from the layer below, or take them from {numref}`tbl-p14-layers`.
-4. Compute the temperature, then the pressure and density, with {eq}`eq-p14-gradient-p` and {eq}`eq-p14-gradient-rho` in a gradient layer or {eq}`eq-p14-isothermal` in an isothermal layer.
-5. Check: $p = \rho R T$ holds to about four figures, and $p$ lies between the pressures at the base and the top of the layer.
+3. Take the base values $h_1$, $T_1$, $p_1$, $\rho_1$ of that layer. Above 11,000 m they are not the sea-level values, so compute them from the layer below or take them from {numref}`tbl-p14-layers`.
+4. Compute the temperature, pressure, and density with {eq}`eq-p14-gradient-p` and {eq}`eq-p14-gradient-rho` in a gradient layer or {eq}`eq-p14-isothermal` in an isothermal layer.
+5. Check: $p = \rho R T$ agrees to about four figures, and $p$ lies between the pressures at the base and the top of the layer.
 :::
 
 The other direction starts from a measurement. An aircraft senses the pressure of the outside air, and we want its altitude.
@@ -310,7 +310,7 @@ The altitude found from a measured density is the {term}`density altitude`. Pilo
 
 A cargo jet cruises at $h = 10{,}500$ m in the standard atmosphere. Find the temperature, pressure, and density.
 
-1. **Layer.** 10,500 m is below 11,000 m: the troposphere, a gradient layer with $a = -0.0065$ K/m and its base at sea level ($h_1 = 0$, $T_1 = 288.16$ K, $p_1 = 101{,}325$ Pa, $\rho_1 = 1.2250$ kg/m³).
+1. **Layer.** Because 10,500 m is below 11,000 m, we are in the troposphere, a gradient layer with $a = -0.0065$ K/m and its base at sea level ($h_1 = 0$, $T_1 = 288.16$ K, $p_1 = 101{,}325$ Pa, $\rho_1 = 1.2250$ kg/m³).
 2. **Temperature.**
    $$
    \begin{aligned}
@@ -347,7 +347,7 @@ A cargo jet cruises at $h = 10{,}500$ m in the standard atmosphere. Find the tem
 
 A weather balloon carries a radiosonde, a small instrument package, up through $h = 21{,}000$ m. Find the temperature, pressure, and density there. {numref}`fig-p14-example-ladder` draws the path of the calculation.
 
-1. **Layer.** 21,000 m lies between 11,000 m and 25,000 m: the isothermal layer, $T = 216.66$ K. Its base is at $h_1 = 11{,}000$ m, so we need the values there first.
+1. **Layer.** Because 21,000 m lies between 11,000 m and 25,000 m, we are in the isothermal layer at $T = 216.66$ K. Its base is at $h_1 = 11{,}000$ m, so we need the values there first.
 2. **Base values at 11,000 m**, from the troposphere. The temperature ratio is $216.66/288.16 = 0.751874$, and
    $$
    \begin{aligned}
@@ -392,14 +392,14 @@ Computed for example 2. The calculation climbs in two stages, first to 11,000 m 
 :::
 
 :::{warning} The isothermal layer starts at 11,000 m, not at sea level
-If you use sea-level pressure and the full altitude in {eq}`eq-p14-isothermal`, $101{,}325\,\exp[-9.81 \times 21{,}000/(287 \times 216.66)]$, you get 3,689 Pa instead of 4,670 Pa. The equation of a layer holds only inside that layer, from its own base.
+If you use sea-level pressure and the full altitude in {eq}`eq-p14-isothermal`, $101{,}325\,\exp[-9.81 \times 21{,}000/(287 \times 216.66)]$, you get 3,689 Pa instead of 4,670 Pa. The equation of a layer applies only inside that layer, measured from its own base.
 :::
 
 ### Worked example 3: altitude from a measured pressure
 
 A glider climbing in rising air measures an outside pressure of $p = 61{,}500$ Pa. Find its altitude in the standard atmosphere and the temperature and density of the air there.
 
-1. **Layer.** 61,500 Pa lies between 101,325 Pa (sea level) and 22,616 Pa (11,000 m): the troposphere, with its base at sea level.
+1. **Layer.** Because 61,500 Pa lies between 101,325 Pa (sea level) and 22,616 Pa (11,000 m), we are in the troposphere, with its base at sea level.
 2. **Temperature**, from {eq}`eq-p14-gradient-p` solved for $T$. The pressure ratio is $61{,}500/101{,}325 = 0.60696$ and the exponent $-aR/g_0 = 0.0065 \times 287/9.81 = 0.19016$:
    $$
    \begin{aligned}
@@ -437,9 +437,9 @@ $$
 
 That is the measured 61,500 Pa to four figures. The point is the triangle on {numref}`fig-p14-pressure-density`.
 
-**The same method in the isothermal layer.** A stratospheric airship, a powered lighter-than-air craft that holds its station high above the weather, measures an outside pressure of $p = 9{,}500$ Pa. Find its altitude and the density of the air it floats in.
+**The same method in the isothermal layer.** A stratospheric airship, a powered lighter-than-air craft that maintains its station high above the weather, measures an outside pressure of $p = 9{,}500$ Pa. Find its altitude and the density of the air it floats in.
 
-1. **Layer.** 9,500 Pa lies between 22,616 Pa (11,000 m) and 2,484 Pa (25,000 m): the isothermal layer, with $T = 216.66$ K and its base at $h_1 = 11{,}000$ m.
+1. **Layer.** Because 9,500 Pa lies between 22,616 Pa (11,000 m) and 2,484 Pa (25,000 m), we are in the isothermal layer, with $T = 216.66$ K and its base at $h_1 = 11{,}000$ m.
 2. **Altitude**, from {eq}`eq-p14-isothermal` solved for $h$ (step 3 of the method), with $R T_1/g_0 = 287 \times 216.66/9.81 = 6{,}339$ m:
    $$
    \begin{aligned}
@@ -585,7 +585,7 @@ Computed from the same layer equations for Earth's standard atmosphere and for a
 
 A real day can be tens of kelvin warmer or colder than standard. A simple model shifts the whole temperature profile by a constant $\Delta T$ and keeps the standard sea-level pressure. We then apply the same layer equations from $T_1 = 288.16 + \Delta T$. Designers use such days to check takeoff from hot airports.
 
-Suppose an airport sits at 1,800 m on a day 20 K hotter than standard. The sea-level temperature of that day is 308.16 K, and at the airport
+Suppose an airport is located at 1,800 m on a day 20 K hotter than standard. The sea-level temperature of that day is 308.16 K, and at the airport
 
 $$
 \begin{aligned}
@@ -626,7 +626,7 @@ So the aircraft at this airport performs as if it were 548 m higher ({numref}`fi
 :alt: Two plots against altitude from 0 to 4,000 meters, with a dashed line across both at the airport elevation, 1,800 meters. Temperature: the hot-day line runs parallel to the standard line, 20 K warmer at every altitude. Density: the hot-day curve lies to the left of the standard curve. At the airport the standard density is 1.027 and the hot-day density 0.9716 kilograms per cubic meter; a vertical dotted line from the hot-day point rises at that density to the standard curve, which it meets at the density altitude, 2,348 meters.
 :width: 80%
 
-Computed for a day 20 K hotter than standard, with the standard sea-level pressure. The warmer air is less dense at every altitude: at an airport at 1,800 m its density equals the standard density at 2,348 m, the airport's density altitude.
+Computed for a day 20 K hotter than standard, with the standard sea-level pressure. The warmer air is less dense at every altitude. At an airport at 1,800 m its density equals the standard density at 2,348 m, which is the airport's density altitude.
 :::
 
 ## Summary
@@ -659,8 +659,8 @@ Computed for a day 20 K hotter than standard, with the standard sea-level pressu
 
 1. Why does the pressure fall with altitude even in a layer where the temperature does not change?
 2. In the troposphere the density falls more slowly than the pressure with altitude (exponent 4.2586 against 5.2586). What does the falling temperature do to the density, through the equation of state?
-3. Why would an engineer designing a high-altitude balloon care more about the isothermal-layer equations than about the troposphere?
-4. Two airports sit at the same elevation, one in a desert and one by a cold sea. Which has the higher density altitude in summer, and what does that mean for the runway an aircraft needs?
+3. Why does an engineer designing a high-altitude balloon rely more on the isothermal-layer equations than on the troposphere equations?
+4. Two airports lie at the same elevation, one in a desert and one by a cold sea. Which has the higher density altitude in summer, and what does that mean for the runway an aircraft needs?
 :::
 
 ## Quiz

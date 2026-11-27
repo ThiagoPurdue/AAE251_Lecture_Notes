@@ -6,11 +6,11 @@ short_title: 4.2 Rocket Equation
 :::{include} ../_parts/standards/4.2.md
 :::
 
-In Chapter 2, we expressed every maneuver as a delta-V: 3.416 km/s for the Hohmann transfer on page 2.2, and 8.833 km/s (including losses) for the launch on page 2.3. To size a real vehicle, we need to turn that delta-V into propellant mass. On this page we derive the {term}`rocket equation`, which relates delta-V to vehicle mass. Next comes the mass of a stage, split into payload, inert mass, and propellant, and the sizing of a stage for a given job. Then we find the most a single stage can ever do and add gravity and drag back in. The page ends by judging whether a real stage can reach orbit on its own.
+In Chapter 2, we expressed every maneuver as a delta-V, such as 3.416 km/s for the Hohmann transfer on page 2.2 and 8.833 km/s (including losses) for the launch on page 2.3. To size a real vehicle, we need to turn that delta-V into propellant mass. On this page we derive the {term}`rocket equation`, which relates delta-V to vehicle mass. Next comes the mass of a stage, split into payload, inert mass, and propellant, and the sizing of a stage for a given job. Then we find the most a single stage can ever do and add gravity and drag back in. The page ends by judging whether a real stage can reach orbit on its own.
 
 :::{note} What to take from this page
 - The rocket equation, $\Delta V = c\ln(m_i/m_f)$ with $c = I_\text{sp}\,g_0$, follows from conservation of momentum. It assumes no gravity and no drag.
-- The mass ratio $m_i/m_f = e^{\Delta V/c}$ grows exponentially: each added $c$ of delta-V multiplies it by $e$.
+- The mass ratio $m_i/m_f = e^{\Delta V/c}$ grows exponentially, because each added $c$ of delta-V multiplies it by $e$.
 - The inert mass fraction, $f_\text{inert} = m_\text{inert}/(m_\text{inert} + m_\text{prop})$, ties the inert mass to the propellant, so one formula gives the propellant for a payload.
 - One stage can never give more than $c\ln(1/f_\text{inert})$. Gravity and drag losses are added to the requirement before any sizing.
 :::
@@ -34,7 +34,7 @@ Here is the idea. A rocket throws small pieces of mass backward at high speed. E
 Schematic of the momentum exchange that the rocket equation comes from: the rocket gains forward momentum because the small mass it throws out carries momentum backward, and the total does not change. Velocities from the ground; drawn for an exit velocity $V_e$ larger than $V$, so the exhaust moves backward and its velocity $V - V_e$ is negative; the change $dV$ is exaggerated. Rocket outline after the Falcon 9 (SpaceX 2025).
 :::
 
-At time $t$ the rocket has mass $m$ and moves at speed $V$, measured from the ground. During a short time $dt$ it throws out a small mass $dm_\text{prop}$ of propellant. That mass leaves at the {term}`exit velocity` $V_e$ relative to the rocket, backward, so seen from the ground it moves at $V - V_e$. The rocket, now lighter, moves at $V + dV$. We assume that no outside force acts: no gravity and no drag (NASA Glenn Research Center 2023). Then the total momentum of the rocket and its exhaust is the same before and after the step.
+At time $t$ the rocket has mass $m$ and moves at speed $V$, measured from the ground. During a short time $dt$ it throws out a small mass $dm_\text{prop}$ of propellant. That mass leaves at the {term}`exit velocity` $V_e$ relative to the rocket, backward, so seen from the ground it moves at $V - V_e$. The rocket, now lighter, moves at $V + dV$. We assume that no outside force acts, meaning no gravity and no drag (NASA Glenn Research Center 2023). Then the total momentum of the rocket and its exhaust is the same before and after the step.
 
 1. **Momentum before equals momentum after.**
    $$
@@ -78,7 +78,7 @@ At time $t$ the rocket has mass $m$ and moves at speed $V$, measured from the gr
    \end{aligned}
    $$
 
-Step 4 has a familiar meaning. Divide it by $dt$: $m\,dV/dt = (dm_\text{prop}/dt)\,V_e$, which is the rocket's mass times its acceleration, equal to the momentum thrust $\dot m V_e$. The exhaust also pushes with its pressure at the nozzle exit. Page 4.1 adds that pressure thrust and writes the whole thrust as $F = \dot m\,c$, with $c$ the {term}`effective exhaust velocity` ([specific impulse](#p41-specific-impulse)). With that thrust the same steps give the same result with $c$ in place of $V_e$. So from here on we write $c$, found from the specific impulse as $c = I_\text{sp}\,g_0$.
+Step 4 has a familiar meaning if we divide it by $dt$, giving $m\,dV/dt = (dm_\text{prop}/dt)\,V_e$, which is the rocket's mass times its acceleration equal to the momentum thrust $\dot m V_e$. The exhaust also pushes with its pressure at the nozzle exit. Page 4.1 adds that pressure thrust and writes the whole thrust as $F = \dot m\,c$, with $c$ the {term}`effective exhaust velocity` ([specific impulse](#p41-specific-impulse)). With that thrust the same steps give the same result with $c$ in place of $V_e$. So from here on we write $c$, found from the specific impulse as $c = I_\text{sp}\,g_0$.
 
 ::::{prf:definition} Rocket equation
 :label: def-p42-rocket-equation
@@ -110,7 +110,7 @@ In $c = I_\text{sp}\,g_0$, $g_0$ is always 9.81 m/s², the standard gravity that
 
 ## What the equation says
 
-We solve [](#eq-p42-rocket) for the masses. Divide by $c$ and take the exponential of both sides:
+To solve [](#eq-p42-rocket) for the masses, we divide by $c$ and take the exponential of both sides:
 
 :::{math}
 :label: eq-p42-mass-ratio
@@ -124,7 +124,7 @@ The ratio $m_i/m_f$ is the {term}`mass ratio`. The propellant burned is $m_i - m
 \frac{m_\text{prop}}{m_i} = 1 - e^{-\Delta V/c}
 :::
 
-This is the form used on [the ground-tracks page](#eq-p25-propellant), solved for the propellant. Now look at the numbers in {numref}`fig-p42-mass-ratio`. A delta-V equal to $c$ needs a mass ratio of $e = 2.718$: 63% of the vehicle at ignition is propellant. Twice $c$ needs 7.389, and 86% is propellant. Three times $c$ needs 20.09, and 95% is propellant.
+This is the form used on [the ground-tracks page](#eq-p25-propellant), solved for the propellant. Now look at the numbers in {numref}`fig-p42-mass-ratio`. A delta-V equal to $c$ needs a mass ratio of $e = 2.718$, so 63% of the vehicle at ignition is propellant. Twice $c$ needs 7.389, and 86% is propellant. Three times $c$ needs 20.09, and 95% is propellant.
 
 :::{figure} figures/p42-mass-ratio.svg
 :label: fig-p42-mass-ratio
@@ -163,12 +163,12 @@ A spacecraft arrives at Jupiter and must slow by $\Delta V$ = 2.1 km/s to be cap
    $$
 5. **Propellant.** $m_\text{prop} = m_i - m_f = 4{,}000 - 2{,}207 = 1{,}793$ kg.
 
-**Check.** The burn is a little more than half of $c$, so the propellant share should lie below the 63% of a burn of $c$. It is $1{,}793/4{,}000$, about 45%. Slowing a spacecraft down requires the same propellant as speeding it up by the same $\Delta V$. The spacecraft turns so that its engine fires against the direction of motion, and the same equation holds.
+**Check.** The burn is a little more than half of $c$, so the propellant share should lie below the 63% of a burn of $c$. Here it is $1{,}793/4{,}000$, or about 45%. Slowing a spacecraft down requires the same propellant as speeding it up by the same $\Delta V$. The spacecraft turns so that its engine fires against the direction of motion, and the same equation applies.
 
 (p42-inert-mass-fraction)=
 ## Three kinds of mass
 
-The rocket equation has only two masses in it, $m_i$ and $m_f$. To design a vehicle we need to know what they are made of. A vehicle splits into three parts.
+The rocket equation contains only two masses, $m_i$ and $m_f$. To design a vehicle, we need to know what those masses include, so we split a stage into three parts:
 
 - The {term}`payload` mass $m_\text{pay}$ is everything the stage carries that is not its own propulsion system, such as a satellite or the stages above it.
 - The {term}`inert mass` $m_\text{inert}$ is everything in the stage that is not propellant: the empty tanks, the engines, the pipes, and the structure.
@@ -184,7 +184,7 @@ m_i &= m_f + m_\text{prop}
 \end{aligned}
 :::
 
-We now have three equations, but we face a coupling problem: we cannot know the inert mass before we know the propellant mass, because carrying more propellant requires larger, heavier tanks. What stays roughly constant across similar designs is the fraction of the stage's own mass that is inert, which we define as the inert mass fraction.
+We now have three equations, but the inert mass and propellant mass are coupled. We cannot know the inert mass before we know the propellant mass, because carrying more propellant requires larger, heavier tanks. What stays roughly constant across similar designs is the fraction of the stage's own mass that is inert, which we define as the inert mass fraction.
 
 :::{prf:definition} Inert mass fraction
 :label: def-p42-inert-mass-fraction
@@ -242,7 +242,7 @@ The values come from stages that have flown. {numref}`tbl-p42-stages` computes t
 Values from the published masses of {numref}`tbl-p42-stages`: the larger a liquid stage, the smaller its inert mass fraction, from 0.23 for the small Ariane 5 upper stage down to 0.057 for the S-IC. The solid motors follow no such trend. S-IC, S-II, and S-IVB are the Saturn V stages; P80, Zefiro 23, and Zefiro 9 are Vega's.
 :::
 
-The liquid stages show a clear trend: the larger the stage, the lower the fraction, from 0.234 for the small Ariane 5 upper stage down to 0.0573 for the S-IC. The small upper stage has the highest fraction. Some of its parts, such as the engine, the attitude-control thrusters, and the interstage adapter, do not shrink in proportion to the propellant load. The solid motors follow no such trend. In a solid motor the case itself is the combustion chamber, so its whole length must hold the chamber pressure. The two large boosters, at 0.143 and 0.148, have steel cases (Arianespace 2016, Section 1.5.1; NASA 1981, p. 2-19). Vega's motors, at 0.0887 to 0.119, have cases wound from carbon fiber and epoxy (Arianespace 2014, Figure 1.5.1a). Across the table the fraction runs from 0.057 to 0.23. For a new design, we choose $f_\text{inert}$ from existing stages with comparable propellant, size, and mission.
+The liquid stages show a clear trend, with larger stages achieving lower inert mass fractions, from 0.234 for the small Ariane 5 upper stage down to 0.0573 for the S-IC. The small upper stage has the highest fraction because some of its parts, such as the engine, the attitude-control thrusters, and the interstage adapter, do not shrink in proportion to the propellant load. The solid motors follow no such trend. In a solid motor the case itself is the combustion chamber, so its entire length must withstand the chamber pressure. The two large boosters, at 0.143 and 0.148, have steel cases (Arianespace 2016, Section 1.5.1; NASA 1981, p. 2-19). Vega's motors, at 0.0887 to 0.119, have cases wound from carbon fiber and epoxy (Arianespace 2014, Figure 1.5.1a). Across the table the fraction runs from 0.057 to 0.23. For a new design, we choose $f_\text{inert}$ from existing stages with comparable propellant, size, and mission.
 
 (p42-stage-sizing)=
 ## Sizing a stage
@@ -288,12 +288,12 @@ With the propellant known, step 2 gives the inert mass, and [](#eq-p42-masses) g
 
 :::{tip} Method: sizing one stage for a payload and a delta-V
 1. Convert the specific impulse to $c = I_\text{sp}\,g_0$, with $g_0 = 9.81\ \text{m/s}^2$, and write $\Delta V$ in m/s.
-2. Compute $x = \Delta V/c$ and $e^{x}$. Keep five or six figures: step 4 subtracts.
-3. Check that $f_\text{inert}\,e^{x} < 1$. If not, stop: no stage of this kind can do the job (see [how far one stage can go](#p42-single-stage-limit)).
-4. Compute the numerator and the denominator of [](#eq-p42-mprop) separately, then divide: $m_\text{prop}$.
-5. $m_\text{inert} = f_\text{inert}\,m_\text{prop}/(1 - f_\text{inert})$.
-6. $m_f = m_\text{pay} + m_\text{inert}$ and $m_i = m_f + m_\text{prop}$.
-7. Check: $c\ln(m_i/m_f)$ gives back $\Delta V$.
+2. Compute $x = \Delta V/c$ and $e^{x}$, keeping five or six significant figures because step 4 involves a subtraction.
+3. Check that $f_\text{inert}\,e^{x} < 1$. If this condition fails, stop, because no stage of this kind can do the job (see [how far one stage can go](#p42-single-stage-limit)).
+4. Compute the numerator and the denominator of [](#eq-p42-mprop) separately, then divide them to find $m_\text{prop}$.
+5. Compute the inert mass, $m_\text{inert} = f_\text{inert}\,m_\text{prop}/(1 - f_\text{inert})$.
+6. Find the final and initial masses, $m_f = m_\text{pay} + m_\text{inert}$ and $m_i = m_f + m_\text{prop}$.
+7. Check that $c\ln(m_i/m_f)$ gives back $\Delta V$.
 :::
 
 ### Worked example 2: one stage for a Hohmann transfer
@@ -363,7 +363,7 @@ Computed for worked example 2, one stage that makes both burns of the Hohmann tr
 (p42-single-stage-limit)=
 ## How far one stage can go
 
-The method above has a warning in step 3. Look at the denominator of [](#eq-p42-mprop), $1 - f_\text{inert}\,e^{\Delta V/c}$. As $\Delta V$ grows, $e^{\Delta V/c}$ grows, and the denominator shrinks toward zero. The propellant mass then grows without bound. When the denominator reaches zero, no amount of propellant is enough. So a stage can carry a payload only if
+Step 3 of the method above includes a limit check because of the denominator of [](#eq-p42-mprop), $1 - f_\text{inert}\,e^{\Delta V/c}$. As $\Delta V$ grows, $e^{\Delta V/c}$ grows, and the denominator shrinks toward zero. The propellant mass then grows without bound. When the denominator reaches zero, no amount of propellant is enough. So a stage can carry a payload only if
 
 :::{math}
 :label: eq-p42-limit
@@ -409,12 +409,12 @@ Dividing the payload by this initial mass gives the payload fraction:
 Computed from the payload fraction of one stage: each stage has a hard limit at $\Delta V/c = \ln(1/f_\text{inert})$, where no payload is left, and the higher the inert mass fraction, the sooner it comes. Inert mass fractions from {numref}`tbl-p42-stages` and worked example 2.
 :::
 
-The delta-V of a single stage can grow in only two ways. A higher $c$ raises the limit $c\ln(1/f_\text{inert})$ in proportion. A lower $f_\text{inert}$ raises $\ln(1/f_\text{inert})$, the value of $\Delta V/c$ where the payload reaches zero. Take the stage of worked example 2 and ask it to reach low Earth orbit, 8.833 km/s with the losses of [page 2.3](#p23-example) included. Its limit is $c\ln(1/0.17) = 3{,}168.63 \times 1.772 = 5{,}615$ m/s. It could not reach orbit even with no payload at all.
+The delta-V of a single stage can grow in only two ways. A higher $c$ raises the limit $c\ln(1/f_\text{inert})$ in proportion. A lower $f_\text{inert}$ raises $\ln(1/f_\text{inert})$, the value of $\Delta V/c$ where the payload reaches zero. Take the stage of worked example 2 and ask it to reach low Earth orbit, 8.833 km/s with the losses of [page 2.3](#p23-example) included. Its limit is $c\ln(1/0.17) = 3{,}168.63 \times 1.772 = 5{,}615$ m/s, so it could not reach orbit even with no payload at all.
 
 (p42-losses)=
 ## Gravity and drag
 
-So far nothing outside the rocket acted on it. For a short burn in orbit that is close to true, but for a launch it is not: the vehicle climbs against gravity and pushes through the air for minutes. We now put both forces back and see where the losses of [ascent and losses](#p23-losses) come from.
+So far nothing outside the rocket acted on it. For a short burn in orbit that assumption is close to true, but during a launch the vehicle climbs against gravity and pushes through the air for minutes. We now put both forces back and see where the losses of [ascent and losses](#p23-losses) come from.
 
 {numref}`fig-p42-flight-path-forces` shows the forces on a vehicle climbing at a flight-path angle $\gamma$, the angle between its velocity and the local horizontal, as on page 2.3. We assume the thrust points along the velocity. Forces along the path count positive forward.
 
@@ -426,7 +426,7 @@ So far nothing outside the rocket acted on it. For a short burn in orbit that is
 Schematic of the forces on a climbing vehicle, with the thrust along the flight path: along the path, the thrust must first overcome drag and the weight component $mg\sin\gamma$; only the remaining net force accelerates the vehicle. At the right, the two parts of the weight are the sides of a rectangle whose diagonal is $mg$. Not to scale; outline after the Falcon 9 (SpaceX 2025).
 :::
 
-1. **Newton's second law along the path.** Thrust forward, drag and the along-path part of the weight backward:
+1. **Newton's second law along the path.** Thrust acts forward, while drag and the along-path component of the weight act backward:
    $$
    m\frac{dV}{dt} = F - D - mg\sin\gamma
    $$
@@ -457,7 +457,7 @@ Schematic of the forces on a climbing vehicle, with the thrust along the flight 
 
 The first term is the ideal rocket equation, the second is the {term}`gravity loss`, and the third is the {term}`drag loss`. These are the integrals of page 2.3, which writes the thrust as $T$; this chapter writes $F$. When the thrust is not along the path, page 2.3's steering loss appears as a third loss.
 
-A picture helps with the gravity loss. Think of a rocket whose thrust equals its weight and points straight up. It hovers: it burns propellant every second and gains no speed, so all of its ideal delta-V goes into the gravity loss, $g$ for every second of burn. The longer a launch vehicle takes to climb, the more it loses this way.
+A picture helps with the gravity loss. Think of a rocket whose thrust equals its weight and points straight up. It hovers in place, burning propellant every second while gaining no speed, so all of its ideal delta-V goes into the gravity loss, $g$ for every second of burn. The longer a launch vehicle takes to climb, the more it loses this way.
 
 Now we turn the equation around. The delta-V that goes into the rocket equation to size a stage is what the mission needs plus the losses:
 
@@ -468,7 +468,7 @@ c\ln\frac{m_i}{m_f} &= \Delta V_\text{mission}\\
 \end{aligned}
 $$
 
-For a launch, this sum is the delta-V budget total of [page 2.3](#p23-budget). That total is the orbit speed plus the losses (1.6 km/s in its worked example), less the help from Earth's rotation. The losses shrink with a shorter burn: a higher {term}`thrust-to-weight ratio` reduces the gravity loss, though it requires heavier engines and stronger structure for higher loads ([how much thrust](#p44-thrust-to-weight)). A slender vehicle with a small cross section and a pointed nose cuts the drag loss. Launching east from a site near the equator lowers the requirement itself.
+For a launch, this sum is the delta-V budget total of [page 2.3](#p23-budget). That total is the orbit speed plus the losses (1.6 km/s in its worked example), less the help from Earth's rotation. The losses shrink with a shorter burn, because a higher {term}`thrust-to-weight ratio` reduces the gravity loss, though it requires heavier engines and stronger structure for higher loads ([how much thrust](#p44-thrust-to-weight)). A slender vehicle with a small cross section and a pointed nose cuts the drag loss. Launching east from a site near the equator lowers the requirement itself.
 
 :::{warning} Add the losses, never subtract them
 The losses are speed the vehicle must produce and does not keep, so the stage is sized for the orbit speed plus the losses. If you subtract them, the stage never reaches orbit.
@@ -477,7 +477,7 @@ The losses are speed the vehicle must produce and does not keep, so the stage is
 (p42-feasibility)=
 ## Judging a single-stage design
 
-We now have everything needed to judge a single-stage design before drawing it. The question is always the same: whether this stage, with this engine and this structure, gives the delta-V the mission needs, losses included, and still carries something.
+We now have everything needed to judge a single-stage design before drawing it. We always ask whether this stage, with this engine and this structure, can produce the required delta-V with losses included and still carry a useful payload.
 
 :::{tip} Method: judging whether one stage can do the job
 1. Add the losses to the mission's delta-V. For a launch, use the budget total of [page 2.3](#p23-budget).
@@ -508,7 +508,7 @@ The core stage of the Ariane 5 ([vehicle anatomy](#p13-launch-vehicle)) has an i
    &= 10{,}726\ \text{m/s}
    \end{aligned}
    $$
-   This is the limit $c\ln(1/f_\text{inert})$ of [](#eq-p42-limit). It is 1,893 m/s more than the 8,833 m/s the orbit needs.
+   This is the limit $c\ln(1/f_\text{inert})$ of [](#eq-p42-limit), which is 1,893 m/s more than the 8,833 m/s the orbit needs.
 4. **Feasibility test.** With $\Delta V$ = 8,833 m/s,
    $$
    \begin{aligned}
