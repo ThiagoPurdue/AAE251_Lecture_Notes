@@ -6,7 +6,7 @@ short_title: 2.2 Orbit Transfers
 :::{include} ../_parts/standards/2.2.md
 :::
 
-A launch vehicle often leaves a spacecraft in a low orbit, short of the orbit where it will work. An upper stage or the spacecraft's own engine then does the rest with a few short burns. Here we compute the delta-V required for those burns, covering the Hohmann transfer between two circular orbits, the single burn that makes an elliptical orbit circular, the phasing orbit that lets one spacecraft catch another, and the change of orbit plane. Then we find the order of maneuvers that keeps the total lowest. Every method uses [the vis-viva equation](#p21-vis-viva) and [circular speed](#p21-circular-and-escape), both from [orbit properties](orbit-properties.md).
+A launch vehicle rarely drops a spacecraft directly into its final operational orbit. Usually it releases the spacecraft in a lower parking orbit, and an upper stage or onboard thruster performs a sequence of short burns to reach the final altitude, shape, or inclination. Here we compute the delta-V required for four standard maneuvers: the Hohmann transfer between circular orbits, circularization of an ellipse, phasing orbits for rendezvous, and plane changes, as well as the maneuver order that minimizes total delta-V. Every calculation builds on [the vis-viva equation](#p21-vis-viva) and [circular speed](#p21-circular-and-escape) from [orbit properties](orbit-properties.md).
 
 :::{note} What to take from this page
 - A burn changes the velocity at one point. The new orbit passes through that point, and the vis-viva equation gives the speed it needs there.

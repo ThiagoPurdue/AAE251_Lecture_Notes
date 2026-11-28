@@ -6,7 +6,7 @@ short_title: 5.4 Engines
 :::{include} ../_parts/standards/5.4.md
 :::
 
-Pages 5.1 to 5.3 took the engines as given, with a thrust or power available that fell with altitude and a fuel rate $c_t$ or $c$. Now we look inside the engine. Every air-breathing engine makes thrust the same way, by taking in air and accelerating it backward faster than it came in. How much air it moves, and how much speed it adds, sets which missions it suits and which engine type an aircraft should carry.
+On pages 5.1 to 5.3, we treated the propulsion system as a black box defined by its available thrust or power, its altitude lapse, and its specific fuel consumption ($c_t$ or $c$). Here we open up the engine to see how those characteristics arise. Every air-breathing engine produces thrust by accelerating incoming air to a higher exhaust velocity. The trade-off between moving a large mass flow slowly or a small mass flow quickly drives propulsive efficiency and guides the choice of engine type for a given mission.
 
 :::{note} What to take from this page
 - An engine that breathes air makes thrust by speeding up the air it takes in, [](#eq-p54-thrust). With no air coming in, the same equation is the rocket thrust of Chapter 4.

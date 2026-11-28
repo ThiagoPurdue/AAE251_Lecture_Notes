@@ -6,7 +6,7 @@ short_title: 5.3 Climb and Ceiling
 :::{include} ../_parts/standards/5.3.md
 :::
 
-On [page 5.1](#p51-level-flight) the aircraft flew level, and the engines gave just enough thrust to cancel the drag. An aircraft also has to climb off the runway, over the terrain around the airport, and up to its cruise altitude. To climb, the engines must give more than level flight needs, and the surplus lifts the weight. A climb raises two questions: how fast the aircraft gains height, and how steeply it rises over the ground. The two answers come at different speeds, and the difference matters most when an engine fails near terrain. Higher up the surplus shrinks, and where it is gone the aircraft has reached its ceiling.
+On [page 5.1](#p51-level-flight), we analyzed steady, level flight, where engine thrust just balances aerodynamic drag. In real operations, an airplane also has to climb away from the runway, clear nearby obstacles, and reach its cruise altitude, all of which require more thrust and power than level flight alone. In climb performance, we track two distinct quantities: how fast the aircraft gains altitude (rate of climb) and how steeply it climbs relative to the ground (climb angle). Because those two quantities peak at different airspeeds, knowing which speed to fly is especially important when clearing terrain after an engine failure. As altitude increases, thinner air reduces engine output until no excess power remains, which defines the aircraft's ceiling.
 
 :::{note} What to take from this page
 - In a steady climb at the climb angle $\gamma$, $T = D + mg\sin\gamma$ and $L = mg\cos\gamma$. The thrust must carry the drag and the part of the weight along the path.

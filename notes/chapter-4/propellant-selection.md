@@ -6,7 +6,7 @@ short_title: 4.4 Propellant Selection
 :::{include} ../_parts/standards/4.4.md
 :::
 
-On the earlier pages of this chapter we took the specific impulse of an engine as a given number. Here we see where it comes from and how an engineer chooses the propellant and the engine. We sort rocket propulsion into its kinds and launch vehicles into their classes, compare the properties that make a propellant good, and decide how much thrust a mission needs. The worked example is a justified choice for a real kind of mission, the last burn of a communications satellite on its way to the geostationary orbit.
+So far in this chapter, we treated an engine's specific impulse as a given input. In real design, engineers have to select both the propulsion type and the propellant combination to fit the mission. Here we classify the main rocket propulsion technologies and launch vehicle classes, compare propellants across specific impulse, density, storability, and operational behavior, and examine how thrust-to-weight ratio constrains that choice. We finish with a quantitative trade study selecting a propulsion system for the apogee burn of a geostationary communications satellite.
 
 :::{note} What to take from this page
 - High specific impulse and high thrust rarely come together. Today only chemical rockets give the thrust to leave the ground; electric thrusters give thousands of seconds of specific impulse at a tiny fraction of the thrust.

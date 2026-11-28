@@ -6,7 +6,7 @@ short_title: 4.2 Rocket Equation
 :::{include} ../_parts/standards/4.2.md
 :::
 
-In Chapter 2, we expressed every maneuver as a delta-V, such as 3.416 km/s for the Hohmann transfer on page 2.2 and 8.833 km/s (including losses) for the launch on page 2.3. To size a real vehicle, we need to turn that delta-V into propellant mass. On this page we derive the {term}`rocket equation`, which relates delta-V to vehicle mass. Next comes the mass of a stage, split into payload, inert mass, and propellant, and the sizing of a stage for a given job. Then we find the most a single stage can ever do and add gravity and drag back in. The page ends by judging whether a real stage can reach orbit on its own.
+In Chapter 2, we measured every mission in terms of delta-V, such as 3.416 km/s for the Hohmann transfer on page 2.2 and 8.833 km/s (including ascent losses) for the launch on page 2.3. To size a launch vehicle or spacecraft, we need to translate that delta-V into propellant mass using the {term}`rocket equation`. Here we derive the ideal rocket equation from conservation of momentum, break a rocket stage into payload, inert mass, and propellant, and use those fractions to size a stage for a target mission. We then add gravity and drag losses back into the model to find the physical limit of a single stage and test whether one stage can reach orbit on its own.
 
 :::{note} What to take from this page
 - The rocket equation, $\Delta V = c\ln(m_i/m_f)$ with $c = I_\text{sp}\,g_0$, follows from conservation of momentum. It assumes no gravity and no drag.

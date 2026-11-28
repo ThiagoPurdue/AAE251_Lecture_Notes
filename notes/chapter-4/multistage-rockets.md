@@ -6,7 +6,7 @@ short_title: 4.3 Multistage Rockets
 :::{include} ../_parts/standards/4.3.md
 :::
 
-A single stage faces a hard limit, because even with no payload it cannot exceed the delta-V allowed by its effective exhaust velocity and inert mass fraction. Launch vehicles get past that limit through {term}`staging <Staging>`, stacking multiple stages and dropping each one once its propellant is empty. On this page we size such a stack. We describe a staged vehicle first, then size its stages from the payload down with the method of [sizing a stage](#p42-stage-sizing). Then we ask how many stages to use and how to split the delta-V between them. We end with a real vehicle, the Saturn V that flew Apollo 11.
+A single rocket stage hits a hard performance ceiling: even with zero payload, its effective exhaust velocity and structural mass fraction cap the delta-V it can produce. Launch vehicles overcome that limit through {term}`staging <Staging>`, discarding empty tanks and engines in flight so the remaining engines do not have to keep accelerating dead weight. Here we apply the single-stage method from [sizing a stage](#p42-stage-sizing) from the payload downward to size a multistage stack, look at how many stages to use and how to split the total delta-V between them, and test the method against the Saturn V that launched Apollo 11.
 
 :::{note} What to take from this page
 - Each stage carries everything above it as its payload. The top stage is sized first, and the sizing works down to the {term}`gross liftoff mass`.

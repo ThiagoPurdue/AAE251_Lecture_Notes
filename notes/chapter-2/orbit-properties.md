@@ -6,7 +6,7 @@ short_title: 2.1 Orbit Properties
 :::{include} ../_parts/standards/2.1.md
 :::
 
-Every orbit in this chapter starts from Newton's law of gravitation, which leads to the two-body model, the orbit equation, Kepler's laws, and the vis-viva equation. Together, these relations let us find a spacecraft's speed at any point and classify any trajectory from a single position and speed. We will apply them to an Earth satellite, a Venus orbiter, and a small body crossing Earth's orbit.
+Every orbital calculation in this chapter builds on Newton's law of gravitation. Starting from the two-body problem, we introduce the orbit equation, Kepler's laws, and the vis-viva equation, which let us compute a spacecraft's speed at any point and classify its trajectory from a single position and velocity as circular, elliptical, parabolic, or hyperbolic. We apply these tools to an Earth satellite, a Venus orbiter, and an asteroid crossing Earth's orbit.
 
 :::{note} What to take from this page
 - In the two-body problem every path is a conic section with the central body at a focus. Two numbers fix its size and shape: the semi-major axis $a$ and the eccentricity $e$.

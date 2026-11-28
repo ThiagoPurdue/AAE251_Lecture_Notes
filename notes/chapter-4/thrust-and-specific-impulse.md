@@ -6,7 +6,7 @@ short_title: 4.1 Thrust and Specific Impulse
 :::{include} ../_parts/standards/4.1.md
 :::
 
-A rocket engine exists to produce thrust. To turn the delta-V of Chapter 2 into propellant mass, we need to know how an engine produces thrust and how efficiently it uses its propellant. On this page we start from momentum and derive the thrust of a rocket engine. We follow the gas through the engine, from the combustion chamber to the exit of the nozzle. Then we define the two numbers that describe an engine's performance, the effective exhaust velocity and the specific impulse. Last, we see how the exit pressure, the size of the nozzle, and the altitude change the thrust. The same equation then works for an engine that breathes air.
+In Chapter 2, we calculated the delta-V required for orbital maneuvers and launches. To convert those velocity requirements into propellant mass, we first need to understand how a rocket engine generates thrust and how we measure its propellant efficiency. Here we derive the rocket thrust equation from conservation of momentum, follow the gas expansion from the combustion chamber through the nozzle, and define effective exhaust velocity and specific impulse. We then examine how nozzle geometry and ambient pressure affect thrust from sea level to vacuum, and show how the same momentum equation extends to air-breathing engines.
 
 :::{note} What to take from this page
 - Thrust has two parts: the momentum the exhaust carries away, $\dot m V_e$, and the pressure term, $(p_e - p_a)A_e$, which can be positive, zero, or negative.

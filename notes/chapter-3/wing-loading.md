@@ -3,7 +3,7 @@ title: "Wing loading"
 short_title: Wing loading
 ---
 
-On pages 3.2 and 3.3 we computed the lift and drag of a wing whose area was already given. Now we reverse the problem and choose the wing size. We select the wing loading, the weight supported by each unit of wing area, and then divide takeoff weight by wing loading to find the wing area. Two main constraints govern this choice, a maximum allowed stall speed and a cruise condition for efficient flight. No course standard is assessed on this page.
+On pages 3.2 and 3.3, the wing area was already given, and we computed the resulting lift and drag. Early in aircraft design, we face the reverse problem: choosing how large the wing should be. We do this through wing loading, the aircraft weight carried per unit of wing area, balancing two main constraints: meeting the required stall speed and flying efficiently at cruise. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - Three numbers size an aircraft early in design. The wing loading $W/S$ sets the wing area, the thrust-to-weight (or power-to-weight) ratio sets the engines, and the aspect ratio sets the wing's shape.

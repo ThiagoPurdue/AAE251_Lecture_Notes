@@ -6,7 +6,7 @@ short_title: 1.4 Standard Atmosphere
 :::{include} ../_parts/standards/1.4.md
 :::
 
-The takeoff distance, climb rate, and cruise speed of an aircraft all depend on the air it flies through. Here we build the model engineers use for that air, the {term}`standard atmosphere`. We start from what pressure, {term}`density`, and temperature mean for a gas and link them with the {term}`equation of state`. Then a force balance on still air shows how pressure and density fall with height in the two kinds of layer the model uses.
+An aircraft's takeoff distance, climb rate, and cruise speed all depend on the surrounding air, so engineers need a consistent reference model of how the atmosphere changes with altitude: the {term}`standard atmosphere`. We begin by connecting gas pressure, {term}`density`, and temperature through the ideal-gas {term}`equation of state`. From a vertical force balance on still air, we then derive how pressure and density drop with altitude across both isothermal and temperature-gradient layers, and show how the same equations extend to other planets.
 
 :::{note} What to take from this page
 - Pressure, density, and temperature of a gas are linked by $p = \rho R T$, with $T$ in kelvin and $R = 287$ J/(kg K) for air.

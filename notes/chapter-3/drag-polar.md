@@ -6,7 +6,7 @@ short_title: 3.3 Drag Polar
 :::{include} ../_parts/standards/3.3.md
 :::
 
-In steady level flight, an aircraft's engines must generate enough thrust to balance aerodynamic drag. On this page we separate subsonic drag into two physical parts, the drag caused by moving a vehicle through the air and the induced drag caused by generating lift. We then combine both into one relation, the {term}`drag polar`, which gives the {term}`drag coefficient` at every {term}`lift coefficient`. Applying the polar to steady level flight produces a curve of total drag against airspeed with a single minimum.
+In steady, level flight, an aircraft's engines must produce enough thrust to balance total aerodynamic drag. To predict that drag across airspeeds, we separate subsonic drag into two physical contributions: parasite drag from moving the airframe through the air, and induced drag from generating lift. Combining both gives the {term}`drag polar`, a single equation relating the {term}`drag coefficient` to the {term}`lift coefficient`. Applying the polar to level flight then shows how total drag varies with airspeed and where minimum drag occurs.
 
 :::{note} What to take from this page
 - Subsonic drag has two parts. {term}`Parasite drag` (skin friction, pressure drag, and interference) comes from moving through the air; induced drag comes from making lift.

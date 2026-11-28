@@ -6,7 +6,7 @@ short_title: 5.1 Thrust and Power
 :::{include} ../_parts/standards/5.1.md
 :::
 
-Chapter 3 built the {term}`drag polar` and turned it into the drag at every airspeed, which is the force the airframe needs to overcome. Now we turn to the other half, what the engines must supply and what they can supply. Knowing both lets us find how slowly and how fast an aircraft can fly, and how that changes with altitude. On this page we work it out for two aircraft: a single-engine general-aviation airplane, whose piston engine turns a propeller, and a twin-engine executive jet.
+In Chapter 3, we used the {term}`drag polar` to find the aerodynamic drag an aircraft must overcome at any airspeed. To predict aircraft performance, we now match that airframe drag against what the propulsion system can deliver. Comparing thrust and power required with thrust and power available gives us the minimum and maximum level-flight speeds and shows how the flight envelope narrows with altitude. We work through the full analysis for two representative airplanes: a single-engine propeller aircraft and a twin-engine business jet.
 
 :::{note} What to take from this page
 - In {term}`steady level flight` with a small {term}`angle of attack`, lift balances the weight, $L = mg$, and the {term}`thrust required` equals the drag, $T_R = D = mg/(L/D)$. The {term}`power required` is $P_R = T_R V$.

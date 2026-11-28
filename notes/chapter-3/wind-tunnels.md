@@ -6,7 +6,7 @@ short_title: 3.1 Wind Tunnels
 :::{include} ../_parts/standards/3.1.md
 :::
 
-In Chapter 1 we studied the standard atmosphere and frictionless flow. Now we apply those tools to a low-speed {term}`wind tunnel`, where we measure aerodynamic forces on a stationary model in a moving stream of air. We use continuity, Bernoulli's equation, and the manometer of [page 1.5](../chapter-1/bernoulli-and-pitot-static.md) to find the test-section speed. We then introduce the {term}`viscosity` of air, which creates the {term}`boundary layer` and the {term}`Reynolds number`. That dimensionless number tells us whether the flow around a small model matches the flow around the full-size aircraft.
+In Chapter 1, we introduced the standard atmosphere and inviscid flow relations. Here we put those tools to work in a low-speed {term}`wind tunnel`, where engineers measure aerodynamic forces on a scale model held stationary in a moving airflow. Using continuity, Bernoulli's equation, and the manometer relations from [page 1.5](../chapter-1/bernoulli-and-pitot-static.md), we compute the airspeed in the test section. We then bring in the {term}`viscosity` of air, which creates the {term}`boundary layer` and defines the {term}`Reynolds number` used to check whether flow over a small wind-tunnel model matches flow over the full-scale aircraft.
 
 :::{note} What to take from this page
 - A low-speed tunnel speeds the air up in a contraction, tests the model in the narrow test section, and slows the air down again in a diffuser; a fan makes up for the losses.

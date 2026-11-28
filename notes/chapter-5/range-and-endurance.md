@@ -6,9 +6,9 @@ short_title: 5.2 Range and Endurance
 :::{include} ../_parts/standards/5.2.md
 :::
 
-Two questions come up for every aircraft that carries a load of fuel. The first is how far it can fly on that fuel, which is its {term}`range`. The second is how long it can stay in the air on that fuel, which is its {term}`endurance`. For an airliner on a long route, range is the main concern. For an aircraft that must circle over one place, endurance matters most. Both depend on three things: the amount of fuel the aircraft carries, how fast its engines burn that fuel, and its aerodynamics, which here means its drag polar.
+For any fueled aircraft, two fundamental performance metrics are how far it can fly ({term}`range`) and how long it can remain airborne ({term}`endurance`). Range is the primary concern for a commercial airliner flying long routes, while endurance matters most for loiter missions such as surveillance or search and rescue. Both depend on the fuel load, the engine's fuel-burn rate, and the aircraft's aerodynamic efficiency ($L/D$).
 
-On [page 1.6](../chapter-1/aircraft-sizing.md) we used the jet range and endurance equations to size an aircraft, with typical values of the fuel consumption and of $L/D$. On this page we derive them from the fuel flow of the engine and the balance of forces of [steady level flight](#p51-level-flight), for a jet and for a propeller aircraft. Then we find the flight condition that gives the most range and the most endurance for each. Last, we see why a jet cruises high and a propeller aircraft does not need to.
+On [page 1.6](../chapter-1/aircraft-sizing.md), we used the Breguet range and endurance equations during initial weight sizing with typical values of specific fuel consumption and $L/D$. Here we derive those equations directly from engine fuel flow and the force balance of [steady level flight](#p51-level-flight) for both jet and propeller aircraft. We then find the optimal airspeeds for maximum range and maximum endurance and explain why jets benefit from cruising at high altitude while propeller airplanes do not.
 
 :::{note} What to take from this page
 - A jet burns fuel in proportion to its thrust, a propeller aircraft in proportion to its shaft power. So the two have different range and endurance equations, the Breguet equations.

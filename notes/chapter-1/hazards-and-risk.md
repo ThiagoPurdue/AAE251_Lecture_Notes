@@ -6,7 +6,7 @@ short_title: 1.2 Hazards and Risk
 :::{include} ../_parts/standards/1.2.md
 :::
 
-Aerospace vehicles operate in demanding environments. An airliner flies through ice, birds, and severe weather, while a satellite faces radiation, orbital debris, and vacuum. In this lecture we define what a {term}`hazard` is and survey atmospheric hazards by flight phase and space hazards by altitude. We then turn those hazards into {term}`risks <risk>`, score each risk on a {term}`risk matrix`, and apply a {term}`mitigation` to reduce it, working through an example for a small {term}`launch vehicle`. Finally, we examine how to locate critical parts whose failure alone would end a mission.
+Every aerospace vehicle operates in an environment that can damage hardware or threaten a mission, from icing, bird strikes, and storms in the atmosphere to radiation, orbital debris, and vacuum in space. Here we define what counts as a {term}`hazard` and survey how atmospheric hazards vary by flight phase and how space hazards vary with altitude. Using a small {term}`launch vehicle` as our example, we turn those hazards into {term}`risks <risk>`, score them on a {term}`risk matrix`, choose a {term}`mitigation` for the highest-priority threats, and identify single-point failures that could end the mission on their own.
 
 :::{note} What to take from this page
 - A hazard is a condition of the operating environment that can harm the vehicle or the mission. Describe each one by its cause, its effect, and a mitigation that acts on one link of that chain.

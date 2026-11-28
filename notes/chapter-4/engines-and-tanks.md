@@ -3,7 +3,7 @@ title: "Engines and tanks"
 short_title: Engines and tanks
 ---
 
-Pages 4.2 to 4.4 gave us a propellant mass for each stage ([sizing a stage](#p42-stage-sizing)). Knowing the propellant mass alone does not give us the hardware dimensions. On this page, we size the engine that burns the propellant and the tanks that store it, and we estimate how much cryogenic propellant boils away while the stage is on the pad or coasting in space. No course standard is assessed on this page.
+Using the methods on pages 4.2 to 4.4 ([sizing a stage](#p42-stage-sizing)), we can find the propellant mass each rocket stage needs, though a mass number alone does not tell us how large the hardware will be. Here we take the next step from mass budgets to physical dimensions by sizing the engine throat and propellant tanks, estimating tank wall mass under internal pressure, and calculating cryogenic boil-off during pad holds and long orbital coasts. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - The thrust and the specific impulse set the mass flow, $\dot m = F/(I_\text{sp}\,g_0)$, and the propellant load then sets the burn time, $t_b = m_\text{prop}/\dot m$.

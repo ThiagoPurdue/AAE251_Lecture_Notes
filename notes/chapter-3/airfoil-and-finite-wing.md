@@ -6,7 +6,7 @@ short_title: 3.2 Airfoil and Finite Wing
 :::{include} ../_parts/standards/3.2.md
 :::
 
-We design a wing in two steps. First we test its cross-section, the {term}`airfoil`, in a wind tunnel as if the wing had no ends. Then we correct those data for a real wing, whose tips change the flow over the whole span. As [page 1.5](../chapter-1/bernoulli-and-pitot-static.md) showed, lift and drag come from the pressure and the shear stress on the surface. They exist only while the body and the air move relative to each other (NASA Glenn Research Center n.d.b).
+As we saw on [page 1.5](../chapter-1/bernoulli-and-pitot-static.md), aerodynamic lift and drag come from pressure and shear stress acting on a surface whenever air moves relative to a body (NASA Glenn Research Center n.d.b). In wing design, we analyze those forces in two stages. First, we evaluate the two-dimensional cross-section, the {term}`airfoil`, using wind-tunnel data that ignore wingtip effects. Then we account for the finite span of a real wing, where vortices shed at the tips alter the lift slope and create induced drag.
 
 :::{note} What to take from this page
 - The angle of attack $\alpha$ is measured from the free stream to the chord line. Lift is perpendicular to the free stream and drag is parallel to it.

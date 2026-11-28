@@ -6,7 +6,7 @@ short_title: 1.5 Bernoulli and Pitot Static
 :::{include} ../_parts/standards/1.5.md
 :::
 
-Air that moves past a vehicle pushes on it, and how hard it pushes depends on how fast the air moves. Here we build the two equations that connect speed and pressure in a moving fluid. The {term}`continuity equation` states that mass is neither created nor lost as a fluid flows. {term}`Bernoulli's equation` shows that where the fluid speeds up, its pressure falls. We derive both from first-year physics and apply them to a duct, a manometer, a draining tank, and the instrument every aircraft uses to measure its airspeed, the {term}`pitot tube` and the {term}`static port`.
+Whenever air flows over a wing or through a duct, local pressure changes with flow speed. Here we derive the two core fluid-mechanics relations behind that behavior: the {term}`continuity equation`, which enforces conservation of mass along a flow, and {term}`Bernoulli's equation`, which links rising speed to falling pressure in steady, frictionless flow. Starting from first-year physics, we apply both equations to ducts, manometers, and draining tanks, and then to the {term}`pitot tube` and {term}`static port` that aircraft use to measure airspeed.
 
 :::{note} What to take from this page
 - In steady flow the mass flow $\dot{m} = \rho A V$ is the same at every cross section of a duct or a stream tube. For a liquid or slow air, $A_1 V_1 = A_2 V_2$, so a narrower passage means faster flow.

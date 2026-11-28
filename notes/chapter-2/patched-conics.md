@@ -6,7 +6,7 @@ short_title: 2.4 Patched Conics
 :::{include} ../_parts/standards/2.4.md
 :::
 
-An interplanetary trajectory passes through three gravity fields: the departure planet's, the Sun's, and the target planet's. The method of {term}`patched conics` considers only one dominant body in each region, breaking the mission into three two-body conics (departure, heliocentric transfer, and arrival) that we can analyze with the equations from earlier in this chapter. We develop all three steps for a Mercury orbiter, adapt them to a lunar mission, and determine when the planets align for launch.
+A spacecraft traveling to another planet passes through three gravity fields: the departure planet's, the Sun's, and the target planet's. Instead of solving a full multi-body problem, the method of {term}`patched conics` keeps only the dominant body in each region, splitting the trajectory into three two-body segments (departure, heliocentric transfer, and arrival) that we can solve with the equations already in this chapter. We work through all three legs for a Mercury orbiter, adapt the model to a lunar mission, and find how often the planets align for launch.
 
 :::{note} What to take from this page
 - Inside a planet's {term}`sphere of influence` only the planet's gravity counts; outside it only the Sun's. The trip becomes a departure hyperbola, a transfer ellipse around the Sun, and an arrival hyperbola.

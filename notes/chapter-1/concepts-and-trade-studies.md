@@ -3,7 +3,7 @@ title: "Concept generation and trade studies"
 short_title: Concepts and trade studies
 ---
 
-Requirements specify what a vehicle must accomplish, leaving open which configuration will do the job, whether a conventional airplane or a vertical-takeoff aircraft, powered by piston engines or electric motors. A structured trade study lets an engineering team make that choice transparently so others can audit it. On this page we generate candidate concepts before judging them, compare them with a weighted decision matrix, test how sensitive the ranking is to the criterion weights, and document the outcome. Throughout the page we follow an uncrewed cargo aircraft carrying supplies between small islands. No course standard is assessed on this page.
+Requirements define what a vehicle must do, not what configuration should do it: a mission might be flown by a conventional airplane or a vertical-takeoff aircraft, powered by piston engines or electric motors. A structured trade study gives an engineering team a transparent, repeatable way to choose among those alternatives. Using an uncrewed island-cargo aircraft as our running example, we generate candidate concepts before evaluating them, score them in a weighted decision matrix, check how sensitive the ranking is to the weights, and log the final decision. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - Generate concepts before judging them by listing the functions, listing several ways to do each, and combining one option per function into a concept.

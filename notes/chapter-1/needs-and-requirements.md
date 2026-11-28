@@ -6,7 +6,7 @@ short_title: 1.1 Needs and Requirements
 :::{include} ../_parts/standards/1.1.md
 :::
 
-Before an engineering team sketches a wing or sizes an engine, it has to translate what people want into measurable targets a design can be checked against. In systems engineering, we begin by defining the {term}`system` and identifying its {term}`stakeholders <stakeholder>`. From there we draft a {term}`mission statement` and {term}`need statements <need statement>`, rank those needs, and convert them into {term}`requirements <requirement>` that are complete, dependent, verifiable, and traceable. Throughout the page we follow one running example: an aerial-survey aircraft that flies a camera over farmland or forest so a mapping company can produce maps from the photographs.
+Before an engineering team sketches a wing or sizes an engine, it needs to turn customer expectations into measurable engineering targets. In systems engineering, we start by defining the {term}`system` and identifying its {term}`stakeholders <stakeholder>`. From there, we write a {term}`mission statement` and {term}`need statements <need statement>`, rank those needs by priority, and convert them into {term}`requirements <requirement>` that are complete, dependent, verifiable, and traceable. To keep every step concrete, we follow one running example throughout: an aerial-survey aircraft carrying a camera to map farmland and forest.
 
 :::{note} What to take from this page
 - A system is defined by its function, its inputs and outputs, its boundary, and its form. Its stakeholders are everyone it affects, and they are the source of its needs.

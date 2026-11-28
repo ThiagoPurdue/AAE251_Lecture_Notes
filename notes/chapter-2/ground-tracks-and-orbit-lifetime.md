@@ -3,7 +3,7 @@ title: "Ground tracks, aerobraking, and orbit lifetime"
 short_title: Ground tracks and orbit lifetime
 ---
 
-Because a planet rotates beneath an orbit fixed in inertial space, the path traced across the surface shifts on every revolution. We use that ground track to find a satellite's orbital period and how many days an instrument needs to image the planet. We then examine how atmospheric drag can intentionally shrink an orbit through aerobraking or gradually decay a low orbit until reentry. No course standard is assessed on this page.
+Because a planet rotates beneath an orbit that stays fixed in inertial space, the path a satellite traces over the ground shifts westward on every revolution. Here we use ground tracks to read off orbital period and inclination and to estimate how many days an imaging sensor needs to cover the planet. We then look at how upper-atmosphere drag affects low orbits, both when engineers use it intentionally for aerobraking and when it gradually decays an orbit to reentry. No course standard is assessed on this page.
 
 :::{note} What to take from this page
 - A ground track is a great circle on a planet that does not turn. With the planet turning, each pass crosses the equator $\Delta L = {360}^\circ\,T/T_{\text{day}}$ farther west, and the highest latitude reached equals the inclination.

@@ -6,7 +6,7 @@ short_title: 2.3 Launch to Orbit
 :::{include} ../_parts/standards/2.3.md
 :::
 
-To place a payload into {term}`low Earth orbit`, a launch vehicle must deliver the required orbital speed, direction, and altitude. On this page we assemble the launch {term}`delta-V budget`, accounting for the eastward velocity supplied by Earth's rotation and the gravity, drag, and steering losses during ascent. Along the way we relate launch direction, site latitude, and orbit inclination to see which orbits a given launch site can reach directly.
+Reaching {term}`low Earth orbit` takes more than matching circular orbital speed at the right altitude: the rocket also has to fight gravity and atmospheric drag on the way up, while taking advantage of Earth's rotation when launching eastward. Here we assemble the launch {term}`delta-V budget` by combining target orbital speed, ascent losses, and the rotational boost from the launch site. We also connect launch azimuth, site latitude, and orbital inclination to see which orbits a given launch site can reach directly.
 
 :::{note} What to take from this page
 - A launch must deliver the circular speed of the target orbit along the orbit plane. The site already moves east with Earth, and the vehicle supplies the difference.

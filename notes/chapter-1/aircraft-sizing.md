@@ -6,7 +6,7 @@ short_title: 1.6 Aircraft Sizing
 :::{include} ../_parts/standards/1.6.md
 :::
 
-Before drawing an aircraft, engineers need a first estimate of its {term}`takeoff weight`, because wing area, engine thrust, landing gear size, and fuel burn all scale with it. Using the conceptual sizing method of Raymer (2006, Chapter 3), we estimate this weight from the mission requirements alone by splitting takeoff weight into four parts: crew, payload, fuel, and empty weight. Empty weight is estimated from historical trends of similar aircraft, fuel weight comes from stepping through the mission segments, and we iterate until the takeoff weight converges.
+Before drawing a single wing or fuselage layout, engineers need a first estimate of an aircraft's {term}`takeoff weight`, because wing area, engine thrust, landing gear loads, and fuel burn all scale with it. Following the conceptual sizing method of Raymer (2006, Chapter 3), we estimate that weight directly from mission requirements by breaking takeoff weight into four parts: crew, payload, fuel, and empty weight. Because empty weight depends on takeoff weight through historical trends, we combine those trends with mission fuel fractions and iterate until the weight converges.
 
 :::{note} What to take from this page
 - The takeoff weight is crew plus payload plus fuel plus empty weight. With fuel and empty weight written as fractions of the takeoff weight, one equation gives $W_0$ from the crew and payload.

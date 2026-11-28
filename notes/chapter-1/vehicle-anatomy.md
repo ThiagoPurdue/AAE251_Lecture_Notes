@@ -6,7 +6,7 @@ short_title: 1.3 Vehicle Anatomy
 :::{include} ../_parts/standards/1.3.md
 :::
 
-Before we can analyze aerodynamics or size a vehicle, we need a shared engineering vocabulary for its major components, such as the {term}`flap`, {term}`spoiler`, {term}`interstage`, and {term}`mean aerodynamic chord`. Using the Boeing 737-800 airliner and two {term}`launch vehicles <launch vehicle>` (the Ariane 5 and the Falcon 9) as concrete examples, we identify each major part and its function, define the geometric parameters of a wing and an {term}`airfoil`, and introduce the {term}`mission profile` used to break a flight into sizing segments.
+Before we can analyze aerodynamics or size a vehicle, we need a common engineering vocabulary for its major parts, including terms such as {term}`flap`, {term}`spoiler`, {term}`interstage`, and {term}`mean aerodynamic chord`. Using the Boeing 737-800 airliner alongside two {term}`launch vehicles <launch vehicle>` (the Ariane 5 and the Falcon 9), we walk through each major component and its function, define the geometric parameters of a wing and an {term}`airfoil`, and introduce the {term}`mission profile` that divides a flight into sizing segments.
 
 :::{note} What to take from this page
 - An airplane is a few large parts with one job each. The {term}`fuselage` carries the payload, the wing makes the lift, the tail keeps the aircraft steady, the engines push, and the landing gear carries it on the ground.
